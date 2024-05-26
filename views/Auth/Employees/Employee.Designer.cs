@@ -32,13 +32,13 @@
             this.header1 = new PSI_DA_PL_B.views.components.Header();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.filterEmployee = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.searchEmployee = new System.Windows.Forms.Button();
             this.Criar = new System.Windows.Forms.Button();
             this.editEmployee = new System.Windows.Forms.Button();
             this.deleteEmployee = new System.Windows.Forms.Button();
             this.employeesList = new System.Windows.Forms.ListBox();
+            this.searchEmployee = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // header1
@@ -72,14 +72,15 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Lista de Funcionarios";
             // 
-            // textBox2
+            // filterEmployee
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16F);
-            this.textBox2.Location = new System.Drawing.Point(12, 276);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(393, 32);
-            this.textBox2.TabIndex = 3;
+            this.filterEmployee.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.filterEmployee.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16F);
+            this.filterEmployee.Location = new System.Drawing.Point(12, 276);
+            this.filterEmployee.Name = "filterEmployee";
+            this.filterEmployee.Size = new System.Drawing.Size(393, 32);
+            this.filterEmployee.TabIndex = 3;
+            this.filterEmployee.TextChanged += new System.EventHandler(this.filterEmployee_TextChanged);
             // 
             // label2
             // 
@@ -92,16 +93,6 @@
             this.label2.Size = new System.Drawing.Size(176, 16);
             this.label2.TabIndex = 4;
             this.label2.Text = "Username do funcionario";
-            // 
-            // searchEmployee
-            // 
-            this.searchEmployee.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
-            this.searchEmployee.Location = new System.Drawing.Point(424, 276);
-            this.searchEmployee.Name = "searchEmployee";
-            this.searchEmployee.Size = new System.Drawing.Size(127, 32);
-            this.searchEmployee.TabIndex = 5;
-            this.searchEmployee.Text = "Pesquisar";
-            this.searchEmployee.UseVisualStyleBackColor = true;
             // 
             // Criar
             // 
@@ -140,6 +131,18 @@
             this.employeesList.Name = "employeesList";
             this.employeesList.Size = new System.Drawing.Size(539, 212);
             this.employeesList.TabIndex = 10;
+            this.employeesList.SelectedIndexChanged += new System.EventHandler(this.HandleSelectEmployee);
+            // 
+            // searchEmployee
+            // 
+            this.searchEmployee.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.searchEmployee.Location = new System.Drawing.Point(424, 276);
+            this.searchEmployee.Name = "searchEmployee";
+            this.searchEmployee.Size = new System.Drawing.Size(127, 32);
+            this.searchEmployee.TabIndex = 5;
+            this.searchEmployee.Text = "Pesquisar";
+            this.searchEmployee.UseVisualStyleBackColor = true;
+            this.searchEmployee.Click += new System.EventHandler(this.searchEmployee_Click);
             // 
             // Employee
             // 
@@ -154,7 +157,7 @@
             this.Controls.Add(this.Criar);
             this.Controls.Add(this.searchEmployee);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.filterEmployee);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.header1);
@@ -172,12 +175,12 @@
         private components.Header header1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox filterEmployee;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button searchEmployee;
         private System.Windows.Forms.Button Criar;
         private System.Windows.Forms.Button editEmployee;
         private System.Windows.Forms.Button deleteEmployee;
         private System.Windows.Forms.ListBox employeesList;
+        private System.Windows.Forms.Button searchEmployee;
     }
 }

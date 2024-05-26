@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using PSI_DA_PL_B.helpers;
 using PSI_DA_PL_B.models.Utilizador;
 using PSI_DA_PL_B.views.Auth.Employees;
+using PSI_DA_PL_B.views.Auth.Register;
 
 namespace PSI_DA_PL_B.views.Auth.Login
 {
@@ -29,19 +30,19 @@ namespace PSI_DA_PL_B.views.Auth.Login
                 Error.Warning("Invalid username.");
             }
 
-            // Display menu form
         }
 
         private void registerButton_Click(object sender, EventArgs e)
         {
-
+            Register.Register register = new Register.Register();
+            register.Show();
+            //this.Close();
         }
 
         private void employeesButton_Click(object sender, EventArgs e)
         {
             Employee employee = new Employee();
             employee.ShowDialog();
-
         }
     }
 }

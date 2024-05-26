@@ -10,6 +10,8 @@ namespace PSI_DA_PL_B.models.Utilizador
 
         [MaxLength(64)]
         public string Nome { get; set; }
+        [MaxLength(64)]
+        public string Username { get; set; }
 
         [Range(100000000, 999999999, ErrorMessage = "NIF must be a 9-digit number")]
         public int Nif { get; set; }
