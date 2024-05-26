@@ -90,11 +90,14 @@
             // 
             this.employeesButton.AutoSize = true;
             this.employeesButton.BackColor = System.Drawing.Color.White;
+            this.employeesButton.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.employeesButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.employeesButton.Font = new System.Drawing.Font("Arial Narrow", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
             this.employeesButton.ForeColor = System.Drawing.Color.Black;
             this.employeesButton.Location = new System.Drawing.Point(157, 340);
             this.employeesButton.Name = "employeesButton";
-            this.employeesButton.Size = new System.Drawing.Size(145, 17);
+            this.employeesButton.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.employeesButton.Size = new System.Drawing.Size(167, 29);
             this.employeesButton.TabIndex = 7;
             this.employeesButton.Text = "Listagem de Funcionarios";
             this.employeesButton.Click += new System.EventHandler(this.employeesButton_Click);
