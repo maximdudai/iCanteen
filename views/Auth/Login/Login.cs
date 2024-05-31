@@ -42,7 +42,15 @@ namespace PSI_DA_PL_B.views.Auth.Login
         private void employeesButton_Click(object sender, EventArgs e)
         {
             Employee employee = new Employee();
-            employee.ShowDialog();
+            employee.Show();
+
+            this.Hide();
+            employee.FormClosing += new FormClosingEventHandler(this.Employee_FormClosing);
+        }
+
+        private void Employee_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Show();
         }
     }
 }

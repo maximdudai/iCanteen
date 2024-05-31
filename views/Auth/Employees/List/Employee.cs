@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using PSI_DA_PL_B.helpers;
 using PSI_DA_PL_B.models.Utilizador;
 using PSI_DA_PL_B.views.Auth.Employees.Create;
+using PSI_DA_PL_B.views.Auth.Employees.Edit;
 using PSI_DA_PL_B.views.components;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace PSI_DA_PL_B.views.Auth.Employees
 {
@@ -23,28 +26,34 @@ namespace PSI_DA_PL_B.views.Auth.Employees
 
         private void LoadEmployees()
         {
-            using(var db = new Cantina())
+            try
             {
-                var funcList = db.Utilizador
-                    .Where(f => f.funcId == 1)
-                    .Select(u => new
+                using (var db = new Cantina())
+                {
+                    var funcList = db.Utilizador
+                        .OfType<Funcionario>()
+                        .Select(u => new
+                        {
+                            u.Nome,
+                            u.Username,
+                            u.Nif,
+                        })
+                        .ToList();
+
+                    foreach (var emp in funcList)
                     {
-                        u.Nome,
-                        u.Nif,
-                        u.Username
-                    })
-                    .ToList();
-                
-                foreach(var emp in funcList) {
-                    Funcionario funcionario = new Funcionario(emp.Nome, emp.Nif, emp.Username);
-                    funcionarios.Add(funcionario);
+                        Funcionario funcionario = new Funcionario(emp.Nome, emp.Nif, emp.Username);
+                        funcionarios.Add(funcionario);
+                    }
                 }
+
+                this.DisplayEmployees();
             }
-
-            this.DisplayEmployees();
+            catch (Exception ex)
+            {
+                Error.Err(ex.Message);
+            }
         }
-
-        // Display employees in the listBox
 
         // receiving a list as a parameter
         private void DisplayEmployees()
@@ -60,22 +69,22 @@ namespace PSI_DA_PL_B.views.Auth.Employees
 
         private void searchEmployee_Click(object sender, EventArgs e)
         {
-            string employeeName = filterEmployee.Text;
-
-            if(string.IsNullOrEmpty(employeeName))
+            try
             {
-                Error.Err("Search field cannot be empty!");
-                return;
-            }
-            employeesList.DataSource = null;
-            foreach(var emp in funcionarios)
-            {
+                string employeeName = filterEmployee.Text;
 
-                if(emp.Username.Contains(employeeName))
+                if (string.IsNullOrEmpty(employeeName))
                 {
-                    employeesList.DataSource = new List<Funcionario> { emp };
+                    Error.Err("Search field cannot be empty!");
                     return;
                 }
+                employeesList.DataSource = null;
+
+                employeesList.DataSource = funcionarios.Where(emp => emp.Username.Contains(employeeName)).ToList();
+            }
+            catch (Exception ex)
+            {
+                Error.Err(ex.Message);
             }
         }
 
@@ -93,6 +102,68 @@ namespace PSI_DA_PL_B.views.Auth.Employees
             createEmployeeFrom.Show();
             this.Close();
         }
-        
+
+        private void editEmployee_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var selectedEmployee = employeesList.SelectedItem as Funcionario;
+                if (selectedEmployee != null)
+                {
+                    string username = selectedEmployee.Username;
+                    string name = selectedEmployee.Nome;
+                    int nif = selectedEmployee.Nif;
+
+                    EditEmployee editEmployeeForm = new EditEmployee(username, name, nif);
+                    editEmployeeForm.Show();
+
+                    this.Close();
+                }
+                else
+                {
+                    Error.Err("Please select an employee to edit!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.Err(ex.Message);
+            }
+        }
+
+        private void deleteEmployee_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var selectedEmployee = employeesList.SelectedItem as Funcionario;
+
+                if (selectedEmployee != null)
+                {
+                    using (var db = new Cantina())
+                    {
+                        var funcionario = db.Utilizador
+                            .OfType<Funcionario>()
+                            .Where(u => u.Nome == selectedEmployee.Nome)
+                            .FirstOrDefault();
+
+                        if (funcionario != null)
+                        {
+                            db.Utilizador.Remove(funcionario);
+                            db.SaveChanges();
+                        }
+                    }
+
+                    funcionarios.Remove(selectedEmployee);
+                    this.DisplayEmployees();
+                }
+                else
+                {
+                    Error.Err("Please select an employee to delete!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.Err(ex.Message);
+            }
+        }
     }
 }

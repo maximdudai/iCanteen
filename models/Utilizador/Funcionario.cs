@@ -9,7 +9,7 @@ namespace PSI_DA_PL_B.models.Utilizador
 {
     internal class Funcionario : Utilizador
     {
-        public new string Username { get; set; }
+        public string Username { get; set; }
 
         public Funcionario() : base() { }
 
@@ -20,7 +20,7 @@ namespace PSI_DA_PL_B.models.Utilizador
         
         public override string ToString()
         {
-            return $"{Username} - {Nif}";
+            return $"{this.Username} - {Nif}";
         }
     }
 }
