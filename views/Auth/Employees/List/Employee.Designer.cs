@@ -94,6 +94,7 @@
             this.editEmployee.TabIndex = 7;
             this.editEmployee.Text = "Editar";
             this.editEmployee.UseVisualStyleBackColor = true;
+            this.editEmployee.Click += new System.EventHandler(this.editEmployee_Click);
             // 
             // deleteEmployee
             // 
@@ -104,6 +105,7 @@
             this.deleteEmployee.TabIndex = 8;
             this.deleteEmployee.Text = "Apagar";
             this.deleteEmployee.UseVisualStyleBackColor = true;
+            this.deleteEmployee.Click += new System.EventHandler(this.deleteEmployee_Click);
             // 
             // employeesList
             // 
