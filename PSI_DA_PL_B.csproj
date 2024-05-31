@@ -84,6 +84,12 @@
     <Compile Include="views\Auth\Employees\Create\CreateEmployee.Designer.cs">
       <DependentUpon>CreateEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\Auth\Employees\Edit\EditEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Auth\Employees\Edit\EditEmployee.Designer.cs">
+      <DependentUpon>EditEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\Auth\Employees\List\Employee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     <EmbeddedResource Include="views\Auth\Employees\Create\CreateEmployee.resx">
       <DependentUpon>CreateEmployee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="views\Auth\Employees\Edit\EditEmployee.resx">
+      <DependentUpon>EditEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="views\Auth\Employees\List\Employee.resx">
       <DependentUpon>Employee.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,7 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\" />
-    <Folder Include="views\Auth\Employees\Edit\" />
+    <Folder Include="views\Auth\Employees\NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
