@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using PSI_DA_PL_B.helpers;
 using PSI_DA_PL_B.models.Utilizador;
+using PSI_DA_PL_B.views.Auth.Employees.Create;
 using PSI_DA_PL_B.views.components;
 
 namespace PSI_DA_PL_B.views.Auth.Employees
@@ -82,8 +83,16 @@ namespace PSI_DA_PL_B.views.Auth.Employees
         {
             if(string.IsNullOrEmpty(filterEmployee.Text))
             {
-                DisplayEmployees();
+                this.DisplayEmployees();
             }
         }
+
+        private void employeeCreate_Click(object sender, EventArgs e)
+        {
+            CreateEmployee createEmployeeFrom = new CreateEmployee();
+            createEmployeeFrom.Show();
+            this.Close();
+        }
+        
     }
 }

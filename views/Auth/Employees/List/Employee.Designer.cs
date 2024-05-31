@@ -29,25 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Employee));
-            this.header1 = new PSI_DA_PL_B.views.components.Header();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.filterEmployee = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.Criar = new System.Windows.Forms.Button();
+            this.employeeCreate = new System.Windows.Forms.Button();
             this.editEmployee = new System.Windows.Forms.Button();
             this.deleteEmployee = new System.Windows.Forms.Button();
             this.employeesList = new System.Windows.Forms.ListBox();
             this.searchEmployee = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.header1 = new PSI_DA_PL_B.views.components.Header();
             this.SuspendLayout();
-            // 
-            // header1
-            // 
-            this.header1.BackColor = System.Drawing.Color.Peru;
-            this.header1.Location = new System.Drawing.Point(0, 0);
-            this.header1.Name = "header1";
-            this.header1.Size = new System.Drawing.Size(558, 117);
-            this.header1.TabIndex = 0;
             // 
             // textBox1
             // 
@@ -59,18 +51,6 @@
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(558, 51);
             this.textBox1.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Peru;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(99, 168);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(348, 37);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Lista de Funcionarios";
             // 
             // filterEmployee
             // 
@@ -94,15 +74,16 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Username do funcionario";
             // 
-            // Criar
+            // employeeCreate
             // 
-            this.Criar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
-            this.Criar.Location = new System.Drawing.Point(12, 314);
-            this.Criar.Name = "Criar";
-            this.Criar.Size = new System.Drawing.Size(127, 32);
-            this.Criar.TabIndex = 6;
-            this.Criar.Text = "Criar";
-            this.Criar.UseVisualStyleBackColor = true;
+            this.employeeCreate.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.employeeCreate.Location = new System.Drawing.Point(12, 314);
+            this.employeeCreate.Name = "employeeCreate";
+            this.employeeCreate.Size = new System.Drawing.Size(127, 32);
+            this.employeeCreate.TabIndex = 6;
+            this.employeeCreate.Text = "Criar";
+            this.employeeCreate.UseVisualStyleBackColor = true;
+            this.employeeCreate.Click += new System.EventHandler(this.employeeCreate_Click);
             // 
             // editEmployee
             // 
@@ -144,6 +125,26 @@
             this.searchEmployee.UseVisualStyleBackColor = true;
             this.searchEmployee.Click += new System.EventHandler(this.searchEmployee_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Peru;
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(99, 168);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(348, 37);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Lista de Funcionarios";
+            // 
+            // header1
+            // 
+            this.header1.BackColor = System.Drawing.Color.Peru;
+            this.header1.Location = new System.Drawing.Point(0, 0);
+            this.header1.Name = "header1";
+            this.header1.Size = new System.Drawing.Size(558, 117);
+            this.header1.TabIndex = 0;
+            // 
             // Employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -154,7 +155,7 @@
             this.Controls.Add(this.employeesList);
             this.Controls.Add(this.deleteEmployee);
             this.Controls.Add(this.editEmployee);
-            this.Controls.Add(this.Criar);
+            this.Controls.Add(this.employeeCreate);
             this.Controls.Add(this.searchEmployee);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.filterEmployee);
@@ -174,13 +175,13 @@
 
         private components.Header header1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox filterEmployee;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button Criar;
+        private System.Windows.Forms.Button employeeCreate;
         private System.Windows.Forms.Button editEmployee;
         private System.Windows.Forms.Button deleteEmployee;
         private System.Windows.Forms.ListBox employeesList;
         private System.Windows.Forms.Button searchEmployee;
+        private System.Windows.Forms.Label label1;
     }
 }
