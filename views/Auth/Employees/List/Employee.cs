@@ -9,6 +9,7 @@ using PSI_DA_PL_B.models.Utilizador;
 using PSI_DA_PL_B.views.Auth.Employees.Create;
 using PSI_DA_PL_B.views.Auth.Employees.Edit;
 using PSI_DA_PL_B.views.components;
+using PSI_DA_PL_B.views.Menu;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace PSI_DA_PL_B.views.Auth.Employees
@@ -64,7 +65,14 @@ namespace PSI_DA_PL_B.views.Auth.Employees
 
         private void HandleSelectEmployee(object sender, EventArgs e)
         {
+            var selectedEmployee = employeesList.SelectedItem as Funcionario;
 
+            string username = selectedEmployee.Username;
+
+            Menu.Menu menu = new Menu.Menu(username);
+            menu.Show();
+
+            this.Hide();
         }
 
         private void searchEmployee_Click(object sender, EventArgs e)
