@@ -41,8 +41,7 @@
             this.userRole = new System.Windows.Forms.Label();
             this.currentDateTime = new System.Windows.Forms.Label();
             this.buttonLogout = new System.Windows.Forms.Button();
-            this.monthCalendar = new System.Windows.Forms.MonthCalendar();
-            this.menuListItems = new System.Windows.Forms.ListBox();
+            this.weekMenu3 = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.menuButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -50,9 +49,14 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.pratoListItems = new System.Windows.Forms.ListBox();
-            this.extraListItems = new System.Windows.Forms.ListBox();
+            this.weekMenu4 = new System.Windows.Forms.ListBox();
+            this.weekMenu5 = new System.Windows.Forms.ListBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.weekMenu1 = new System.Windows.Forms.ListBox();
+            this.weekMenu2 = new System.Windows.Forms.ListBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.menuPrevWeek = new System.Windows.Forms.Button();
+            this.menuNextWeek = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -194,36 +198,29 @@
             this.buttonLogout.TabIndex = 18;
             this.buttonLogout.Text = "Alterar Funcionario";
             this.buttonLogout.UseVisualStyleBackColor = true;
+            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
             // 
-            // monthCalendar
+            // weekMenu3
             // 
-            this.monthCalendar.FirstDayOfWeek = System.Windows.Forms.Day.Monday;
-            this.monthCalendar.Location = new System.Drawing.Point(221, 322);
-            this.monthCalendar.Name = "monthCalendar";
-            this.monthCalendar.ShowWeekNumbers = true;
-            this.monthCalendar.TabIndex = 19;
-            // 
-            // menuListItems
-            // 
-            this.menuListItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.menuListItems.FormattingEnabled = true;
-            this.menuListItems.ItemHeight = 16;
-            this.menuListItems.Location = new System.Drawing.Point(482, 352);
-            this.menuListItems.Name = "menuListItems";
-            this.menuListItems.Size = new System.Drawing.Size(131, 132);
-            this.menuListItems.TabIndex = 20;
+            this.weekMenu3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.weekMenu3.FormattingEnabled = true;
+            this.weekMenu3.ItemHeight = 16;
+            this.weekMenu3.Location = new System.Drawing.Point(500, 352);
+            this.weekMenu3.Name = "weekMenu3";
+            this.weekMenu3.Size = new System.Drawing.Size(131, 132);
+            this.weekMenu3.TabIndex = 20;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Peru;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(623, 323);
+            this.label2.Location = new System.Drawing.Point(247, 302);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(149, 22);
+            this.label2.Size = new System.Drawing.Size(325, 26);
             this.label2.TabIndex = 21;
-            this.label2.Text = "Menu 13/05/2024";
+            this.label2.Text = "Menus Diários da Semana Atual";
             // 
             // menuButton
             // 
@@ -258,7 +255,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F);
-            this.button3.Location = new System.Drawing.Point(709, 212);
+            this.button3.Location = new System.Drawing.Point(709, 198);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(189, 58);
             this.button3.TabIndex = 27;
@@ -268,7 +265,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F);
-            this.button4.Location = new System.Drawing.Point(463, 212);
+            this.button4.Location = new System.Drawing.Point(463, 198);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(189, 58);
             this.button4.TabIndex = 26;
@@ -278,43 +275,99 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F);
-            this.button5.Location = new System.Drawing.Point(221, 212);
+            this.button5.Location = new System.Drawing.Point(221, 198);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(189, 58);
             this.button5.TabIndex = 25;
             this.button5.Text = "Multa";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // pratoListItems
+            // weekMenu4
             // 
-            this.pratoListItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.pratoListItems.FormattingEnabled = true;
-            this.pratoListItems.ItemHeight = 16;
-            this.pratoListItems.Location = new System.Drawing.Point(631, 352);
-            this.pratoListItems.Name = "pratoListItems";
-            this.pratoListItems.Size = new System.Drawing.Size(131, 132);
-            this.pratoListItems.TabIndex = 28;
+            this.weekMenu4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.weekMenu4.FormattingEnabled = true;
+            this.weekMenu4.ItemHeight = 16;
+            this.weekMenu4.Location = new System.Drawing.Point(640, 352);
+            this.weekMenu4.Name = "weekMenu4";
+            this.weekMenu4.Size = new System.Drawing.Size(131, 132);
+            this.weekMenu4.TabIndex = 28;
             // 
-            // extraListItems
+            // weekMenu5
             // 
-            this.extraListItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.extraListItems.FormattingEnabled = true;
-            this.extraListItems.ItemHeight = 16;
-            this.extraListItems.Location = new System.Drawing.Point(779, 352);
-            this.extraListItems.Name = "extraListItems";
-            this.extraListItems.Size = new System.Drawing.Size(131, 132);
-            this.extraListItems.TabIndex = 29;
+            this.weekMenu5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.weekMenu5.FormattingEnabled = true;
+            this.weekMenu5.ItemHeight = 16;
+            this.weekMenu5.Location = new System.Drawing.Point(779, 352);
+            this.weekMenu5.Name = "weekMenu5";
+            this.weekMenu5.Size = new System.Drawing.Size(131, 132);
+            this.weekMenu5.TabIndex = 29;
             // 
             // textBox3
             // 
             this.textBox3.BackColor = System.Drawing.Color.Peru;
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Location = new System.Drawing.Point(482, 322);
+            this.textBox3.Location = new System.Drawing.Point(221, 286);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(428, 24);
+            this.textBox3.Size = new System.Drawing.Size(689, 60);
             this.textBox3.TabIndex = 30;
+            // 
+            // weekMenu1
+            // 
+            this.weekMenu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.weekMenu1.FormattingEnabled = true;
+            this.weekMenu1.ItemHeight = 16;
+            this.weekMenu1.Location = new System.Drawing.Point(221, 352);
+            this.weekMenu1.Name = "weekMenu1";
+            this.weekMenu1.Size = new System.Drawing.Size(131, 132);
+            this.weekMenu1.TabIndex = 31;
+            // 
+            // weekMenu2
+            // 
+            this.weekMenu2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.weekMenu2.FormattingEnabled = true;
+            this.weekMenu2.ItemHeight = 16;
+            this.weekMenu2.Location = new System.Drawing.Point(360, 352);
+            this.weekMenu2.Name = "weekMenu2";
+            this.weekMenu2.Size = new System.Drawing.Size(131, 132);
+            this.weekMenu2.TabIndex = 32;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Peru;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(739, 291);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(72, 51);
+            this.label3.TabIndex = 33;
+            this.label3.Text = "22";
+            // 
+            // menuPrevWeek
+            // 
+            this.menuPrevWeek.BackColor = System.Drawing.Color.Peru;
+            this.menuPrevWeek.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F);
+            this.menuPrevWeek.ForeColor = System.Drawing.Color.White;
+            this.menuPrevWeek.Location = new System.Drawing.Point(681, 293);
+            this.menuPrevWeek.Name = "menuPrevWeek";
+            this.menuPrevWeek.Size = new System.Drawing.Size(52, 47);
+            this.menuPrevWeek.TabIndex = 34;
+            this.menuPrevWeek.Text = "<";
+            this.menuPrevWeek.UseVisualStyleBackColor = false;
+            // 
+            // menuNextWeek
+            // 
+            this.menuNextWeek.BackColor = System.Drawing.Color.Peru;
+            this.menuNextWeek.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F);
+            this.menuNextWeek.ForeColor = System.Drawing.Color.White;
+            this.menuNextWeek.Location = new System.Drawing.Point(807, 294);
+            this.menuNextWeek.Name = "menuNextWeek";
+            this.menuNextWeek.Size = new System.Drawing.Size(52, 47);
+            this.menuNextWeek.TabIndex = 35;
+            this.menuNextWeek.Text = ">";
+            this.menuNextWeek.UseVisualStyleBackColor = false;
             // 
             // Menu
             // 
@@ -323,8 +376,13 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(922, 505);
-            this.Controls.Add(this.extraListItems);
-            this.Controls.Add(this.pratoListItems);
+            this.Controls.Add(this.menuNextWeek);
+            this.Controls.Add(this.menuPrevWeek);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.weekMenu2);
+            this.Controls.Add(this.weekMenu1);
+            this.Controls.Add(this.weekMenu5);
+            this.Controls.Add(this.weekMenu4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button5);
@@ -332,8 +390,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuButton);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.menuListItems);
-            this.Controls.Add(this.monthCalendar);
+            this.Controls.Add(this.weekMenu3);
             this.Controls.Add(this.buttonLogout);
             this.Controls.Add(this.currentDateTime);
             this.Controls.Add(this.userRole);
@@ -372,8 +429,7 @@
         private System.Windows.Forms.Label userRole;
         private System.Windows.Forms.Label currentDateTime;
         private System.Windows.Forms.Button buttonLogout;
-        private System.Windows.Forms.MonthCalendar monthCalendar;
-        private System.Windows.Forms.ListBox menuListItems;
+        private System.Windows.Forms.ListBox weekMenu3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button menuButton;
         private System.Windows.Forms.Button button1;
@@ -381,8 +437,13 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.ListBox pratoListItems;
-        private System.Windows.Forms.ListBox extraListItems;
+        private System.Windows.Forms.ListBox weekMenu4;
+        private System.Windows.Forms.ListBox weekMenu5;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ListBox weekMenu1;
+        private System.Windows.Forms.ListBox weekMenu2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button menuPrevWeek;
+        private System.Windows.Forms.Button menuNextWeek;
     }
 }

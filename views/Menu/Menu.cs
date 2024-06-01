@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PSI_DA_PL_B.helpers;
 using PSI_DA_PL_B.models.Utilizador;
+using PSI_DA_PL_B.views.Auth.Login;
 
 namespace PSI_DA_PL_B.views.Menu
 {
@@ -76,6 +77,14 @@ namespace PSI_DA_PL_B.views.Menu
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
 
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+
+            this.Close();
         }
     }
 }
