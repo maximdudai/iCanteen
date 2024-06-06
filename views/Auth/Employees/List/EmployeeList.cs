@@ -65,11 +65,11 @@ namespace PSI_DA_PL_B.views.Auth.Employees
 
         private void HandleSelectEmployee(object sender, EventArgs e)
         {
-            var selectedEmployee = employeesList.SelectedItem as Funcionario;
+            var selectedEmployee = employeesList.SelectedItem as Employee;
 
             string username = selectedEmployee.Username;
 
-            Menu.Menu menu = new Menu.Menu(username);
+            Menu
             menu.Show();
 
             this.Hide();
