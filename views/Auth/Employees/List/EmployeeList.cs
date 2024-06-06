@@ -5,10 +5,12 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using PSI_DA_PL_B.helpers;
+using PSI_DA_PL_B.models.MenuCantina;
 using PSI_DA_PL_B.models.User;
 using PSI_DA_PL_B.views.Auth.Employees.Create;
 using PSI_DA_PL_B.views.Auth.Employees.Edit;
 using PSI_DA_PL_B.views.components;
+using PSI_DA_PL_B.views.Menu;
 
 
 
@@ -69,9 +71,8 @@ namespace PSI_DA_PL_B.views.Auth.Employees
 
             string username = selectedEmployee.Username;
 
-            Menu
-            menu.Show();
-
+            Menu.Menu menu = new Menu.Menu(username);
+            menu.ShowDialog();
             this.Hide();
         }
 

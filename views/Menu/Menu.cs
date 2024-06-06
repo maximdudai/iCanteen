@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PSI_DA_PL_B.helpers;
-using PSI_DA_PL_B.models.Utilizador;
+using PSI_DA_PL_B.models.User;
 using PSI_DA_PL_B.views.Auth.Login;
 
 namespace PSI_DA_PL_B.views.Menu
@@ -44,16 +44,16 @@ namespace PSI_DA_PL_B.views.Menu
             {
                 using (var db = new Cantina())
                 {
-                    var currentUser = db.Utilizador.
-                        OfType<Funcionario>()
+                    var currentUser = db.User.
+                        OfType<Employee>()
                         .Where(user => user.Username == this.username)
                         .Select(user => new
                         {
-                            user.Nome,
+                            user.Name,
                         })
                         .FirstOrDefault();
 
-                    this.name = currentUser.Nome;
+                    this.name = currentUser.Name;
                 }
             }
             catch (Exception ex)

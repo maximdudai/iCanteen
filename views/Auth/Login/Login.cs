@@ -43,8 +43,8 @@ namespace PSI_DA_PL_B.views.Auth.Login
 
                 using (var db = new Cantina())
                 {
-                    var checkUser = db.Utilizador
-                        .OfType<Funcionario>()
+                    var checkUser = db.User
+                        .OfType<Employee>()
                         .Where(user => user.Username == username)
                         .Select(user => new
                         {
