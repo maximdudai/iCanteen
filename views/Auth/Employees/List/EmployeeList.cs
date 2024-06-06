@@ -1,27 +1,27 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using PSI_DA_PL_B.helpers;
-using PSI_DA_PL_B.models.Utilizador;
+using PSI_DA_PL_B.models.User;
 using PSI_DA_PL_B.views.Auth.Employees.Create;
 using PSI_DA_PL_B.views.Auth.Employees.Edit;
 using PSI_DA_PL_B.views.components;
-using PSI_DA_PL_B.views.Menu;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+
+
 
 namespace PSI_DA_PL_B.views.Auth.Employees
 {
-    public partial class Employee : Form
+    public partial class EmployeeList : Form
     {
-        private readonly List<Funcionario> funcionarios;
+        private readonly List<Employee> employees;
 
-        public Employee()
+        public EmployeeList()
         {
             InitializeComponent();
-            funcionarios = new List<Funcionario>();
+            employees = new List<Employee>();
             LoadEmployees();
         }
 
@@ -31,20 +31,20 @@ namespace PSI_DA_PL_B.views.Auth.Employees
             {
                 using (var db = new Cantina())
                 {
-                    var funcList = db.Utilizador
-                        .OfType<Funcionario>()
+                    var empList = db.User
+                        .OfType<Employee>()
                         .Select(u => new
                         {
-                            u.Nome,
+                            u.Name,
                             u.Username,
                             u.Nif,
                         })
                         .ToList();
 
-                    foreach (var emp in funcList)
+                    foreach (var emp in empList)
                     {
-                        Funcionario funcionario = new Funcionario(emp.Nome, emp.Nif, emp.Username);
-                        funcionarios.Add(funcionario);
+                        Employee employee = new Employee((string)emp.Name, (int)emp.Nif, (string)emp.Username);
+                        employees.Add(employee);
                     }
                 }
 
@@ -60,7 +60,7 @@ namespace PSI_DA_PL_B.views.Auth.Employees
         private void DisplayEmployees()
         {
             employeesList.DataSource = null;
-            employeesList.DataSource = funcionarios;
+            employeesList.DataSource = employees;
         }
 
         private void HandleSelectEmployee(object sender, EventArgs e)
@@ -88,7 +88,7 @@ namespace PSI_DA_PL_B.views.Auth.Employees
                 }
                 employeesList.DataSource = null;
 
-                employeesList.DataSource = funcionarios.Where(emp => emp.Username.Contains(employeeName)).ToList();
+                employeesList.DataSource = employees.Where(emp => emp.Username.Contains(employeeName)).ToList();
             }
             catch (Exception ex)
             {
@@ -115,11 +115,11 @@ namespace PSI_DA_PL_B.views.Auth.Employees
         {
             try
             {
-                var selectedEmployee = employeesList.SelectedItem as Funcionario;
+                var selectedEmployee = employeesList.SelectedItem as models.User.Employee;
                 if (selectedEmployee != null)
                 {
                     string username = selectedEmployee.Username;
-                    string name = selectedEmployee.Nome;
+                    string name = selectedEmployee.Name;
                     int nif = selectedEmployee.Nif;
 
                     EditEmployee editEmployeeForm = new EditEmployee(username, name, nif);
@@ -142,25 +142,25 @@ namespace PSI_DA_PL_B.views.Auth.Employees
         {
             try
             {
-                var selectedEmployee = employeesList.SelectedItem as Funcionario;
+                var selectedEmployee = employeesList.SelectedItem as models.User.Employee;
 
                 if (selectedEmployee != null)
                 {
                     using (var db = new Cantina())
                     {
-                        var funcionario = db.Utilizador
-                            .OfType<Funcionario>()
-                            .Where(u => u.Nome == selectedEmployee.Nome)
+                        var employee = db.User
+                            .OfType<Employee>()
+                            .Where(u => u.Name == selectedEmployee.Name)
                             .FirstOrDefault();
 
-                        if (funcionario != null)
+                        if (employee != null)
                         {
-                            db.Utilizador.Remove(funcionario);
+                            db.User.Remove(employee);
                             db.SaveChanges();
                         }
                     }
 
-                    funcionarios.Remove(selectedEmployee);
+                    employees.Remove(selectedEmployee);
                     this.DisplayEmployees();
                 }
                 else

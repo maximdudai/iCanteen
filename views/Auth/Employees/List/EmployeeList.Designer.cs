@@ -1,6 +1,6 @@
 ﻿namespace PSI_DA_PL_B.views.Auth.Employees
 {
-    partial class Employee
+    partial class EmployeeList
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Employee));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeList));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.filterEmployee = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,7 +49,7 @@
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(558, 51);
+            this.textBox1.Size = new System.Drawing.Size(569, 51);
             this.textBox1.TabIndex = 1;
             // 
             // filterEmployee
@@ -59,7 +59,7 @@
             this.filterEmployee.Location = new System.Drawing.Point(12, 276);
             this.filterEmployee.Name = "filterEmployee";
             this.filterEmployee.Size = new System.Drawing.Size(393, 32);
-            this.filterEmployee.TabIndex = 3;
+            this.filterEmployee.TabIndex = 1;
             this.filterEmployee.TextChanged += new System.EventHandler(this.filterEmployee_TextChanged);
             // 
             // label2
@@ -80,7 +80,7 @@
             this.employeeCreate.Location = new System.Drawing.Point(12, 314);
             this.employeeCreate.Name = "employeeCreate";
             this.employeeCreate.Size = new System.Drawing.Size(127, 32);
-            this.employeeCreate.TabIndex = 6;
+            this.employeeCreate.TabIndex = 3;
             this.employeeCreate.Text = "Criar";
             this.employeeCreate.UseVisualStyleBackColor = true;
             this.employeeCreate.Click += new System.EventHandler(this.employeeCreate_Click);
@@ -91,7 +91,7 @@
             this.editEmployee.Location = new System.Drawing.Point(145, 314);
             this.editEmployee.Name = "editEmployee";
             this.editEmployee.Size = new System.Drawing.Size(127, 32);
-            this.editEmployee.TabIndex = 7;
+            this.editEmployee.TabIndex = 4;
             this.editEmployee.Text = "Editar";
             this.editEmployee.UseVisualStyleBackColor = true;
             this.editEmployee.Click += new System.EventHandler(this.editEmployee_Click);
@@ -102,7 +102,7 @@
             this.deleteEmployee.Location = new System.Drawing.Point(278, 314);
             this.deleteEmployee.Name = "deleteEmployee";
             this.deleteEmployee.Size = new System.Drawing.Size(127, 32);
-            this.deleteEmployee.TabIndex = 8;
+            this.deleteEmployee.TabIndex = 5;
             this.deleteEmployee.Text = "Apagar";
             this.deleteEmployee.UseVisualStyleBackColor = true;
             this.deleteEmployee.Click += new System.EventHandler(this.deleteEmployee_Click);
@@ -113,7 +113,7 @@
             this.employeesList.Location = new System.Drawing.Point(12, 362);
             this.employeesList.Name = "employeesList";
             this.employeesList.Size = new System.Drawing.Size(539, 212);
-            this.employeesList.TabIndex = 10;
+            this.employeesList.TabIndex = 6;
             this.employeesList.SelectedIndexChanged += new System.EventHandler(this.HandleSelectEmployee);
             // 
             // searchEmployee
@@ -122,7 +122,7 @@
             this.searchEmployee.Location = new System.Drawing.Point(424, 276);
             this.searchEmployee.Name = "searchEmployee";
             this.searchEmployee.Size = new System.Drawing.Size(127, 32);
-            this.searchEmployee.TabIndex = 5;
+            this.searchEmployee.TabIndex = 2;
             this.searchEmployee.Text = "Pesquisar";
             this.searchEmployee.UseVisualStyleBackColor = true;
             this.searchEmployee.Click += new System.EventHandler(this.searchEmployee_Click);
@@ -144,7 +144,7 @@
             this.header1.BackColor = System.Drawing.Color.Peru;
             this.header1.Location = new System.Drawing.Point(0, 0);
             this.header1.Name = "header1";
-            this.header1.Size = new System.Drawing.Size(558, 117);
+            this.header1.Size = new System.Drawing.Size(569, 117);
             this.header1.TabIndex = 0;
             // 
             // Employee
@@ -153,7 +153,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(553, 581);
+            this.ClientSize = new System.Drawing.Size(562, 581);
             this.Controls.Add(this.employeesList);
             this.Controls.Add(this.deleteEmployee);
             this.Controls.Add(this.editEmployee);

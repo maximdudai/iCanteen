@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PSI_DA_PL_B.models.Utilizador
+namespace PSI_DA_PL_B.models.User
 {
-    internal class Professor : Cliente
+    internal class Teacher : Client
     {
         public string Email {  get; set; }
 
-        public Professor() : base()
+        public Teacher() : base()
         { }
 
-        public Professor(string nome, int nif, double saldo, string email)
-            : base(nome, nif, saldo)
+        public Teacher(string name, int nif, double balance, string email)
+            : base(name, nif, balance)
         {
             this.Email = email;
         }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,9 +9,10 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PSI_DA_PL_B.helpers;
-using PSI_DA_PL_B.models.Utilizador;
+using PSI_DA_PL_B.models.User;
 using PSI_DA_PL_B.views.Auth.Employees;
-using PSI_DA_PL_B.views.Menu;
+using PSI_DA_PL_B.views.Auth.Employees.Create;
+
 
 namespace PSI_DA_PL_B.views.Auth.Login
 {
@@ -84,14 +85,18 @@ namespace PSI_DA_PL_B.views.Auth.Login
 
         private void registerButton_Click(object sender, EventArgs e)
         {
-            Register.Register register = new Register.Register();
-            register.Show();
-            //this.Close();
+
+            CreateEmployee createEmployeeFrom = new CreateEmployee();
+            createEmployeeFrom.Show();
+            
+            //Register.Register register = new Register.Register();
+            //register.Show();
+            ///this.Show();
         }
 
         private void employeesButton_Click(object sender, EventArgs e)
         {
-            Employee employee = new Employee();
+            Employees.EmployeeList employee = new Employees.EmployeeList();
             employee.Show();
 
             this.Hide();

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PSI_DA_PL_B
+namespace PSI_DA_PL_B.views.Clients.Both
 {
-    public partial class Form1 : Form
+    public partial class maybe : Form
     {
-        public Form1()
+        public maybe()
         {
             InitializeComponent();
         }
