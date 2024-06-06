@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PSI_DA_PL_B.models.MenuCantina
 {
-    public class MenuCantina
+    public class Menu
     {
         [Key]
         public int Id { get; set; }
@@ -32,11 +32,11 @@ namespace PSI_DA_PL_B.models.MenuCantina
         string[] Picture { get; set; }
         string PictureUrl { get; set; }
 
-        public MenuCantina()
+        public Menu()
         {
         }
 
-        public MenuCantina(int quantidade, double preco_estudante, double preco_professor)
+        public Menu(int quantidade, double preco_estudante, double preco_professor)
         {
 
             this.data = DateTime.Now;

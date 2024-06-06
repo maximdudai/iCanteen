@@ -9,7 +9,7 @@ using PSI_DA_PL_B.models.MenuCantina;
 
 namespace PSI_DA_PL_B.models.Menu
 {
-    public class Extra : MenuCantina.MenuCantina
+    public class Extra : MenuCantina.Menu
     {
         [Key]
         public int itemId { get; set; }

@@ -1,15 +1,15 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace PSI_DA_PL_B.models.Utilizador
+namespace PSI_DA_PL_B.models.User
 {
-    public abstract class Utilizador
+    public abstract class User
     {
         [Key]
         public int Id { get; set; }
 
         [MaxLength(64)]
-        public string Nome { get; set; }
+        public string Name { get; set; }
 
         [Range(100000000, 999999999, ErrorMessage = "NIF must be a 9-digit number")]
         public int Nif { get; set; }
@@ -17,13 +17,13 @@ namespace PSI_DA_PL_B.models.Utilizador
         string[] Picture { get; set; }
         string PictureUrl { get; set; }
 
-        public Utilizador()
+        public User()
         {
         }
 
-        public Utilizador(string nome, int nif)
+        public User(string name, int nif)
         {
-            this.Nome = nome;
+            this.Name = name;
             this.Nif = nif;
         }
     }

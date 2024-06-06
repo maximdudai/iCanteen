@@ -2,9 +2,9 @@
 using System.ComponentModel.DataAnnotations;
 using PSI_DA_PL_B.models.Menu;
 
-namespace PSI_DA_PL_B.models.Reserva
+namespace PSI_DA_PL_B.models.Reserve
 {
-    internal class Reserva
+    internal class Reserve
     {
         [Key]
         public int Id { get; set; }
@@ -14,14 +14,14 @@ namespace PSI_DA_PL_B.models.Reserva
         [Range(0, 2)]
         public int Multa {  get; set; }
 
-        public List<MenuCantina.MenuCantina> menu { get; set; }
+        public List<MenuCantina.Menu> menu { get; set; }
 
-        public List<Prato> pratos { get; set; }
+        public List<Dish> pratos { get; set; }
 
         public List<Extra> extras { get; set; }
 
 
-        //Reserva res = new Reserva(lista_datas, utilizador_id, tipo_ )
+        //Reserve res = new Reserve(lista_datas, utilizador_id, tipo_ )
 
         // assim que e feita a reserva, faz-se uma prereserva e assim que e feita reserva, o stock atualiza-se
         // o cliente entra e e possivel adicionar mais items a reserva

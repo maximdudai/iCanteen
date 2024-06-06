@@ -48,7 +48,7 @@
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(449, 45);
+            this.textBox2.Size = new System.Drawing.Size(456, 45);
             this.textBox2.TabIndex = 3;
             // 
             // label1
@@ -57,7 +57,7 @@
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
             this.label1.ForeColor = System.Drawing.Color.Peru;
-            this.label1.Location = new System.Drawing.Point(9, 161);
+            this.label1.Location = new System.Drawing.Point(13, 161);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 23);
             this.label1.TabIndex = 4;
@@ -68,11 +68,11 @@
             this.loginUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.loginUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.loginUsername.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.loginUsername.Location = new System.Drawing.Point(12, 196);
+            this.loginUsername.Location = new System.Drawing.Point(15, 196);
             this.loginUsername.MaxLength = 64;
             this.loginUsername.Name = "loginUsername";
             this.loginUsername.Size = new System.Drawing.Size(424, 26);
-            this.loginUsername.TabIndex = 5;
+            this.loginUsername.TabIndex = 1;
             // 
             // textBox4
             // 
@@ -83,7 +83,7 @@
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(449, 45);
+            this.textBox4.Size = new System.Drawing.Size(456, 45);
             this.textBox4.TabIndex = 6;
             // 
             // employeesButton
@@ -94,11 +94,11 @@
             this.employeesButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.employeesButton.Font = new System.Drawing.Font("Arial Narrow", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
             this.employeesButton.ForeColor = System.Drawing.Color.Black;
-            this.employeesButton.Location = new System.Drawing.Point(157, 340);
+            this.employeesButton.Location = new System.Drawing.Point(141, 340);
             this.employeesButton.Name = "employeesButton";
             this.employeesButton.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
             this.employeesButton.Size = new System.Drawing.Size(167, 29);
-            this.employeesButton.TabIndex = 7;
+            this.employeesButton.TabIndex = 4;
             this.employeesButton.Text = "Listagem de Funcionarios";
             this.employeesButton.Click += new System.EventHandler(this.employeesButton_Click);
             // 
@@ -111,7 +111,7 @@
             this.loginButton.Location = new System.Drawing.Point(90, 258);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(134, 45);
-            this.loginButton.TabIndex = 8;
+            this.loginButton.TabIndex = 2;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = false;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
@@ -126,7 +126,7 @@
             this.registerButton.Margin = new System.Windows.Forms.Padding(0);
             this.registerButton.Name = "registerButton";
             this.registerButton.Size = new System.Drawing.Size(134, 45);
-            this.registerButton.TabIndex = 9;
+            this.registerButton.TabIndex = 3;
             this.registerButton.Text = "Registar";
             this.registerButton.UseVisualStyleBackColor = false;
             this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
@@ -134,9 +134,9 @@
             // header1
             // 
             this.header1.BackColor = System.Drawing.Color.Peru;
-            this.header1.Location = new System.Drawing.Point(-1, 0);
+            this.header1.Location = new System.Drawing.Point(0, 0);
             this.header1.Name = "header1";
-            this.header1.Size = new System.Drawing.Size(449, 108);
+            this.header1.Size = new System.Drawing.Size(455, 117);
             this.header1.TabIndex = 10;
             // 
             // Login
@@ -144,7 +144,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(448, 392);
+            this.ClientSize = new System.Drawing.Size(454, 392);
             this.Controls.Add(this.header1);
             this.Controls.Add(this.registerButton);
             this.Controls.Add(this.loginButton);

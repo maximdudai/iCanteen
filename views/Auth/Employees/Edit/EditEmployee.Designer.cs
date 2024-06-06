@@ -50,7 +50,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(146, 16);
             this.label2.TabIndex = 21;
-            this.label2.Text = "Nome do funcionario";
+            this.label2.Text = "Name do funcionario";
             // 
             // employeeNameInput
             // 
@@ -59,7 +59,7 @@
             this.employeeNameInput.Location = new System.Drawing.Point(12, 217);
             this.employeeNameInput.Name = "employeeNameInput";
             this.employeeNameInput.Size = new System.Drawing.Size(430, 32);
-            this.employeeNameInput.TabIndex = 20;
+            this.employeeNameInput.TabIndex = 1;
             // 
             // employeeEdit
             // 
@@ -67,7 +67,7 @@
             this.employeeEdit.Location = new System.Drawing.Point(139, 464);
             this.employeeEdit.Name = "employeeEdit";
             this.employeeEdit.Size = new System.Drawing.Size(188, 38);
-            this.employeeEdit.TabIndex = 19;
+            this.employeeEdit.TabIndex = 4;
             this.employeeEdit.Text = "Editar";
             this.employeeEdit.UseVisualStyleBackColor = true;
             this.employeeEdit.Click += new System.EventHandler(this.employeeEdit_Click);
@@ -91,7 +91,7 @@
             this.employeeNIFinput.Location = new System.Drawing.Point(12, 370);
             this.employeeNIFinput.Name = "employeeNIFinput";
             this.employeeNIFinput.Size = new System.Drawing.Size(430, 32);
-            this.employeeNIFinput.TabIndex = 17;
+            this.employeeNIFinput.TabIndex = 3;
             // 
             // employeeUsername
             // 
@@ -112,7 +112,7 @@
             this.employeeUsernameInput.Location = new System.Drawing.Point(12, 291);
             this.employeeUsernameInput.Name = "employeeUsernameInput";
             this.employeeUsernameInput.Size = new System.Drawing.Size(430, 32);
-            this.employeeUsernameInput.TabIndex = 15;
+            this.employeeUsernameInput.TabIndex = 2;
             // 
             // label1
             // 
@@ -122,9 +122,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(87, 143);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(289, 37);
+            this.label1.Size = new System.Drawing.Size(303, 37);
             this.label1.TabIndex = 14;
-            this.label1.Text = "Criar Funcionario";
+            this.label1.Text = "Editar Funcionario";
             // 
             // textBox1
             // 
@@ -150,7 +150,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(455, 534);
+            this.ClientSize = new System.Drawing.Size(454, 514);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.employeeNameInput);
             this.Controls.Add(this.employeeEdit);
@@ -162,7 +162,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.header1);
             this.Name = "EditEmployee";
-            this.Text = "EditEmployee";
+            this.Text = "Editar Funcionario";
             this.ResumeLayout(false);
             this.PerformLayout();
 

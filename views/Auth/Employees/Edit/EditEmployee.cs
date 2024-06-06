@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PSI_DA_PL_B.helpers;
-using PSI_DA_PL_B.models.Utilizador;
+using PSI_DA_PL_B.models.User;
 
 namespace PSI_DA_PL_B.views.Auth.Employees.Edit
 {
@@ -53,29 +53,29 @@ namespace PSI_DA_PL_B.views.Auth.Employees.Edit
                 using (var db = new Cantina())
                 {
                     // Fetch the Funcionario entity
-                    var funcionario = db.Utilizador
-                        .OfType<Funcionario>()
-                        .Where(u => u.Nome == this.name)
+                    var employeeData = db.User
+                        .OfType<Employee>()
+                        .Where(u => u.Name == this.username)
                         .FirstOrDefault();
 
                     // Check if the user was found
-                    if (funcionario == null)
+                    if (employeeData == null)
                     {
                         Error.Err("User not found!");
                         return;
                     }
 
                     // Modify the entity properties
-                    funcionario.Nome = this.name;
-                    funcionario.Nif = this.Nif;
-                    funcionario.Username = this.username;
+                    employeeData.Name = this.name;
+                    employeeData.Nif = this.Nif;
+                    employeeData.Username = this.username;
 
                     // Save changes to the database
                     db.SaveChanges();
                 }
 
-                Employee employee = new Employee();
-                employee.Show();
+                EmployeeList employeeForm = new EmployeeList();
+                employeeForm.Show();
 
                 this.Close();
             }

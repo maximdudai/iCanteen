@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PSI_DA_PL_B.views.Auth.Register
+namespace PSI_DA_PL_B.views.Clients.Students.Edit
 {
-    public partial class Register : Form
+    public partial class EditStudent : Form
     {
-        public Register()
+        public EditStudent()
         {
             InitializeComponent();
         }
