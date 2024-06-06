@@ -214,7 +214,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\" />
-    <Folder Include="views\Auth\Employees\NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
