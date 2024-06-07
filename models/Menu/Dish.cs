@@ -4,7 +4,7 @@ using PSI_DA_PL_B.models.MenuCantina;
 
 namespace PSI_DA_PL_B.models.Menu
 {
-    public class Prato : MenuCantina.MenuCantina
+    public class Dish : MenuCantina.Menu
     {
         [Key]
         public int itemId { get; set; }
@@ -21,11 +21,11 @@ namespace PSI_DA_PL_B.models.Menu
         string[] Picture { get; set; }
         string PictureUrl { get; set; }
 
-        public Prato() : base()
+        public Dish() : base()
         {
         }
 
-        public Prato(int quantidade, double preco_estudante, double preco_professor, string descricao, int tipo, bool ativo)
+        public Dish(int quantidade, double preco_estudante, double preco_professor, string descricao, int tipo, bool ativo)
             : base(quantidade, preco_estudante, preco_professor)
         {
             this.Descricao = descricao;

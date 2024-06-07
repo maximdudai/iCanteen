@@ -57,7 +57,7 @@
             this.header1.Location = new System.Drawing.Point(0, 0);
             this.header1.Name = "header1";
             this.header1.Size = new System.Drawing.Size(455, 117);
-            this.header1.TabIndex = 2;
+            this.header1.TabIndex = 20;
             // 
             // label1
             // 
@@ -68,7 +68,7 @@
             this.label1.Location = new System.Drawing.Point(87, 143);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(289, 37);
-            this.label1.TabIndex = 4;
+            this.label1.TabIndex = 12;
             this.label1.Text = "Criar Funcionario";
             // 
             // employeeUsername
@@ -90,7 +90,7 @@
             this.employeeUsernameInput.Location = new System.Drawing.Point(12, 291);
             this.employeeUsernameInput.Name = "employeeUsernameInput";
             this.employeeUsernameInput.Size = new System.Drawing.Size(430, 32);
-            this.employeeUsernameInput.TabIndex = 5;
+            this.employeeUsernameInput.TabIndex = 2;
             // 
             // employeeCreate
             // 
@@ -98,7 +98,7 @@
             this.employeeCreate.Location = new System.Drawing.Point(139, 464);
             this.employeeCreate.Name = "employeeCreate";
             this.employeeCreate.Size = new System.Drawing.Size(188, 38);
-            this.employeeCreate.TabIndex = 9;
+            this.employeeCreate.TabIndex = 4;
             this.employeeCreate.Text = "Criar";
             this.employeeCreate.UseVisualStyleBackColor = true;
             this.employeeCreate.Click += new System.EventHandler(this.employeeCreate_Click);
@@ -110,7 +110,7 @@
             this.employeeNIFinput.Location = new System.Drawing.Point(12, 370);
             this.employeeNIFinput.Name = "employeeNIFinput";
             this.employeeNIFinput.Size = new System.Drawing.Size(430, 32);
-            this.employeeNIFinput.TabIndex = 7;
+            this.employeeNIFinput.TabIndex = 3;
             // 
             // label3
             // 
@@ -134,7 +134,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(146, 16);
             this.label2.TabIndex = 11;
-            this.label2.Text = "Nome do funcionario";
+            this.label2.Text = "Name do funcionario";
             // 
             // employeeNameInput
             // 
@@ -143,7 +143,7 @@
             this.employeeNameInput.Location = new System.Drawing.Point(12, 217);
             this.employeeNameInput.Name = "employeeNameInput";
             this.employeeNameInput.Size = new System.Drawing.Size(430, 32);
-            this.employeeNameInput.TabIndex = 10;
+            this.employeeNameInput.TabIndex = 1;
             // 
             // CreateEmployee
             // 
@@ -163,7 +163,7 @@
             this.Controls.Add(this.header1);
             this.Name = "CreateEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Registar Funcionario";
             this.ResumeLayout(false);
             this.PerformLayout();
 

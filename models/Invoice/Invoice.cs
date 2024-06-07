@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PSI_DA_PL_B.models.Fatura
+namespace PSI_DA_PL_B.models.Invoice
 {
-    internal class Fatura
+    internal class Invoice
     {
     }
 }

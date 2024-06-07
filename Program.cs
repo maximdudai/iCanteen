@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PSI_DA_PL_B;
 using PSI_DA_PL_B.Migrations;
-using PSI_DA_PL_B.models.Utilizador;
+using PSI_DA_PL_B.models.User;
 using PSI_DA_PL_B.views.Auth.Login;
+using PSI_DA_PL_B.views.Clients.Both;
 
 namespace PSI_DA_PL_B
 {
@@ -24,7 +25,6 @@ namespace PSI_DA_PL_B
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());
-
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<Cantina, Configuration>());
 
             using (var context = new Cantina())

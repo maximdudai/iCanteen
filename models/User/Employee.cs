@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using PSI_DA_PL_B.models.Utilizador;
+using PSI_DA_PL_B.models.User;
 using PSI_DA_PL_B;
 
-namespace PSI_DA_PL_B.models.Utilizador
+namespace PSI_DA_PL_B.models.User
 {
-    internal class Funcionario : Utilizador
+    internal class Employee : User
     {
         public string Username { get; set; }
 
-        public Funcionario() : base() { }
+        public Employee() : base() { }
 
-        public Funcionario(string nome, int nif, string username) : base(nome, nif)
+        public Employee(string name, int nif, string username) : base(name, nif)
         {
             this.Username = username;
         }

@@ -1,41 +1,43 @@
-﻿using System;
+﻿using PSI_DA_PL_B.helpers;
+using PSI_DA_PL_B.models.User;
+using PSI_DA_PL_B.views.Clients.Both;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web;
 using System.Windows.Forms;
-using PSI_DA_PL_B.helpers;
-using PSI_DA_PL_B.models.User;
 
-namespace PSI_DA_PL_B.views.Auth.Employees.Create
+namespace PSI_DA_PL_B.views.Clients.Teachers.Create
 {
-    public partial class CreateEmployee : Form
+    public partial class CreateTeacher : Form
     {
-        private string username { get; set; }
         private string name { get; set; }
         private int Nif { get; set; }
-
-        public CreateEmployee()
+        private double Balance { get; set; }
+        private string Email { get; set; }
+        public CreateTeacher()
         {
             InitializeComponent();
         }
 
-        private void employeeCreate_Click(object sender, EventArgs e)
+        private void teacherCreate_Click(object sender, EventArgs e)
         {
             try
             {
-                this.username = employeeUsernameInput.Text;
-                this.name = employeeNameInput.Text;
-                this.Nif = int.Parse(employeeNIFinput.Text);
+                this.name = teacherNameInput.Text;
+                this.Nif = int.Parse(teacherNIFinput.Text);
+                this.Email = teacherEmailInput.Text;
+                this.Balance = 0.00;
 
-                if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(name))
+                //TODO validate email
+
+                if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(Email))
                 {
-                    Error.Err("Username or Name field cannot be empty!");
+                    Error.Err("Name or Email field cannot be empty!");
                     return;
                 }
 
@@ -44,22 +46,22 @@ namespace PSI_DA_PL_B.views.Auth.Employees.Create
                     Error.Err("NIF must have 9 digits!");
                     return;
                 }
-
-                // verify if the username and nif already exists
+                               
+                //verify if the email and nif already exists
                 using (var db = new Cantina())
                 {
-                    var user = db.User.
-                        OfType<Employee>()
-                        .Where(u => u.Username == this.username)
+                    var email = db.User.
+                        OfType<Teacher>()
+                        .Where(u => u.Email == this.Email)
                         .FirstOrDefault();
 
                     var userNif = db.User
                         .Where(u => u.Nif == this.Nif)
                         .FirstOrDefault();
 
-                    if (user != null)
+                    if (email != null)
                     {
-                        Error.Err("Username already exists!");
+                        Error.Err("Email already exists!");
                         return;
                     }
 
@@ -70,24 +72,25 @@ namespace PSI_DA_PL_B.views.Auth.Employees.Create
                     }
                 }
 
-                // create the user
+                //create the teacher
                 using (var db = new Cantina())
                 {
-                    Employee user = new Employee()
+                    Teacher user = new Teacher()
                     {
                         Name = this.name,
                         Nif = this.Nif,
-                        Username = this.username,
+                        Balance = this.Balance,
+                        Email = this.Email,
                     };
 
                     db.User.Add(user);
                     db.SaveChanges();
                 }
-                EmployeeList employee = new EmployeeList();
-                employee.Show();
+                ListClients client = new ListClients();
+                client.Show();
 
                 this.Close();
-                
+
             }
             catch (Exception ex)
             {
