@@ -114,7 +114,7 @@
             this.employeesList.Name = "employeesList";
             this.employeesList.Size = new System.Drawing.Size(539, 212);
             this.employeesList.TabIndex = 6;
-            this.employeesList.SelectedIndexChanged += new System.EventHandler(this.HandleSelectEmployee);
+            this.employeesList.DoubleClick += new System.EventHandler(this.HandleSelectEmployee);
             // 
             // searchEmployee
             // 
@@ -147,7 +147,7 @@
             this.header1.Size = new System.Drawing.Size(569, 117);
             this.header1.TabIndex = 0;
             // 
-            // Employee
+            // EmployeeList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -165,7 +165,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.header1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Employee";
+            this.Name = "EmployeeList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de Funcionarios";
             this.ResumeLayout(false);

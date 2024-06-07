@@ -13,16 +13,16 @@ using PSI_DA_PL_B.views.Auth.Login;
 
 namespace PSI_DA_PL_B.views.Menu
 {
-    public partial class Menu : Form
+    public partial class MainMenu : Form
     {
         private string username { get; set; }
         private string name { get; set; }
         private Timer timer;
-        public Menu()
+        public MainMenu()
         {
             InitializeComponent();
         }
-        public Menu(string username) : this()
+        public MainMenu(string username) : this()
         {
             this.username = this.labelUsername.Text = username;
 

@@ -23,7 +23,9 @@ namespace PSI_DA_PL_B.views.Clients.Both
         {
             CreateStudent createStudentForm = new CreateStudent();
             createStudentForm.Show();
+
             this.Close();
+
         }
 
         private void TeacherCreate_Click(object sender, EventArgs e)

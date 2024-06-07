@@ -67,13 +67,7 @@ namespace PSI_DA_PL_B.views.Auth.Employees
 
         private void HandleSelectEmployee(object sender, EventArgs e)
         {
-            var selectedEmployee = employeesList.SelectedItem as Employee;
 
-            string username = selectedEmployee.Username;
-
-            Menu.Menu menu = new Menu.Menu(username);
-            menu.ShowDialog();
-            this.Hide();
         }
 
         private void searchEmployee_Click(object sender, EventArgs e)
