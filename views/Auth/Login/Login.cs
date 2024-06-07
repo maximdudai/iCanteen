@@ -65,7 +65,7 @@ namespace PSI_DA_PL_B.views.Auth.Login
                 Console.WriteLine("Login successful for user: " + this.username);
 
                 // Proceed to the menu
-                Menu.Menu menu = new Menu.Menu(this.username);
+                Menu.MainMenu menu = new Menu.MainMenu(this.username);
                 menu.Show();
 
                 // Hide the current form

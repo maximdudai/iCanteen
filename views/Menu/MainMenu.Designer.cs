@@ -1,6 +1,6 @@
 ﻿namespace PSI_DA_PL_B.views.Menu
 {
-    partial class Menu
+    partial class MainMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -362,7 +362,7 @@
             this.menuNextWeek.BackColor = System.Drawing.Color.Peru;
             this.menuNextWeek.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F);
             this.menuNextWeek.ForeColor = System.Drawing.Color.White;
-            this.menuNextWeek.Location = new System.Drawing.Point(807, 294);
+            this.menuNextWeek.Location = new System.Drawing.Point(807, 293);
             this.menuNextWeek.Name = "menuNextWeek";
             this.menuNextWeek.Size = new System.Drawing.Size(52, 47);
             this.menuNextWeek.TabIndex = 35;
