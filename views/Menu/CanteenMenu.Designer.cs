@@ -1,4 +1,4 @@
-﻿namespace PSI_DA_PL_B.views.Menu
+namespace PSI_DA_PL_B.views.Menu
 {
     partial class CanteenMenu
     {
@@ -363,7 +363,7 @@
             this.menuNextWeek.BackColor = System.Drawing.Color.Peru;
             this.menuNextWeek.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F);
             this.menuNextWeek.ForeColor = System.Drawing.Color.White;
-            this.menuNextWeek.Location = new System.Drawing.Point(807, 293);
+            this.menuNextWeek.Location = new System.Drawing.Point(807, 294);
             this.menuNextWeek.Name = "menuNextWeek";
             this.menuNextWeek.Size = new System.Drawing.Size(52, 47);
             this.menuNextWeek.TabIndex = 35;
