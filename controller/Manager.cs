@@ -110,6 +110,5 @@ namespace PSI_DA_PL_B.controller
                 Console.WriteLine($"Error closing form: {ex.Message}");
             }
         }
-
     }
 }
