@@ -11,6 +11,7 @@ using PSI_DA_PL_B.controller;
 using PSI_DA_PL_B.helpers;
 using PSI_DA_PL_B.models.User;
 using PSI_DA_PL_B.views.Auth.Login;
+using PSI_DA_PL_B.views.Menu.TicketMenu;
 
 namespace PSI_DA_PL_B.views.Menu
 {
@@ -94,6 +95,12 @@ namespace PSI_DA_PL_B.views.Menu
             manager.LoginUI();
 
             this.Close();
+        }
+
+        private void ticketButton_Click(object sender, EventArgs e)
+        {
+            TicketMenu.TicketMenu ticket = new TicketMenu.TicketMenu();
+            ticket.ShowDialog();
         }
     }
 }
