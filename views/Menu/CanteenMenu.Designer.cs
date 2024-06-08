@@ -1,6 +1,6 @@
 ﻿namespace PSI_DA_PL_B.views.Menu
 {
-    partial class MainMenu
+    partial class CanteenMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CanteenMenu));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,7 +40,7 @@
             this.userUsername = new System.Windows.Forms.Label();
             this.userRole = new System.Windows.Forms.Label();
             this.currentDateTime = new System.Windows.Forms.Label();
-            this.buttonLogout = new System.Windows.Forms.Button();
+            this.changeEmployee = new System.Windows.Forms.Button();
             this.weekMenu3 = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.menuButton = new System.Windows.Forms.Button();
@@ -57,6 +57,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.menuPrevWeek = new System.Windows.Forms.Button();
             this.menuNextWeek = new System.Windows.Forms.Button();
+            this.logoutButton = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -189,16 +190,16 @@
             this.currentDateTime.TabIndex = 17;
             this.currentDateTime.Text = "00/00/0000  00:00:00";
             // 
-            // buttonLogout
+            // changeEmployee
             // 
-            this.buttonLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.buttonLogout.Location = new System.Drawing.Point(12, 464);
-            this.buttonLogout.Name = "buttonLogout";
-            this.buttonLogout.Size = new System.Drawing.Size(165, 29);
-            this.buttonLogout.TabIndex = 18;
-            this.buttonLogout.Text = "Alterar Funcionario";
-            this.buttonLogout.UseVisualStyleBackColor = true;
-            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
+            this.changeEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.changeEmployee.Location = new System.Drawing.Point(12, 441);
+            this.changeEmployee.Name = "changeEmployee";
+            this.changeEmployee.Size = new System.Drawing.Size(165, 29);
+            this.changeEmployee.TabIndex = 18;
+            this.changeEmployee.Text = "Alterar Funcionario";
+            this.changeEmployee.UseVisualStyleBackColor = true;
+            this.changeEmployee.Click += new System.EventHandler(this.changeEmployee_Click);
             // 
             // weekMenu3
             // 
@@ -369,13 +370,27 @@
             this.menuNextWeek.Text = ">";
             this.menuNextWeek.UseVisualStyleBackColor = false;
             // 
-            // Menu
+            // logoutButton
+            // 
+            this.logoutButton.AutoSize = true;
+            this.logoutButton.BackColor = System.Drawing.Color.Peru;
+            this.logoutButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
+            this.logoutButton.ForeColor = System.Drawing.Color.White;
+            this.logoutButton.Location = new System.Drawing.Point(69, 473);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(49, 23);
+            this.logoutButton.TabIndex = 36;
+            this.logoutButton.Text = "Sair";
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
+            // 
+            // CanteenMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(922, 505);
+            this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.menuNextWeek);
             this.Controls.Add(this.menuPrevWeek);
             this.Controls.Add(this.label3);
@@ -391,7 +406,7 @@
             this.Controls.Add(this.menuButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.weekMenu3);
-            this.Controls.Add(this.buttonLogout);
+            this.Controls.Add(this.changeEmployee);
             this.Controls.Add(this.currentDateTime);
             this.Controls.Add(this.userRole);
             this.Controls.Add(this.userUsername);
@@ -405,7 +420,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Menu";
+            this.Name = "CanteenMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.Load += new System.EventHandler(this.Menu_Load);
@@ -428,7 +443,7 @@
         private System.Windows.Forms.Label userUsername;
         private System.Windows.Forms.Label userRole;
         private System.Windows.Forms.Label currentDateTime;
-        private System.Windows.Forms.Button buttonLogout;
+        private System.Windows.Forms.Button changeEmployee;
         private System.Windows.Forms.ListBox weekMenu3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button menuButton;
@@ -445,5 +460,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button menuPrevWeek;
         private System.Windows.Forms.Button menuNextWeek;
+        private System.Windows.Forms.Label logoutButton;
     }
 }
