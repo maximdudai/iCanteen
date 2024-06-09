@@ -129,5 +129,29 @@ namespace PSI_DA_PL_B.views.Menu.TicketMenu
         {
             this.UpdateTicketList();
         }
+
+        private void removeTicket_Click(object sender, EventArgs e)
+        {
+            var selectedTicket = this.ticketList.SelectedItem as models.Menu.Ticket;
+
+            if (selectedTicket == null)
+            {
+                Error.Err("Please select an ticket to remove!");
+                return;
+            }
+
+            using (var db = new Cantina())
+            {
+                var removeTicket = db.Ticket.Find(selectedTicket.Id);
+
+                if(removeTicket != null)
+                {
+                    db.Ticket.Remove(removeTicket);
+                    db.SaveChanges();
+                }
+            };
+
+            this.UpdateTicketList();
+        }
     }
 }

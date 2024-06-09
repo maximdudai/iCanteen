@@ -193,6 +193,7 @@
             this.removeTicket.TabIndex = 45;
             this.removeTicket.Text = "REMOVE";
             this.removeTicket.UseVisualStyleBackColor = true;
+            this.removeTicket.Click += new System.EventHandler(this.removeTicket_Click);
             // 
             // header1
             // 
