@@ -4,6 +4,12 @@
 
 The iCantina Management System is designed for a school's canteen to manage menus and reservations efficiently. The system facilitates the handling of daily menus, reservation controls, balance top-ups, and billing.
 
+## Project Collaboration
+This project was created with the collaborative efforts of three passionate individuals: <br>
+[Maxim D.](https://www.maxdev.live/) <br>
+[Edo S.](https://github.com/18pingu18) <br>
+[Ana G.](https://github.com/ana-fg)
+
 ## Features
 
 1. **User Roles**: 
