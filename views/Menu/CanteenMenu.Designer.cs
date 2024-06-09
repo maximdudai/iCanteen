@@ -48,7 +48,7 @@ namespace PSI_DA_PL_B.views.Menu
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.ticketButton = new System.Windows.Forms.Button();
             this.weekMenu4 = new System.Windows.Forms.ListBox();
             this.weekMenu5 = new System.Windows.Forms.ListBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -273,15 +273,16 @@ namespace PSI_DA_PL_B.views.Menu
             this.button4.Text = "Reserva";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // ticketButton
             // 
-            this.button5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F);
-            this.button5.Location = new System.Drawing.Point(221, 198);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(189, 58);
-            this.button5.TabIndex = 25;
-            this.button5.Text = "Multa";
-            this.button5.UseVisualStyleBackColor = true;
+            this.ticketButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F);
+            this.ticketButton.Location = new System.Drawing.Point(221, 198);
+            this.ticketButton.Name = "ticketButton";
+            this.ticketButton.Size = new System.Drawing.Size(189, 58);
+            this.ticketButton.TabIndex = 25;
+            this.ticketButton.Text = "Multa";
+            this.ticketButton.UseVisualStyleBackColor = true;
+            this.ticketButton.Click += new System.EventHandler(this.ticketButton_Click);
             // 
             // weekMenu4
             // 
@@ -400,7 +401,7 @@ namespace PSI_DA_PL_B.views.Menu
             this.Controls.Add(this.weekMenu4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.ticketButton);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuButton);
@@ -451,7 +452,7 @@ namespace PSI_DA_PL_B.views.Menu
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button ticketButton;
         private System.Windows.Forms.ListBox weekMenu4;
         private System.Windows.Forms.ListBox weekMenu5;
         private System.Windows.Forms.TextBox textBox3;

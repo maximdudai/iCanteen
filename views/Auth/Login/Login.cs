@@ -74,7 +74,7 @@ namespace PSI_DA_PL_B.views.Auth.Login
                 manager.MainMenuUI(true, this.username);
 
                 // Hide the current form
-                this.Hide();
+                this.Close();
             }
             catch (Exception ex)
             {

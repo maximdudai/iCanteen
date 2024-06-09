@@ -72,6 +72,7 @@
     <Compile Include="models\Menu\Extra.cs" />
     <Compile Include="models\Menu\Menu.cs" />
     <Compile Include="models\Menu\Dish.cs" />
+    <Compile Include="models\Menu\Ticket.cs" />
     <Compile Include="models\Reserve\Reserve.cs" />
     <Compile Include="models\User\Client.cs" />
     <Compile Include="models\User\Student.cs" />
@@ -164,11 +165,17 @@
     <Compile Include="views\Menu\Extra\Extra.Designer.cs">
       <DependentUpon>Extra.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\Menu\Ticket\Ticket.cs">
+    <Compile Include="views\Menu\Ticket\Edit\EditTicket.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\Menu\Ticket\Ticket.Designer.cs">
-      <DependentUpon>Ticket.cs</DependentUpon>
+    <Compile Include="views\Menu\Ticket\Edit\EditTicket.Designer.cs">
+      <DependentUpon>EditTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\Menu\Ticket\TicketMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Menu\Ticket\TicketMenu.Designer.cs">
+      <DependentUpon>TicketMenu.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="iCanteen.resx">
       <DependentUpon>iCanteen.cs</DependentUpon>
@@ -225,8 +232,11 @@
     <EmbeddedResource Include="views\Menu\CanteenMenu.resx">
       <DependentUpon>CanteenMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\Menu\Ticket\Ticket.resx">
-      <DependentUpon>Ticket.cs</DependentUpon>
+    <EmbeddedResource Include="views\Menu\Ticket\Edit\EditTicket.resx">
+      <DependentUpon>EditTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Menu\Ticket\TicketMenu.resx">
+      <DependentUpon>TicketMenu.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
