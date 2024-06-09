@@ -182,6 +182,7 @@
             this.editTicket.TabIndex = 44;
             this.editTicket.Text = "EDIT";
             this.editTicket.UseVisualStyleBackColor = true;
+            this.editTicket.Click += new System.EventHandler(this.editTicket_Click);
             // 
             // removeTicket
             // 
@@ -201,7 +202,7 @@
             this.header1.Size = new System.Drawing.Size(442, 119);
             this.header1.TabIndex = 0;
             // 
-            // Ticket
+            // TicketMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -219,7 +220,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.header1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Ticket";
+            this.Name = "TicketMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ticket";
             ((System.ComponentModel.ISupportInitialize)(this.ticketValue)).EndInit();

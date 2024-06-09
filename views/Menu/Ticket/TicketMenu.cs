@@ -11,19 +11,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PSI_DA_PL_B.helpers;
 using PSI_DA_PL_B.models.Menu;
+using PSI_DA_PL_B.views.Menu.Ticket.Edit;
 
 namespace PSI_DA_PL_B.views.Menu.TicketMenu
 {
     public partial class TicketMenu : Form
     {
-        private List<Ticket> tickets { get; set; }
+        private List<models.Menu.Ticket> tickets { get; set; }
         private int time { get; set; }
         private double value { get; set; }
         public TicketMenu()
         {
             InitializeComponent();
 
-            this.tickets = new List<Ticket>();
+            this.tickets = new List<models.Menu.Ticket>();
             this.UpdateTicketList();
 
         }
@@ -72,7 +73,7 @@ namespace PSI_DA_PL_B.views.Menu.TicketMenu
                         return;
                     }
 
-                    var newTicket = new Ticket(this.time, this.value);
+                    var newTicket = new models.Menu.Ticket(this.time, this.value);
                     db.Ticket.Add(newTicket);
                     db.SaveChanges();
                     this.UpdateTicketList();
@@ -105,6 +106,28 @@ namespace PSI_DA_PL_B.views.Menu.TicketMenu
          
             this.ticketList.DataSource = null;
             this.ticketList.DataSource = this.tickets;
+        }
+
+        private void editTicket_Click(object sender, EventArgs e)
+        {
+            var selectedTicket = this.ticketList.SelectedItem as models.Menu.Ticket;
+
+            if (selectedTicket == null)
+            {
+                Error.Err("Please select a ticket to edit.");
+                return;
+            }
+
+
+            EditTicket editTicket = new EditTicket(selectedTicket.Id, selectedTicket.hours, selectedTicket.value);
+            editTicket.FormClosing += this.EditTicket_Closing;
+
+            editTicket.ShowDialog();
+
+        }
+        private void EditTicket_Closing(object sender, FormClosingEventArgs e)
+        {
+            this.UpdateTicketList();
         }
     }
 }

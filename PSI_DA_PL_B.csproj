@@ -165,6 +165,12 @@
     <Compile Include="views\Menu\Extra\Extra.Designer.cs">
       <DependentUpon>Extra.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\Menu\Ticket\Edit\EditTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Menu\Ticket\Edit\EditTicket.Designer.cs">
+      <DependentUpon>EditTicket.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\Menu\Ticket\TicketMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="views\Menu\CanteenMenu.resx">
       <DependentUpon>CanteenMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Menu\Ticket\Edit\EditTicket.resx">
+      <DependentUpon>EditTicket.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\Menu\Ticket\TicketMenu.resx">
       <DependentUpon>TicketMenu.cs</DependentUpon>
