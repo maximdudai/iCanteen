@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics.Tracing;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using PSI_DA_PL_B.controller;
 using PSI_DA_PL_B.helpers;
 using PSI_DA_PL_B.models.MenuCantina;
 using PSI_DA_PL_B.models.User;
@@ -19,10 +21,17 @@ namespace PSI_DA_PL_B.views.Auth.Employees
     public partial class EmployeeList : Form
     {
         private readonly List<Employee> employees;
+        private Manager manager { get; set; }
 
         public EmployeeList()
         {
             InitializeComponent();
+        }
+
+        public EmployeeList(Manager manager) : this()
+        {
+            this.manager = manager;
+
             employees = new List<Employee>();
             LoadEmployees();
         }
@@ -45,7 +54,7 @@ namespace PSI_DA_PL_B.views.Auth.Employees
 
                     foreach (var emp in empList)
                     {
-                        Employee employee = new Employee((string)emp.Name, (int)emp.Nif, (string)emp.Username);
+                        Employee employee = new Employee(emp.Name, emp.Nif, emp.Username);
                         employees.Add(employee);
                     }
                 }
@@ -102,8 +111,9 @@ namespace PSI_DA_PL_B.views.Auth.Employees
         private void employeeCreate_Click(object sender, EventArgs e)
         {
             CreateEmployee createEmployeeFrom = new CreateEmployee();
-            createEmployeeFrom.Show();
-            this.Close();
+            createEmployeeFrom.ShowDialog();
+
+            createEmployeeFrom.FormClosing += ShowEmployeeList;
         }
 
         private void editEmployee_Click(object sender, EventArgs e)
@@ -111,6 +121,7 @@ namespace PSI_DA_PL_B.views.Auth.Employees
             try
             {
                 var selectedEmployee = employeesList.SelectedItem as models.User.Employee;
+
                 if (selectedEmployee != null)
                 {
                     string username = selectedEmployee.Username;
@@ -118,9 +129,9 @@ namespace PSI_DA_PL_B.views.Auth.Employees
                     int nif = selectedEmployee.Nif;
 
                     EditEmployee editEmployeeForm = new EditEmployee(username, name, nif);
-                    editEmployeeForm.Show();
+                    editEmployeeForm.ShowDialog();
 
-                    this.Close();
+                    editEmployeeForm.FormClosing += ShowEmployeeList;
                 }
                 else
                 {
@@ -131,6 +142,11 @@ namespace PSI_DA_PL_B.views.Auth.Employees
             {
                 Error.Err(ex.Message);
             }
+        }
+
+        private void ShowEmployeeList(object sender, FormClosingEventArgs e)
+        {
+            this.DisplayEmployees();
         }
 
         private void deleteEmployee_Click(object sender, EventArgs e)
@@ -154,7 +170,6 @@ namespace PSI_DA_PL_B.views.Auth.Employees
                             db.SaveChanges();
                         }
                     }
-
                     employees.Remove(selectedEmployee);
                     this.DisplayEmployees();
                 }

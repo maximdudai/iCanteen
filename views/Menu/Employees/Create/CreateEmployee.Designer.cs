@@ -95,7 +95,7 @@
             // employeeCreate
             // 
             this.employeeCreate.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14F);
-            this.employeeCreate.Location = new System.Drawing.Point(139, 464);
+            this.employeeCreate.Location = new System.Drawing.Point(139, 431);
             this.employeeCreate.Name = "employeeCreate";
             this.employeeCreate.Size = new System.Drawing.Size(188, 38);
             this.employeeCreate.TabIndex = 4;

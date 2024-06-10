@@ -33,7 +33,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.loginUsername = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.employeesButton = new System.Windows.Forms.Label();
             this.loginButton = new System.Windows.Forms.Button();
             this.registerButton = new System.Windows.Forms.Button();
             this.header1 = new PSI_DA_PL_B.views.components.Header();
@@ -83,24 +82,8 @@
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(456, 45);
+            this.textBox4.Size = new System.Drawing.Size(456, 72);
             this.textBox4.TabIndex = 6;
-            // 
-            // employeesButton
-            // 
-            this.employeesButton.AutoSize = true;
-            this.employeesButton.BackColor = System.Drawing.Color.White;
-            this.employeesButton.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.employeesButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.employeesButton.Font = new System.Drawing.Font("Arial Narrow", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.employeesButton.ForeColor = System.Drawing.Color.Black;
-            this.employeesButton.Location = new System.Drawing.Point(141, 340);
-            this.employeesButton.Name = "employeesButton";
-            this.employeesButton.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
-            this.employeesButton.Size = new System.Drawing.Size(167, 29);
-            this.employeesButton.TabIndex = 4;
-            this.employeesButton.Text = "Listagem de Funcionarios";
-            this.employeesButton.Click += new System.EventHandler(this.employeesButton_Click);
             // 
             // loginButton
             // 
@@ -108,9 +91,9 @@
             this.loginButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.loginButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
             this.loginButton.ForeColor = System.Drawing.Color.Peru;
-            this.loginButton.Location = new System.Drawing.Point(90, 258);
+            this.loginButton.Location = new System.Drawing.Point(15, 270);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(134, 45);
+            this.loginButton.Size = new System.Drawing.Size(188, 45);
             this.loginButton.TabIndex = 2;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = false;
@@ -122,12 +105,12 @@
             this.registerButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.registerButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
             this.registerButton.ForeColor = System.Drawing.Color.Peru;
-            this.registerButton.Location = new System.Drawing.Point(237, 258);
+            this.registerButton.Location = new System.Drawing.Point(248, 270);
             this.registerButton.Margin = new System.Windows.Forms.Padding(0);
             this.registerButton.Name = "registerButton";
-            this.registerButton.Size = new System.Drawing.Size(134, 45);
+            this.registerButton.Size = new System.Drawing.Size(191, 45);
             this.registerButton.TabIndex = 3;
-            this.registerButton.Text = "Registar";
+            this.registerButton.Text = "Register";
             this.registerButton.UseVisualStyleBackColor = false;
             this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
             // 
@@ -144,11 +127,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(454, 392);
+            this.ClientSize = new System.Drawing.Size(454, 345);
             this.Controls.Add(this.header1);
             this.Controls.Add(this.registerButton);
             this.Controls.Add(this.loginButton);
-            this.Controls.Add(this.employeesButton);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.loginUsername);
             this.Controls.Add(this.label1);
@@ -167,7 +149,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox loginUsername;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label employeesButton;
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Button registerButton;
         private components.Header header1;

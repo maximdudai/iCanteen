@@ -8,6 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PSI_DA_PL_B.controller;
 using PSI_DA_PL_B.helpers;
 using PSI_DA_PL_B.models.User;
 using PSI_DA_PL_B.views.Auth.Employees;
@@ -19,9 +20,13 @@ namespace PSI_DA_PL_B.views.Auth.Login
     public partial class Login : Form
     {
         private string username { get; set; }
-        public Login()
+        private Manager manager { get; set; }
+
+        public Login(Manager manager)
         {
             InitializeComponent();
+
+            this.manager = manager;
         }
 
         private void loginButton_Click(object sender, EventArgs e)
@@ -65,11 +70,11 @@ namespace PSI_DA_PL_B.views.Auth.Login
                 Console.WriteLine("Login successful for user: " + this.username);
 
                 // Proceed to the menu
-                Menu.MainMenu menu = new Menu.MainMenu(this.username);
-                menu.Show();
+                Manager manager = new Manager();
+                manager.MainMenuUI(true, this.username);
 
                 // Hide the current form
-                this.Hide();
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -85,27 +90,10 @@ namespace PSI_DA_PL_B.views.Auth.Login
 
         private void registerButton_Click(object sender, EventArgs e)
         {
+            Manager manager = new Manager();
+            manager.CreateEmployeeUI(true);
 
-            CreateEmployee createEmployeeFrom = new CreateEmployee();
-            createEmployeeFrom.Show();
-            
-            //Register.Register register = new Register.Register();
-            //register.Show();
-            ///this.Show();
-        }
-
-        private void employeesButton_Click(object sender, EventArgs e)
-        {
-            Employees.EmployeeList employee = new Employees.EmployeeList();
-            employee.Show();
-
-            this.Hide();
-            employee.FormClosing += new FormClosingEventHandler(this.Employee_FormClosing);
-        }
-
-        private void Employee_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            this.Show();
+            this.Close();
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Forms;
+using PSI_DA_PL_B.controller;
 using PSI_DA_PL_B.helpers;
 using PSI_DA_PL_B.models.User;
 
@@ -19,11 +20,17 @@ namespace PSI_DA_PL_B.views.Auth.Employees.Create
         private string username { get; set; }
         private string name { get; set; }
         private int Nif { get; set; }
-
+        private Manager manager { get; set; }
         public CreateEmployee()
         {
             InitializeComponent();
         }
+
+        public CreateEmployee(Manager manager) : this()
+        {
+            this.manager = manager;
+        }
+
 
         private void employeeCreate_Click(object sender, EventArgs e)
         {
@@ -83,8 +90,8 @@ namespace PSI_DA_PL_B.views.Auth.Employees.Create
                     db.User.Add(user);
                     db.SaveChanges();
                 }
-                EmployeeList employee = new EmployeeList();
-                employee.Show();
+                Manager manager = new Manager();
+                manager.EmployeeListUI();
 
                 this.Close();
                 
