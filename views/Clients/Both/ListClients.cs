@@ -125,7 +125,7 @@ namespace PSI_DA_PL_B.views.Clients.Both
         {
             ChooseClientCreate chooseClientCreateForm = new ChooseClientCreate();
             chooseClientCreateForm.ShowDialog();
-            this.Close();
+            //this.Close();
         }
     }
 }

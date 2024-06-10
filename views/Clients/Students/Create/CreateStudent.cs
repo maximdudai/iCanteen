@@ -93,6 +93,7 @@ namespace PSI_DA_PL_B.views.Clients.Students.Create
                     db.SaveChanges();
                 }
                 ListClients client = new ListClients();
+                
                 client.Show();
 
                 this.Close();

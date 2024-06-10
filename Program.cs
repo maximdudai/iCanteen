@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -24,7 +24,7 @@ namespace PSI_DA_PL_B
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new iCanteen());
+            Application.Run(new ListClients());
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<Cantina, Configuration>());
 
             using (var context = new Cantina())
