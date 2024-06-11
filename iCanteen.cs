@@ -26,7 +26,6 @@ namespace PSI_DA_PL_B
 
             timer.Tick += new EventHandler(HandleLoginForm);
         }
-
         private void iCanteen_Load(object sender, EventArgs e)
         {
             timer.Start();
@@ -37,9 +36,8 @@ namespace PSI_DA_PL_B
             timer.Stop();
             this.Hide();
 
-            // Ensure Manager is instantiated properly
             Manager manager = new Manager();
-            manager.Login(true);
+            manager.LoginUI(true);
         }
 
         protected override void OnFormClosed(FormClosedEventArgs e)

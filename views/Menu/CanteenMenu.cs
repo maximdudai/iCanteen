@@ -7,27 +7,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PSI_DA_PL_B.controller;
 using PSI_DA_PL_B.helpers;
 using PSI_DA_PL_B.models.User;
 using PSI_DA_PL_B.views.Auth.Login;
+using PSI_DA_PL_B.views.Menu.TicketMenu;
 
 namespace PSI_DA_PL_B.views.Menu
 {
-    public partial class MainMenu : Form
+    public partial class CanteenMenu : Form
     {
         private string username { get; set; }
         private string name { get; set; }
+
         private Timer timer;
-        public MainMenu()
+        private Manager manager { get; set; }
+
+        public CanteenMenu()
         {
             InitializeComponent();
         }
-        public MainMenu(string username) : this()
+        public CanteenMenu(Manager manager, string username) : this()
         {
             this.username = this.labelUsername.Text = username;
 
             this.LoadData();
             this.UpdateUserUI();
+
+            this.manager = manager;
 
             timer = new Timer();
             timer.Interval = 1000; // 1 second
@@ -74,17 +81,26 @@ namespace PSI_DA_PL_B.views.Menu
             this.currentDateTime.Text = dateTime.ToString("dd/MM/yyyy HH:mm:ss");
         }
 
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        private void changeEmployee_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void buttonLogout_Click(object sender, EventArgs e)
-        {
-            Login login = new Login();
-            login.Show();
+            Manager manager = new Manager();
+            manager.EmployeeListUI();
 
             this.Close();
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            Manager manager = new Manager();
+            manager.LoginUI();
+
+            this.Close();
+        }
+
+        private void ticketButton_Click(object sender, EventArgs e)
+        {
+            TicketMenu.TicketMenu ticket = new TicketMenu.TicketMenu();
+            ticket.ShowDialog();
         }
     }
 }
