@@ -47,6 +47,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,7 +80,7 @@
             this.StudentCreate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.StudentCreate.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StudentCreate.ForeColor = System.Drawing.Color.Peru;
-            this.StudentCreate.Location = new System.Drawing.Point(17, 421);
+            this.StudentCreate.Location = new System.Drawing.Point(18, 421);
             this.StudentCreate.Name = "StudentCreate";
             this.StudentCreate.Size = new System.Drawing.Size(210, 45);
             this.StudentCreate.TabIndex = 18;
@@ -99,7 +101,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(72, 219);
+            this.pictureBox1.Location = new System.Drawing.Point(74, 219);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 100);
             this.pictureBox1.TabIndex = 23;
@@ -214,7 +216,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(144, 349);
+            this.label5.Location = new System.Drawing.Point(146, 348);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 23);
             this.label5.TabIndex = 35;
@@ -226,7 +228,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.label6.ForeColor = System.Drawing.Color.Peru;
-            this.label6.Location = new System.Drawing.Point(129, 332);
+            this.label6.Location = new System.Drawing.Point(131, 332);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 16);
             this.label6.TabIndex = 34;
@@ -236,7 +238,7 @@
             // 
             this.textBox1.BackColor = System.Drawing.Color.Peru;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(17, 373);
+            this.textBox1.Location = new System.Drawing.Point(19, 373);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
@@ -247,12 +249,36 @@
             // 
             this.textBox3.BackColor = System.Drawing.Color.Peru;
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Location = new System.Drawing.Point(122, 333);
+            this.textBox3.Location = new System.Drawing.Point(124, 333);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(1, 80);
             this.textBox3.TabIndex = 37;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(37, 347);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(76, 23);
+            this.label7.TabIndex = 39;
+            this.label7.Text = "00,00€";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.label8.ForeColor = System.Drawing.Color.Peru;
+            this.label8.Location = new System.Drawing.Point(25, 331);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(50, 16);
+            this.label8.TabIndex = 38;
+            this.label8.Text = "Preço:";
             // 
             // Extra
             // 
@@ -260,6 +286,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(454, 472);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label5);
@@ -307,5 +335,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }
