@@ -11,6 +11,7 @@ using PSI_DA_PL_B.controller;
 using PSI_DA_PL_B.helpers;
 using PSI_DA_PL_B.models.User;
 using PSI_DA_PL_B.views.Auth.Login;
+using PSI_DA_PL_B.views.Menu.Dish;
 using PSI_DA_PL_B.views.Menu.TicketMenu;
 
 namespace PSI_DA_PL_B.views.Menu
@@ -101,6 +102,12 @@ namespace PSI_DA_PL_B.views.Menu
         {
             TicketMenu.TicketMenu ticket = new TicketMenu.TicketMenu();
             ticket.ShowDialog();
+        }
+
+        private void dishButton_Click(object sender, EventArgs e)
+        {
+            Dish.Dish dish = new Dish.Dish();
+            dish.ShowDialog();
         }
     }
 }

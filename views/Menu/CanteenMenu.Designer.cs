@@ -44,7 +44,7 @@ namespace PSI_DA_PL_B.views.Menu
             this.weekMenu3 = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.menuButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.dishButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -99,6 +99,7 @@ namespace PSI_DA_PL_B.views.Menu
             // 
             this.textBox2.BackColor = System.Drawing.Color.Peru;
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.textBox2.Location = new System.Drawing.Point(-1, 63);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
@@ -233,15 +234,16 @@ namespace PSI_DA_PL_B.views.Menu
             this.menuButton.Text = "Menu";
             this.menuButton.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // dishButton
             // 
-            this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F);
-            this.button1.Location = new System.Drawing.Point(463, 93);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(189, 58);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "Prato";
-            this.button1.UseVisualStyleBackColor = true;
+            this.dishButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F);
+            this.dishButton.Location = new System.Drawing.Point(463, 93);
+            this.dishButton.Name = "dishButton";
+            this.dishButton.Size = new System.Drawing.Size(189, 58);
+            this.dishButton.TabIndex = 23;
+            this.dishButton.Text = "Prato";
+            this.dishButton.UseVisualStyleBackColor = true;
+            this.dishButton.Click += new System.EventHandler(this.dishButton_Click);
             // 
             // button2
             // 
@@ -403,7 +405,7 @@ namespace PSI_DA_PL_B.views.Menu
             this.Controls.Add(this.button4);
             this.Controls.Add(this.ticketButton);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.dishButton);
             this.Controls.Add(this.menuButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.weekMenu3);
@@ -448,7 +450,7 @@ namespace PSI_DA_PL_B.views.Menu
         private System.Windows.Forms.ListBox weekMenu3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button menuButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button dishButton;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
