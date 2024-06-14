@@ -42,7 +42,7 @@ namespace PSI_DA_PL_B.views.Menu
             this.currentDateTime = new System.Windows.Forms.Label();
             this.changeEmployee = new System.Windows.Forms.Button();
             this.weekMenu3 = new System.Windows.Forms.ListBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.dailyMenuWeek = new System.Windows.Forms.Label();
             this.menuButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -54,7 +54,7 @@ namespace PSI_DA_PL_B.views.Menu
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.weekMenu1 = new System.Windows.Forms.ListBox();
             this.weekMenu2 = new System.Windows.Forms.ListBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.currentWeekLabel = new System.Windows.Forms.Label();
             this.menuPrevWeek = new System.Windows.Forms.Button();
             this.menuNextWeek = new System.Windows.Forms.Button();
             this.logoutButton = new System.Windows.Forms.Label();
@@ -211,17 +211,17 @@ namespace PSI_DA_PL_B.views.Menu
             this.weekMenu3.Size = new System.Drawing.Size(131, 132);
             this.weekMenu3.TabIndex = 20;
             // 
-            // label2
+            // dailyMenuWeek
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Peru;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(247, 302);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(325, 26);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "Menus Diários da Semana Atual";
+            this.dailyMenuWeek.AutoSize = true;
+            this.dailyMenuWeek.BackColor = System.Drawing.Color.Peru;
+            this.dailyMenuWeek.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.dailyMenuWeek.ForeColor = System.Drawing.Color.White;
+            this.dailyMenuWeek.Location = new System.Drawing.Point(247, 302);
+            this.dailyMenuWeek.Name = "dailyMenuWeek";
+            this.dailyMenuWeek.Size = new System.Drawing.Size(325, 26);
+            this.dailyMenuWeek.TabIndex = 21;
+            this.dailyMenuWeek.Text = "Menus Diários da Semana Atual";
             // 
             // menuButton
             // 
@@ -335,17 +335,17 @@ namespace PSI_DA_PL_B.views.Menu
             this.weekMenu2.Size = new System.Drawing.Size(131, 132);
             this.weekMenu2.TabIndex = 32;
             // 
-            // label3
+            // currentWeekLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Peru;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(739, 291);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 51);
-            this.label3.TabIndex = 33;
-            this.label3.Text = "22";
+            this.currentWeekLabel.AutoSize = true;
+            this.currentWeekLabel.BackColor = System.Drawing.Color.Peru;
+            this.currentWeekLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Bold);
+            this.currentWeekLabel.ForeColor = System.Drawing.Color.White;
+            this.currentWeekLabel.Location = new System.Drawing.Point(739, 291);
+            this.currentWeekLabel.Name = "currentWeekLabel";
+            this.currentWeekLabel.Size = new System.Drawing.Size(72, 51);
+            this.currentWeekLabel.TabIndex = 33;
+            this.currentWeekLabel.Text = "22";
             // 
             // menuPrevWeek
             // 
@@ -358,6 +358,7 @@ namespace PSI_DA_PL_B.views.Menu
             this.menuPrevWeek.TabIndex = 34;
             this.menuPrevWeek.Text = "<";
             this.menuPrevWeek.UseVisualStyleBackColor = false;
+            this.menuPrevWeek.Click += new System.EventHandler(this.menuPrevWeek_Click);
             // 
             // menuNextWeek
             // 
@@ -370,6 +371,7 @@ namespace PSI_DA_PL_B.views.Menu
             this.menuNextWeek.TabIndex = 35;
             this.menuNextWeek.Text = ">";
             this.menuNextWeek.UseVisualStyleBackColor = false;
+            this.menuNextWeek.Click += new System.EventHandler(this.menuNextWeek_Click);
             // 
             // logoutButton
             // 
@@ -394,7 +396,7 @@ namespace PSI_DA_PL_B.views.Menu
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.menuNextWeek);
             this.Controls.Add(this.menuPrevWeek);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.currentWeekLabel);
             this.Controls.Add(this.weekMenu2);
             this.Controls.Add(this.weekMenu1);
             this.Controls.Add(this.weekMenu5);
@@ -405,7 +407,7 @@ namespace PSI_DA_PL_B.views.Menu
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuButton);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.dailyMenuWeek);
             this.Controls.Add(this.weekMenu3);
             this.Controls.Add(this.changeEmployee);
             this.Controls.Add(this.currentDateTime);
@@ -446,7 +448,7 @@ namespace PSI_DA_PL_B.views.Menu
         private System.Windows.Forms.Label currentDateTime;
         private System.Windows.Forms.Button changeEmployee;
         private System.Windows.Forms.ListBox weekMenu3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label dailyMenuWeek;
         private System.Windows.Forms.Button menuButton;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
@@ -458,7 +460,7 @@ namespace PSI_DA_PL_B.views.Menu
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.ListBox weekMenu1;
         private System.Windows.Forms.ListBox weekMenu2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label currentWeekLabel;
         private System.Windows.Forms.Button menuPrevWeek;
         private System.Windows.Forms.Button menuNextWeek;
         private System.Windows.Forms.Label logoutButton;
