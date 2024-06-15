@@ -9,6 +9,7 @@ using PSI_DA_PL_B.Migrations;
 using PSI_DA_PL_B.models.User;
 using PSI_DA_PL_B.views.Auth.Login;
 using PSI_DA_PL_B.views.Clients.Both;
+using PSI_DA_PL_B.views.Menu;
 
 namespace PSI_DA_PL_B
 {

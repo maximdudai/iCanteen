@@ -7,14 +7,16 @@ namespace PSI_DA_PL_B.models.User
     {
         public int NumStudent { get; set; }
 
-        public Student() : base()
-        {
-        }
+        public Student() : base() { }
 
-        public Student(string name, int nif, double balance, int numStudent)
-            : base(name, nif, balance)
+        public Student(string name, int nif, double balance, int numStudent) : base(name, nif, balance)
         {
             this.NumStudent = numStudent;
+        }
+
+        public override string ToString()
+        {
+            return $"{Name} - {Nif} - {Balance} - {NumStudent}";
         }
     }
 }

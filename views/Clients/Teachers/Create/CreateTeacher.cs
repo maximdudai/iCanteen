@@ -24,7 +24,7 @@ namespace PSI_DA_PL_B.views.Clients.Teachers.Create
             InitializeComponent();
         }
 
-        private void teacherCreate_Click(object sender, EventArgs e)
+        private void TeacherCreate_Click(object sender, EventArgs e)
         {
             try
             {

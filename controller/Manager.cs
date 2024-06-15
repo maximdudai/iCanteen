@@ -8,6 +8,9 @@ using PSI_DA_PL_B.views.Auth.Employees;
 using PSI_DA_PL_B.views.Auth.Employees.Create;
 using PSI_DA_PL_B.views.Auth.Employees.Edit;
 using PSI_DA_PL_B.views.Auth.Login;
+using PSI_DA_PL_B.views.Clients.Both;
+using PSI_DA_PL_B.views.Clients.Students.Create;
+using PSI_DA_PL_B.views.Clients.Teachers.Create;
 using PSI_DA_PL_B.views.Menu;
 
 namespace PSI_DA_PL_B.controller
@@ -20,6 +23,11 @@ namespace PSI_DA_PL_B.controller
         private CanteenMenu mainMenuForm;
         private CreateEmployee createEmployeeForm;
         private EmployeeList employeeListForm;
+
+        //clients
+        private ChooseClientCreate chooseClientCreateForm;
+        private CreateStudent createStudentForm;
+        private CreateTeacher createTeacherForm;
 
         // Method to handle Login UI
         public void LoginUI(bool toggle = true)
@@ -92,6 +100,25 @@ namespace PSI_DA_PL_B.controller
 
             this.currentForm = employeeListForm;
         }
+
+        #region "Manager for Clients"
+
+        public void ChooseClientCreateUI (bool toggle = true)
+        {
+            this.DestroyCurrentForm();
+
+
+        }
+
+        public void CreateStudentUI(bool toggle = true)
+        {
+            this.DestroyCurrentForm();
+
+
+
+
+        }
+        #endregion
 
         // Method to destroy the current form
         private void DestroyCurrentForm()

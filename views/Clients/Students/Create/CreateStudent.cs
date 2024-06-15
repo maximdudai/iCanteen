@@ -26,7 +26,7 @@ namespace PSI_DA_PL_B.views.Clients.Students.Create
             InitializeComponent();
         }
 
-        private void studentCreate_Click(object sender, EventArgs e)
+        private void StudentCreate_Click(object sender, EventArgs e)
         {
             try 
             {
@@ -93,7 +93,6 @@ namespace PSI_DA_PL_B.views.Clients.Students.Create
                     db.SaveChanges();
                 }
                 ListClients client = new ListClients();
-                
                 client.Show();
 
                 this.Close();
