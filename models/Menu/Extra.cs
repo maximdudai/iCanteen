@@ -9,7 +9,7 @@ using PSI_DA_PL_B.models.MenuCantina;
 
 namespace PSI_DA_PL_B.models.Menu
 {
-    public class Extra : MenuCantina.Menu
+    public class Extra
     {
         [Key]
         public int itemId { get; set; }
@@ -20,15 +20,11 @@ namespace PSI_DA_PL_B.models.Menu
         [Range(0, 1)]
         public bool Ativo { get; set; }
 
-        string[] Picture { get; set; }
-        string PictureUrl { get; set; }
-
         public Extra() : base()
         {
         }
 
-        public Extra(int quantidade, double preco_estudante, double preco_professor, string descricao, bool ativo)
-            : base(quantidade, preco_estudante, preco_professor)
+        public Extra(string descricao, bool ativo)
         {
             this.Descricao = descricao;
             this.Ativo = ativo;
