@@ -1,5 +1,8 @@
 ﻿using System;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace PSI_DA_PL_B.models.User
 {
@@ -7,12 +10,9 @@ namespace PSI_DA_PL_B.models.User
     {
         public int NumStudent { get; set; }
 
-        public Student() : base()
-        {
-        }
+        public Student() : base() { }
 
-        public Student(string name, int nif, double balance, int numStudent)
-            : base(name, nif, balance)
+        public Student(string name, int nif, double balance, int numStudent) : base(name, nif, balance)
         {
             this.NumStudent = numStudent;
         }

@@ -10,7 +10,7 @@
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param Name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateStudent));
             this.header1 = new PSI_DA_PL_B.views.components.Header();
             this.label2 = new System.Windows.Forms.Label();
             this.studentNameInput = new System.Windows.Forms.TextBox();
@@ -44,8 +45,9 @@
             // 
             this.header1.BackColor = System.Drawing.Color.Peru;
             this.header1.Location = new System.Drawing.Point(0, 0);
+            this.header1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.header1.Name = "header1";
-            this.header1.Size = new System.Drawing.Size(455, 117);
+            this.header1.Size = new System.Drawing.Size(682, 180);
             this.header1.TabIndex = 0;
             // 
             // label2
@@ -54,9 +56,10 @@
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.label2.ForeColor = System.Drawing.Color.Peru;
-            this.label2.Location = new System.Drawing.Point(14, 197);
+            this.label2.Location = new System.Drawing.Point(21, 303);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(138, 16);
+            this.label2.Size = new System.Drawing.Size(200, 23);
             this.label2.TabIndex = 20;
             this.label2.Text = "Nome do estudante";
             // 
@@ -64,21 +67,23 @@
             // 
             this.studentNameInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.studentNameInput.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16F);
-            this.studentNameInput.Location = new System.Drawing.Point(14, 216);
+            this.studentNameInput.Location = new System.Drawing.Point(21, 332);
+            this.studentNameInput.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.studentNameInput.Name = "studentNameInput";
-            this.studentNameInput.Size = new System.Drawing.Size(430, 32);
+            this.studentNameInput.Size = new System.Drawing.Size(644, 45);
             this.studentNameInput.TabIndex = 1;
             // 
             // studentCreate
             // 
             this.studentCreate.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14F);
-            this.studentCreate.Location = new System.Drawing.Point(141, 463);
+            this.studentCreate.Location = new System.Drawing.Point(212, 712);
+            this.studentCreate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.studentCreate.Name = "studentCreate";
-            this.studentCreate.Size = new System.Drawing.Size(188, 38);
+            this.studentCreate.Size = new System.Drawing.Size(282, 58);
             this.studentCreate.TabIndex = 4;
             this.studentCreate.Text = "Criar";
             this.studentCreate.UseVisualStyleBackColor = true;
-            this.studentCreate.Click += new System.EventHandler(this.studentCreate_Click);
+            this.studentCreate.Click += new System.EventHandler(this.StudentCreate_Click);
             // 
             // label3
             // 
@@ -86,9 +91,10 @@
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.label3.ForeColor = System.Drawing.Color.Peru;
-            this.label3.Location = new System.Drawing.Point(14, 350);
+            this.label3.Location = new System.Drawing.Point(21, 538);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 16);
+            this.label3.Size = new System.Drawing.Size(176, 23);
             this.label3.TabIndex = 19;
             this.label3.Text = "NIF do estudante";
             // 
@@ -96,9 +102,10 @@
             // 
             this.studentNIFinput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.studentNIFinput.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16F);
-            this.studentNIFinput.Location = new System.Drawing.Point(14, 369);
+            this.studentNIFinput.Location = new System.Drawing.Point(21, 568);
+            this.studentNIFinput.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.studentNIFinput.Name = "studentNIFinput";
-            this.studentNIFinput.Size = new System.Drawing.Size(430, 32);
+            this.studentNIFinput.Size = new System.Drawing.Size(644, 45);
             this.studentNIFinput.TabIndex = 3;
             // 
             // employeeUsername
@@ -107,9 +114,10 @@
             this.employeeUsername.BackColor = System.Drawing.Color.White;
             this.employeeUsername.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.employeeUsername.ForeColor = System.Drawing.Color.Peru;
-            this.employeeUsername.Location = new System.Drawing.Point(14, 271);
+            this.employeeUsername.Location = new System.Drawing.Point(21, 417);
+            this.employeeUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.employeeUsername.Name = "employeeUsername";
-            this.employeeUsername.Size = new System.Drawing.Size(152, 16);
+            this.employeeUsername.Size = new System.Drawing.Size(221, 23);
             this.employeeUsername.TabIndex = 18;
             this.employeeUsername.Text = "Numero de estudante";
             // 
@@ -117,9 +125,10 @@
             // 
             this.studentNumberInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.studentNumberInput.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16F);
-            this.studentNumberInput.Location = new System.Drawing.Point(14, 290);
+            this.studentNumberInput.Location = new System.Drawing.Point(21, 446);
+            this.studentNumberInput.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.studentNumberInput.Name = "studentNumberInput";
-            this.studentNumberInput.Size = new System.Drawing.Size(430, 32);
+            this.studentNumberInput.Size = new System.Drawing.Size(644, 45);
             this.studentNumberInput.TabIndex = 2;
             // 
             // label1
@@ -128,9 +137,10 @@
             this.label1.BackColor = System.Drawing.Color.Peru;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(98, 142);
+            this.label1.Location = new System.Drawing.Point(147, 218);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(261, 37);
+            this.label1.Size = new System.Drawing.Size(394, 55);
             this.label1.TabIndex = 21;
             this.label1.Text = "Criar Estudante";
             // 
@@ -138,19 +148,20 @@
             // 
             this.textBox1.BackColor = System.Drawing.Color.Peru;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(0, 136);
+            this.textBox1.Location = new System.Drawing.Point(0, 209);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(455, 51);
+            this.textBox1.Size = new System.Drawing.Size(682, 78);
             this.textBox1.TabIndex = 16;
             // 
             // CreateStudent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(454, 514);
+            this.ClientSize = new System.Drawing.Size(681, 791);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.studentNameInput);
             this.Controls.Add(this.studentCreate);
@@ -161,7 +172,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.header1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "CreateStudent";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registar Estudante";
             this.ResumeLayout(false);
             this.PerformLayout();

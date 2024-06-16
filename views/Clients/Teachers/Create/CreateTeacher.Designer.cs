@@ -10,7 +10,7 @@
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param Name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -59,7 +59,7 @@
             resources.ApplyResources(this.teacherCreate, "teacherCreate");
             this.teacherCreate.Name = "teacherCreate";
             this.teacherCreate.UseVisualStyleBackColor = true;
-            this.teacherCreate.Click += new System.EventHandler(this.teacherCreate_Click);
+            this.teacherCreate.Click += new System.EventHandler(this.TeacherCreate_Click);
             // 
             // label3
             // 

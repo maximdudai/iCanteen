@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +8,9 @@ using PSI_DA_PL_B.views.Auth.Employees;
 using PSI_DA_PL_B.views.Auth.Employees.Create;
 using PSI_DA_PL_B.views.Auth.Employees.Edit;
 using PSI_DA_PL_B.views.Auth.Login;
+using PSI_DA_PL_B.views.Clients.Both;
+using PSI_DA_PL_B.views.Clients.Students.Create;
+using PSI_DA_PL_B.views.Clients.Teachers.Create;
 using PSI_DA_PL_B.views.Auth.Register;
 using PSI_DA_PL_B.views.Menu;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
@@ -23,6 +26,8 @@ namespace PSI_DA_PL_B.controller
         private CreateEmployee createEmployeeForm = null;
         private EmployeeList employeeListForm = null;
         private Register registerForm = null;
+
+        private ListClients listClientForm;
 
 
         // Method to handle Login UI
@@ -130,6 +135,22 @@ namespace PSI_DA_PL_B.controller
             {
                 employeeListForm.Close();
             }
+        }
+
+        public void ClientListUI(bool toggle = true)
+        {
+            this.DestroyCurrentForm();
+
+            if (listClientForm == null) 
+            {
+                listClientForm = new ListClients(this);
+            }
+
+            if (toggle)
+                listClientForm.Show();
+            else 
+                listClientForm.Hide();
+            this.currentForm = listClientForm;
         }
 
         // Method to destroy the current form
