@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListClients));
-            this.clientsList = new System.Windows.Forms.ListBox();
+            this.clientsListbox = new System.Windows.Forms.ListBox();
             this.deleteClient = new System.Windows.Forms.Button();
             this.editClient = new System.Windows.Forms.Button();
             this.createClient = new System.Windows.Forms.Button();
@@ -41,15 +41,15 @@
             this.header1 = new PSI_DA_PL_B.views.components.Header();
             this.SuspendLayout();
             // 
-            // clientsList
+            // clientsListbox
             // 
-            this.clientsList.FormattingEnabled = true;
-            this.clientsList.ItemHeight = 16;
-            this.clientsList.Location = new System.Drawing.Point(16, 446);
-            this.clientsList.Margin = new System.Windows.Forms.Padding(4);
-            this.clientsList.Name = "clientsList";
-            this.clientsList.Size = new System.Drawing.Size(717, 260);
-            this.clientsList.TabIndex = 6;
+            this.clientsListbox.FormattingEnabled = true;
+            this.clientsListbox.ItemHeight = 16;
+            this.clientsListbox.Location = new System.Drawing.Point(16, 446);
+            this.clientsListbox.Margin = new System.Windows.Forms.Padding(4);
+            this.clientsListbox.Name = "clientsListbox";
+            this.clientsListbox.Size = new System.Drawing.Size(717, 260);
+            this.clientsListbox.TabIndex = 6;
             // 
             // deleteClient
             // 
@@ -162,7 +162,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(749, 715);
-            this.Controls.Add(this.clientsList);
+            this.Controls.Add(this.clientsListbox);
             this.Controls.Add(this.deleteClient);
             this.Controls.Add(this.editClient);
             this.Controls.Add(this.createClient);
@@ -184,7 +184,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox clientsList;
+        private System.Windows.Forms.ListBox clientsListbox;
         private System.Windows.Forms.Button deleteClient;
         private System.Windows.Forms.Button editClient;
         private System.Windows.Forms.Button createClient;

@@ -12,12 +12,5 @@ namespace PSI_DA_PL_B.models.User
         {
             this.Balance = balance;
         }
-        
-        /*
-        public override string ToString()
-        {
-            return $"{Name} - {Nif}";
-        }
-        */
     }
 }
