@@ -76,7 +76,7 @@ namespace PSI_DA_PL_B.views.Auth.Register
         private void loginButton_Click(object sender, EventArgs e)
         {
             this.manager.LoginUI(true);
-            this.Close();
+            this.manager.RegisterUI(false);
         }
     }
 }

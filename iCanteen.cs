@@ -37,8 +37,7 @@ namespace PSI_DA_PL_B
             this.Hide();
 
             Manager manager = new Manager();
-            //manager.LoginUI(true);
-            manager.ClientListUI();
+            manager.LoginUI(true);
         }
 
         protected override void OnFormClosed(FormClosedEventArgs e)
