@@ -14,6 +14,8 @@ using PSI_DA_PL_B.views.Clients.Teachers.Create;
 using PSI_DA_PL_B.views.Auth.Register;
 using PSI_DA_PL_B.views.Menu;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using PSI_DA_PL_B.views.Clients.Students.Edit;
+using PSI_DA_PL_B.views.Clients.Teachers.Edit;
 
 namespace PSI_DA_PL_B.controller
 {
@@ -27,7 +29,14 @@ namespace PSI_DA_PL_B.controller
         private EmployeeList employeeListForm = null;
         private Register registerForm = null;
 
-        private ListClients listClientForm;
+        //clients
+        private ListClients listClientForm = null;
+        private ChooseClientCreate ChooseClientForm = null;
+        private CreateStudent CreateStudentFrom = null;
+        private CreateTeacher CreateTeacherFrom = null;
+        private ListClients EditClientForm = null;
+        private EditStudent EditStudentForm = null;
+        private EditTeacher EditTeacherForm = null;
 
 
         // Method to handle Login UI
@@ -51,7 +60,6 @@ namespace PSI_DA_PL_B.controller
             {
                 loginForm.Close();
             }
-
         }
 
         public void RegisterUI(bool toggle = true)
@@ -137,21 +145,88 @@ namespace PSI_DA_PL_B.controller
             }
         }
 
+        #region Client Manager
         public void ClientListUI(bool toggle = true)
         {
             this.DestroyCurrentForm();
 
-            if (listClientForm == null) 
+            if (currentForm != listClientForm || listClientForm == null) 
             {
                 listClientForm = new ListClients(this);
             }
 
-            if (toggle)
+            if (toggle && listClientForm != null)
+            {
                 listClientForm.Show();
-            else 
-                listClientForm.Hide();
-            this.currentForm = listClientForm;
+                this.currentForm = listClientForm;
+            }  
+            else
+            {
+                listClientForm.Close();
+            }   
         }
+
+        public void ChooseClientUI (bool toggle = true)
+        {
+            this.DestroyCurrentForm();
+
+            if (currentForm != ChooseClientForm || ChooseClientForm == null)
+            {
+                ChooseClientForm = new ChooseClientCreate(this);
+            }
+
+            if (toggle && ChooseClientForm != null)
+            {
+                ChooseClientForm.Show();
+                this.currentForm = ChooseClientForm;
+            }
+            else
+            {
+                ChooseClientForm.Close();
+            }
+        }
+
+        public void CreateStudentUI(bool toggle = true)
+        {
+            this.DestroyCurrentForm();
+
+            if (currentForm != CreateStudentFrom || CreateStudentFrom == null)
+            {
+                CreateStudentFrom = new CreateStudent(this);
+            }
+
+            if (toggle && CreateStudentFrom != null)
+            {
+                CreateStudentFrom.Show();
+                this.currentForm = CreateStudentFrom;
+            }
+            else
+            {
+                CreateStudentFrom.Close();
+            }
+        }
+        public void CreateTeacherUI(bool toggle = true)
+        {
+            this.DestroyCurrentForm();
+
+            if (currentForm != CreateTeacherFrom || CreateTeacherFrom == null)
+            {
+                CreateTeacherFrom = new CreateTeacher(this);
+            }
+
+            if (toggle && CreateTeacherFrom != null)
+            {
+                CreateTeacherFrom.Show();
+                this.currentForm = CreateTeacherFrom;
+            }
+            else
+            {
+                CreateTeacherFrom.Close();
+            }
+        }
+
+
+        #endregion
 
         // Method to destroy the current form
         private void DestroyCurrentForm()

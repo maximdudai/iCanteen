@@ -32,17 +32,7 @@ namespace PSI_DA_PL_B.views.Clients.Both
             public double Balance { get; set; }
             public int? NumStudent { get; set; }
             public string Email { get; set; }
-            /*
-            public Client ToClient()
-            {
-                return new Client
-                {
-                    Name = this.Name,
-                    Nif = this.Nif,
-                    Balance = this.Balance
-                };
-            }
-            */
+
             public override string ToString()
             {
                 var text = $"Nome: {Name}; Nif: {Nif} ";
@@ -115,99 +105,6 @@ namespace PSI_DA_PL_B.views.Clients.Both
             }
         }
 
-
-        /*
-        private void LoadClients()
-        {
-            try
-            {
-                using (var db = new Cantina())
-                {                    
-                    //query for students
-                    var studentList = db.User
-                        .OfType<Student>()
-                        .Select(u => new ClientInfo
-                        {
-                            Name = u.Name,
-                            Nif = u.Nif,
-                            Balance = u.Balance,
-                            NumStudent = u.NumStudent//,
-                            //Email = null
-                        }).ToList();
-
-                    foreach (var stu in studentList)
-                    {
-                        Student studentIE = new Student((string)stu.Name, (int)stu.Nif, (double)stu.Balance, (int)stu.NumStudent);
-                        IE.Add(studentIE);
-
-                        //Client client = new Client((string)clie.Name, (int)clie.Nif, (double)clie.Balance);
-                        //IE.Add(client);
-                    }
-
-                    //query for teachers
-                    var teacherList = db.User
-                        .OfType<Teacher>()
-                        .Select(u => new ClientInfo
-                        {
-                            Name = u.Name,
-                            Nif = u.Nif,
-                            Balance = u.Balance,
-                            //NumStudent = null,
-                            Email = u.Email
-                        }).ToList();
-
-                    foreach (var tea in teacherList)
-                    {
-                        Teacher teacherIE = new Teacher((string)tea.Name, (int)tea.Nif, (double)tea.Balance, (string)tea.Email);
-                        IE.Add(teacherIE);
-                    }
-
-                    /*
-                    //combine studentList with teacherList
-                    var clientList = studentList.Concat(teacherList).ToList();
-
-                    foreach (var clie in clientList)
-                    {
-                        Client client = new Client((string)clie.Name, (int)clie.Nif, (double)clie.Balance);
-                        IE.Add(client);
-                    }
-                    */
-        /*
-        var studentList = dbClients.User
-        .OfType<Student>()
-        .Select(u => new Student
-        {
-            Name = u.Name,
-            Nif = u.Nif,
-            Balance = u.Balance,
-            NumStudent = u.NumStudent
-        }).ToList();
-
-            // Query for teachers
-            var teacherList = dbClients.User
-                .OfType<Teacher>()
-                .Select(u => new Teacher
-                {
-                    Name = u.Name,
-                    Nif = u.Nif,
-                    Balance = u.Balance,
-                    Email = u.Email
-                }).ToList();
-
-        IE.AddRange(studentList);
-        IE.AddRange(teacherList);
-        */
-        /*
-    }        
-
-this.DisplayClients();           
-}
-catch (Exception ex)
-{
-    Error.Err(ex.Message);
-}
-}
-*/
         //receiving a list as a parameter
         private void DisplayClients()
         {
@@ -249,8 +146,11 @@ catch (Exception ex)
         //form to choose a type of client to create
         private void CreateClient_Click(object sender, EventArgs e)
         {
-            ChooseClientCreate chooseClientCreateForm = new ChooseClientCreate();
-            chooseClientCreateForm.ShowDialog();
+            //ChooseClientCreate chooseClientCreateForm = new ChooseClientCreate();
+            //chooseClientCreateForm.ShowDialog();
+            //this.Close();
+
+            this.manager.ChooseClientUI();
         }
 
         //function to compare data with database

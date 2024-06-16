@@ -1,4 +1,5 @@
-﻿using PSI_DA_PL_B.helpers;
+﻿using PSI_DA_PL_B.controller;
+using PSI_DA_PL_B.helpers;
 using PSI_DA_PL_B.models.User;
 using PSI_DA_PL_B.views.Clients.Both;
 using System;
@@ -15,6 +16,7 @@ namespace PSI_DA_PL_B.views.Clients.Teachers.Create
 {
     public partial class CreateTeacher : Form
     {
+        private Manager manager { get; set; }
         private string name { get; set; }
         private int Nif { get; set; }
         private double Balance { get; set; }
@@ -22,6 +24,10 @@ namespace PSI_DA_PL_B.views.Clients.Teachers.Create
         public CreateTeacher()
         {
             InitializeComponent();
+        }
+        public CreateTeacher(Manager manager) : this()
+        {
+            this.manager = manager;
         }
 
         private void TeacherCreate_Click(object sender, EventArgs e)
@@ -86,16 +92,22 @@ namespace PSI_DA_PL_B.views.Clients.Teachers.Create
                     db.User.Add(user);
                     db.SaveChanges();
                 }
-                ListClients client = new ListClients();
-                client.Show();
+                //ListClients client = new ListClients();
+                //client.Show();
 
-                this.Close();
+                //this.Close();
+                this.manager.ClientListUI();
 
             }
             catch (Exception ex)
             {
                 Error.Err(ex.Message);
             }
+        }
+
+        private void CreateTeacher_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.manager.ClientListUI();
         }
     }
 }

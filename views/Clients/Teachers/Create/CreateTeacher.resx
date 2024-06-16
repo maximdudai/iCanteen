@@ -126,14 +126,14 @@
     <value>Arial Rounded MT Bold, 10pt</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 303</value>
+    <value>19, 242</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 23</value>
+    <value>159, 18</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
@@ -157,13 +157,13 @@
     <value>Arial Rounded MT Bold, 16pt</value>
   </data>
   <data name="teacherNameInput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 332</value>
+    <value>19, 266</value>
   </data>
   <data name="teacherNameInput.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="teacherNameInput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>644, 45</value>
+    <value>573, 37</value>
   </data>
   <data name="teacherNameInput.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
@@ -184,13 +184,13 @@
     <value>Arial Rounded MT Bold, 14pt</value>
   </data>
   <data name="teacherCreate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>212, 712</value>
+    <value>188, 570</value>
   </data>
   <data name="teacherCreate.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="teacherCreate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>282, 58</value>
+    <value>251, 46</value>
   </data>
   <data name="teacherCreate.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -217,13 +217,13 @@
     <value>Arial Rounded MT Bold, 10pt</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 538</value>
+    <value>19, 430</value>
   </data>
   <data name="label3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 23</value>
+    <value>140, 18</value>
   </data>
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
@@ -247,13 +247,13 @@
     <value>Arial Rounded MT Bold, 16pt</value>
   </data>
   <data name="teacherNIFinput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 568</value>
+    <value>19, 454</value>
   </data>
   <data name="teacherNIFinput.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="teacherNIFinput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>644, 45</value>
+    <value>573, 37</value>
   </data>
   <data name="teacherNIFinput.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
@@ -277,13 +277,13 @@
     <value>Arial Rounded MT Bold, 10pt</value>
   </data>
   <data name="employeeUsername.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 417</value>
+    <value>19, 334</value>
   </data>
   <data name="employeeUsername.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
   <data name="employeeUsername.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 23</value>
+    <value>156, 18</value>
   </data>
   <data name="employeeUsername.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
@@ -307,13 +307,13 @@
     <value>Arial Rounded MT Bold, 16pt</value>
   </data>
   <data name="teacherEmailInput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 446</value>
+    <value>19, 357</value>
   </data>
   <data name="teacherEmailInput.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="teacherEmailInput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>644, 45</value>
+    <value>573, 37</value>
   </data>
   <data name="teacherEmailInput.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
@@ -337,13 +337,13 @@
     <value>Arial Rounded MT Bold, 24pt</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>140, 218</value>
+    <value>124, 174</value>
   </data>
   <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>385, 55</value>
+    <value>313, 45</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>31</value>
@@ -364,16 +364,16 @@
     <value>7</value>
   </data>
   <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 209</value>
+    <value>0, 167</value>
   </data>
   <data name="textBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="textBox1.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>682, 78</value>
+    <value>606, 62</value>
   </data>
   <data name="textBox1.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
@@ -394,10 +394,10 @@
     <value>0, 0</value>
   </data>
   <data name="header1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 8, 6, 8</value>
+    <value>5, 6, 5, 6</value>
   </data>
   <data name="header1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>682, 180</value>
+    <value>606, 144</value>
   </data>
   <data name="header1.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
@@ -418,10 +418,10 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>9, 20</value>
+    <value>8, 16</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>681, 791</value>
+    <value>605, 633</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2657,7 +2657,7 @@
 </value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

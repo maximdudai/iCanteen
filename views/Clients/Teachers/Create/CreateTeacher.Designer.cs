@@ -124,6 +124,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.header1);
             this.Name = "CreateTeacher";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CreateTeacher_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
