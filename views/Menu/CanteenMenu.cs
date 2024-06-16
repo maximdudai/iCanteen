@@ -133,8 +133,7 @@ namespace PSI_DA_PL_B.views.Menu
 
         private void dishButton_Click(object sender, EventArgs e)
         {
-            Dish.Dish dish = new Dish.Dish();
-            dish.ShowDialog();
+            this.manager.ShowDishListUI();
         }
 
         private void menuPrevWeek_Click(object sender, EventArgs e)

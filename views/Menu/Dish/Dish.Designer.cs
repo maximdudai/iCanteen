@@ -360,6 +360,7 @@
             this.Name = "Dish";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dish";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Dish_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

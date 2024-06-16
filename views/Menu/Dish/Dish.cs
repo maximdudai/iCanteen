@@ -7,21 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PSI_DA_PL_B.controller;
+using PSI_DA_PL_B.views.Menu.Dish.Create;
 
 namespace PSI_DA_PL_B.views.Menu.Dish
 {
     public partial class Dish : Form
     {
+        Manager manager { get; set; }
+
         private List<models.Menu.Dish> dishList = new List<models.Menu.Dish>();
-        public Dish()
+        public Dish(Manager manager)
         {
             InitializeComponent();
+
+            this.manager = manager;
             this.LoadDishFromDatabase();
         }
 
         private void dishCreate_Click(object sender, EventArgs e)
         {
-
+            this.manager.ShowCreateDishUI();
         }
 
         private void UpdateDishUI()
@@ -42,6 +48,11 @@ namespace PSI_DA_PL_B.views.Menu.Dish
         {
             dishListBox.DataSource = null;
             dishListBox.DataSource = dishList;
+        }
+
+        private void Dish_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.manager.MainMenuUI();
         }
     }
 }
