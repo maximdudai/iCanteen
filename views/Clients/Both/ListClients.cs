@@ -1,4 +1,5 @@
-﻿using PSI_DA_PL_B.helpers;
+﻿using PSI_DA_PL_B.controller;
+using PSI_DA_PL_B.helpers;
 using PSI_DA_PL_B.models.User;
 using PSI_DA_PL_B.views.Auth.Employees;
 using PSI_DA_PL_B.views.Clients.Students.Edit;
@@ -10,6 +11,7 @@ using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,6 +22,7 @@ namespace PSI_DA_PL_B.views.Clients.Both
     public partial class ListClients : Form
     {
         private readonly List<Client> clients;
+        private Manager manager { get; set; }
 
         //to join the queries
         public class ClientInfo
@@ -29,15 +32,91 @@ namespace PSI_DA_PL_B.views.Clients.Both
             public double Balance { get; set; }
             public int? NumStudent { get; set; }
             public string Email { get; set; }
+            /*
+            public Client ToClient()
+            {
+                return new Client
+                {
+                    Name = this.Name,
+                    Nif = this.Nif,
+                    Balance = this.Balance
+                };
+            }
+            */
+            public override string ToString()
+            {
+                var text = $"Nome: {Name}; Nif: {Nif} ";
+
+                if(NumStudent.HasValue)
+                {
+                    text += $"; NumEst: {NumStudent}";
+                }
+                if (!string.IsNullOrEmpty(Email))
+                {
+                    text += $"; Email: {Email}";
+                }
+                return text ;
+            }
         }
 
         public ListClients()
         {
             InitializeComponent();
+        }
+
+        public ListClients(Manager manager):this()
+        {
+            this.manager = manager;
             clients = new List<Client>();
             LoadClients();
         }
 
+        private void LoadClients()
+        {
+            try
+            {
+                using (var db = new Cantina())
+                {
+                    var studentList = db.User
+                        .OfType<Student>()
+                        .Select(u => new ClientInfo
+                        {
+                            Name = u.Name,
+                            Nif = u.Nif,
+                            Balance = u.Balance,
+                            NumStudent = u.NumStudent,
+                            Email = null
+                        }).ToList();
+
+                    var teacherList = db.User
+                        .OfType<Teacher>()
+                        .Select(u => new ClientInfo
+                        {
+                            Name = u.Name,
+                            Nif = u.Nif,
+                            Balance = u.Balance,
+                            NumStudent = null,
+                            Email = u.Email
+                        }).ToList();
+
+                    var clientList = studentList.Concat(teacherList).ToList();
+
+                    clientsListbox.Items.Clear();
+
+                    foreach (var cli in clientList)
+                    {
+                        clientsListbox.Items.Add(cli);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.Err(ex.Message);
+            }
+        }
+
+
+        /*
         private void LoadClients()
         {
             try
@@ -58,11 +137,11 @@ namespace PSI_DA_PL_B.views.Clients.Both
 
                     foreach (var stu in studentList)
                     {
-                        Student student = new Student((string)stu.Name, (int)stu.Nif, (double)stu.Balance, (int)stu.NumStudent);
-                        clients.Add(student);
+                        Student studentIE = new Student((string)stu.Name, (int)stu.Nif, (double)stu.Balance, (int)stu.NumStudent);
+                        IE.Add(studentIE);
 
                         //Client client = new Client((string)clie.Name, (int)clie.Nif, (double)clie.Balance);
-                        //clients.Add(client);
+                        //IE.Add(client);
                     }
 
                     //query for teachers
@@ -79,8 +158,8 @@ namespace PSI_DA_PL_B.views.Clients.Both
 
                     foreach (var tea in teacherList)
                     {
-                        Teacher teacher = new Teacher((string)tea.Name, (int)tea.Nif, (double)tea.Balance, (string)tea.Email);
-                        clients.Add(teacher);
+                        Teacher teacherIE = new Teacher((string)tea.Name, (int)tea.Nif, (double)tea.Balance, (string)tea.Email);
+                        IE.Add(teacherIE);
                     }
 
                     /*
@@ -90,49 +169,50 @@ namespace PSI_DA_PL_B.views.Clients.Both
                     foreach (var clie in clientList)
                     {
                         Client client = new Client((string)clie.Name, (int)clie.Nif, (double)clie.Balance);
-                        clients.Add(client);
+                        IE.Add(client);
                     }
                     */
-                    /*
-                    var studentList = dbClients.User
-                    .OfType<Student>()
-                    .Select(u => new Student
-                    {
-                        Name = u.Name,
-                        Nif = u.Nif,
-                        Balance = u.Balance,
-                        NumStudent = u.NumStudent
-                    }).ToList();
+        /*
+        var studentList = dbClients.User
+        .OfType<Student>()
+        .Select(u => new Student
+        {
+            Name = u.Name,
+            Nif = u.Nif,
+            Balance = u.Balance,
+            NumStudent = u.NumStudent
+        }).ToList();
 
-                        // Query for teachers
-                        var teacherList = dbClients.User
-                            .OfType<Teacher>()
-                            .Select(u => new Teacher
-                            {
-                                Name = u.Name,
-                                Nif = u.Nif,
-                                Balance = u.Balance,
-                                Email = u.Email
-                            }).ToList();
+            // Query for teachers
+            var teacherList = dbClients.User
+                .OfType<Teacher>()
+                .Select(u => new Teacher
+                {
+                    Name = u.Name,
+                    Nif = u.Nif,
+                    Balance = u.Balance,
+                    Email = u.Email
+                }).ToList();
 
-                    clients.AddRange(studentList);
-                    clients.AddRange(teacherList);
-                    */
-                }        
+        IE.AddRange(studentList);
+        IE.AddRange(teacherList);
+        */
+        /*
+    }        
 
-            this.DisplayClients();           
-            }
-            catch (Exception ex)
-            {
-                Error.Err(ex.Message);
-            }
-        }
-
+this.DisplayClients();           
+}
+catch (Exception ex)
+{
+    Error.Err(ex.Message);
+}
+}
+*/
         //receiving a list as a parameter
         private void DisplayClients()
         {
-            clientsList.DataSource = null;
-            clientsList.DataSource = clients;
+            clientsListbox.DataSource = null;
+            clientsListbox.DataSource = clients;
         }
 
         //search by client name
@@ -147,9 +227,9 @@ namespace PSI_DA_PL_B.views.Clients.Both
                     Error.Err("Search field cannot be empty!");
                     return;
                 }
-                clientsList.DataSource = null;
+                clientsListbox.DataSource = null;
 
-                clientsList.DataSource = clients.Where(clie => clie.Name.Contains(clientName)).ToList();
+                clientsListbox.DataSource = clients.Where(clie => clie.Name.Contains(clientName)).ToList();
             }
             catch (Exception ex)
             {
@@ -157,7 +237,7 @@ namespace PSI_DA_PL_B.views.Clients.Both
             }
         }
 
-        //if empty or null search text than shows all clients
+        //if empty or null search text than shows all IE
         private void FilterClient_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(filterClient.Text))
@@ -189,9 +269,9 @@ namespace PSI_DA_PL_B.views.Clients.Both
             try
             {
                 //checks if the listbox item is selected
-                if (clientsList.SelectedItem != null)
+                if (clientsListbox.SelectedItem != null)
                 {
-                    string selectedItem = clientsList.SelectedItem.ToString();
+                    string selectedItem = clientsListbox.SelectedItem.ToString();
                     string[] dataSplit = selectedItem.Split('-');
 
                     if(dataSplit.Length >= 3) 
@@ -207,7 +287,7 @@ namespace PSI_DA_PL_B.views.Clients.Both
                         {
                             using (var db = new Cantina())
                             {
-                                //determine if the client is a student or teacher
+                                //determine if the client is a studentIE or teacherIE
                                 var user = db.User.FirstOrDefault(u => u.Name == name && u.Nif == nif);
 
                                 if (user is Student student)
@@ -220,7 +300,7 @@ namespace PSI_DA_PL_B.views.Clients.Both
                                     }
                                     else
                                     {
-                                        Error.Err("Insufficient data for a student!");
+                                        Error.Err("Insufficient data for a studentIE!");
                                     }
                                 }
 
@@ -234,7 +314,7 @@ namespace PSI_DA_PL_B.views.Clients.Both
                                     }
                                     else
                                     {
-                                        Error.Err("Insufficient data for a teacher.");
+                                        Error.Err("Insufficient data for a teacherIE.");
                                     }
                                 }
                             }
@@ -260,21 +340,20 @@ namespace PSI_DA_PL_B.views.Clients.Both
             }
         }
 
-        //delete clients from database
+        //delete IE from database
         private void DeleteClient_Click(object sender, EventArgs e)
         {
             try
             {
-                var selectedClient = clientsList.SelectedItem as Client;
+                var selectedClientInfo = clientsListbox.SelectedItem as ClientInfo;
 
-                if (selectedClient != null)
+                if (selectedClientInfo != null)
                 {
                     using (var db = new Cantina())
                     {
+                        // Find the user in the database
                         var client = db.User
-                            .OfType<Client>()
-                            .Where(u => u.Name == selectedClient.Name)
-                            .FirstOrDefault();
+                            .FirstOrDefault(u => u.Name == selectedClientInfo.Name && u.Nif == selectedClientInfo.Nif);
 
                         if (client != null)
                         {
@@ -283,12 +362,12 @@ namespace PSI_DA_PL_B.views.Clients.Both
                         }
                     }
 
-                    clients.Remove(selectedClient);
-                    this.DisplayClients();
+                    // Remove the client from the local list and update the ListBox
+                    clientsListbox.Items.Remove(selectedClientInfo);
                 }
                 else
                 {
-                    Error.Err("Please select an employee to delete!");
+                    Error.Err("Please select a client to delete!");
                 }
             }
             catch (Exception ex)
@@ -296,5 +375,6 @@ namespace PSI_DA_PL_B.views.Clients.Both
                 Error.Err(ex.Message);
             }
         }
+
     }
 }

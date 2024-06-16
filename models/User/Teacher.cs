@@ -16,10 +16,5 @@ namespace PSI_DA_PL_B.models.User
         {
             this.Email = email;
         }
-
-        public override string ToString()
-        {
-            return $"{Name} - {Nif} - {Balance} - {Email}";
-        }
     }
 }

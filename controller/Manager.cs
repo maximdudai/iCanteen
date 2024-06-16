@@ -24,10 +24,7 @@ namespace PSI_DA_PL_B.controller
         private CreateEmployee createEmployeeForm;
         private EmployeeList employeeListForm;
 
-        //clients
-        private ChooseClientCreate chooseClientCreateForm;
-        private CreateStudent createStudentForm;
-        private CreateTeacher createTeacherForm;
+        private ListClients listClientForm;
 
         // Method to handle Login UI
         public void LoginUI(bool toggle = true)
@@ -101,24 +98,21 @@ namespace PSI_DA_PL_B.controller
             this.currentForm = employeeListForm;
         }
 
-        #region "Manager for Clients"
-
-        public void ChooseClientCreateUI (bool toggle = true)
+        public void ClientListUI(bool toggle = true)
         {
             this.DestroyCurrentForm();
 
+            if (listClientForm == null) 
+            {
+                listClientForm = new ListClients(this);
+            }
 
+            if (toggle)
+                listClientForm.Show();
+            else 
+                listClientForm.Hide();
+            this.currentForm = listClientForm;
         }
-
-        public void CreateStudentUI(bool toggle = true)
-        {
-            this.DestroyCurrentForm();
-
-
-
-
-        }
-        #endregion
 
         // Method to destroy the current form
         private void DestroyCurrentForm()
