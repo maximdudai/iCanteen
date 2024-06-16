@@ -275,5 +275,10 @@ namespace PSI_DA_PL_B.views.Clients.Both
                 Error.Err(ex.Message);
             }
         }
+
+        private void HandleClosingForm(object sender, FormClosingEventArgs e)
+        {
+            this.manager.MainMenuUI();
+        }
     }
 }
