@@ -41,10 +41,5 @@ namespace PSI_DA_PL_B.views.Clients.Both
             //this.Close();
             this.manager.CreateTeacherUI();
         }
-
-        private void ChooseClientCreate_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            this.manager.ClientListUI();
-        }
     }
 }

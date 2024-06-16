@@ -117,7 +117,6 @@
             this.Name = "ChooseClientCreate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Perfil Cliente";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ChooseClientCreate_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -23,13 +23,15 @@ namespace PSI_DA_PL_B.controller
     {
         public Form currentForm = null;
 
+        #region Main forms
         private Login loginForm = null;
         private CanteenMenu mainMenuForm = null;
         private CreateEmployee createEmployeeForm = null;
         private EmployeeList employeeListForm = null;
         private Register registerForm = null;
+        #endregion
 
-        //clients
+        #region Client Manager
         private ListClients listClientForm = null;
         private ChooseClientCreate ChooseClientForm = null;
         private CreateStudent CreateStudentFrom = null;
@@ -37,6 +39,7 @@ namespace PSI_DA_PL_B.controller
         private ListClients EditClientForm = null;
         private EditStudent EditStudentForm = null;
         private EditTeacher EditTeacherForm = null;
+        #endregion
 
 
         // Method to handle Login UI
@@ -179,11 +182,12 @@ namespace PSI_DA_PL_B.controller
             {
                 ChooseClientForm.Show();
                 this.currentForm = ChooseClientForm;
+                return;
             }
-            else
-            {
-                ChooseClientForm.Close();
-            }
+
+            ChooseClientForm.Close();
+            this.currentForm = null;
+
         }
 
         public void CreateStudentUI(bool toggle = true)
@@ -235,7 +239,7 @@ namespace PSI_DA_PL_B.controller
             {
                 if (this.currentForm != null)
                 {
-                    this.currentForm.Close();
+                    this.currentForm?.Close();
                     this.currentForm = null;
                 }
             }
