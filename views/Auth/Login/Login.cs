@@ -70,7 +70,7 @@ namespace PSI_DA_PL_B.views.Auth.Login
                 Console.WriteLine("Login successful for user: " + this.username);
 
                 // Proceed to the menu
-                this.manager.MainMenuUI(true, this.username);
+                this.manager.MainMenuUI(this.username);
 
                 // Hide the current form
                 this.Close();
