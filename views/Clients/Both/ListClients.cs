@@ -275,6 +275,5 @@ namespace PSI_DA_PL_B.views.Clients.Both
                 Error.Err(ex.Message);
             }
         }
-
     }
 }

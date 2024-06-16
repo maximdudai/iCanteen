@@ -41,7 +41,7 @@ namespace PSI_DA_PL_B.views.Menu
         }
         public CanteenMenu(Manager manager, string username) : this()
         {
-            this.username = this.labelUsername.Text = username;
+            this.username = username;
 
             this.LoadData();
             this.UpdateUserUI();
@@ -81,7 +81,11 @@ namespace PSI_DA_PL_B.views.Menu
                         })
                         .FirstOrDefault();
 
-                    this.name = currentUser.Name;
+                    // If somehow the user is not found, redirect to login
+                    if(currentUser != null)
+                        this.name = currentUser.Name;
+                    else
+                        this.manager.LoginUI();
                 }
             }
             catch (Exception ex)
