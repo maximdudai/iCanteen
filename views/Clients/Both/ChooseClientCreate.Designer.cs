@@ -40,9 +40,9 @@
             // 
             this.header1.BackColor = System.Drawing.Color.Peru;
             this.header1.Location = new System.Drawing.Point(0, 0);
-            this.header1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.header1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.header1.Name = "header1";
-            this.header1.Size = new System.Drawing.Size(606, 144);
+            this.header1.Size = new System.Drawing.Size(454, 117);
             this.header1.TabIndex = 17;
             // 
             // TeacherCreate
@@ -51,10 +51,10 @@
             this.TeacherCreate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.TeacherCreate.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TeacherCreate.ForeColor = System.Drawing.Color.Peru;
-            this.TeacherCreate.Location = new System.Drawing.Point(316, 279);
+            this.TeacherCreate.Location = new System.Drawing.Point(237, 227);
             this.TeacherCreate.Margin = new System.Windows.Forms.Padding(0);
             this.TeacherCreate.Name = "TeacherCreate";
-            this.TeacherCreate.Size = new System.Drawing.Size(179, 55);
+            this.TeacherCreate.Size = new System.Drawing.Size(134, 45);
             this.TeacherCreate.TabIndex = 2;
             this.TeacherCreate.Text = "Professor";
             this.TeacherCreate.UseVisualStyleBackColor = false;
@@ -66,10 +66,9 @@
             this.StudentCreate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.StudentCreate.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StudentCreate.ForeColor = System.Drawing.Color.Peru;
-            this.StudentCreate.Location = new System.Drawing.Point(120, 279);
-            this.StudentCreate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.StudentCreate.Location = new System.Drawing.Point(90, 227);
             this.StudentCreate.Name = "StudentCreate";
-            this.StudentCreate.Size = new System.Drawing.Size(179, 55);
+            this.StudentCreate.Size = new System.Drawing.Size(134, 45);
             this.StudentCreate.TabIndex = 1;
             this.StudentCreate.Text = "Estudante";
             this.StudentCreate.UseVisualStyleBackColor = false;
@@ -80,12 +79,11 @@
             this.textBox4.BackColor = System.Drawing.Color.Peru;
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(-2, 279);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox4.Location = new System.Drawing.Point(-2, 227);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(608, 55);
+            this.textBox4.Size = new System.Drawing.Size(456, 45);
             this.textBox4.TabIndex = 16;
             // 
             // label1
@@ -94,29 +92,28 @@
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Peru;
-            this.label1.Location = new System.Drawing.Point(151, 190);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(113, 154);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(288, 38);
+            this.label1.Size = new System.Drawing.Size(234, 32);
             this.label1.TabIndex = 15;
             this.label1.Text = "Perfil pretendido";
             // 
             // ChooseClientCreate
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(605, 423);
+            this.ClientSize = new System.Drawing.Size(454, 344);
             this.Controls.Add(this.header1);
             this.Controls.Add(this.TeacherCreate);
             this.Controls.Add(this.StudentCreate);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ChooseClientCreate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Perfil Cliente";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.HandleFormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
