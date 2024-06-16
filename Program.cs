@@ -25,7 +25,7 @@ namespace PSI_DA_PL_B
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ListClients());
+            Application.Run(new iCanteen());
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<Cantina, Configuration>());
 
             using (var context = new Cantina())
