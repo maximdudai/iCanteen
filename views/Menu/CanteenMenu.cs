@@ -41,12 +41,12 @@ namespace PSI_DA_PL_B.views.Menu
         }
         public CanteenMenu(Manager manager, string username) : this()
         {
-            this.username = username;
+            this.manager = manager;
+            this.username = this.manager.username = this.labelUsername.Text = username;
 
             this.LoadData();
             this.UpdateUserUI();
 
-            this.manager = manager;
             
             this.cultureInfo = new CultureInfo("pt-PT");
             this.calendar = cultureInfo.Calendar;

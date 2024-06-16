@@ -23,6 +23,8 @@ namespace PSI_DA_PL_B.controller
     {
         public Form currentForm = null;
 
+        public string username { get; set; }
+
         #region Main forms
         private Login loginForm = null;
         private CanteenMenu mainMenuForm = null;
@@ -80,7 +82,7 @@ namespace PSI_DA_PL_B.controller
 
         public void MainMenuUI(string username, bool toggle = true)
         {
-            ShowForm(ref mainMenuForm, toggle, this, username);
+            ShowForm(ref mainMenuForm, toggle, this, username ?? this.username);
         }
 
         public void CreateEmployeeUI(bool toggle = true)
