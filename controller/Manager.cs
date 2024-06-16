@@ -21,6 +21,13 @@ namespace PSI_DA_PL_B.controller
         private CreateEmployee createEmployeeForm;
         private EmployeeList employeeListForm;
 
+        public Manager()
+        {
+            //this.currentForm += new FormClosingEventHandler(this.OnFormClose);
+        }
+
+
+
         // Method to handle Login UI
         public void LoginUI(bool toggle = true)
         {
@@ -108,6 +115,24 @@ namespace PSI_DA_PL_B.controller
             {
                 // Log or handle the exception as necessary
                 Console.WriteLine($"Error closing form: {ex.Message}");
+            }
+        }
+
+        private void OnFormClose(object sender, FormClosingEventArgs e)
+        {
+            // Handle the form closing event
+            // For example, show a confirmation dialog
+            DialogResult result = MessageBox.Show("Are you sure you want to close the application?", "Close Application", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                // Close the application
+                Application.Exit();
+            }
+            else
+            {
+                // Cancel the form closing event
+                e.Cancel = true;
             }
         }
     }

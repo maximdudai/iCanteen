@@ -52,16 +52,27 @@ namespace PSI_DA_PL_B.views.Auth.Employees.Edit
 
                 using (var db = new Cantina())
                 {
-                    // Fetch the Funcionario entity
+                    // Fetch the Funcionario entity that needs to be updated
                     var employeeData = db.User
                         .OfType<Employee>()
-                        .Where(u => u.Name == this.username)
+                        .Where(u => u.Username == this.username)
                         .FirstOrDefault();
 
-                    // Check if the user was found
                     if (employeeData == null)
                     {
-                        Error.Err("User not found!");
+                        Error.Err("Employee not found!");
+                        return;
+                    }
+
+                    // Check if there's another user with the same new username or NIF
+                    var duplicateCheck = db.User
+                        .OfType<Employee>()
+                        .Where(u => (u.Username == this.username || u.Nif == this.Nif) && u.Id != employeeData.Id)
+                        .FirstOrDefault();
+
+                    if (duplicateCheck != null)
+                    { 
+                        Error.Err("User with this information already exists!");
                         return;
                     }
 
@@ -73,6 +84,8 @@ namespace PSI_DA_PL_B.views.Auth.Employees.Edit
                     // Save changes to the database
                     db.SaveChanges();
                 }
+
+
 
                 EmployeeList employeeForm = new EmployeeList();
                 employeeForm.Show();
