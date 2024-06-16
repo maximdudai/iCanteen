@@ -28,17 +28,11 @@ namespace PSI_DA_PL_B.views.Clients.Both
 
         private void StudentCreate_Click(object sender, EventArgs e)
         {
-            //CreateStudent createStudentForm = new CreateStudent();
-            //createStudentForm.ShowDialog();
-            //this.Close();
             this.manager.CreateStudentUI();
         }
 
         private void TeacherCreate_Click(object sender, EventArgs e)
         {
-            //CreateTeacher createTeacherForm = new CreateTeacher();
-            //createTeacherForm.ShowDialog();
-            //this.Close();
             this.manager.CreateTeacherUI();
         }
 

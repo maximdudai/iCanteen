@@ -1,9 +1,10 @@
-﻿using PSI_DA_PL_B.controller;
+using PSI_DA_PL_B.controller;
 using PSI_DA_PL_B.helpers;
 using PSI_DA_PL_B.models.User;
 using PSI_DA_PL_B.views.Auth.Employees;
 using PSI_DA_PL_B.views.Clients.Students.Edit;
 using PSI_DA_PL_B.views.Clients.Teachers.Edit;
+using PSI_DA_PL_B.views.Menu;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -139,7 +140,8 @@ namespace PSI_DA_PL_B.views.Clients.Both
         {
             if (string.IsNullOrEmpty(filterClient.Text))
             {
-                this.DisplayClients();
+                //this.DisplayClients();
+                this.LoadClients();
             }
         }
 
@@ -166,6 +168,9 @@ namespace PSI_DA_PL_B.views.Clients.Both
         //go to edit form of corresponding client type
         private void EditClient_Click(object sender, EventArgs e)
         {
+
+
+            /*
             try
             {
                 //checks if the listbox item is selected
@@ -238,6 +243,7 @@ namespace PSI_DA_PL_B.views.Clients.Both
             {
                 Error.Err(ex.Message);
             }
+            */
         }
 
         //delete IE from database
@@ -276,7 +282,7 @@ namespace PSI_DA_PL_B.views.Clients.Both
             }
         }
 
-        private void HandleClosingForm(object sender, FormClosingEventArgs e)
+        private void ListClients_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.manager.MainMenuUI();
         }

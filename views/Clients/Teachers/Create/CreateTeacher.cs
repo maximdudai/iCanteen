@@ -29,7 +29,6 @@ namespace PSI_DA_PL_B.views.Clients.Teachers.Create
         {
             this.manager = manager;
         }
-
         private void TeacherCreate_Click(object sender, EventArgs e)
         {
             try
@@ -92,12 +91,8 @@ namespace PSI_DA_PL_B.views.Clients.Teachers.Create
                     db.User.Add(user);
                     db.SaveChanges();
                 }
-                //ListClients client = new ListClients();
-                //client.Show();
 
-                //this.Close();
                 this.manager.ClientListUI();
-
             }
             catch (Exception ex)
             {

@@ -1,4 +1,4 @@
-﻿namespace PSI_DA_PL_B.views.Clients.Both
+namespace PSI_DA_PL_B.views.Clients.Both
 {
     partial class ListClients
     {
@@ -166,7 +166,7 @@
             this.Name = "ListClients";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de Clientes";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.HandleClosingForm);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ListClients_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

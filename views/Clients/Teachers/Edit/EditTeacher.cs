@@ -1,4 +1,5 @@
-﻿using PSI_DA_PL_B.helpers;
+﻿using PSI_DA_PL_B.controller;
+using PSI_DA_PL_B.helpers;
 using PSI_DA_PL_B.models.User;
 using PSI_DA_PL_B.views.Clients.Both;
 using System;
@@ -15,17 +16,25 @@ namespace PSI_DA_PL_B.views.Clients.Teachers.Edit
 {
     public partial class EditTeacher : Form
     {
-
+        /*
         private string name { get; set; }
         private string email { get; set; }
         private int nif { get; set; }
         private double balance { get; set; }
+        */
 
+        private Manager manager { get; set; }
         public EditTeacher()
         {
             InitializeComponent();
         }
 
+        public EditTeacher(Manager manager) : this()
+        {
+            this.manager = manager;
+        }
+
+        /*
         public EditTeacher(string name, string email, int nif, double balance) : this()
         {
             teacherNameInput.Text = name;
@@ -33,9 +42,11 @@ namespace PSI_DA_PL_B.views.Clients.Teachers.Edit
             teacherNIFinput.Text = nif.ToString(); ;
             teacherBalanceInput.Text = balance.ToString(); ;
         }
+        */
 
         private void TeacherEdit_Click(object sender, EventArgs e)
         {
+            /*
             try
             {
                 this.name = teacherNameInput.Text;
@@ -86,6 +97,7 @@ namespace PSI_DA_PL_B.views.Clients.Teachers.Edit
             {
                 Error.Err(ex.Message);
             }
+            */
         }
     }
 }
