@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Register));
-            this.header1 = new PSI_DA_PL_B.views.components.Header();
             this.registerButton = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.registerName = new System.Windows.Forms.TextBox();
@@ -42,15 +41,8 @@
             this.employeUsernamelabel = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.loginButton = new System.Windows.Forms.Label();
+            this.header1 = new PSI_DA_PL_B.views.components.Header();
             this.SuspendLayout();
-            // 
-            // header1
-            // 
-            this.header1.BackColor = System.Drawing.Color.Peru;
-            this.header1.Location = new System.Drawing.Point(-1, -2);
-            this.header1.Name = "header1";
-            this.header1.Size = new System.Drawing.Size(455, 117);
-            this.header1.TabIndex = 17;
             // 
             // registerButton
             // 
@@ -187,12 +179,20 @@
             // 
             this.loginButton.AutoSize = true;
             this.loginButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
-            this.loginButton.Location = new System.Drawing.Point(114, 575);
+            this.loginButton.Location = new System.Drawing.Point(112, 557);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(227, 16);
             this.loginButton.TabIndex = 24;
             this.loginButton.Text = "Already have an account, Log In!";
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
+            // 
+            // header1
+            // 
+            this.header1.BackColor = System.Drawing.Color.Peru;
+            this.header1.Location = new System.Drawing.Point(-1, -2);
+            this.header1.Name = "header1";
+            this.header1.Size = new System.Drawing.Size(455, 117);
+            this.header1.TabIndex = 17;
             // 
             // Register
             // 

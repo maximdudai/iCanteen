@@ -137,15 +137,11 @@ namespace PSI_DA_PL_B.controller
         {
             try
             {
-                Console.WriteLine($"before {currentForm}");
-
                 if (this.currentForm != null)
                 {
                     this.currentForm.Close();
                     this.currentForm = null;
                 }
-                Console.WriteLine($"after {currentForm}");
-
             }
             catch (Exception ex)
             {
