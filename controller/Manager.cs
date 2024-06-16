@@ -78,7 +78,7 @@ namespace PSI_DA_PL_B.controller
             ShowForm(ref registerForm, toggle, this);
         }
 
-        public void MainMenuUI(bool toggle = true, string username = "")
+        public void MainMenuUI(string username, bool toggle = true)
         {
             ShowForm(ref mainMenuForm, toggle, this, username);
         }
