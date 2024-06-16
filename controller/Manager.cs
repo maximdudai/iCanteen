@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +8,12 @@ using PSI_DA_PL_B.views.Auth.Employees;
 using PSI_DA_PL_B.views.Auth.Employees.Create;
 using PSI_DA_PL_B.views.Auth.Employees.Edit;
 using PSI_DA_PL_B.views.Auth.Login;
+using PSI_DA_PL_B.views.Clients.Both;
+using PSI_DA_PL_B.views.Clients.Students.Create;
+using PSI_DA_PL_B.views.Clients.Teachers.Create;
+using PSI_DA_PL_B.views.Auth.Register;
 using PSI_DA_PL_B.views.Menu;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace PSI_DA_PL_B.controller
 {
@@ -16,27 +21,57 @@ namespace PSI_DA_PL_B.controller
     {
         public Form currentForm = null;
 
-        private Login loginForm;
-        private CanteenMenu mainMenuForm;
-        private CreateEmployee createEmployeeForm;
-        private EmployeeList employeeListForm;
+        private Login loginForm = null;
+        private CanteenMenu mainMenuForm = null;
+        private CreateEmployee createEmployeeForm = null;
+        private EmployeeList employeeListForm = null;
+        private Register registerForm = null;
+
+        private ListClients listClientForm;
+
 
         // Method to handle Login UI
         public void LoginUI(bool toggle = true)
         {
             this.DestroyCurrentForm();
 
-            if (loginForm == null)
+            // If the current form is not the login form, create a new instance of it
+            // and assign it to the loginForm variable
+            if (currentForm != loginForm || loginForm == null)
             {
                 loginForm = new Login(this);
             }
 
-            if (toggle)
+            if (toggle && loginForm != null)
+            { 
                 loginForm.Show();
+                this.currentForm = loginForm;
+            }
             else
-                loginForm.Hide();
+            {
+                loginForm.Close();
+            }
 
-            this.currentForm = loginForm;
+        }
+
+        public void RegisterUI(bool toggle = true)
+        {
+            this.DestroyCurrentForm();
+
+            if (currentForm != registerForm || registerForm == null)
+            {
+                registerForm = new Register(this);
+            }
+
+            if (toggle && registerForm != null)
+            {
+                registerForm.Show();
+                this.currentForm = registerForm;
+            }
+            else
+            {
+                registerForm.Close();
+            }
         }
 
         // Method to handle Main Menu UI
@@ -44,17 +79,20 @@ namespace PSI_DA_PL_B.controller
         {
             this.DestroyCurrentForm();
 
-            if (mainMenuForm == null)
+            if (currentForm != mainMenuForm || mainMenuForm == null)
             {
                 mainMenuForm = new CanteenMenu(this, username);
             }
 
-            if (toggle)
+            if (toggle && mainMenuForm != null)
+            {
                 mainMenuForm.Show();
+                this.currentForm = mainMenuForm;
+            }
             else
+            {
                 mainMenuForm.Close();
-
-            this.currentForm = mainMenuForm;
+            }
         }
 
         // Method to handle Create Employee UI
@@ -62,35 +100,57 @@ namespace PSI_DA_PL_B.controller
         {
             this.DestroyCurrentForm();
 
-            if (createEmployeeForm == null)
+            if (currentForm != createEmployeeForm || createEmployeeForm == null)
             {
                 createEmployeeForm = new CreateEmployee(this);
             }
 
-            if (toggle)
+            if (toggle && createEmployeeForm != null)
+            {
                 createEmployeeForm.Show();
+                this.currentForm = createEmployeeForm;
+            }
             else
-                createEmployeeForm.Hide();
-
-            this.currentForm = createEmployeeForm;
+            {
+                createEmployeeForm.Close();
+            }
         }
 
         // Method to handle Employee List UI
         public void EmployeeListUI(bool toggle = true)
         {
             this.DestroyCurrentForm();
-
-            if (employeeListForm == null)
+            
+            if (currentForm != employeeListForm || employeeListForm == null)
             {
                 employeeListForm = new EmployeeList(this);
             }
 
-            if (toggle)
+            if (toggle && employeeListForm != null)
+            {
                 employeeListForm.Show();
+                this.currentForm = employeeListForm;
+            }
             else
-                employeeListForm.Hide();
+            {
+                employeeListForm.Close();
+            }
+        }
 
-            this.currentForm = employeeListForm;
+        public void ClientListUI(bool toggle = true)
+        {
+            this.DestroyCurrentForm();
+
+            if (listClientForm == null) 
+            {
+                listClientForm = new ListClients(this);
+            }
+
+            if (toggle)
+                listClientForm.Show();
+            else 
+                listClientForm.Hide();
+            this.currentForm = listClientForm;
         }
 
         // Method to destroy the current form

@@ -70,8 +70,7 @@ namespace PSI_DA_PL_B.views.Auth.Login
                 Console.WriteLine("Login successful for user: " + this.username);
 
                 // Proceed to the menu
-                Manager manager = new Manager();
-                manager.MainMenuUI(true, this.username);
+                this.manager.MainMenuUI(true, this.username);
 
                 // Hide the current form
                 this.Close();
@@ -90,10 +89,7 @@ namespace PSI_DA_PL_B.views.Auth.Login
 
         private void registerButton_Click(object sender, EventArgs e)
         {
-            Manager manager = new Manager();
-            manager.CreateEmployeeUI(true);
-
-            this.Close();
+            this.manager.RegisterUI(true);
         }
     }
 }
