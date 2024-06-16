@@ -8,7 +8,9 @@ using PSI_DA_PL_B.views.Auth.Employees;
 using PSI_DA_PL_B.views.Auth.Employees.Create;
 using PSI_DA_PL_B.views.Auth.Employees.Edit;
 using PSI_DA_PL_B.views.Auth.Login;
+using PSI_DA_PL_B.views.Auth.Register;
 using PSI_DA_PL_B.views.Menu;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace PSI_DA_PL_B.controller
 {
@@ -16,16 +18,11 @@ namespace PSI_DA_PL_B.controller
     {
         public Form currentForm = null;
 
-        private Login loginForm;
-        private CanteenMenu mainMenuForm;
-        private CreateEmployee createEmployeeForm;
-        private EmployeeList employeeListForm;
-
-        public Manager()
-        {
-            //this.currentForm += new FormClosingEventHandler(this.OnFormClose);
-        }
-
+        private Login loginForm = null;
+        private CanteenMenu mainMenuForm = null;
+        private CreateEmployee createEmployeeForm = null;
+        private EmployeeList employeeListForm = null;
+        private Register registerForm = null;
 
 
         // Method to handle Login UI
@@ -33,17 +30,43 @@ namespace PSI_DA_PL_B.controller
         {
             this.DestroyCurrentForm();
 
-            if (loginForm == null)
+            // If the current form is not the login form, create a new instance of it
+            // and assign it to the loginForm variable
+            if (currentForm != loginForm || loginForm == null)
             {
                 loginForm = new Login(this);
             }
 
-            if (toggle)
+            if (toggle && loginForm != null)
+            { 
                 loginForm.Show();
+                this.currentForm = loginForm;
+            }
             else
-                loginForm.Hide();
+            {
+                loginForm.Close();
+            }
 
-            this.currentForm = loginForm;
+        }
+
+        public void RegisterUI(bool toggle = true)
+        {
+            this.DestroyCurrentForm();
+
+            if (currentForm != registerForm || registerForm == null)
+            {
+                registerForm = new Register(this);
+            }
+
+            if (toggle && registerForm != null)
+            {
+                registerForm.Show();
+                this.currentForm = registerForm;
+            }
+            else
+            {
+                registerForm.Close();
+            }
         }
 
         // Method to handle Main Menu UI
@@ -51,17 +74,20 @@ namespace PSI_DA_PL_B.controller
         {
             this.DestroyCurrentForm();
 
-            if (mainMenuForm == null)
+            if (currentForm != mainMenuForm || mainMenuForm == null)
             {
                 mainMenuForm = new CanteenMenu(this, username);
             }
 
-            if (toggle)
+            if (toggle && mainMenuForm != null)
+            {
                 mainMenuForm.Show();
+                this.currentForm = mainMenuForm;
+            }
             else
+            {
                 mainMenuForm.Close();
-
-            this.currentForm = mainMenuForm;
+            }
         }
 
         // Method to handle Create Employee UI
@@ -69,35 +95,41 @@ namespace PSI_DA_PL_B.controller
         {
             this.DestroyCurrentForm();
 
-            if (createEmployeeForm == null)
+            if (currentForm != createEmployeeForm || createEmployeeForm == null)
             {
                 createEmployeeForm = new CreateEmployee(this);
             }
 
-            if (toggle)
+            if (toggle && createEmployeeForm != null)
+            {
                 createEmployeeForm.Show();
+                this.currentForm = createEmployeeForm;
+            }
             else
-                createEmployeeForm.Hide();
-
-            this.currentForm = createEmployeeForm;
+            {
+                createEmployeeForm.Close();
+            }
         }
 
         // Method to handle Employee List UI
         public void EmployeeListUI(bool toggle = true)
         {
             this.DestroyCurrentForm();
-
-            if (employeeListForm == null)
+            
+            if (currentForm != employeeListForm || employeeListForm == null)
             {
                 employeeListForm = new EmployeeList(this);
             }
 
-            if (toggle)
+            if (toggle && employeeListForm != null)
+            {
                 employeeListForm.Show();
+                this.currentForm = employeeListForm;
+            }
             else
-                employeeListForm.Hide();
-
-            this.currentForm = employeeListForm;
+            {
+                employeeListForm.Close();
+            }
         }
 
         // Method to destroy the current form
@@ -105,34 +137,20 @@ namespace PSI_DA_PL_B.controller
         {
             try
             {
+                Console.WriteLine($"before {currentForm}");
+
                 if (this.currentForm != null)
                 {
                     this.currentForm.Close();
                     this.currentForm = null;
                 }
+                Console.WriteLine($"after {currentForm}");
+
             }
             catch (Exception ex)
             {
                 // Log or handle the exception as necessary
                 Console.WriteLine($"Error closing form: {ex.Message}");
-            }
-        }
-
-        private void OnFormClose(object sender, FormClosingEventArgs e)
-        {
-            // Handle the form closing event
-            // For example, show a confirmation dialog
-            DialogResult result = MessageBox.Show("Are you sure you want to close the application?", "Close Application", MessageBoxButtons.YesNo);
-
-            if (result == DialogResult.Yes)
-            {
-                // Close the application
-                Application.Exit();
-            }
-            else
-            {
-                // Cancel the form closing event
-                e.Cancel = true;
             }
         }
     }
