@@ -177,6 +177,7 @@
             this.Name = "ListClients";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de Clientes";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ListClients_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
