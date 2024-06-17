@@ -1,4 +1,5 @@
-﻿using PSI_DA_PL_B.helpers;
+﻿using PSI_DA_PL_B.controller;
+using PSI_DA_PL_B.helpers;
 using PSI_DA_PL_B.models.User;
 using PSI_DA_PL_B.views.Clients.Both;
 using System;
@@ -16,76 +17,90 @@ namespace PSI_DA_PL_B.views.Clients.Teachers.Edit
     public partial class EditTeacher : Form
     {
 
-        private string name { get; set; }
-        private string email { get; set; }
-        private int nif { get; set; }
-        private double balance { get; set; }
-
+        private int nif;
+        private Manager manager { get; set; }
         public EditTeacher()
         {
             InitializeComponent();
         }
 
-        public EditTeacher(string name, string email, int nif, double balance) : this()
+        public EditTeacher(int nif, Manager manager) : this()
         {
-            teacherNameInput.Text = name;
-            teacherEmailInput.Text = email;
-            teacherNIFinput.Text = nif.ToString(); ;
-            teacherBalanceInput.Text = balance.ToString(); ;
+            this.manager = manager;
+            this.nif = nif;
+            ShowTeacherDetails();
+        }
+
+        private void ShowTeacherDetails()
+        {
+            try
+            {
+                using (var db = new Cantina())
+                {
+                    var teacher = db.User
+                        .OfType<Teacher>()
+                        .Where(u => u.Nif == this.nif)
+                        .FirstOrDefault();
+
+                    if (teacher != null)
+                    {
+                        teacherNameInput.Text = teacher.Name;
+                        teacherEmailInput.Text = teacher.Email;
+                        teacherNIFinput.Text = teacher.Nif.ToString();
+                        teacherBalanceInput.Text = teacher.Balance.ToString();
+                    }
+                    else
+                    {
+                        Error.Err("Teacher not found in the database!");
+                        this.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.Err(ex.Message);
+                this.Close();
+            }
         }
 
         private void TeacherEdit_Click(object sender, EventArgs e)
         {
             try
             {
-                this.name = teacherNameInput.Text;
-                this.email = teacherEmailInput.Text;
-                this.nif = int.Parse(teacherNIFinput.Text);
-                this.balance = int.Parse(teacherBalanceInput.Text);
-
-                if (string.IsNullOrEmpty(this.name) || string.IsNullOrEmpty(this.email))
-                {
-                    Error.Err("Name or Email field cannot be empty!");
-                    return;
-                }
-                if (this.nif.ToString().Length != 9)
-                {
-                    Error.Err("NIF must have 9 digits!");
-                    return;
-                }
-
                 using (var db = new Cantina())
                 {
-                    var teacherData = db.User.
-                        OfType<Teacher>()
-                        .Where(u => u.Nif == this.nif)
-                        .FirstOrDefault();
+                    var teacher = db.User
+                        .OfType<Teacher>()
+                        .FirstOrDefault(u => u.Nif == this.nif);
 
-                    if (teacherData == null)
+                    if (teacher != null)
                     {
-                        Error.Err("Student not found!");
-                        return;
+                        // Update teacher details
+                        teacher.Name = teacherNameInput.Text;
+                        teacher.Email = teacherEmailInput.Text;
+                        teacher.Nif = int.Parse(teacherNIFinput.Text);
+                        teacher.Balance = double.Parse(teacherBalanceInput.Text);
+
+                        db.SaveChanges();
+                        MessageBox.Show("Teacher details updated successfully!");
+
+                        this.manager.ClientListUI();
                     }
-
-                    // Modify the entity properties
-                    teacherData.Name = this.name;
-                    teacherData.Email = this.email;
-                    teacherData.Nif = this.nif;
-                    teacherData.Balance = this.balance;
-
-                    // Save changes to the database
-                    db.SaveChanges();
+                    else
+                    {
+                        Error.Err("Teacher not found in the database!");
+                    }
                 }
-
-                ListClients client = new ListClients();
-                client.Show();
-
-                this.Close();
             }
             catch (Exception ex)
             {
                 Error.Err(ex.Message);
             }
+        }
+
+        private void EditTeacher_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.manager.ClientListUI();
         }
     }
 }

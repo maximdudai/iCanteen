@@ -40,12 +40,12 @@ namespace PSI_DA_PL_B.views.Menu
         }
         public CanteenMenu(Manager manager, string username) : this()
         {
-            this.username = this.labelUsername.Text = username;
+            this.manager = manager;
+            this.username = this.manager.username = this.labelUsername.Text = username;
 
             this.LoadData();
             this.UpdateUserUI();
 
-            this.manager = manager;
             
             this.cultureInfo = new CultureInfo("pt-PT");
             this.calendar = cultureInfo.Calendar;
@@ -113,6 +113,11 @@ namespace PSI_DA_PL_B.views.Menu
             this.manager.LoginUI();
 
             this.Close();
+        }
+
+        private void clientbutton_Click(object sender, EventArgs e)
+        {
+            this.manager.ClientListUI();
         }
 
         private void ticketButton_Click(object sender, EventArgs e)
@@ -201,6 +206,5 @@ namespace PSI_DA_PL_B.views.Menu
             string dailyMenu = this.currentWeek == this.GetCurrentYearWeek() ? $"Menus Diários da Semana Atual" : $"Menus Diários da Semana #{this.currentWeek}";
             this.dailyMenuWeek.Text = dailyMenu;
         }
-
     }
 }

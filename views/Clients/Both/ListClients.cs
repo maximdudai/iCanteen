@@ -4,6 +4,7 @@ using PSI_DA_PL_B.models.User;
 using PSI_DA_PL_B.views.Auth.Employees;
 using PSI_DA_PL_B.views.Clients.Students.Edit;
 using PSI_DA_PL_B.views.Clients.Teachers.Edit;
+using PSI_DA_PL_B.views.Menu;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,17 +33,7 @@ namespace PSI_DA_PL_B.views.Clients.Both
             public double Balance { get; set; }
             public int? NumStudent { get; set; }
             public string Email { get; set; }
-            /*
-            public Client ToClient()
-            {
-                return new Client
-                {
-                    Name = this.Name,
-                    Nif = this.Nif,
-                    Balance = this.Balance
-                };
-            }
-            */
+
             public override string ToString()
             {
                 var text = $"Nome: {Name}; Nif: {Nif} ";
@@ -115,99 +106,6 @@ namespace PSI_DA_PL_B.views.Clients.Both
             }
         }
 
-
-        /*
-        private void LoadClients()
-        {
-            try
-            {
-                using (var db = new Cantina())
-                {                    
-                    //query for students
-                    var studentList = db.User
-                        .OfType<Student>()
-                        .Select(u => new ClientInfo
-                        {
-                            Name = u.Name,
-                            Nif = u.Nif,
-                            Balance = u.Balance,
-                            NumStudent = u.NumStudent//,
-                            //Email = null
-                        }).ToList();
-
-                    foreach (var stu in studentList)
-                    {
-                        Student studentIE = new Student((string)stu.Name, (int)stu.Nif, (double)stu.Balance, (int)stu.NumStudent);
-                        IE.Add(studentIE);
-
-                        //Client client = new Client((string)clie.Name, (int)clie.Nif, (double)clie.Balance);
-                        //IE.Add(client);
-                    }
-
-                    //query for teachers
-                    var teacherList = db.User
-                        .OfType<Teacher>()
-                        .Select(u => new ClientInfo
-                        {
-                            Name = u.Name,
-                            Nif = u.Nif,
-                            Balance = u.Balance,
-                            //NumStudent = null,
-                            Email = u.Email
-                        }).ToList();
-
-                    foreach (var tea in teacherList)
-                    {
-                        Teacher teacherIE = new Teacher((string)tea.Name, (int)tea.Nif, (double)tea.Balance, (string)tea.Email);
-                        IE.Add(teacherIE);
-                    }
-
-                    /*
-                    //combine studentList with teacherList
-                    var clientList = studentList.Concat(teacherList).ToList();
-
-                    foreach (var clie in clientList)
-                    {
-                        Client client = new Client((string)clie.Name, (int)clie.Nif, (double)clie.Balance);
-                        IE.Add(client);
-                    }
-                    */
-        /*
-        var studentList = dbClients.User
-        .OfType<Student>()
-        .Select(u => new Student
-        {
-            Name = u.Name,
-            Nif = u.Nif,
-            Balance = u.Balance,
-            NumStudent = u.NumStudent
-        }).ToList();
-
-            // Query for teachers
-            var teacherList = dbClients.User
-                .OfType<Teacher>()
-                .Select(u => new Teacher
-                {
-                    Name = u.Name,
-                    Nif = u.Nif,
-                    Balance = u.Balance,
-                    Email = u.Email
-                }).ToList();
-
-        IE.AddRange(studentList);
-        IE.AddRange(teacherList);
-        */
-        /*
-    }        
-
-this.DisplayClients();           
-}
-catch (Exception ex)
-{
-    Error.Err(ex.Message);
-}
-}
-*/
         //receiving a list as a parameter
         private void DisplayClients()
         {
@@ -219,17 +117,17 @@ catch (Exception ex)
         private void SearchClient_Click(object sender, EventArgs e)
         {
             try
-            {
+            {                
                 string clientName = filterClient.Text;
 
                 if (string.IsNullOrEmpty(clientName))
                 {
-                    Error.Err("Search field cannot be empty!");
                     return;
                 }
-                clientsListbox.DataSource = null;
 
+                clientsListbox.DataSource = null;
                 clientsListbox.DataSource = clients.Where(clie => clie.Name.Contains(clientName)).ToList();
+                
             }
             catch (Exception ex)
             {
@@ -237,8 +135,7 @@ catch (Exception ex)
             }
         }
 
-        //if empty or null search text than shows all IE
-        private void FilterClient_TextChanged(object sender, EventArgs e)
+        private void filterClient_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(filterClient.Text))
             {
@@ -249,18 +146,7 @@ catch (Exception ex)
         //form to choose a type of client to create
         private void CreateClient_Click(object sender, EventArgs e)
         {
-            ChooseClientCreate chooseClientCreateForm = new ChooseClientCreate();
-            chooseClientCreateForm.ShowDialog();
-        }
-
-        //function to compare data with database
-        private bool CompareWithDb(string name, int nif)
-        {
-            using (var db = new Cantina())
-            {
-                return db.User.OfType<Student>().Any(u => u.Name == name && u.Nif == nif) ||
-                       db.User.OfType<Teacher>().Any(u => u.Name == name && u.Nif == nif);
-            }
+            this.manager.ChooseClientUI();
         }
 
         //go to edit form of corresponding client type
@@ -268,70 +154,44 @@ catch (Exception ex)
         {
             try
             {
-                //checks if the listbox item is selected
-                if (clientsListbox.SelectedItem != null)
+                var selectedClient = clientsListbox.SelectedItem as ClientInfo;
+
+                if (selectedClient != null)
                 {
-                    string selectedItem = clientsListbox.SelectedItem.ToString();
-                    string[] dataSplit = selectedItem.Split('-');
-
-                    if(dataSplit.Length >= 3) 
+                    try
                     {
-                        string name = dataSplit[0];
-                        int nif = int.Parse(dataSplit[1]);
-                        double balance = double.Parse(dataSplit[2]);
-
-                        //checks client data to see if it exists in the database
-                        bool existInDb = CompareWithDb(name, nif);
-
-                        if (existInDb)
+                        using (var db = new Cantina())
                         {
-                            using (var db = new Cantina())
+                            //check if the selected client is a student
+                            var student = db.User
+                                .OfType<Student>()
+                                .FirstOrDefault(u => u.Nif == selectedClient.Nif);
+
+                            if (student != null)
                             {
-                                //determine if the client is a studentIE or teacherIE
-                                var user = db.User.FirstOrDefault(u => u.Name == name && u.Nif == nif);
+                                this.manager.EditStudentUI(student.Nif);
+                                return;
+                            }
 
-                                if (user is Student student)
-                                {
-                                    if (dataSplit.Length >= 4)
-                                    {
-                                        int numStudent = int.Parse(dataSplit[3]);
-                                        EditStudent editStudentForm = new EditStudent(name, numStudent, nif, balance);
-                                        editStudentForm.ShowDialog();
-                                    }
-                                    else
-                                    {
-                                        Error.Err("Insufficient data for a studentIE!");
-                                    }
-                                }
+                            //check if the selected client is a teacher
+                            var teacher = db.User
+                                .OfType<Teacher>()
+                                .FirstOrDefault(u => u.Nif == selectedClient.Nif);
 
-                                if (user is Teacher teacher)
-                                {
-                                    if (dataSplit.Length >= 4)
-                                    {
-                                        string email = dataSplit[3];
-                                        EditTeacher editTeacherForm = new EditTeacher(name, email, nif, balance);
-                                        editTeacherForm.ShowDialog();
-                                    }
-                                    else
-                                    {
-                                        Error.Err("Insufficient data for a teacherIE.");
-                                    }
-                                }
+                            if (teacher != null)
+                            {
+                                this.manager.EditTeacherUI(teacher.Nif);
                             }
                         }
-                        else
-                        {
-                            Error.Err("Client not found in the database!");
-                        }
-
-                    } else
+                    }
+                    catch (Exception ex)
                     {
-                        Error.Err("Error in splint method!");
+                        Error.Err(ex.Message);
                     }
                 }
                 else
                 {
-                    Error.Err("Please select an client to edit!");
+                    Error.Err("No client selected!");
                 }
             }
             catch (Exception ex)
@@ -376,5 +236,9 @@ catch (Exception ex)
             }
         }
 
+        private void ListClients_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.manager.MainMenuUI();
+        }       
     }
 }

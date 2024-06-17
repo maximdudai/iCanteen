@@ -121,6 +121,7 @@
             this.filterClient.Name = "filterClient";
             this.filterClient.Size = new System.Drawing.Size(523, 37);
             this.filterClient.TabIndex = 1;
+            this.filterClient.TextChanged += new System.EventHandler(this.filterClient_TextChanged);
             // 
             // label1
             // 
@@ -177,6 +178,7 @@
             this.Name = "ListClients";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de Clientes";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ListClients_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

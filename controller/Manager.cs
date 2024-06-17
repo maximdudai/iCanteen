@@ -14,6 +14,8 @@ using PSI_DA_PL_B.views.Clients.Teachers.Create;
 using PSI_DA_PL_B.views.Auth.Register;
 using PSI_DA_PL_B.views.Menu;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using PSI_DA_PL_B.views.Clients.Students.Edit;
+using PSI_DA_PL_B.views.Clients.Teachers.Edit;
 
 namespace PSI_DA_PL_B.controller
 {
@@ -21,154 +23,128 @@ namespace PSI_DA_PL_B.controller
     {
         public Form currentForm = null;
 
+        public string username { get; set; }
+
+        #region Main forms
         private Login loginForm = null;
         private CanteenMenu mainMenuForm = null;
         private CreateEmployee createEmployeeForm = null;
         private EmployeeList employeeListForm = null;
         private Register registerForm = null;
 
-        private ListClients listClientForm;
+        private bool isClosing = false;
+        #endregion
+
+        #region Client Manager
+        private ListClients listClientForm = null;
+        private ChooseClientCreate ChooseClientForm = null;
+        private CreateStudent CreateStudentFrom = null;
+        private CreateTeacher CreateTeacherFrom = null;
+        private EditStudent EditStudentForm = null;
+        private EditTeacher EditTeacherForm = null;
+        #endregion
+
+        private void ShowForm<T>(ref T form, bool toggle = true, params object[] args) where T : Form
+        {
+            if (isClosing)
+                return;
+
+            this.DestroyCurrentForm();
+
+            if (currentForm == null || currentForm.GetType() != typeof(T))
+            {
+                form = (T)Activator.CreateInstance(typeof(T), args);
+            }
+
+            if (toggle && form != null)
+            {
+                form.Show();
+                this.currentForm = form;
+            }
+            else if (form != null)
+            {
+                form.Close();
+            }
+        }
 
 
         // Method to handle Login UI
         public void LoginUI(bool toggle = true)
         {
-            this.DestroyCurrentForm();
-
-            // If the current form is not the login form, create a new instance of it
-            // and assign it to the loginForm variable
-            if (currentForm != loginForm || loginForm == null)
-            {
-                loginForm = new Login(this);
-            }
-
-            if (toggle && loginForm != null)
-            { 
-                loginForm.Show();
-                this.currentForm = loginForm;
-            }
-            else
-            {
-                loginForm.Close();
-            }
-
+            ShowForm(ref loginForm, toggle, this);
         }
 
         public void RegisterUI(bool toggle = true)
         {
-            this.DestroyCurrentForm();
-
-            if (currentForm != registerForm || registerForm == null)
-            {
-                registerForm = new Register(this);
-            }
-
-            if (toggle && registerForm != null)
-            {
-                registerForm.Show();
-                this.currentForm = registerForm;
-            }
-            else
-            {
-                registerForm.Close();
-            }
+            ShowForm(ref registerForm, toggle, this);
         }
 
-        // Method to handle Main Menu UI
-        public void MainMenuUI(bool toggle = true, string username = "")
+        public void MainMenuUI(string username = null, bool toggle = true)
         {
-            this.DestroyCurrentForm();
-
-            if (currentForm != mainMenuForm || mainMenuForm == null)
-            {
-                mainMenuForm = new CanteenMenu(this, username);
-            }
-
-            if (toggle && mainMenuForm != null)
-            {
-                mainMenuForm.Show();
-                this.currentForm = mainMenuForm;
-            }
-            else
-            {
-                mainMenuForm.Close();
-            }
+            ShowForm(ref mainMenuForm, toggle, this, username ?? this.username);
         }
 
-        // Method to handle Create Employee UI
         public void CreateEmployeeUI(bool toggle = true)
         {
-            this.DestroyCurrentForm();
-
-            if (currentForm != createEmployeeForm || createEmployeeForm == null)
-            {
-                createEmployeeForm = new CreateEmployee(this);
-            }
-
-            if (toggle && createEmployeeForm != null)
-            {
-                createEmployeeForm.Show();
-                this.currentForm = createEmployeeForm;
-            }
-            else
-            {
-                createEmployeeForm.Close();
-            }
+            ShowForm(ref createEmployeeForm, toggle, this);
         }
 
-        // Method to handle Employee List UI
         public void EmployeeListUI(bool toggle = true)
         {
-            this.DestroyCurrentForm();
-            
-            if (currentForm != employeeListForm || employeeListForm == null)
-            {
-                employeeListForm = new EmployeeList(this);
-            }
-
-            if (toggle && employeeListForm != null)
-            {
-                employeeListForm.Show();
-                this.currentForm = employeeListForm;
-            }
-            else
-            {
-                employeeListForm.Close();
-            }
+            ShowForm(ref employeeListForm, toggle, this);
         }
 
         public void ClientListUI(bool toggle = true)
         {
-            this.DestroyCurrentForm();
+            ShowForm(ref listClientForm, toggle, this);
+        }
 
-            if (listClientForm == null) 
-            {
-                listClientForm = new ListClients(this);
-            }
+        public void ChooseClientUI(bool toggle = true)
+        {
+            ShowForm(ref ChooseClientForm, toggle, this);
+        }
 
-            if (toggle)
-                listClientForm.Show();
-            else 
-                listClientForm.Hide();
-            this.currentForm = listClientForm;
+        public void CreateStudentUI(bool toggle = true)
+        {
+            ShowForm(ref CreateStudentFrom, toggle, this);
+        }
+
+        public void CreateTeacherUI(bool toggle = true)
+        {
+            ShowForm(ref CreateTeacherFrom, toggle, this);
+        }
+
+        public void EditStudentUI(int nif, bool toggle = true)
+        {
+            ShowForm(ref EditStudentForm, toggle, nif, this);
+        }
+        public void EditTeacherUI(int nif, bool toggle = true)
+        {
+            ShowForm(ref EditTeacherForm, toggle, nif, this);
         }
 
         // Method to destroy the current form
         private void DestroyCurrentForm()
         {
+            if (isClosing)
+                return;
+
             try
             {
                 if (this.currentForm != null)
                 {
+                    isClosing = true;
                     this.currentForm.Close();
                     this.currentForm = null;
+                    isClosing = false;
                 }
             }
             catch (Exception ex)
             {
-                // Log or handle the exception as necessary
+                isClosing = false;
                 Console.WriteLine($"Error closing form: {ex.Message}");
             }
         }
+
     }
 }
