@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,7 +27,7 @@ namespace PSI_DA_PL_B.views.Auth.Register
         {
 
             string name = registerName.Text;
-            int nif = int.Parse(registerNif.Text);
+            int nif = int.TryParse(registerNif.Text, out int result) ? result : 0;
             string username = registerUsername.Text;
 
 
@@ -70,13 +70,12 @@ namespace PSI_DA_PL_B.views.Auth.Register
                 db.User.Add(employee);
                 db.SaveChanges();
             }
-
+            this.manager.MainMenuUI(username);
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
             this.manager.LoginUI(true);
-            this.manager.RegisterUI(false);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace PSI_DA_PL_B.models.User
 {

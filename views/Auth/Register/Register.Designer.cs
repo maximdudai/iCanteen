@@ -53,7 +53,7 @@
             this.registerButton.Location = new System.Drawing.Point(127, 467);
             this.registerButton.Name = "registerButton";
             this.registerButton.Size = new System.Drawing.Size(188, 45);
-            this.registerButton.TabIndex = 12;
+            this.registerButton.TabIndex = 4;
             this.registerButton.Text = "Register";
             this.registerButton.UseVisualStyleBackColor = false;
             this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
@@ -69,6 +69,7 @@
             this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(456, 72);
             this.textBox4.TabIndex = 16;
+            this.textBox4.TabStop = false;
             // 
             // registerName
             // 
@@ -79,7 +80,7 @@
             this.registerName.MaxLength = 64;
             this.registerName.Name = "registerName";
             this.registerName.Size = new System.Drawing.Size(424, 26);
-            this.registerName.TabIndex = 11;
+            this.registerName.TabIndex = 1;
             // 
             // employeeNameLabel
             // 
@@ -104,6 +105,7 @@
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(456, 45);
             this.textBox2.TabIndex = 14;
+            this.textBox2.TabStop = false;
             // 
             // registerNif
             // 
@@ -114,7 +116,7 @@
             this.registerNif.MaxLength = 64;
             this.registerNif.Name = "registerNif";
             this.registerNif.Size = new System.Drawing.Size(424, 26);
-            this.registerNif.TabIndex = 18;
+            this.registerNif.TabIndex = 2;
             // 
             // employeNifLabel
             // 
@@ -139,6 +141,7 @@
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(456, 45);
             this.textBox3.TabIndex = 19;
+            this.textBox3.TabStop = false;
             // 
             // registerUsername
             // 
@@ -149,7 +152,7 @@
             this.registerUsername.MaxLength = 64;
             this.registerUsername.Name = "registerUsername";
             this.registerUsername.Size = new System.Drawing.Size(424, 26);
-            this.registerUsername.TabIndex = 21;
+            this.registerUsername.TabIndex = 3;
             // 
             // employeUsernamelabel
             // 
@@ -174,15 +177,16 @@
             this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(456, 45);
             this.textBox6.TabIndex = 22;
+            this.textBox6.TabStop = false;
             // 
             // loginButton
             // 
             this.loginButton.AutoSize = true;
-            this.loginButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.loginButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginButton.Location = new System.Drawing.Point(112, 557);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(227, 16);
-            this.loginButton.TabIndex = 24;
+            this.loginButton.Size = new System.Drawing.Size(216, 15);
+            this.loginButton.TabIndex = 5;
             this.loginButton.Text = "Already have an account, Log In!";
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 

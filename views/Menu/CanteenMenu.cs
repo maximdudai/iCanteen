@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +12,7 @@ using PSI_DA_PL_B.controller;
 using PSI_DA_PL_B.helpers;
 using PSI_DA_PL_B.models.User;
 using PSI_DA_PL_B.views.Auth.Login;
+using PSI_DA_PL_B.views.Menu.Dish;
 using PSI_DA_PL_B.views.Menu.TicketMenu;
 
 namespace PSI_DA_PL_B.views.Menu
@@ -80,7 +81,11 @@ namespace PSI_DA_PL_B.views.Menu
                         })
                         .FirstOrDefault();
 
-                    this.name = currentUser.Name;
+                    // If somehow the user is not found, redirect to login
+                    if(currentUser != null)
+                        this.name = currentUser.Name;
+                    else
+                        this.manager.LoginUI();
                 }
             }
             catch (Exception ex)
@@ -124,6 +129,11 @@ namespace PSI_DA_PL_B.views.Menu
         {
             TicketMenu.TicketMenu ticket = new TicketMenu.TicketMenu();
             ticket.ShowDialog();
+        }
+
+        private void dishButton_Click(object sender, EventArgs e)
+        {
+            this.manager.ShowDishListUI();
         }
 
         private void menuPrevWeek_Click(object sender, EventArgs e)
