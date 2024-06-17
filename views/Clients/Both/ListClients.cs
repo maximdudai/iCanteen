@@ -33,8 +33,10 @@ namespace PSI_DA_PL_B.views.Clients.Both
             public double Balance { get; set; }
             public int? NumStudent { get; set; }
             public string Email { get; set; }
-    
-            public ClientInfo(string name, int nif, double balance, int? numStudent, string email= null)
+
+            public ClientInfo() { }
+
+            public ClientInfo(string name, int nif, double balance, int? numStudent = null, string email = null)
             {
                 Name = name;
                 Nif = nif;
@@ -47,7 +49,7 @@ namespace PSI_DA_PL_B.views.Clients.Both
             {
                 var text = $"Nome: {Name}; Nif: {Nif}; Balance: {Balance}";
 
-                if(NumStudent.HasValue)
+                if (NumStudent.HasValue)
                 {
                     text += $"; NumEst: {NumStudent}";
                 }
@@ -55,9 +57,10 @@ namespace PSI_DA_PL_B.views.Clients.Both
                 {
                     text += $"; Email: {Email}";
                 }
-                return text ;
+                return text;
             }
         }
+
 
         public ListClients()
         {
@@ -80,44 +83,31 @@ namespace PSI_DA_PL_B.views.Clients.Both
                     var studentList = db.User
                         .OfType<Student>()
                         .Select(u => new ClientInfo
-                        (
-                            u.Name,
-                            u.Nif,
-                            u.Balance,
-                            u.NumStudent,
-                            null
-                        )).ToList();
+                        {
+                            Name = u.Name,
+                            Nif = u.Nif,
+                            Balance = u.Balance,
+                            NumStudent = u.NumStudent,
+                            Email = null
+                        }).ToList();
 
                     var teacherList = db.User
                         .OfType<Teacher>()
                         .Select(u => new ClientInfo
-                        (
-                            u.Name,
-                            u.Nif,
-                            u.Balance,
-                            null,
-                            u.Email
-                        )).ToList();
+                        {
+                            Name = u.Name,
+                            Nif = u.Nif,
+                            Balance = u.Balance,
+                            NumStudent = null,
+                            Email = u.Email
+                        }).ToList();
 
                     var clientList = studentList.Concat(teacherList).ToList();
 
-                    
-                    foreach (var all in clientList)
-                    {
-                        ClientInfo client = new ClientInfo(all.Name, all.Nif, all.Balance, all.NumStudent, all.Email);
-                        clients.Add(client); 
-                    }
+                    // Add the clients to the local list
+                    clients.AddRange(clientList);
 
                     this.DisplayClients();
-
-                    /*
-                    clientsListbox.Items.Clear();
-
-                    foreach (var cli in clientList)
-                    {
-                        clientsListbox.Items.Add(cli);
-                    }
-                    */
                 }
             }
             catch (Exception ex)
@@ -125,6 +115,7 @@ namespace PSI_DA_PL_B.views.Clients.Both
                 Error.Err(ex.Message);
             }
         }
+
 
         //receiving a list as a parameter
         private void DisplayClients()
@@ -145,9 +136,15 @@ namespace PSI_DA_PL_B.views.Clients.Both
                     return;
                 }
 
+                var allClients = clientsListbox.DataSource as List<ClientInfo>;
+
                 clientsListbox.DataSource = null;
-                clientsListbox.DataSource = clients.Where(clie => clie.Name.Contains(clientName)).ToList();
-                
+                clientsListbox.DataSource = allClients
+                    .Where(c => c.Name.ToLower()
+                    .Contains(clientName.ToLower()))
+                    .ToList();
+
+
             }
             catch (Exception ex)
             {
