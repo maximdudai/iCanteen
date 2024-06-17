@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using PSI_DA_PL_B.models.Menu;
 
 namespace PSI_DA_PL_B.models.MenuCantina
 {
@@ -13,36 +14,35 @@ namespace PSI_DA_PL_B.models.MenuCantina
         public int Id { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime data { get; set; }
+        public DateTime Data { get; set; }
 
-        // 0 = almoco
-        // 1 = jantar
+        // 0 = almoco, 1 = jantar
         [Range(0, 1)]
-        public bool tipoRefeicao {  get; set; }
+        public int TipoRefeicao { get; set; }
 
         [Range(1, 10)]
-        public int quantidade { get; set; }
+        public int Quantidade { get; set; }
 
         [Required]
-        public double preco_estudante { get; set; }
+        public double PrecoEstudante { get; set; }
 
         [Required]
-        public double preco_professor { get; set; }
+        public double PrecoProfessor { get; set; }
 
-        string[] Picture { get; set; }
-        string PictureUrl { get; set; }
+        public virtual List<Dish> Dishes { get; set; }
 
         public Menu()
         {
+            Dishes = new List<Dish>();
         }
 
-        public Menu(int quantidade, double preco_estudante, double preco_professor)
+        public Menu(int quantidade, double precoEstudante, double precoProfessor, List<Dish> dishes)
         {
-
-            this.data = DateTime.Now;
-            this.quantidade = quantidade;
-            this.preco_estudante = preco_estudante;
-            this.preco_professor = preco_professor;
+            Data = DateTime.Now;
+            Quantidade = quantidade;
+            PrecoEstudante = precoEstudante;
+            PrecoProfessor = precoProfessor;
+            Dishes = dishes;
         }
     }
 }

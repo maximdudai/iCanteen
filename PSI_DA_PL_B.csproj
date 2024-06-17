@@ -87,6 +87,18 @@
     <Compile Include="views\Auth\Register\Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\Menu\Dish\Create\CreateDish.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Menu\Dish\Create\CreateDish.Designer.cs">
+      <DependentUpon>CreateDish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\Menu\Dish\Dish.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Menu\Dish\Dish.Designer.cs">
+      <DependentUpon>Dish.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\Menu\Employees\Create\CreateEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +205,12 @@
     <EmbeddedResource Include="views\Auth\Register\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="views\Menu\Dish\Create\CreateDish.resx">
+      <DependentUpon>CreateDish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Menu\Dish\Dish.resx">
+      <DependentUpon>Dish.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="views\Menu\Employees\Create\CreateEmployee.resx">
       <DependentUpon>CreateEmployee.cs</DependentUpon>
     </EmbeddedResource>
@@ -254,6 +272,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\" />
+    <Folder Include="views\Menu\Dish\Edit\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />

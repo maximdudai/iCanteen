@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -70,12 +70,11 @@ namespace PSI_DA_PL_B.views.Auth.Register
                 db.User.Add(employee);
                 db.SaveChanges();
             }
-            this.manager.MainMenuUI();
+            this.manager.MainMenuUI(username);
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            this.manager.RegisterUI(false);
             this.manager.LoginUI(true);
         }
     }
