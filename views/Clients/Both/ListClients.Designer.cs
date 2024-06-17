@@ -121,6 +121,7 @@
             this.filterClient.Name = "filterClient";
             this.filterClient.Size = new System.Drawing.Size(523, 37);
             this.filterClient.TabIndex = 1;
+            this.filterClient.TextChanged += new System.EventHandler(this.filterClient_TextChanged);
             // 
             // label1
             // 

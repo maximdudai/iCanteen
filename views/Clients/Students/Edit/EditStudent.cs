@@ -11,98 +11,102 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using static PSI_DA_PL_B.views.Clients.Both.ListClients;
 
 namespace PSI_DA_PL_B.views.Clients.Students.Edit
 {
     public partial class EditStudent : Form
-    {
-        /*
-        private string name {  get; set; }
-        private int numStudent { get; set; }
-        private int nif {  get; set; }
-        private double balance { get; set; }
-        */
+    {        
+        private int nif;
         private Manager manager { get; set; }
 
         public EditStudent()
         {
             InitializeComponent();
         }
-        public EditStudent(Manager manager) : this()
+        public EditStudent(int nif, Manager manager) : this()
         {
             this.manager = manager;
+            this.nif = nif;
+            ShowStudentDetails();
         }
-
-        /*
-        public EditStudent (string name, int numStudent, int nif, double balance) : this()
+        private void ShowStudentDetails()
         {
-            studentNameInput.Text = name;
-            studentNumberInput.Text = numStudent.ToString();
-            studentNIFinput.Text = nif.ToString();
-            studentBalanceInput.Text = balance.ToString();
+            try
+            {
+                using (var db = new Cantina())
+                {
+                    /*
+                    var student = db.User
+                        .OfType<Student>()
+                        .FirstOrDefault(u => u.Nif == this.nif);
+                    */
+                    var student = db.User
+                        .OfType<Student>()
+                        .Where(u => u.Nif == this.nif)
+                        .FirstOrDefault();
+
+                    if (student != null)
+                    {
+                        studentNameInput.Text = student.Name;
+                        studentNumberInput.Text = student.NumStudent.ToString();
+                        studentNIFinput.Text = student.Nif.ToString();
+                        studentBalanceInput.Text = student.Balance.ToString();
+                    }
+                    else
+                    {
+                        Error.Err("Student not found in the database!");
+                        this.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.Err(ex.Message);
+                this.Close();
+            }
         }
-        */
 
         private void StudentEdit_Click(object sender, EventArgs e)
         {
-            /*
-           try
-           {
-               this.name = studentNameInput.Text;
-               this.numStudent = int.Parse(studentNumberInput.Text);
-               this.nif = int.Parse(studentNIFinput.Text);
-               this.balance = int.Parse(studentBalanceInput.Text);
+            
+            try
+            {
+                using (var db = new Cantina())
+                {
+                    var student = db.User
+                        .OfType<Student>()
+                        .FirstOrDefault(u => u.Nif == this.nif);
 
-               if (string.IsNullOrEmpty(this.name))
-               {
-                   Error.Err("Name field cannot be empty!");
-                   return;
-               }
-               if (this.nif.ToString().Length != 9)
-               {
-                   Error.Err("NIF must have 9 digits!");
-                   return;
-               }
+                    if (student != null)
+                    {
+                        // Update student details
+                        student.Name = studentNameInput.Text;
+                        student.NumStudent = int.Parse(studentNumberInput.Text);
+                        student.Nif = int.Parse(studentNIFinput.Text);
+                        student.Balance = double.Parse(studentBalanceInput.Text);
 
-               if (this.numStudent.ToString().Length != 7)
-               {
-                   Error.Err("Number of Student must have 7 digits!");
-                   return;
-               }
+                        db.SaveChanges();
+                        MessageBox.Show("Student details updated successfully!");
 
-               using (var db = new Cantina())
-               {
-                   var studentData = db.User.
-                       OfType<Student>()
-                       .Where(u => u.Nif == this.nif)
-                       .FirstOrDefault();
+                        this.manager.ClientListUI();
+                    }
+                    else
+                    {
+                        Error.Err("Student not found in the database!");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.Err(ex.Message);
+            }
+        }
 
-                   if (studentData == null)
-                   {
-                       Error.Err("Student not found!");
-                       return;
-                   }
-
-                   // Modify the entity properties
-                   studentData.Name = this.name;
-                   studentData.NumStudent = this.numStudent;
-                   studentData.Nif = this.nif;
-                   studentData.Balance = this.balance;
-
-                   // Save changes to the database
-                   db.SaveChanges();
-               }
-
-               ListClients client = new ListClients();
-               client.Show();
-
-               this.Close();
-           }
-           catch (Exception ex)
-           {
-               Error.Err(ex.Message);
-           }
-            */
+        private void EditStudent_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.manager.ClientListUI();
         }
     }
 }

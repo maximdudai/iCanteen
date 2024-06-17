@@ -61,7 +61,7 @@
             this.teacherBalanceInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.teacherBalanceInput.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16F);
             this.teacherBalanceInput.Location = new System.Drawing.Point(19, 549);
-            this.teacherBalanceInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.teacherBalanceInput.Margin = new System.Windows.Forms.Padding(4);
             this.teacherBalanceInput.Name = "teacherBalanceInput";
             this.teacherBalanceInput.Size = new System.Drawing.Size(573, 37);
             this.teacherBalanceInput.TabIndex = 4;
@@ -84,7 +84,7 @@
             this.teacherNameInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.teacherNameInput.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16F);
             this.teacherNameInput.Location = new System.Drawing.Point(19, 266);
-            this.teacherNameInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.teacherNameInput.Margin = new System.Windows.Forms.Padding(4);
             this.teacherNameInput.Name = "teacherNameInput";
             this.teacherNameInput.Size = new System.Drawing.Size(573, 37);
             this.teacherNameInput.TabIndex = 1;
@@ -93,7 +93,7 @@
             // 
             this.teacherEdit.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14F);
             this.teacherEdit.Location = new System.Drawing.Point(185, 626);
-            this.teacherEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.teacherEdit.Margin = new System.Windows.Forms.Padding(4);
             this.teacherEdit.Name = "teacherEdit";
             this.teacherEdit.Size = new System.Drawing.Size(251, 46);
             this.teacherEdit.TabIndex = 5;
@@ -119,7 +119,7 @@
             this.teacherNIFinput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.teacherNIFinput.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16F);
             this.teacherNIFinput.Location = new System.Drawing.Point(19, 454);
-            this.teacherNIFinput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.teacherNIFinput.Margin = new System.Windows.Forms.Padding(4);
             this.teacherNIFinput.Name = "teacherNIFinput";
             this.teacherNIFinput.Size = new System.Drawing.Size(573, 37);
             this.teacherNIFinput.TabIndex = 3;
@@ -142,7 +142,7 @@
             this.teacherEmailInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.teacherEmailInput.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16F);
             this.teacherEmailInput.Location = new System.Drawing.Point(19, 357);
-            this.teacherEmailInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.teacherEmailInput.Margin = new System.Windows.Forms.Padding(4);
             this.teacherEmailInput.Name = "teacherEmailInput";
             this.teacherEmailInput.Size = new System.Drawing.Size(573, 37);
             this.teacherEmailInput.TabIndex = 2;
@@ -165,7 +165,7 @@
             this.textBox1.BackColor = System.Drawing.Color.Peru;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Location = new System.Drawing.Point(0, 167);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
@@ -200,10 +200,11 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.header1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EditTeacher";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar Professor";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EditTeacher_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

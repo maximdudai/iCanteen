@@ -7,10 +7,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace PSI_DA_PL_B.views.Clients.Teachers.Create
 {
@@ -38,11 +42,14 @@ namespace PSI_DA_PL_B.views.Clients.Teachers.Create
                 this.Email = teacherEmailInput.Text;
                 this.Balance = 0.00;
 
-                //TODO validate email
-
-                if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(Email))
+                if (string.IsNullOrWhiteSpace(name))
                 {
-                    Error.Err("Name or Email field cannot be empty!");
+                    Error.Err("Name field cannot be empty!");
+                    return;
+                }
+
+                if (!IsValidEmail(Email))
+                {
                     return;
                 }
 
@@ -51,7 +58,7 @@ namespace PSI_DA_PL_B.views.Clients.Teachers.Create
                     Error.Err("NIF must have 9 digits!");
                     return;
                 }
-                               
+
                 //verify if the email and nif already exists
                 using (var db = new Cantina())
                 {
@@ -97,6 +104,25 @@ namespace PSI_DA_PL_B.views.Clients.Teachers.Create
             catch (Exception ex)
             {
                 Error.Err(ex.Message);
+            }
+        }
+        public static bool IsValidEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                Error.Err("Email field cannot be empty!");
+                return false;
+            }
+
+            try
+            {
+                var emailInput = new MailAddress(email);
+                return true;
+            }
+            catch (FormatException)
+            {
+                Error.Err("Invalid email format!");
+                return false;
             }
         }
 
