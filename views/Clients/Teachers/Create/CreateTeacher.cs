@@ -51,7 +51,7 @@ namespace PSI_DA_PL_B.views.Clients.Teachers.Create
                     Error.Err("NIF must have 9 digits!");
                     return;
                 }
-                               
+
                 //verify if the email and nif already exists
                 using (var db = new Cantina())
                 {

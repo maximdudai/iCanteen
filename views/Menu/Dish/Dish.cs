@@ -30,10 +30,7 @@ namespace PSI_DA_PL_B.views.Menu.Dish
             this.manager.ShowCreateDishUI();
         }
 
-        private void UpdateDishUI()
-        {
-            
-        }
+
 
         private void LoadDishFromDatabase()
         {
@@ -53,6 +50,41 @@ namespace PSI_DA_PL_B.views.Menu.Dish
         private void Dish_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.manager.MainMenuUI();
+        }
+
+        private void HandleSelectDish(object sender, EventArgs e)
+        {
+            //select from database dish where itemId = dishListBox.SelectedItem
+
+            using (var db = new Cantina())
+            {
+                var dish = db.Dish.Find(dishListBox.SelectedItem);
+
+                if (dish == null)
+                {
+                    MessageBox.Show("Dish not found");
+                    return;
+                }
+
+                string dishType = this.dishType.Text;
+                string dishActive = this.dishActive.Text;
+                string dishDescription = this.dishDescription.Text;
+
+                dishType.Text = dish.DishType;
+            }
+        }
+        private void UpdateDishUI()
+        {
+
+        }
+        private void dishEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dishRemove_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
