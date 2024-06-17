@@ -69,8 +69,6 @@ namespace PSI_DA_PL_B.views.Menu.Dish
                 string dishType = this.dishType.Text;
                 string dishActive = this.dishActive.Text;
                 string dishDescription = this.dishDescription.Text;
-
-                dishType.Text = dish.DishType;
             }
         }
         private void UpdateDishUI()
