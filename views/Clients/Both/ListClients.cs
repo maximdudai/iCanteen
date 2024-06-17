@@ -22,7 +22,7 @@ namespace PSI_DA_PL_B.views.Clients.Both
 {
     public partial class ListClients : Form
     {
-        private readonly List<Client> clients;
+        private readonly List<ClientInfo> clients;
         private Manager manager { get; set; }
 
         //to join the queries
@@ -33,10 +33,19 @@ namespace PSI_DA_PL_B.views.Clients.Both
             public double Balance { get; set; }
             public int? NumStudent { get; set; }
             public string Email { get; set; }
+    
+            public ClientInfo(string name, int nif, double balance, int? numStudent, string email= null)
+            {
+                Name = name;
+                Nif = nif;
+                Balance = balance;
+                NumStudent = numStudent;
+                Email = email;
+            }
 
             public override string ToString()
             {
-                var text = $"Nome: {Name}; Nif: {Nif} ";
+                var text = $"Nome: {Name}; Nif: {Nif}; Balance: {Balance}";
 
                 if(NumStudent.HasValue)
                 {
@@ -58,7 +67,7 @@ namespace PSI_DA_PL_B.views.Clients.Both
         public ListClients(Manager manager):this()
         {
             this.manager = manager;
-            clients = new List<Client>();
+            clients = new List<ClientInfo>();
             LoadClients();
         }
 
@@ -71,33 +80,44 @@ namespace PSI_DA_PL_B.views.Clients.Both
                     var studentList = db.User
                         .OfType<Student>()
                         .Select(u => new ClientInfo
-                        {
-                            Name = u.Name,
-                            Nif = u.Nif,
-                            Balance = u.Balance,
-                            NumStudent = u.NumStudent,
-                            Email = null
-                        }).ToList();
+                        (
+                            u.Name,
+                            u.Nif,
+                            u.Balance,
+                            u.NumStudent,
+                            null
+                        )).ToList();
 
                     var teacherList = db.User
                         .OfType<Teacher>()
                         .Select(u => new ClientInfo
-                        {
-                            Name = u.Name,
-                            Nif = u.Nif,
-                            Balance = u.Balance,
-                            NumStudent = null,
-                            Email = u.Email
-                        }).ToList();
+                        (
+                            u.Name,
+                            u.Nif,
+                            u.Balance,
+                            null,
+                            u.Email
+                        )).ToList();
 
                     var clientList = studentList.Concat(teacherList).ToList();
 
+                    
+                    foreach (var all in clientList)
+                    {
+                        ClientInfo client = new ClientInfo(all.Name, all.Nif, all.Balance, all.NumStudent, all.Email);
+                        clients.Add(client); 
+                    }
+
+                    this.DisplayClients();
+
+                    /*
                     clientsListbox.Items.Clear();
 
                     foreach (var cli in clientList)
                     {
                         clientsListbox.Items.Add(cli);
                     }
+                    */
                 }
             }
             catch (Exception ex)
