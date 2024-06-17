@@ -48,8 +48,9 @@ namespace PSI_DA_PL_B.views.Clients.Teachers.Create
                     return;
                 }
 
-                if (!IsValidEmail(Email))
+                if (!helpers.Validator.IsValidEmail(this.Email))
                 {
+                    Error.Err("Invalid email!");
                     return;
                 }
 
@@ -104,25 +105,6 @@ namespace PSI_DA_PL_B.views.Clients.Teachers.Create
             catch (Exception ex)
             {
                 Error.Err(ex.Message);
-            }
-        }
-        public static bool IsValidEmail(string email)
-        {
-            if (string.IsNullOrWhiteSpace(email))
-            {
-                Error.Err("Email field cannot be empty!");
-                return false;
-            }
-
-            try
-            {
-                var emailInput = new MailAddress(email);
-                return true;
-            }
-            catch (FormatException)
-            {
-                Error.Err("Invalid email format!");
-                return false;
             }
         }
 
