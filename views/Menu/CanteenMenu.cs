@@ -80,6 +80,7 @@ namespace PSI_DA_PL_B.views.Menu
                         })
                         .FirstOrDefault();
 
+                    
                     this.name = currentUser.Name;
                 }
             }

@@ -70,7 +70,7 @@ namespace PSI_DA_PL_B.views.Auth.Register
                 db.User.Add(employee);
                 db.SaveChanges();
             }
-            this.manager.MainMenuUI(true, username);
+            this.manager.MainMenuUI();
         }
 
         private void loginButton_Click(object sender, EventArgs e)
