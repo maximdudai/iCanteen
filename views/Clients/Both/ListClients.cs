@@ -117,17 +117,17 @@ namespace PSI_DA_PL_B.views.Clients.Both
         private void SearchClient_Click(object sender, EventArgs e)
         {
             try
-            {
+            {                
                 string clientName = filterClient.Text;
 
                 if (string.IsNullOrEmpty(clientName))
                 {
-                    Error.Err("Search field cannot be empty!");
                     return;
                 }
-                clientsListbox.DataSource = null;
 
+                clientsListbox.DataSource = null;
                 clientsListbox.DataSource = clients.Where(clie => clie.Name.Contains(clientName)).ToList();
+                
             }
             catch (Exception ex)
             {
@@ -135,115 +135,69 @@ namespace PSI_DA_PL_B.views.Clients.Both
             }
         }
 
-        //if empty or null search text than shows all IE
-        private void FilterClient_TextChanged(object sender, EventArgs e)
+        private void filterClient_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(filterClient.Text))
             {
-                //this.DisplayClients();
-                this.LoadClients();
+                this.DisplayClients();
             }
         }
 
         //form to choose a type of client to create
         private void CreateClient_Click(object sender, EventArgs e)
         {
-            //ChooseClientCreate chooseClientCreateForm = new ChooseClientCreate();
-            //chooseClientCreateForm.ShowDialog();
-            //this.Close();
-
             this.manager.ChooseClientUI();
-        }
-
-        //function to compare data with database
-        private bool CompareWithDb(string name, int nif)
-        {
-            using (var db = new Cantina())
-            {
-                return db.User.OfType<Student>().Any(u => u.Name == name && u.Nif == nif) ||
-                       db.User.OfType<Teacher>().Any(u => u.Name == name && u.Nif == nif);
-            }
         }
 
         //go to edit form of corresponding client type
         private void EditClient_Click(object sender, EventArgs e)
         {
-
-
-            /*
             try
             {
-                //checks if the listbox item is selected
-                if (clientsListbox.SelectedItem != null)
+                var selectedClient = clientsListbox.SelectedItem as ClientInfo;
+
+                if (selectedClient != null)
                 {
-                    string selectedItem = clientsListbox.SelectedItem.ToString();
-                    string[] dataSplit = selectedItem.Split('-');
-
-                    if(dataSplit.Length >= 3) 
+                    try
                     {
-                        string name = dataSplit[0];
-                        int nif = int.Parse(dataSplit[1]);
-                        double balance = double.Parse(dataSplit[2]);
-
-                        //checks client data to see if it exists in the database
-                        bool existInDb = CompareWithDb(name, nif);
-
-                        if (existInDb)
+                        using (var db = new Cantina())
                         {
-                            using (var db = new Cantina())
+                            //check if the selected client is a student
+                            var student = db.User
+                                .OfType<Student>()
+                                .FirstOrDefault(u => u.Nif == selectedClient.Nif);
+
+                            if (student != null)
                             {
-                                //determine if the client is a studentIE or teacherIE
-                                var user = db.User.FirstOrDefault(u => u.Name == name && u.Nif == nif);
+                                this.manager.EditStudentUI(student.Nif);
+                                return;
+                            }
 
-                                if (user is Student student)
-                                {
-                                    if (dataSplit.Length >= 4)
-                                    {
-                                        int numStudent = int.Parse(dataSplit[3]);
-                                        EditStudent editStudentForm = new EditStudent(name, numStudent, nif, balance);
-                                        editStudentForm.ShowDialog();
-                                    }
-                                    else
-                                    {
-                                        Error.Err("Insufficient data for a studentIE!");
-                                    }
-                                }
+                            //check if the selected client is a teacher
+                            var teacher = db.User
+                                .OfType<Teacher>()
+                                .FirstOrDefault(u => u.Nif == selectedClient.Nif);
 
-                                if (user is Teacher teacher)
-                                {
-                                    if (dataSplit.Length >= 4)
-                                    {
-                                        string email = dataSplit[3];
-                                        EditTeacher editTeacherForm = new EditTeacher(name, email, nif, balance);
-                                        editTeacherForm.ShowDialog();
-                                    }
-                                    else
-                                    {
-                                        Error.Err("Insufficient data for a teacherIE.");
-                                    }
-                                }
+                            if (teacher != null)
+                            {
+                                this.manager.EditTeacherUI(teacher.Nif);
                             }
                         }
-                        else
-                        {
-                            Error.Err("Client not found in the database!");
-                        }
-
-                    } else
+                    }
+                    catch (Exception ex)
                     {
-                        Error.Err("Error in splint method!");
+                        Error.Err(ex.Message);
                     }
                 }
                 else
                 {
-                    Error.Err("Please select an client to edit!");
+                    Error.Err("No client selected!");
                 }
             }
             catch (Exception ex)
             {
                 Error.Err(ex.Message);
             }
-            */
         }
 
         //delete IE from database
@@ -285,6 +239,6 @@ namespace PSI_DA_PL_B.views.Clients.Both
         private void ListClients_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.manager.MainMenuUI();
-        }
+        }       
     }
 }

@@ -7,10 +7,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace PSI_DA_PL_B.views.Clients.Teachers.Create
 {
@@ -38,11 +42,15 @@ namespace PSI_DA_PL_B.views.Clients.Teachers.Create
                 this.Email = teacherEmailInput.Text;
                 this.Balance = 0.00;
 
-                //TODO validate email
-
-                if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(Email))
+                if (string.IsNullOrWhiteSpace(name))
                 {
-                    Error.Err("Name or Email field cannot be empty!");
+                    Error.Err("Name field cannot be empty!");
+                    return;
+                }
+
+                if (!helpers.Validator.IsValidEmail(this.Email))
+                {
+                    Error.Err("Invalid email!");
                     return;
                 }
 

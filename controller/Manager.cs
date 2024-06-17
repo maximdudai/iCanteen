@@ -42,7 +42,6 @@ namespace PSI_DA_PL_B.controller
         private ChooseClientCreate ChooseClientForm = null;
         private CreateStudent CreateStudentFrom = null;
         private CreateTeacher CreateTeacherFrom = null;
-        private ListClients EditClientForm = null;
         private EditStudent EditStudentForm = null;
         private EditTeacher EditTeacherForm = null;
         #endregion
@@ -129,6 +128,15 @@ namespace PSI_DA_PL_B.controller
         public void ShowCreateDishUI(bool toggle = true)
         {
             ShowForm(ref CreateDishForm, toggle, this);
+        }
+
+        public void EditStudentUI(int nif, bool toggle = true)
+        {
+            ShowForm(ref EditStudentForm, toggle, nif, this);
+        }
+        public void EditTeacherUI(int nif, bool toggle = true)
+        {
+            ShowForm(ref EditTeacherForm, toggle, nif, this);
         }
 
         // Method to destroy the current form

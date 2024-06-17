@@ -113,6 +113,7 @@ namespace PSI_DA_PL_B.views.Clients.Both
             this.filterClient.Name = "filterClient";
             this.filterClient.Size = new System.Drawing.Size(393, 32);
             this.filterClient.TabIndex = 1;
+            this.filterClient.TextChanged += new System.EventHandler(this.filterClient_TextChanged);
             // 
             // label1
             // 
