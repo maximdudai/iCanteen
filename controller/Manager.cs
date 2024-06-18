@@ -18,6 +18,7 @@ using PSI_DA_PL_B.views.Clients.Students.Edit;
 using PSI_DA_PL_B.views.Clients.Teachers.Edit;
 using PSI_DA_PL_B.views.Menu.Dish.Create;
 using PSI_DA_PL_B.views.Menu.Dish;
+using PSI_DA_PL_B.views.Menu.Dish.Edit;
 
 namespace PSI_DA_PL_B.controller
 {
@@ -49,6 +50,7 @@ namespace PSI_DA_PL_B.controller
         #region Menu Manager
         private CreateDish CreateDishForm = null;
         private Dish DishListForm = null;
+        private EditDish EditDishForm = null;
         #endregion
 
         private void ShowForm<T>(ref T form, bool toggle = true, params object[] args) where T : Form
@@ -128,6 +130,11 @@ namespace PSI_DA_PL_B.controller
         public void ShowCreateDishUI(bool toggle = true)
         {
             ShowForm(ref CreateDishForm, toggle, this);
+        }
+
+        public void ShowEditDishUI(int itemId, bool toggle = true)
+        {
+            ShowForm(ref EditDishForm, toggle, itemId, this);
         }
 
         public void EditStudentUI(int nif, bool toggle = true)
