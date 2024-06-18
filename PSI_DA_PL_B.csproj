@@ -87,6 +87,18 @@
     <Compile Include="views\Auth\Register\Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\Clients\Both\SelectClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Clients\Both\SelectClient.Designer.cs">
+      <DependentUpon>SelectClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\Menu\Balance\Balance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Menu\Balance\Balance.Designer.cs">
+      <DependentUpon>Balance.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\Menu\Dish\Create\CreateDish.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +222,12 @@
     </Compile>
     <EmbeddedResource Include="views\Auth\Register\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Clients\Both\SelectClient.resx">
+      <DependentUpon>SelectClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Menu\Balance\Balance.resx">
+      <DependentUpon>Balance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\Menu\Dish\Create\CreateDish.resx">
       <DependentUpon>CreateDish.cs</DependentUpon>

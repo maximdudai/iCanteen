@@ -19,8 +19,23 @@ namespace PSI_DA_PL_B.helpers
         {
             MailAddress emailInput = new MailAddress(email);
             
-            return emailInput.Address == email;
-          
+            return emailInput.Address == email;          
+        }
+
+        public static bool IsValidClientNifSearch(int nif)
+        {
+            if (nif == 0)
+            {
+                Error.Err("ClientNif cannot be empty!");
+                return false;
+            }
+
+            if (nif.ToString().Length != 9)
+            {
+                Error.Err("NIF must have 9 digits!");
+                return false;
+            }
+            return true;
         }
     }
 }

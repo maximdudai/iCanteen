@@ -18,6 +18,7 @@ using PSI_DA_PL_B.views.Clients.Students.Edit;
 using PSI_DA_PL_B.views.Clients.Teachers.Edit;
 using PSI_DA_PL_B.views.Menu.Dish.Create;
 using PSI_DA_PL_B.views.Menu.Dish;
+using PSI_DA_PL_B.views.Menu.Balance;
 using PSI_DA_PL_B.views.Menu.Dish.Edit;
 
 namespace PSI_DA_PL_B.controller
@@ -32,6 +33,7 @@ namespace PSI_DA_PL_B.controller
         private Login loginForm = null;
         private CanteenMenu mainMenuForm = null;
         private Register registerForm = null;
+        private Balance BalanceForm = null;
 
         private bool isClosing = false;
         #endregion
@@ -43,6 +45,7 @@ namespace PSI_DA_PL_B.controller
         private CreateTeacher CreateTeacherFrom = null;
         private EditStudent EditStudentForm = null;
         private EditTeacher EditTeacherForm = null;
+        private SelectClient SelectClientForm = null;
         #endregion
 
         #region Employee Manager
@@ -140,6 +143,17 @@ namespace PSI_DA_PL_B.controller
             ShowForm(ref EditTeacherForm, toggle, nif, this);
         }
 
+        public void SelectClientUI(bool toggle = true)
+        {
+            ShowForm(ref SelectClientForm, toggle, this);
+        }
+
+        public void BalanceUI(int nif, bool toggle = true)
+        {
+            ShowForm(ref BalanceForm, toggle, nif, this);
+        }
+
+
         public void EditEmployeeUI(int nif, bool toggle = true)
         {
             ShowForm(ref EditEmployeeForm, toggle, nif, this);
@@ -176,6 +190,5 @@ namespace PSI_DA_PL_B.controller
                 Console.WriteLine($"Error closing form: {ex.Message}");
             }
         }
-
     }
 }

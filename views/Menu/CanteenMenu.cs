@@ -121,6 +121,10 @@ namespace PSI_DA_PL_B.views.Menu
             this.manager.ClientListUI();
         }
 
+        private void balanceButton_Click(object sender, EventArgs e)
+        {
+            this.manager.SelectClientUI();
+        }
         private void ticketButton_Click(object sender, EventArgs e)
         {
             TicketMenu.TicketMenu ticket = new TicketMenu.TicketMenu();
@@ -212,5 +216,6 @@ namespace PSI_DA_PL_B.views.Menu
             string dailyMenu = this.currentWeek == this.GetCurrentYearWeek() ? $"Menus Diários da Semana Atual" : $"Menus Diários da Semana #{this.currentWeek}";
             this.dailyMenuWeek.Text = dailyMenu;
         }
+
     }
 }
