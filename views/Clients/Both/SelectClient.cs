@@ -61,7 +61,6 @@ namespace PSI_DA_PL_B.views.Clients.Both
 
                         if (students.Any())
                         {
-                            MessageBox.Show("Client selected successfully!");
                             SourceButtonName(students.First().Nif);
                         }
                         else
@@ -80,7 +79,6 @@ namespace PSI_DA_PL_B.views.Clients.Both
 
                         if (teachers.Any())
                         {
-                            MessageBox.Show("Client selected successfully!");
                             SourceButtonName(teachers.First().Nif);
                         }
                         else

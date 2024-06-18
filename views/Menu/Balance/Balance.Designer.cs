@@ -133,9 +133,9 @@
             this.ClientNifLabel.Location = new System.Drawing.Point(38, 291);
             this.ClientNifLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ClientNifLabel.Name = "ClientNifLabel";
-            this.ClientNifLabel.Size = new System.Drawing.Size(54, 18);
+            this.ClientNifLabel.Size = new System.Drawing.Size(35, 18);
             this.ClientNifLabel.TabIndex = 57;
-            this.ClientNifLabel.Text = "Nome";
+            this.ClientNifLabel.Text = "NIF";
             // 
             // LoadBalanceButton
             // 

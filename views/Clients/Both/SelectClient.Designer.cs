@@ -114,16 +114,16 @@
             // searchClientNif
             // 
             this.searchClientNif.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.89565F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchClientNif.Location = new System.Drawing.Point(234, 324);
+            this.searchClientNif.Location = new System.Drawing.Point(268, 324);
             this.searchClientNif.Name = "searchClientNif";
-            this.searchClientNif.Size = new System.Drawing.Size(337, 29);
+            this.searchClientNif.Size = new System.Drawing.Size(263, 29);
             this.searchClientNif.TabIndex = 53;
             // 
             // StudentRadioButton
             // 
             this.StudentRadioButton.AutoSize = true;
             this.StudentRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StudentRadioButton.Location = new System.Drawing.Point(234, 196);
+            this.StudentRadioButton.Location = new System.Drawing.Point(268, 196);
             this.StudentRadioButton.Name = "StudentRadioButton";
             this.StudentRadioButton.Size = new System.Drawing.Size(128, 30);
             this.StudentRadioButton.TabIndex = 54;
@@ -135,7 +135,7 @@
             // 
             this.TeacherRadioButton.AutoSize = true;
             this.TeacherRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TeacherRadioButton.Location = new System.Drawing.Point(234, 241);
+            this.TeacherRadioButton.Location = new System.Drawing.Point(268, 237);
             this.TeacherRadioButton.Name = "TeacherRadioButton";
             this.TeacherRadioButton.Size = new System.Drawing.Size(123, 30);
             this.TeacherRadioButton.TabIndex = 55;
