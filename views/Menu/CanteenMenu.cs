@@ -72,8 +72,6 @@ namespace PSI_DA_PL_B.views.Menu
         {
             timer.Start();
         }
-
-        #region Employee manager
         private void LoadData()
         {
             try
@@ -114,9 +112,7 @@ namespace PSI_DA_PL_B.views.Menu
         {
             this.manager.LoginUI();
         }
-        #endregion
 
-        #region Main buttons
         private void clientbutton_Click(object sender, EventArgs e)
         {
             this.manager.ClientListUI();
@@ -149,9 +145,6 @@ namespace PSI_DA_PL_B.views.Menu
         {
             this.manager.SelectClientUI("balance");
         }
-        #endregion
-
-        #region Show menus information 
         private void extraButton_Click(object sender, EventArgs e)
         {
             this.manager.ShowExtraListUI();
@@ -237,6 +230,5 @@ namespace PSI_DA_PL_B.views.Menu
             string dailyMenu = this.currentWeek == this.GetCurrentYearWeek() ? $"Menus Diários da Semana Atual" : $"Menus Diários da Semana #{this.currentWeek}";
             this.dailyMenuWeek.Text = dailyMenu;
         }
-        #endregion
     }
 }

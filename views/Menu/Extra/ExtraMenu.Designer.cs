@@ -100,12 +100,6 @@
             this.extraListBox.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.extraListBox.FormattingEnabled = true;
             this.extraListBox.ItemHeight = 15;
-            this.extraListBox.Items.AddRange(new object[] {
-            "Iogurte",
-            "Salada",
-            "Banana",
-            "Gelado",
-            "Soupa"});
             this.extraListBox.Location = new System.Drawing.Point(269, 162);
             this.extraListBox.Name = "extraListBox";
             this.extraListBox.Size = new System.Drawing.Size(164, 244);

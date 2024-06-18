@@ -142,28 +142,7 @@ namespace PSI_DA_PL_B.controller
         {
             ShowForm(ref ChooseClientForm, toggle, this);
         }
-        public void ShowCreateDishUI(bool toggle = true)
-        {
-            ShowForm(ref CreateDishForm, toggle, this);
-        }
 
-        public void ShowEditDishUI(int itemId, bool toggle = true)
-        {
-            ShowForm(ref EditDishForm, toggle, itemId, this);
-        }
-        public void ShowExtraListUI(bool toggle = true)
-        {
-            ShowForm(ref ExtraListForm, toggle, this);
-        }
-
-        public void ShowCreateExtraUI(bool toggle = true)
-        {
-            ShowForm(ref CreateExtraForm, toggle, this);
-        }
-        public void ShowEditExtraUI(int itemId, bool toggle = true)
-        {
-            ShowForm(ref EditExtraForm, toggle, itemId, this);
-        }
         public void EditStudentUI(int nif, bool toggle = true)
         {
             ShowForm(ref EditStudentForm, toggle, nif, this);
@@ -191,6 +170,19 @@ namespace PSI_DA_PL_B.controller
         public void ShowEditDishUI(int itemId, bool toggle = true)
         {
             ShowForm(ref EditDishForm, toggle, itemId, this);
+        }
+        public void ShowExtraListUI(bool toggle = true)
+        {
+            ShowForm(ref ExtraListForm, toggle, this);
+        }
+
+        public void ShowCreateExtraUI(bool toggle = true)
+        {
+            ShowForm(ref CreateExtraForm, toggle, this);
+        }
+        public void ShowEditExtraUI(int itemId, bool toggle = true)
+        {
+            ShowForm(ref EditExtraForm, toggle, itemId, this);
         }
         #endregion
 

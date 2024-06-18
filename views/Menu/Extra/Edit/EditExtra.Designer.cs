@@ -139,7 +139,7 @@
             this.label2.BackColor = System.Drawing.Color.Peru;
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14F);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(77, 237);
+            this.label2.Location = new System.Drawing.Point(14, 237);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(94, 22);
             this.label2.TabIndex = 42;
@@ -191,6 +191,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(455, 564);
             this.Controls.Add(this.extraPrice);
             this.Controls.Add(this.finishExtraEdit);
