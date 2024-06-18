@@ -18,7 +18,7 @@ namespace PSI_DA_PL_B.views.Menu.Extra.Edit
 
         private int itemId { get; set; }
 
-        private double price { get; set; }
+        private decimal price { get; set; }
         private string description { get; set; }
         private bool active { get; set; }
 
@@ -49,7 +49,7 @@ namespace PSI_DA_PL_B.views.Menu.Extra.Edit
         {
             this.extraDescription.Text = this.description;
 
-            this.extraPrice.Text = $"Current Value: {this.extraPrice}€";
+            this.extraPrice.Text = $"Valor atual: {this.extraPrice}€";
 
             // set extraActive checkbox to the value from the database
             int index = this.active ? 0 : 1;
@@ -70,7 +70,7 @@ namespace PSI_DA_PL_B.views.Menu.Extra.Edit
                 var extra = db.Extra.Find(itemId);
                 if (extra == null)
                 {
-                    MessageBox.Show("Prato não encontrado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Error.Err("Extra não encontrado");
                     return;
                 }
 
@@ -104,7 +104,7 @@ namespace PSI_DA_PL_B.views.Menu.Extra.Edit
 
         private void extraPrice_TextChanged(object sender, EventArgs e)
         {
-            this.price = double.Parse(this.extraPrice.Text);
+            this.price = decimal.Parse(this.extraPrice.Text);
         }
 
         private void extraDescription_TextChanged(object sender, EventArgs e)

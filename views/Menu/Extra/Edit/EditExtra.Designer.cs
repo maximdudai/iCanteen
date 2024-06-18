@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditExtra));
             this.extraPrice = new System.Windows.Forms.TextBox();
             this.finishExtraEdit = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,10 +46,10 @@
             // 
             // extraPrice
             // 
+            this.extraPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.extraPrice.Location = new System.Drawing.Point(12, 269);
-            this.extraPrice.Multiline = true;
             this.extraPrice.Name = "extraPrice";
-            this.extraPrice.Size = new System.Drawing.Size(185, 76);
+            this.extraPrice.Size = new System.Drawing.Size(185, 20);
             this.extraPrice.TabIndex = 50;
             this.extraPrice.TextChanged += new System.EventHandler(this.extraPrice_TextChanged);
             // 
@@ -204,7 +205,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.header1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EditExtra";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditExtra";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EditExtra_FormClosed);
             this.ResumeLayout(false);

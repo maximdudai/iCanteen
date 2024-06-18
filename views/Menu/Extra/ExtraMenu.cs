@@ -19,8 +19,8 @@ namespace PSI_DA_PL_B.views.Menu
         private List<models.Menu.Extra> extraList = new List<models.Menu.Extra>();
 
         private string description { get; set; }
-        private double price { get; set; }
-        private string active { get; set; }
+        private decimal price { get; set; }
+        private bool active { get; set; }
         public ExtraMenu(Manager manager)
         {
             InitializeComponent();
@@ -48,7 +48,7 @@ namespace PSI_DA_PL_B.views.Menu
         private void UpdateExtraUI()
         {
             this.extraPrice.Text = this.price.ToString();
-            this.extraActive.Text = this.active;
+            this.extraActive.Text = this.active ? "Sim" : "Não";
             this.extraDescription.Text = this.description;
         }
         
@@ -104,7 +104,7 @@ namespace PSI_DA_PL_B.views.Menu
 
             if (extra == null)
             {
-                MessageBox.Show("Please select a extra to edit");
+                Error.Warning("Please select a extra to edit");
                 return;
             }
             this.manager.ShowEditExtraUI(extra.itemId);
@@ -130,7 +130,7 @@ namespace PSI_DA_PL_B.views.Menu
                     return;
 
                 this.price = extra.Preco;
-                this.active = extra.Ativo ? "Sim" : "Não";
+                this.active = extra.Ativo;
                 this.description = extra.Descricao;
 
                 this.UpdateExtraUI();

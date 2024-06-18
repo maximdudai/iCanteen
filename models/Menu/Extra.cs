@@ -18,7 +18,7 @@ namespace PSI_DA_PL_B.models.Menu
         public string Descricao { get; set; }
 
         [Required]
-        public double Preco { get; set; }
+        public decimal Preco { get; set; }
 
         [Range(0, 1)]
         public bool Ativo { get; set; }
@@ -27,11 +27,16 @@ namespace PSI_DA_PL_B.models.Menu
         {
         }
 
-        public Extra(string descricao, double preco ,bool ativo)
+        public Extra(string descricao, decimal preco ,bool ativo)
         {
             this.Descricao = descricao;
             this.Preco = preco;
             this.Ativo = ativo;
+        }
+
+        public override string ToString()
+        {
+            return this.Descricao;
         }
     }
 }

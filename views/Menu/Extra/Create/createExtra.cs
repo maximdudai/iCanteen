@@ -16,7 +16,7 @@ namespace PSI_DA_PL_B.views.Menu.Extra.Create
     {
         Manager manager { get; set; }
         private string description { get; set; }
-        private double price { get; set; }
+        private decimal price { get; set; }
         private bool active { get; set; }
 
         public CreateExtra(Manager manager)
@@ -30,7 +30,7 @@ namespace PSI_DA_PL_B.views.Menu.Extra.Create
         {
             this.description = this.extraDescription.Text;
 
-            if (!double.TryParse(this.extraPrice.Text, out double extraPrice))
+            if (!decimal.TryParse(this.extraPrice.Text, out decimal extraPrice))
             {
                 Error.Err("Please enter a valid number for the Price value.");
                 return;
@@ -43,9 +43,16 @@ namespace PSI_DA_PL_B.views.Menu.Extra.Create
                 Error.Err("Please select if the dish will be available or not.");
                 return;
             }
+            
+            if(this.extraActive.SelectedItems.Count < 1)
+            {
+                Error.Err("Please select if the dish will be available or not.");
+                return;
+            }
+
             this.active = this.extraActive.GetItemChecked(extraActive.SelectedIndex);
 
-            if (String.IsNullOrEmpty(this.description) || this.price <= 0 || this.active == false)
+            if (string.IsNullOrEmpty(this.description) || this.price <= 0)
             {
                 Error.Err("Please fill all fields");
                 return;

@@ -30,6 +30,7 @@ namespace PSI_DA_PL_B.views.Menu.Extra.Create
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateExtra));
             this.createExtraButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
@@ -180,10 +181,10 @@ namespace PSI_DA_PL_B.views.Menu.Extra.Create
             // 
             // extraPrice
             // 
+            this.extraPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.extraPrice.Location = new System.Drawing.Point(14, 269);
-            this.extraPrice.Multiline = true;
             this.extraPrice.Name = "extraPrice";
-            this.extraPrice.Size = new System.Drawing.Size(185, 76);
+            this.extraPrice.Size = new System.Drawing.Size(185, 20);
             this.extraPrice.TabIndex = 37;
             // 
             // CreateExtra
@@ -204,7 +205,9 @@ namespace PSI_DA_PL_B.views.Menu.Extra.Create
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.header1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CreateExtra";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateExtra";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CreateExtra_FormClosed);
             this.ResumeLayout(false);
