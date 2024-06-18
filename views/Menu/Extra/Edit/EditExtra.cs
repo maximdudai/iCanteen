@@ -15,17 +15,19 @@ namespace PSI_DA_PL_B.views.Menu.Extra.Edit
     public partial class EditExtra : Form
     {
         Manager manager { get; set; }
-
         private int itemId { get; set; }
-
         private decimal price { get; set; }
         private string description { get; set; }
         private bool active { get; set; }
 
-        public EditExtra(int itemId, Manager manager)
+        public EditExtra()
         {
             InitializeComponent();
 
+        }
+
+        public EditExtra(int itemId, Manager manager) : this()
+        {
             this.manager = manager;
             this.itemId = itemId;
 

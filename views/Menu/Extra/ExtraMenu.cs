@@ -107,6 +107,7 @@ namespace PSI_DA_PL_B.views.Menu
                 Error.Warning("Please select a extra to edit");
                 return;
             }
+
             this.manager.ShowEditExtraUI(extra.itemId);
         }
 
