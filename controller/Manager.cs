@@ -20,6 +20,8 @@ using PSI_DA_PL_B.views.Menu.Dish.Create;
 using PSI_DA_PL_B.views.Menu.Dish;
 using PSI_DA_PL_B.views.Menu.Balance;
 using PSI_DA_PL_B.views.Menu.Dish.Edit;
+using PSI_DA_PL_B.views.Menu.Extra.Edit;
+using PSI_DA_PL_B.views.Menu.Extra.Create;
 
 namespace PSI_DA_PL_B.controller
 {
@@ -58,6 +60,9 @@ namespace PSI_DA_PL_B.controller
         private CreateDish CreateDishForm = null;
         private Dish DishListForm = null;
         private EditDish EditDishForm = null;
+        private ExtraMenu ExtraListForm = null;
+        private EditExtra EditExtraForm = null;
+        private CreateExtra CreateExtraForm = null;
         #endregion
 
         private void ShowForm<T>(ref T form, bool toggle = true, params object[] args) where T : Form
@@ -136,6 +141,28 @@ namespace PSI_DA_PL_B.controller
         public void ChooseClientUI(bool toggle = true)
         {
             ShowForm(ref ChooseClientForm, toggle, this);
+        }
+        public void ShowCreateDishUI(bool toggle = true)
+        {
+            ShowForm(ref CreateDishForm, toggle, this);
+        }
+
+        public void ShowEditDishUI(int itemId, bool toggle = true)
+        {
+            ShowForm(ref EditDishForm, toggle, itemId, this);
+        }
+        public void ShowExtraListUI(bool toggle = true)
+        {
+            ShowForm(ref ExtraListForm, toggle, this);
+        }
+
+        public void ShowCreateExtraUI(bool toggle = true)
+        {
+            ShowForm(ref CreateExtraForm, toggle, this);
+        }
+        public void ShowEditExtraUI(int itemId, bool toggle = true)
+        {
+            ShowForm(ref EditExtraForm, toggle, itemId, this);
         }
         public void EditStudentUI(int nif, bool toggle = true)
         {

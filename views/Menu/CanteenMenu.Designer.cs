@@ -45,8 +45,8 @@ namespace PSI_DA_PL_B.views.Menu
             this.dailyMenuWeek = new System.Windows.Forms.Label();
             this.menuButton = new System.Windows.Forms.Button();
             this.dishButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.balanceButton = new System.Windows.Forms.Button();
+            this.extraButton = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.ticketButton = new System.Windows.Forms.Button();
             this.weekMenu4 = new System.Windows.Forms.ListBox();
@@ -104,8 +104,8 @@ namespace PSI_DA_PL_B.views.Menu
             this.textBox2.BackColor = System.Drawing.Color.Peru;
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.textBox2.Location = new System.Drawing.Point(-1, 63);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox2.Location = new System.Drawing.Point(-1, 51);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
@@ -253,8 +253,8 @@ namespace PSI_DA_PL_B.views.Menu
             // dishButton
             // 
             this.dishButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F);
-            this.dishButton.Location = new System.Drawing.Point(775, 114);
-            this.dishButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dishButton.Location = new System.Drawing.Point(581, 93);
+            this.dishButton.Margin = new System.Windows.Forms.Padding(2);
             this.dishButton.Name = "dishButton";
             this.dishButton.Size = new System.Drawing.Size(203, 71);
             this.dishButton.TabIndex = 23;
@@ -262,16 +262,16 @@ namespace PSI_DA_PL_B.views.Menu
             this.dishButton.UseVisualStyleBackColor = true;
             this.dishButton.Click += new System.EventHandler(this.dishButton_Click);
             // 
-            // button2
+            // extraButton
             // 
-            this.button2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F);
-            this.button2.Location = new System.Drawing.Point(1011, 114);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(203, 71);
-            this.button2.TabIndex = 24;
-            this.button2.Text = "Extra";
-            this.button2.UseVisualStyleBackColor = true;
+            this.extraButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F);
+            this.extraButton.Location = new System.Drawing.Point(758, 93);
+            this.extraButton.Name = "extraButton";
+            this.extraButton.Size = new System.Drawing.Size(152, 58);
+            this.extraButton.TabIndex = 24;
+            this.extraButton.Text = "Extra";
+            this.extraButton.UseVisualStyleBackColor = true;
+            this.extraButton.Click += new System.EventHandler(this.extraButton_Click);
             // 
             // balanceButton
             // 
@@ -450,7 +450,7 @@ namespace PSI_DA_PL_B.views.Menu
             this.Controls.Add(this.balanceButton);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.ticketButton);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.extraButton);
             this.Controls.Add(this.dishButton);
             this.Controls.Add(this.menuButton);
             this.Controls.Add(this.dailyMenuWeek);
@@ -498,8 +498,8 @@ namespace PSI_DA_PL_B.views.Menu
         private System.Windows.Forms.Label dailyMenuWeek;
         private System.Windows.Forms.Button menuButton;
         private System.Windows.Forms.Button dishButton;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button balanceButton;
+        private System.Windows.Forms.Button extraButton;
+        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button ticketButton;
         private System.Windows.Forms.ListBox weekMenu4;
