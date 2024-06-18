@@ -22,15 +22,15 @@ namespace PSI_DA_PL_B.helpers
             return emailInput.Address == email;          
         }
 
-        public static bool IsValidClientNifSearch(string nif)
+        public static bool IsValidClientNifSearch(int nif)
         {
-            if (string.IsNullOrEmpty(nif))
+            if (nif == 0)
             {
                 Error.Err("ClientNif cannot be empty!");
                 return false;
             }
 
-            if (nif.Length != 9)
+            if (nif.ToString().Length != 9)
             {
                 Error.Err("NIF must have 9 digits!");
                 return false;

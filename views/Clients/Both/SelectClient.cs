@@ -19,7 +19,7 @@ namespace PSI_DA_PL_B.views.Clients.Both
     {
         private Manager manager { get; set; }
 
-        private string clientNifInput;
+        private int clientNifInput;
 
         public SelectClient()
         {
@@ -34,7 +34,7 @@ namespace PSI_DA_PL_B.views.Clients.Both
         {
             try
             {
-                this.clientNifInput = searchClientNif.Text;
+                this.clientNifInput = int.Parse(searchClientNif.Text);
 
                 if (!StudentRadioButton.Checked && !TeacherRadioButton.Checked)
                 {
@@ -42,12 +42,12 @@ namespace PSI_DA_PL_B.views.Clients.Both
                     return;
                 }
 
-                if (Validator.IsValidClientNifSearch((this.clientNifInput)))
+                if (!Validator.IsValidClientNifSearch(this.clientNifInput))
                 {
                     return;
                 }
 
-                var parsedNif = int.Parse(this.clientNifInput);
+                //var parsedNif = int.Parse(this.clientNifInput);
 
                 using (var db = new Cantina())
                 {
@@ -55,13 +55,13 @@ namespace PSI_DA_PL_B.views.Clients.Both
                     {
                         var students = db.User
                             .OfType<Student>()
-                            .Where(u => u.Nif == parsedNif)
+                            .Where(u => u.Nif == this.clientNifInput)
                             .ToList();
 
                         if (students.Any())
                         {
                             MessageBox.Show("Client selected successfully!");
-                            this.manager.EditStudentUI(students.First().Nif);
+                            this.manager.BalanceUI(students.First().Nif);
                         }
                         else
                         {
@@ -74,7 +74,7 @@ namespace PSI_DA_PL_B.views.Clients.Both
                     {
                         var teachers = db.User
                                 .OfType<Teacher>()
-                                .Where(u => u.Nif == parsedNif)
+                                .Where(u => u.Nif == this.clientNifInput)
                                 .ToList();
 
                         if (teachers.Any())
@@ -89,6 +89,10 @@ namespace PSI_DA_PL_B.views.Clients.Both
                         }
                     }                    
                 }
+            }
+            catch (FormatException)
+            {
+                Error.Err("NIF must be a number!");
             }
             catch (Exception ex)
             {
