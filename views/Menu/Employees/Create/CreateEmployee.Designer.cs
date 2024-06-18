@@ -164,6 +164,7 @@
             this.Name = "CreateEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registar Funcionario";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CreateEmployee_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -110,10 +110,7 @@ namespace PSI_DA_PL_B.views.Auth.Employees
 
         private void employeeCreate_Click(object sender, EventArgs e)
         {
-            CreateEmployee createEmployeeFrom = new CreateEmployee();
-            createEmployeeFrom.ShowDialog();
-
-            createEmployeeFrom.FormClosing += ShowEmployeeList;
+            this.manager.CreateEmployeeUI();
         }
 
         private void editEmployee_Click(object sender, EventArgs e)
@@ -124,14 +121,9 @@ namespace PSI_DA_PL_B.views.Auth.Employees
 
                 if (selectedEmployee != null)
                 {
-                    string username = selectedEmployee.Username;
-                    string name = selectedEmployee.Name;
                     int nif = selectedEmployee.Nif;
 
-                    EditEmployee editEmployeeForm = new EditEmployee(username, name, nif);
-                    editEmployeeForm.ShowDialog();
-
-                    editEmployeeForm.FormClosing += ShowEmployeeList;
+                    this.manager.EditEmployeeUI(nif);
                 }
                 else
                 {

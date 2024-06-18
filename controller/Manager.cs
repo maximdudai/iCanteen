@@ -31,8 +31,6 @@ namespace PSI_DA_PL_B.controller
         #region Main forms
         private Login loginForm = null;
         private CanteenMenu mainMenuForm = null;
-        private CreateEmployee createEmployeeForm = null;
-        private EmployeeList employeeListForm = null;
         private Register registerForm = null;
 
         private bool isClosing = false;
@@ -45,6 +43,12 @@ namespace PSI_DA_PL_B.controller
         private CreateTeacher CreateTeacherFrom = null;
         private EditStudent EditStudentForm = null;
         private EditTeacher EditTeacherForm = null;
+        #endregion
+
+        #region Employee Manager
+        private CreateEmployee CreateEmployeeForm = null;
+        private EmployeeList EmployeeListForm = null;
+        private EditEmployee EditEmployeeForm = null;
         #endregion
 
         #region Menu Manager
@@ -93,16 +97,6 @@ namespace PSI_DA_PL_B.controller
             ShowForm(ref mainMenuForm, toggle, this, username ?? this.username);
         }
 
-        public void CreateEmployeeUI(bool toggle = true)
-        {
-            ShowForm(ref createEmployeeForm, toggle, this);
-        }
-
-        public void EmployeeListUI(bool toggle = true)
-        {
-            ShowForm(ref employeeListForm, toggle, this);
-        }
-
         public void ClientListUI(bool toggle = true)
         {
             ShowForm(ref listClientForm, toggle, this);
@@ -144,6 +138,20 @@ namespace PSI_DA_PL_B.controller
         public void EditTeacherUI(int nif, bool toggle = true)
         {
             ShowForm(ref EditTeacherForm, toggle, nif, this);
+        }
+
+        public void EditEmployeeUI(int nif, bool toggle = true)
+        {
+            ShowForm(ref EditEmployeeForm, toggle, nif, this);
+        }
+        public void CreateEmployeeUI(bool toggle = true)
+        {
+            ShowForm(ref CreateEmployeeForm, toggle, this);
+        }
+
+        public void EmployeeListUI(bool toggle = true)
+        {
+            ShowForm(ref EmployeeListForm, toggle, this);
         }
 
         // Method to destroy the current form
