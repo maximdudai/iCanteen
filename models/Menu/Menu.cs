@@ -30,19 +30,21 @@ namespace PSI_DA_PL_B.models.MenuCantina
         public double PrecoProfessor { get; set; }
 
         public virtual List<Dish> Dishes { get; set; }
+        public virtual List<Extra> Extras { get; set; }
 
         public Menu()
         {
             Dishes = new List<Dish>();
         }
 
-        public Menu(int quantidade, double precoEstudante, double precoProfessor, List<Dish> dishes)
+        public Menu(DateTime data, int quantidade, double precoEstudante, double precoProfessor, List<Dish> dishes, List<Extra> extras)
         {
-            Data = DateTime.Now;
+            Data = data;
             Quantidade = quantidade;
             PrecoEstudante = precoEstudante;
             PrecoProfessor = precoProfessor;
             Dishes = dishes;
+            Extras = extras;
         }
     }
 }

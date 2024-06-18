@@ -25,15 +25,11 @@ namespace PSI_DA_PL_B.views.Menu
         private Timer timer;
         private Manager manager { get; set; }
 
+        private Week weekData { get; }
         private int currentWeek { get; set; }
-        CultureInfo cultureInfo;
-        Calendar calendar;
-        CalendarWeekRule weekRule;
-        DayOfWeek firstDayOfWeek;
-
+        private int CURRENT_WEEK_VIEW { get; set; }
         private int NEXT_WEEK = 2;
         private int PREVIOUS_WEEK = 1;
-        private int CURRENT_WEEK_VIEW { get; set; } = 0;
 
         public CanteenMenu()
         {
@@ -47,14 +43,8 @@ namespace PSI_DA_PL_B.views.Menu
             this.LoadData();
             this.UpdateUserUI();
 
-            
-            this.cultureInfo = new CultureInfo("pt-PT");
-            this.calendar = cultureInfo.Calendar;
-            this.weekRule = cultureInfo.DateTimeFormat.CalendarWeekRule;
-            this.firstDayOfWeek = cultureInfo.DateTimeFormat.FirstDayOfWeek;
-
-            this.CURRENT_WEEK_VIEW = this.GetCurrentYearWeek();
-
+            this.weekData = new Week();
+            this.CURRENT_WEEK_VIEW = this.weekData.GetCurrentYearWeek();
             this.GetMenuCurrentWeek();
 
             timer = new Timer();
@@ -167,14 +157,16 @@ namespace PSI_DA_PL_B.views.Menu
             // operation 1 = previous week
             // operation 2 = next week
 
-            int week = GetCurrentYearWeek();
+            int week = weekData.GetCurrentYearWeek();
+
+            Console.WriteLine("Current Week: " + currentWeek);
 
             if (operation == this.PREVIOUS_WEEK)
             {
                 // if the current week is the first week of the year, set the week to the last week of the year
-                if (this.currentWeek <= this.GetMinWeeksOfYear())
+                if (this.currentWeek <= this.weekData.GetMinWeeksOfYear())
                 {
-                    this.CURRENT_WEEK_VIEW = this.GetMaxWeeksOfYear();
+                    this.CURRENT_WEEK_VIEW = this.weekData.GetMaxWeeksOfYear();
                 }
                 else
                 {
@@ -186,9 +178,9 @@ namespace PSI_DA_PL_B.views.Menu
             else if (operation == this.NEXT_WEEK)
             {
                 // if the current week is the last week of the year, set the week to the first week of the year
-                if (this.currentWeek >= this.GetMaxWeeksOfYear())
+                if (this.currentWeek >= this.weekData.GetMaxWeeksOfYear())
                 {
-                    this.CURRENT_WEEK_VIEW = this.GetMinWeeksOfYear();
+                    this.CURRENT_WEEK_VIEW = this.weekData.GetMinWeeksOfYear();
                 }
                 else
                 {
@@ -203,32 +195,18 @@ namespace PSI_DA_PL_B.views.Menu
             this.UpdateWeekUI();
         }
 
-        private int GetCurrentYearWeek()
-        {
-            int currentWeekNumber = calendar.GetWeekOfYear(DateTime.Now, this.weekRule, this.firstDayOfWeek);
-
-            return currentWeekNumber;
-        }
-        private int GetMaxWeeksOfYear()
-        {
-            int maxWeeks = calendar.GetWeekOfYear(new DateTime(DateTime.Now.Year, 12, 31), this.weekRule, this.firstDayOfWeek);
-
-            return maxWeeks;
-        }
-
-        private int GetMinWeeksOfYear()
-        {
-            int minWeeks = calendar.GetWeekOfYear(new DateTime(DateTime.Now.Year, 1, 1), this.weekRule, this.firstDayOfWeek);
-
-            return minWeeks;
-        }
 
         private void UpdateWeekUI()
         {
             this.currentWeekLabel.Text = this.currentWeek.ToString();
 
-            string dailyMenu = this.currentWeek == this.GetCurrentYearWeek() ? $"Menus Diários da Semana Atual" : $"Menus Diários da Semana #{this.currentWeek}";
+            string dailyMenu = this.currentWeek == this.weekData.GetCurrentYearWeek() ? $"Menus Diários da Semana Atual" : $"Menus Diários da Semana #{this.currentWeek}";
             this.dailyMenuWeek.Text = dailyMenu;
+        }
+
+        private void menuButton_Click(object sender, EventArgs e)
+        {
+            this.manager.ShowMenuListUI();
         }
     }
 }

@@ -236,6 +236,7 @@ namespace PSI_DA_PL_B.views.Menu
             this.menuButton.TabIndex = 22;
             this.menuButton.Text = "Menu";
             this.menuButton.UseVisualStyleBackColor = true;
+            this.menuButton.Click += new System.EventHandler(this.menuButton_Click);
             // 
             // dishButton
             // 

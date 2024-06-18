@@ -22,6 +22,8 @@ using PSI_DA_PL_B.views.Menu.Balance;
 using PSI_DA_PL_B.views.Menu.Dish.Edit;
 using PSI_DA_PL_B.views.Menu.Extra.Edit;
 using PSI_DA_PL_B.views.Menu.Extra.Create;
+using PSI_DA_PL_B.views.Menu.MenuList;
+using PSI_DA_PL_B.views.Menu.MenuList.Create;
 
 namespace PSI_DA_PL_B.controller
 {
@@ -63,6 +65,8 @@ namespace PSI_DA_PL_B.controller
         private ExtraMenu ExtraListForm = null;
         private EditExtra EditExtraForm = null;
         private CreateExtra CreateExtraForm = null;
+        private MenuList MenuListForm = null;
+        private CreateMenu CreateMenuForm = null;
         #endregion
 
         private void ShowForm<T>(ref T form, bool toggle = true, params object[] args) where T : Form
@@ -184,6 +188,17 @@ namespace PSI_DA_PL_B.controller
         {
             ShowForm(ref EditExtraForm, toggle, itemId, this);
         }
+
+        public void ShowMenuListUI(bool toggle = true)
+        {
+            ShowForm(ref MenuListForm, toggle, this);
+        }
+
+        public void ShowCreateMenuUI(bool toggle = true)
+        {
+            ShowForm(ref CreateMenuForm, toggle, this);
+        }
+
         #endregion
 
 
