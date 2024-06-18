@@ -72,6 +72,9 @@ namespace PSI_DA_PL_B.views.Menu
         {
             timer.Start();
         }
+
+
+        #region Employee
         private void LoadData()
         {
             try
@@ -112,20 +115,25 @@ namespace PSI_DA_PL_B.views.Menu
         {
             this.manager.LoginUI();
         }
+        #endregion
 
+        #region Main buttons
         private void clientbutton_Click(object sender, EventArgs e)
         {
             this.manager.ClientListUI();
         }
-
-        //menuButton
+        
+        //MenuButton
 
         private void dishButton_Click(object sender, EventArgs e)
         {
             this.manager.ShowDishListUI();
         }
-        
-        //extrabutton
+
+        private void extraButton_Click(object sender, EventArgs e)
+        {
+            this.manager.ShowExtraListUI();
+        }
 
         private void ticketButton_Click(object sender, EventArgs e)
         {
@@ -133,7 +141,7 @@ namespace PSI_DA_PL_B.views.Menu
             ticket.ShowDialog();
         }
 
-        //reserva buttonn
+        //ReserveButton
         /*
         private void reservaButton_Click(object sender, EventArgs e)
         {
@@ -145,21 +153,17 @@ namespace PSI_DA_PL_B.views.Menu
         {
             this.manager.SelectClientUI("balance");
         }
-        private void extraButton_Click(object sender, EventArgs e)
-        {
-            this.manager.ShowExtraListUI();
-        }
+        #endregion
 
+        #region Show weekly menu
         private void menuPrevWeek_Click(object sender, EventArgs e)
         {
             GetMenuCurrentWeek(this.PREVIOUS_WEEK);
         }
-
         private void menuNextWeek_Click(object sender, EventArgs e)
         {
             GetMenuCurrentWeek(this.NEXT_WEEK);
         }
-
         private void GetMenuCurrentWeek(int operation = 0)
         {
 
@@ -202,7 +206,6 @@ namespace PSI_DA_PL_B.views.Menu
 
             this.UpdateWeekUI();
         }
-
         private int GetCurrentYearWeek()
         {
             int currentWeekNumber = calendar.GetWeekOfYear(DateTime.Now, this.weekRule, this.firstDayOfWeek);
@@ -215,14 +218,12 @@ namespace PSI_DA_PL_B.views.Menu
 
             return maxWeeks;
         }
-
         private int GetMinWeeksOfYear()
         {
             int minWeeks = calendar.GetWeekOfYear(new DateTime(DateTime.Now.Year, 1, 1), this.weekRule, this.firstDayOfWeek);
 
             return minWeeks;
         }
-
         private void UpdateWeekUI()
         {
             this.currentWeekLabel.Text = this.currentWeek.ToString();
@@ -230,5 +231,6 @@ namespace PSI_DA_PL_B.views.Menu
             string dailyMenu = this.currentWeek == this.GetCurrentYearWeek() ? $"Menus Diários da Semana Atual" : $"Menus Diários da Semana #{this.currentWeek}";
             this.dailyMenuWeek.Text = dailyMenu;
         }
+        #endregion
     }
 }
