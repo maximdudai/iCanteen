@@ -175,5 +175,10 @@ namespace PSI_DA_PL_B.views.Auth.Employees
                 Error.Err(ex.Message);
             }
         }
+
+        private void EmployeeList_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.manager.MainMenuUI();
+        }
     }
 }
