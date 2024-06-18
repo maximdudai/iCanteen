@@ -37,11 +37,6 @@ namespace PSI_DA_PL_B.views.Clients.Students.Edit
             {
                 using (var db = new Cantina())
                 {
-                    /*
-                    var student = db.User
-                        .OfType<Student>()
-                        .FirstOrDefault(u => u.Nif == this.nif);
-                    */
                     var student = db.User
                         .OfType<Student>()
                         .Where(u => u.Nif == this.nif)

@@ -52,14 +52,12 @@ namespace PSI_DA_PL_B.views.Clients.Teachers.Edit
                     else
                     {
                         Error.Err("Teacher not found in the database!");
-                        this.Close();
                     }
                 }
             }
             catch (Exception ex)
             {
                 Error.Err(ex.Message);
-                this.Close();
             }
         }
 

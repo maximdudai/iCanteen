@@ -18,6 +18,7 @@ using PSI_DA_PL_B.views.Clients.Students.Edit;
 using PSI_DA_PL_B.views.Clients.Teachers.Edit;
 using PSI_DA_PL_B.views.Menu.Dish.Create;
 using PSI_DA_PL_B.views.Menu.Dish;
+using PSI_DA_PL_B.views.Menu.Balance;
 
 namespace PSI_DA_PL_B.controller
 {
@@ -33,6 +34,7 @@ namespace PSI_DA_PL_B.controller
         private CreateEmployee createEmployeeForm = null;
         private EmployeeList employeeListForm = null;
         private Register registerForm = null;
+        private Balance BalanceForm = null;
 
         private bool isClosing = false;
         #endregion
@@ -44,6 +46,7 @@ namespace PSI_DA_PL_B.controller
         private CreateTeacher CreateTeacherFrom = null;
         private EditStudent EditStudentForm = null;
         private EditTeacher EditTeacherForm = null;
+        private SelectClient SelectClientForm = null;
         #endregion
 
         #region Menu Manager
@@ -139,6 +142,17 @@ namespace PSI_DA_PL_B.controller
             ShowForm(ref EditTeacherForm, toggle, nif, this);
         }
 
+        public void SelectClientUI(bool toggle = true)
+        {
+            ShowForm(ref SelectClientForm, toggle, this);
+        }
+
+        public void BalanceUI(int nif, bool toggle = true)
+        {
+            ShowForm(ref BalanceForm, toggle, nif, this);
+        }
+
+
         // Method to destroy the current form
         private void DestroyCurrentForm()
         {
@@ -161,6 +175,5 @@ namespace PSI_DA_PL_B.controller
                 Console.WriteLine($"Error closing form: {ex.Message}");
             }
         }
-
     }
 }

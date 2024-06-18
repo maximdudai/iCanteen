@@ -61,7 +61,6 @@ namespace PSI_DA_PL_B.views.Clients.Both
             }
         }
 
-
         public ListClients()
         {
             InitializeComponent();
@@ -143,8 +142,6 @@ namespace PSI_DA_PL_B.views.Clients.Both
                     .Where(c => c.Name.ToLower()
                     .Contains(clientName.ToLower()))
                     .ToList();
-
-
             }
             catch (Exception ex)
             {
