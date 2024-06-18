@@ -90,16 +90,18 @@ namespace PSI_DA_PL_B.views.Auth.Employees.Create
                     db.User.Add(user);
                     db.SaveChanges();
                 }
-                Manager manager = new Manager();
-                manager.EmployeeListUI();
+                this.manager.EmployeeListUI();
 
-                this.Close();
-                
             }
             catch (Exception ex)
             {
                 Error.Err(ex.Message);
             }
+        }
+
+        private void CreateEmployee_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.manager.EmployeeListUI();
         }
     }
 }

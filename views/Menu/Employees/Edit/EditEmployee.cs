@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PSI_DA_PL_B.controller;
 using PSI_DA_PL_B.helpers;
 using PSI_DA_PL_B.models.User;
 
@@ -15,6 +16,7 @@ namespace PSI_DA_PL_B.views.Auth.Employees.Edit
 {
     public partial class EditEmployee : Form
     {
+        Manager manager { get; set; }
         private string username { get; set; }
         private string name { get; set; }
         private int Nif { get; set; }
@@ -24,11 +26,41 @@ namespace PSI_DA_PL_B.views.Auth.Employees.Edit
             InitializeComponent();
         }
 
-        public EditEmployee(string username, string name, int nif) : this()
+        public EditEmployee(int nif, Manager manager) : this()
         {
-            employeeUsernameInput.Text = username;
-            employeeNameInput.Text = name;
-            employeeNIFinput.Text = nif.ToString();
+            this.manager = manager;
+
+            this.GetEmployeeData(nif);
+        }
+
+        public void GetEmployeeData(int nif)
+        {
+            try
+            {
+                using (var db = new Cantina())
+                {
+                    var employeeData = db.User
+                        .OfType<Employee>()
+                        .Where(u => u.Nif == nif)
+                        .FirstOrDefault();
+
+                    if (employeeData == null)
+                    {
+                        Error.Err("Employee not found!");
+                        return;
+                    }
+
+                    this.username = employeeUsernameInput.Text = employeeData.Username;
+                    this.name = employeeNameInput.Text = employeeData.Name;
+                    
+                    employeeNIFinput.Text = employeeData.Nif.ToString();
+                    this.Nif = employeeData.Nif;
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.Err(ex.Message);
+            }
         }
 
         private void employeeEdit_Click(object sender, EventArgs e)
@@ -84,13 +116,7 @@ namespace PSI_DA_PL_B.views.Auth.Employees.Edit
                     // Save changes to the database
                     db.SaveChanges();
                 }
-
-
-
-                EmployeeList employeeForm = new EmployeeList();
-                employeeForm.Show();
-
-                this.Close();
+                this.manager.EmployeeListUI();
             }
             catch (Exception ex)
             {

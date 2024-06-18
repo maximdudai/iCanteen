@@ -42,7 +42,7 @@ namespace PSI_DA_PL_B.views.Menu
         public CanteenMenu(Manager manager, string username) : this()
         {
             this.manager = manager;
-            this.username = this.manager.username = this.labelUsername.Text = username;
+            this.username = this.manager.username = username;
 
             this.LoadData();
             this.UpdateUserUI();
@@ -109,15 +109,11 @@ namespace PSI_DA_PL_B.views.Menu
         private void changeEmployee_Click(object sender, EventArgs e)
         {
             this.manager.EmployeeListUI();
-
-            this.Close();
         }
 
         private void logoutButton_Click(object sender, EventArgs e)
         {
             this.manager.LoginUI();
-
-            this.Close();
         }
 
         private void clientbutton_Click(object sender, EventArgs e)

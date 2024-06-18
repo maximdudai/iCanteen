@@ -22,7 +22,7 @@ namespace PSI_DA_PL_B.views.Clients.Both
 {
     public partial class ListClients : Form
     {
-        private readonly List<Client> clients;
+        private readonly List<ClientInfo> clients;
         private Manager manager { get; set; }
 
         //to join the queries
@@ -34,11 +34,22 @@ namespace PSI_DA_PL_B.views.Clients.Both
             public int? NumStudent { get; set; }
             public string Email { get; set; }
 
+            public ClientInfo() { }
+
+            public ClientInfo(string name, int nif, double balance, int? numStudent = null, string email = null)
+            {
+                Name = name;
+                Nif = nif;
+                Balance = balance;
+                NumStudent = numStudent;
+                Email = email;
+            }
+
             public override string ToString()
             {
-                var text = $"Nome: {Name}; Nif: {Nif} ";
+                var text = $"Nome: {Name}; Nif: {Nif}; Balance: {Balance}";
 
-                if(NumStudent.HasValue)
+                if (NumStudent.HasValue)
                 {
                     text += $"; NumEst: {NumStudent}";
                 }
@@ -46,9 +57,10 @@ namespace PSI_DA_PL_B.views.Clients.Both
                 {
                     text += $"; Email: {Email}";
                 }
-                return text ;
+                return text;
             }
         }
+
 
         public ListClients()
         {
@@ -58,7 +70,7 @@ namespace PSI_DA_PL_B.views.Clients.Both
         public ListClients(Manager manager):this()
         {
             this.manager = manager;
-            clients = new List<Client>();
+            clients = new List<ClientInfo>();
             LoadClients();
         }
 
@@ -92,12 +104,10 @@ namespace PSI_DA_PL_B.views.Clients.Both
 
                     var clientList = studentList.Concat(teacherList).ToList();
 
-                    clientsListbox.Items.Clear();
+                    // Add the clients to the local list
+                    clients.AddRange(clientList);
 
-                    foreach (var cli in clientList)
-                    {
-                        clientsListbox.Items.Add(cli);
-                    }
+                    this.DisplayClients();
                 }
             }
             catch (Exception ex)
@@ -105,6 +115,7 @@ namespace PSI_DA_PL_B.views.Clients.Both
                 Error.Err(ex.Message);
             }
         }
+
 
         //receiving a list as a parameter
         private void DisplayClients()
@@ -125,9 +136,15 @@ namespace PSI_DA_PL_B.views.Clients.Both
                     return;
                 }
 
+                var allClients = clientsListbox.DataSource as List<ClientInfo>;
+
                 clientsListbox.DataSource = null;
-                clientsListbox.DataSource = clients.Where(clie => clie.Name.Contains(clientName)).ToList();
-                
+                clientsListbox.DataSource = allClients
+                    .Where(c => c.Name.ToLower()
+                    .Contains(clientName.ToLower()))
+                    .ToList();
+
+
             }
             catch (Exception ex)
             {

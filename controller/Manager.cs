@@ -18,6 +18,7 @@ using PSI_DA_PL_B.views.Clients.Students.Edit;
 using PSI_DA_PL_B.views.Clients.Teachers.Edit;
 using PSI_DA_PL_B.views.Menu.Dish.Create;
 using PSI_DA_PL_B.views.Menu.Dish;
+using PSI_DA_PL_B.views.Menu.Dish.Edit;
 
 namespace PSI_DA_PL_B.controller
 {
@@ -30,8 +31,6 @@ namespace PSI_DA_PL_B.controller
         #region Main forms
         private Login loginForm = null;
         private CanteenMenu mainMenuForm = null;
-        private CreateEmployee createEmployeeForm = null;
-        private EmployeeList employeeListForm = null;
         private Register registerForm = null;
 
         private bool isClosing = false;
@@ -46,9 +45,16 @@ namespace PSI_DA_PL_B.controller
         private EditTeacher EditTeacherForm = null;
         #endregion
 
+        #region Employee Manager
+        private CreateEmployee CreateEmployeeForm = null;
+        private EmployeeList EmployeeListForm = null;
+        private EditEmployee EditEmployeeForm = null;
+        #endregion
+
         #region Menu Manager
         private CreateDish CreateDishForm = null;
         private Dish DishListForm = null;
+        private EditDish EditDishForm = null;
         #endregion
 
         private void ShowForm<T>(ref T form, bool toggle = true, params object[] args) where T : Form
@@ -91,16 +97,6 @@ namespace PSI_DA_PL_B.controller
             ShowForm(ref mainMenuForm, toggle, this, username ?? this.username);
         }
 
-        public void CreateEmployeeUI(bool toggle = true)
-        {
-            ShowForm(ref createEmployeeForm, toggle, this);
-        }
-
-        public void EmployeeListUI(bool toggle = true)
-        {
-            ShowForm(ref employeeListForm, toggle, this);
-        }
-
         public void ClientListUI(bool toggle = true)
         {
             ShowForm(ref listClientForm, toggle, this);
@@ -130,6 +126,11 @@ namespace PSI_DA_PL_B.controller
             ShowForm(ref CreateDishForm, toggle, this);
         }
 
+        public void ShowEditDishUI(int itemId, bool toggle = true)
+        {
+            ShowForm(ref EditDishForm, toggle, itemId, this);
+        }
+
         public void EditStudentUI(int nif, bool toggle = true)
         {
             ShowForm(ref EditStudentForm, toggle, nif, this);
@@ -137,6 +138,20 @@ namespace PSI_DA_PL_B.controller
         public void EditTeacherUI(int nif, bool toggle = true)
         {
             ShowForm(ref EditTeacherForm, toggle, nif, this);
+        }
+
+        public void EditEmployeeUI(int nif, bool toggle = true)
+        {
+            ShowForm(ref EditEmployeeForm, toggle, nif, this);
+        }
+        public void CreateEmployeeUI(bool toggle = true)
+        {
+            ShowForm(ref CreateEmployeeForm, toggle, this);
+        }
+
+        public void EmployeeListUI(bool toggle = true)
+        {
+            ShowForm(ref EmployeeListForm, toggle, this);
         }
 
         // Method to destroy the current form
