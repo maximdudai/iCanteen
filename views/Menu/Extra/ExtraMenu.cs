@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace PSI_DA_PL_B.views.Menu
 {
-    public partial class Extra : Form
+    public partial class ExtraMenu : Form
     {
         Manager manager { get; set; }
 
@@ -21,7 +21,7 @@ namespace PSI_DA_PL_B.views.Menu
         private string description { get; set; }
         private double price { get; set; }
         private string active { get; set; }
-        public Extra(Manager manager)
+        public ExtraMenu(Manager manager)
         {
             InitializeComponent();
 

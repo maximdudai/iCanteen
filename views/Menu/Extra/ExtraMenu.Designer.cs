@@ -1,6 +1,6 @@
 ﻿namespace PSI_DA_PL_B.views.Menu
 {
-    partial class Extra
+    partial class ExtraMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Extra));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExtraMenu));
             this.extraRemove = new System.Windows.Forms.Button();
             this.editEdit = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();

@@ -189,11 +189,11 @@
     <Compile Include="views\Menu\Extra\Edit\EditExtra.Designer.cs">
       <DependentUpon>EditExtra.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\Menu\Extra\Extra.cs">
+    <Compile Include="views\Menu\Extra\ExtraMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\Menu\Extra\Extra.Designer.cs">
-      <DependentUpon>Extra.cs</DependentUpon>
+    <Compile Include="views\Menu\Extra\ExtraMenu.Designer.cs">
+      <DependentUpon>ExtraMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="views\Menu\Ticket\Edit\EditTicket.cs">
       <SubType>Form</SubType>
@@ -268,8 +268,8 @@
     <EmbeddedResource Include="views\Menu\Extra\Edit\EditExtra.resx">
       <DependentUpon>EditExtra.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\Menu\Extra\Extra.resx">
-      <DependentUpon>Extra.cs</DependentUpon>
+    <EmbeddedResource Include="views\Menu\Extra\ExtraMenu.resx">
+      <DependentUpon>ExtraMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\components\Header.resx">
       <DependentUpon>Header.cs</DependentUpon>
@@ -299,7 +299,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\" />
-    <Folder Include="views\Menu\Extra\NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
