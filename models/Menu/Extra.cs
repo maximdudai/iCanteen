@@ -17,6 +17,9 @@ namespace PSI_DA_PL_B.models.Menu
         [MaxLength(256)]
         public string Descricao { get; set; }
 
+        [Required]
+        public double Preco { get; set; }
+
         [Range(0, 1)]
         public bool Ativo { get; set; }
 
@@ -24,9 +27,10 @@ namespace PSI_DA_PL_B.models.Menu
         {
         }
 
-        public Extra(string descricao, bool ativo)
+        public Extra(string descricao, double preco ,bool ativo)
         {
             this.Descricao = descricao;
+            this.Preco = preco;
             this.Ativo = ativo;
         }
     }
