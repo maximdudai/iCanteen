@@ -141,9 +141,9 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(77, 237);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 22);
+            this.label2.Size = new System.Drawing.Size(94, 22);
             this.label2.TabIndex = 42;
-            this.label2.Text = "Preço";
+            this.label2.Text = "Preço (€)";
             // 
             // textBox2
             // 

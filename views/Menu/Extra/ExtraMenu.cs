@@ -47,7 +47,7 @@ namespace PSI_DA_PL_B.views.Menu
         
         private void UpdateExtraUI()
         {
-            this.extraPrice.Text = this.price.ToString();
+            this.extraPrice.Text = this.price.ToString() + "€";
             this.extraActive.Text = this.active ? "Sim" : "Não";
             this.extraDescription.Text = this.description;
         }

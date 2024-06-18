@@ -133,9 +133,9 @@ namespace PSI_DA_PL_B.views.Menu.Extra.Create
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(79, 237);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 22);
+            this.label2.Size = new System.Drawing.Size(94, 22);
             this.label2.TabIndex = 28;
-            this.label2.Text = "Preço";
+            this.label2.Text = "Preço (€)";
             // 
             // textBox2
             // 

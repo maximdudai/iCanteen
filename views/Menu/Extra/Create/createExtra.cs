@@ -28,29 +28,23 @@ namespace PSI_DA_PL_B.views.Menu.Extra.Create
 
         private void createExtraButton_Click(object sender, EventArgs e)
         {
-            this.description = this.extraDescription.Text;
-
             if (!decimal.TryParse(this.extraPrice.Text, out decimal extraPrice))
             {
                 Error.Err("Please enter a valid number for the Price value.");
                 return;
             }
 
+            this.description = this.extraDescription.Text;
             this.price = extraPrice;
+            this.active = this.extraActive.SelectedIndex == 0;
 
-            if (this.extraActive.SelectedIndex == -1)
+
+            // verify if at least one dishActive is checked
+            if (this.extraActive.CheckedItems.Count == 0)
             {
                 Error.Err("Please select if the dish will be available or not.");
                 return;
             }
-            
-            if(this.extraActive.SelectedItems.Count < 1)
-            {
-                Error.Err("Please select if the dish will be available or not.");
-                return;
-            }
-
-            this.active = this.extraActive.GetItemChecked(extraActive.SelectedIndex);
 
             if (string.IsNullOrEmpty(this.description) || this.price <= 0)
             {

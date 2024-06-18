@@ -22,7 +22,7 @@ namespace PSI_DA_PL_B.views.Menu.Extra.Edit
         private string description { get; set; }
         private bool active { get; set; }
 
-        public EditExtra(Manager manager)
+        public EditExtra(int itemId, Manager manager)
         {
             InitializeComponent();
 
