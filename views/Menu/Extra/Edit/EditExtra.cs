@@ -36,22 +36,36 @@ namespace PSI_DA_PL_B.views.Menu.Extra.Edit
 
         private void GetExtraFromDatabase()
         {
-            using (var db = new Cantina())
+            // get extra from database
+            try
             {
-                var extra = db.Extra.Find(this.itemId);
+                using (var db = new Cantina())
+                {
+                    var extra = db.Extra.Select(e => e).Where(e => e.itemId == this.itemId).FirstOrDefault();
 
-                this.description = extra.Descricao;
-                this.price = extra.Preco;
-                this.active = extra.Ativo;
+                    if (extra == null)
+                    {
+                        return;
+                    }
+
+                    this.price = extra.Preco;
+                    this.description = extra.Descricao;
+                    this.active = extra.Ativo;
+                }
+
+                this.UpdateExtraUI();
             }
-            this.UpdateExtraUI();
+            catch (Exception e)
+            {
+                Error.Err(e.Message);
+            }
         }
 
         private void UpdateExtraUI()
         {
             this.extraDescription.Text = this.description;
 
-            this.extraPrice.Text = $"Valor atual: {this.extraPrice}€";
+            this.extraPrice.Text = this.price.ToString();
 
             // set extraActive checkbox to the value from the database
             int index = this.active ? 0 : 1;
