@@ -132,6 +132,11 @@ namespace PSI_DA_PL_B.views.Menu
             this.manager.ShowDishListUI();
         }
 
+        private void extraButton_Click(object sender, EventArgs e)
+        {
+            this.manager.ShowExtraListUI();
+        }
+
         private void menuPrevWeek_Click(object sender, EventArgs e)
         {
             GetMenuCurrentWeek(this.PREVIOUS_WEEK);

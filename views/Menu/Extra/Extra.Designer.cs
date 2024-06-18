@@ -29,80 +29,26 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Extra));
-            this.extraDescription = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.extraPrice = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.extraRemove = new System.Windows.Forms.Button();
             this.editEdit = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.extraActive = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.extraListBox = new System.Windows.Forms.ListBox();
-            this.extraPicture = new System.Windows.Forms.PictureBox();
             this.header2 = new PSI_DA_PL_B.views.components.Header();
             this.extraCreate = new System.Windows.Forms.Button();
-            this.createReservation = new System.Windows.Forms.Button();
-            this.extraName = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.extraPicture)).BeginInit();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.extraDescription = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.extraPrice = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.extraActive = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.createReservation = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // extraDescription
-            // 
-            this.extraDescription.BackColor = System.Drawing.Color.White;
-            this.extraDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.extraDescription.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.extraDescription.Enabled = false;
-            this.extraDescription.Location = new System.Drawing.Point(19, 428);
-            this.extraDescription.Multiline = true;
-            this.extraDescription.Name = "extraDescription";
-            this.extraDescription.ReadOnly = true;
-            this.extraDescription.Size = new System.Drawing.Size(209, 88);
-            this.extraDescription.TabIndex = 85;
-            this.extraDescription.Text = "Peixe com peixe com carne com peixe\r\n";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
-            this.label9.ForeColor = System.Drawing.Color.Peru;
-            this.label9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label9.Location = new System.Drawing.Point(87, 409);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(75, 16);
-            this.label9.TabIndex = 84;
-            this.label9.Text = "Descrição";
-            // 
-            // extraPrice
-            // 
-            this.extraPrice.AutoSize = true;
-            this.extraPrice.BackColor = System.Drawing.Color.Transparent;
-            this.extraPrice.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
-            this.extraPrice.ForeColor = System.Drawing.Color.Black;
-            this.extraPrice.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.extraPrice.Location = new System.Drawing.Point(38, 369);
-            this.extraPrice.Name = "extraPrice";
-            this.extraPrice.Size = new System.Drawing.Size(76, 23);
-            this.extraPrice.TabIndex = 83;
-            this.extraPrice.Text = "00,00€";
-            this.extraPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
-            this.label11.ForeColor = System.Drawing.Color.Peru;
-            this.label11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label11.Location = new System.Drawing.Point(50, 333);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(46, 16);
-            this.label11.TabIndex = 82;
-            this.label11.Text = "Preço";
             // 
             // extraRemove
             // 
@@ -118,6 +64,7 @@
             this.extraRemove.TabIndex = 81;
             this.extraRemove.Text = "Apagar";
             this.extraRemove.UseVisualStyleBackColor = false;
+            this.extraRemove.Click += new System.EventHandler(this.extraRemove_Click);
             // 
             // editEdit
             // 
@@ -133,55 +80,7 @@
             this.editEdit.TabIndex = 80;
             this.editEdit.Text = "Editar";
             this.editEdit.UseVisualStyleBackColor = false;
-            // 
-            // textBox4
-            // 
-            this.textBox4.BackColor = System.Drawing.Color.Peru;
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Location = new System.Drawing.Point(124, 331);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(1, 75);
-            this.textBox4.TabIndex = 79;
-            // 
-            // textBox5
-            // 
-            this.textBox5.BackColor = System.Drawing.Color.Peru;
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Location = new System.Drawing.Point(19, 405);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(210, 1);
-            this.textBox5.TabIndex = 78;
-            // 
-            // extraActive
-            // 
-            this.extraActive.AutoSize = true;
-            this.extraActive.BackColor = System.Drawing.Color.Transparent;
-            this.extraActive.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
-            this.extraActive.ForeColor = System.Drawing.Color.Black;
-            this.extraActive.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.extraActive.Location = new System.Drawing.Point(155, 369);
-            this.extraActive.Name = "extraActive";
-            this.extraActive.Size = new System.Drawing.Size(46, 23);
-            this.extraActive.TabIndex = 77;
-            this.extraActive.Text = "Sim";
-            this.extraActive.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
-            this.label10.ForeColor = System.Drawing.Color.Peru;
-            this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label10.Location = new System.Drawing.Point(159, 333);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(42, 16);
-            this.label10.TabIndex = 76;
-            this.label10.Text = "Ativo";
+            this.editEdit.Click += new System.EventHandler(this.editEdit_Click);
             // 
             // label12
             // 
@@ -211,17 +110,7 @@
             this.extraListBox.Name = "extraListBox";
             this.extraListBox.Size = new System.Drawing.Size(164, 244);
             this.extraListBox.TabIndex = 73;
-            // 
-            // extraPicture
-            // 
-            this.extraPicture.Image = ((System.Drawing.Image)(resources.GetObject("extraPicture.Image")));
-            this.extraPicture.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.extraPicture.Location = new System.Drawing.Point(74, 219);
-            this.extraPicture.Name = "extraPicture";
-            this.extraPicture.Size = new System.Drawing.Size(100, 100);
-            this.extraPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.extraPicture.TabIndex = 72;
-            this.extraPicture.TabStop = false;
+            this.extraListBox.SelectedIndexChanged += new System.EventHandler(this.extraListBox_SelectedIndexChanged);
             // 
             // header2
             // 
@@ -245,33 +134,7 @@
             this.extraCreate.TabIndex = 69;
             this.extraCreate.Text = "Criar";
             this.extraCreate.UseVisualStyleBackColor = false;
-            // 
-            // createReservation
-            // 
-            this.createReservation.BackColor = System.Drawing.Color.White;
-            this.createReservation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.createReservation.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
-            this.createReservation.ForeColor = System.Drawing.Color.Peru;
-            this.createReservation.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.createReservation.Location = new System.Drawing.Point(18, 522);
-            this.createReservation.Name = "createReservation";
-            this.createReservation.Size = new System.Drawing.Size(210, 45);
-            this.createReservation.TabIndex = 68;
-            this.createReservation.Text = "Adicionar à Reserva";
-            this.createReservation.UseVisualStyleBackColor = false;
-            // 
-            // extraName
-            // 
-            this.extraName.AutoSize = true;
-            this.extraName.BackColor = System.Drawing.Color.White;
-            this.extraName.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F);
-            this.extraName.ForeColor = System.Drawing.Color.Peru;
-            this.extraName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.extraName.Location = new System.Drawing.Point(6, 175);
-            this.extraName.Name = "extraName";
-            this.extraName.Size = new System.Drawing.Size(236, 32);
-            this.extraName.TabIndex = 70;
-            this.extraName.Text = "Extra Pretendido";
+            this.extraCreate.Click += new System.EventHandler(this.extraCreate_Click);
             // 
             // textBox6
             // 
@@ -284,57 +147,200 @@
             this.textBox6.Size = new System.Drawing.Size(207, 467);
             this.textBox6.TabIndex = 75;
             // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.Peru;
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox3.Location = new System.Drawing.Point(18, 391);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(210, 1);
+            this.textBox3.TabIndex = 92;
+            // 
+            // extraDescription
+            // 
+            this.extraDescription.BackColor = System.Drawing.Color.White;
+            this.extraDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.extraDescription.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.extraDescription.Enabled = false;
+            this.extraDescription.ForeColor = System.Drawing.Color.Black;
+            this.extraDescription.Location = new System.Drawing.Point(17, 419);
+            this.extraDescription.Multiline = true;
+            this.extraDescription.Name = "extraDescription";
+            this.extraDescription.ReadOnly = true;
+            this.extraDescription.Size = new System.Drawing.Size(209, 71);
+            this.extraDescription.TabIndex = 91;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.label3.ForeColor = System.Drawing.Color.Peru;
+            this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label3.Location = new System.Drawing.Point(153, 493);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 16);
+            this.label3.TabIndex = 90;
+            this.label3.Text = "Descrição";
+            // 
+            // extraPrice
+            // 
+            this.extraPrice.AutoSize = true;
+            this.extraPrice.BackColor = System.Drawing.Color.Transparent;
+            this.extraPrice.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
+            this.extraPrice.ForeColor = System.Drawing.Color.Black;
+            this.extraPrice.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.extraPrice.Location = new System.Drawing.Point(14, 306);
+            this.extraPrice.Name = "extraPrice";
+            this.extraPrice.Size = new System.Drawing.Size(76, 23);
+            this.extraPrice.TabIndex = 89;
+            this.extraPrice.Text = "00,00€";
+            this.extraPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.label11.ForeColor = System.Drawing.Color.Peru;
+            this.label11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label11.Location = new System.Drawing.Point(189, 336);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(46, 16);
+            this.label11.TabIndex = 88;
+            this.label11.Text = "Preço";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.Peru;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Location = new System.Drawing.Point(18, 332);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(210, 1);
+            this.textBox1.TabIndex = 87;
+            // 
+            // extraActive
+            // 
+            this.extraActive.AutoSize = true;
+            this.extraActive.BackColor = System.Drawing.Color.Transparent;
+            this.extraActive.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
+            this.extraActive.ForeColor = System.Drawing.Color.Black;
+            this.extraActive.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.extraActive.Location = new System.Drawing.Point(14, 365);
+            this.extraActive.Name = "extraActive";
+            this.extraActive.Size = new System.Drawing.Size(49, 23);
+            this.extraActive.TabIndex = 86;
+            this.extraActive.Text = "Não";
+            this.extraActive.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.label6.ForeColor = System.Drawing.Color.Peru;
+            this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label6.Location = new System.Drawing.Point(185, 395);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(42, 16);
+            this.label6.TabIndex = 85;
+            this.label6.Text = "Ativo";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.pictureBox1.Location = new System.Drawing.Point(73, 171);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 84;
+            this.pictureBox1.TabStop = false;
+            // 
+            // createReservation
+            // 
+            this.createReservation.BackColor = System.Drawing.Color.White;
+            this.createReservation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.createReservation.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
+            this.createReservation.ForeColor = System.Drawing.Color.Peru;
+            this.createReservation.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.createReservation.Location = new System.Drawing.Point(17, 529);
+            this.createReservation.Name = "createReservation";
+            this.createReservation.Size = new System.Drawing.Size(210, 45);
+            this.createReservation.TabIndex = 82;
+            this.createReservation.Text = "Adicionar à Reserva";
+            this.createReservation.UseVisualStyleBackColor = false;
+            this.createReservation.Click += new System.EventHandler(this.createReservation_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F);
+            this.label1.ForeColor = System.Drawing.Color.Peru;
+            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label1.Location = new System.Drawing.Point(5, 127);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(238, 32);
+            this.label1.TabIndex = 83;
+            this.label1.Text = "Prato Pretendido";
+            // 
             // Extra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(455, 582);
+            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.extraDescription);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.extraPrice);
             this.Controls.Add(this.label11);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.extraActive);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.createReservation);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.extraRemove);
             this.Controls.Add(this.editEdit);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.extraActive);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.extraListBox);
-            this.Controls.Add(this.extraPicture);
             this.Controls.Add(this.header2);
             this.Controls.Add(this.extraCreate);
-            this.Controls.Add(this.createReservation);
-            this.Controls.Add(this.extraName);
             this.Controls.Add(this.textBox6);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Extra";
             this.Text = "Extra";
-            ((System.ComponentModel.ISupportInitialize)(this.extraPicture)).EndInit();
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Extra_FormClosed);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox extraDescription;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label extraPrice;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button extraRemove;
         private System.Windows.Forms.Button editEdit;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label extraActive;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ListBox extraListBox;
-        private System.Windows.Forms.PictureBox extraPicture;
         private components.Header header2;
         private System.Windows.Forms.Button extraCreate;
-        private System.Windows.Forms.Button createReservation;
-        private System.Windows.Forms.Label extraName;
         private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox extraDescription;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label extraPrice;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label extraActive;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button createReservation;
+        private System.Windows.Forms.Label label1;
     }
 }

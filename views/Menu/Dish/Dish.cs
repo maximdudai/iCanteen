@@ -130,7 +130,6 @@ namespace PSI_DA_PL_B.views.Menu.Dish
             this.UpdateDishList();
         }
 
-
         private void Dish_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.manager.MainMenuUI();

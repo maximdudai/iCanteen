@@ -12,14 +12,14 @@ using PSI_DA_PL_B.helpers;
 
 namespace PSI_DA_PL_B.views.Menu.Dish.Create
 {
-    public partial class CreateExtra : Form
+    public partial class CreateDish : Form
     {
         Manager manager { get; set; }
         private string description { get; set; }
         private string type { get; set; }
         private bool active { get; set; }
 
-        public CreateExtra(Manager manager)
+        public CreateDish(Manager manager)
         {
             InitializeComponent();
 

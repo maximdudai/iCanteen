@@ -13,6 +13,7 @@ namespace PSI_DA_PL_B
         public DbSet<Menu> MenuCantina { get; set; }
         public DbSet<Ticket> Ticket { get; set; }
         public DbSet<Dish> Dish { get; set; }
+        public DbSet<Extra> Extra { get; set; }
 
         // Optional: Configure the connection string
     }

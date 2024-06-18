@@ -1,4 +1,5 @@
 ﻿using PSI_DA_PL_B.controller;
+using PSI_DA_PL_B.helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,11 @@ namespace PSI_DA_PL_B.views.Menu
         Manager manager { get; set; }
 
         private List<models.Menu.Extra> extraList = new List<models.Menu.Extra>();
-        public Extra()
+
+        private string description { get; set; }
+        private double price { get; set; }
+        private string active { get; set; }
+        public Extra(Manager manager)
         {
             InitializeComponent();
 
@@ -24,67 +29,117 @@ namespace PSI_DA_PL_B.views.Menu
             this.LoadExtraFromDatabase();
         }
 
-
-        private void dishCreate_Click(object sender, EventArgs e)
-        {
-            this.manager.ShowCreateDishUI();
-        }
-
-
-
-        private void LoadDishFromDatabase()
+        private void LoadExtraFromDatabase()
         {
             using (var db = new Cantina())
             {
-                dishList = db.Dish.ToList();
+                extraList = db.Extra.ToList();
             }
-            this.UpdateDishList();
+            this.UpdateExtraList();
         }
 
-        private void UpdateDishList()
+        private void UpdateExtraList()
         {
-            dishListBox.DataSource = null;
-            dishListBox.DataSource = dishList;
+            extraListBox.DataSource = null;
+            extraListBox.DataSource = extraList;
         }
 
-        private void Dish_FormClosing(object sender, FormClosingEventArgs e)
+        
+        private void UpdateExtraUI()
+        {
+            this.extraPrice.Text = this.price.ToString();
+            this.extraActive.Text = this.active;
+            this.extraDescription.Text = this.description;
+        }
+        
+
+        private void Extra_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.manager.MainMenuUI();
         }
 
-        private void HandleSelectExtra(object sender, EventArgs e)
+        private void extraRemove_Click(object sender, EventArgs e)
         {
-            //select from database dish where itemId = dishListBox.SelectedItem
+            var selectedExtra = extraListBox.SelectedItem as models.Menu.Extra;
+
+            if (selectedExtra == null)
+            {
+                Error.Err("Please select a extra to remove");
+                return;
+            }
 
             using (var db = new Cantina())
             {
-                var dish = db.Dish.Find(extraListBox.SelectedItem);
+                // Verify if the selected dish exists in the database using the itemId
+                var extra = db.Extra.Find(selectedExtra.itemId);
 
-                if (dish == null)
+                if (extra == null)
                 {
-                    MessageBox.Show("Extra not found");
+                    Error.Err("The selected extra was not found in the database");
                     return;
                 }
 
-                string extraPrice = this.extraPrice.Text;
-                string extraActive = this.extraActive.Text;
-                string extraDescription = this.extraDescription.Text;
+                db.Extra.Remove(extra);
+                db.SaveChanges();
 
-                extraPrice.Text = extra.ExtraPrice;
+            }
+            extraList.Remove(selectedExtra);
+
+            if (extraListBox.Items.Count > 0)
+                extraListBox.SetSelected(0, true);
+            else
+            {
+                extraListBox.ClearSelected();
+                this.extraPrice.Text = "-";
+                this.extraActive.Text = "-";
+                this.extraDescription.Text = "-";
+            }
+
+            this.UpdateExtraList();
+        }
+
+        private void editEdit_Click(object sender, EventArgs e)
+        {
+            var extra = extraListBox.SelectedItem as models.Menu.Extra;
+
+            if (extra == null)
+            {
+                MessageBox.Show("Please select a extra to edit");
+                return;
+            }
+            this.manager.ShowEditExtraUI(extra.itemId);
+        }
+
+        private void extraCreate_Click(object sender, EventArgs e)
+        {
+            this.manager.ShowCreateExtraUI();
+        }
+
+        private void extraListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //select from database extra where itemId = extraListBox.SelectedItem
+
+            using (var db = new Cantina())
+            {
+                var selectedExtra = extraListBox.SelectedItem as models.Menu.Extra;
+                if (selectedExtra == null)
+                    return;
+
+                var extra = db.Extra.FirstOrDefault(d => d.itemId == selectedExtra.itemId);
+                if (extra == null)
+                    return;
+
+                this.price = extra.Preco;
+                this.active = extra.Ativo ? "Sim" : "Não";
+                this.description = extra.Descricao;
+
+                this.UpdateExtraUI();
             }
         }
-        private void UpdateDishUI()
-        {
-
-        }
-        private void dishEdit_Click(object sender, EventArgs e)
+        private void createReservation_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void dishRemove_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
