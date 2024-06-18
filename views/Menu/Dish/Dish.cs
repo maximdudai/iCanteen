@@ -21,7 +21,7 @@ namespace PSI_DA_PL_B.views.Menu.Dish
 
         private string description { get; set; }
         private string type { get; set; }
-        private string active { get; set; }
+        private bool active { get; set; }
 
         public Dish(Manager manager)
         {
@@ -66,7 +66,7 @@ namespace PSI_DA_PL_B.views.Menu.Dish
                     return;
 
                 this.type = dish.Type;
-                this.active = dish.Active ? "Sim" : "Não";
+                this.active = dish.Active;
                 this.description = dish.Description;
 
                 this.UpdateDishUI();
@@ -75,7 +75,7 @@ namespace PSI_DA_PL_B.views.Menu.Dish
         private void UpdateDishUI()
         {
             this.dishType.Text = this.type;
-            this.dishActive.Text = this.active;
+            this.dishActive.Text = this.active ? "Sim" : "Não";
             this.dishDescription.Text = this.description;
         }
         private void dishEdit_Click(object sender, EventArgs e)

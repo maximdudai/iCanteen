@@ -36,9 +36,16 @@ namespace PSI_DA_PL_B.views.Menu.Dish.Create
                 Error.Err("Please select if the dish will be available or not.");
                 return;
             }
-            this.active = this.dishActive.GetItemChecked(dishActive.SelectedIndex);
+            this.active = this.dishActive.SelectedIndex == 0;
 
-            if (String.IsNullOrEmpty(this.description) || String.IsNullOrEmpty(this.type) || this.active == false)
+            // verify if at least one dishActive is checked
+            if(this.dishActive.CheckedItems.Count == 0)
+            {
+                Error.Err("Please select if the dish will be available or not.");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(this.description) || string.IsNullOrEmpty(this.type))
             {
                 Error.Err("Please fill all fields");
                 return;
