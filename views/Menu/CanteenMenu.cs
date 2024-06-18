@@ -61,11 +61,19 @@ namespace PSI_DA_PL_B.views.Menu
             timer.Interval = 1000; // 1 second
             timer.Tick += new EventHandler(UpdateCurrentDateTime);
         }
+
+        private void UpdateCurrentDateTime(object sender, EventArgs e)
+        {
+            DateTime dateTime = DateTime.Now;
+            this.currentDateTime.Text = dateTime.ToString("dd/MM/yyyy HH:mm:ss");
+        }
+
         private void Menu_Load(object sender, EventArgs e)
         {
             timer.Start();
         }
 
+        #region Employee manager
         private void LoadData()
         {
             try
@@ -82,7 +90,7 @@ namespace PSI_DA_PL_B.views.Menu
                         .FirstOrDefault();
 
                     // If somehow the user is not found, redirect to login
-                    if(currentUser != null)
+                    if (currentUser != null)
                         this.name = currentUser.Name;
                     else
                         this.manager.LoginUI();
@@ -93,49 +101,57 @@ namespace PSI_DA_PL_B.views.Menu
                 Error.Err(ex.Message);
             }
         }
-
         private void UpdateUserUI()
         {
             this.userUsername.Text = this.username;
             this.userName.Text = this.name;
         }
-        
-        private void UpdateCurrentDateTime(object sender, EventArgs e)
-        {
-            DateTime dateTime = DateTime.Now;
-            this.currentDateTime.Text = dateTime.ToString("dd/MM/yyyy HH:mm:ss");
-        }
-
         private void changeEmployee_Click(object sender, EventArgs e)
         {
             this.manager.EmployeeListUI();
         }
-
         private void logoutButton_Click(object sender, EventArgs e)
         {
             this.manager.LoginUI();
         }
+        #endregion
 
+        #region Main buttons
         private void clientbutton_Click(object sender, EventArgs e)
         {
             this.manager.ClientListUI();
         }
 
-        private void balanceButton_Click(object sender, EventArgs e)
+        //menuButton
+
+        private void dishButton_Click(object sender, EventArgs e)
         {
-            this.manager.SelectClientUI();
+            this.manager.ShowDishListUI();
         }
+        
+        //extrabutton
+
         private void ticketButton_Click(object sender, EventArgs e)
         {
             TicketMenu.TicketMenu ticket = new TicketMenu.TicketMenu();
             ticket.ShowDialog();
         }
 
-        private void dishButton_Click(object sender, EventArgs e)
+        //reserva buttonn
+        /*
+        private void reservaButton_Click(object sender, EventArgs e)
         {
-            this.manager.ShowDishListUI();
+            this.manager.SelectClientUI("reserva");
         }
+        */
 
+        private void balanceButton_Click(object sender, EventArgs e)
+        {
+            this.manager.SelectClientUI("balance");
+        }
+        #endregion
+
+        #region Show menus information 
         private void menuPrevWeek_Click(object sender, EventArgs e)
         {
             GetMenuCurrentWeek(this.PREVIOUS_WEEK);
@@ -158,7 +174,7 @@ namespace PSI_DA_PL_B.views.Menu
             if (operation == this.PREVIOUS_WEEK)
             {
                 // if the current week is the first week of the year, set the week to the last week of the year
-                if(this.currentWeek <= this.GetMinWeeksOfYear())
+                if (this.currentWeek <= this.GetMinWeeksOfYear())
                 {
                     this.CURRENT_WEEK_VIEW = this.GetMaxWeeksOfYear();
                 }
@@ -172,7 +188,7 @@ namespace PSI_DA_PL_B.views.Menu
             else if (operation == this.NEXT_WEEK)
             {
                 // if the current week is the last week of the year, set the week to the first week of the year
-                if(this.currentWeek >= this.GetMaxWeeksOfYear())
+                if (this.currentWeek >= this.GetMaxWeeksOfYear())
                 {
                     this.CURRENT_WEEK_VIEW = this.GetMinWeeksOfYear();
                 }
@@ -216,6 +232,6 @@ namespace PSI_DA_PL_B.views.Menu
             string dailyMenu = this.currentWeek == this.GetCurrentYearWeek() ? $"Menus Diários da Semana Atual" : $"Menus Diários da Semana #{this.currentWeek}";
             this.dailyMenuWeek.Text = dailyMenu;
         }
-
+        #endregion
     }
 }

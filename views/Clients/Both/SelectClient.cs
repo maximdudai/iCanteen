@@ -21,12 +21,15 @@ namespace PSI_DA_PL_B.views.Clients.Both
 
         private int clientNifInput;
 
+        private string menu;
+
         public SelectClient()
         {
             InitializeComponent();
         }
-        public SelectClient(Manager manager) : this()
+        public SelectClient(string menu,Manager manager) : this()
         {
+            this.menu = menu;
             this.manager = manager;
         }
 
@@ -47,8 +50,6 @@ namespace PSI_DA_PL_B.views.Clients.Both
                     return;
                 }
 
-                //var parsedNif = int.Parse(this.clientNifInput);
-
                 using (var db = new Cantina())
                 {
                     if (StudentRadioButton.Checked)
@@ -61,7 +62,7 @@ namespace PSI_DA_PL_B.views.Clients.Both
                         if (students.Any())
                         {
                             MessageBox.Show("Client selected successfully!");
-                            this.manager.BalanceUI(students.First().Nif);
+                            SourceButtonName(students.First().Nif);
                         }
                         else
                         {
@@ -80,7 +81,7 @@ namespace PSI_DA_PL_B.views.Clients.Both
                         if (teachers.Any())
                         {
                             MessageBox.Show("Client selected successfully!");
-                            this.manager.BalanceUI(teachers.First().Nif);
+                            SourceButtonName(teachers.First().Nif);
                         }
                         else
                         {
@@ -98,6 +99,21 @@ namespace PSI_DA_PL_B.views.Clients.Both
             {
                 Error.Err(ex.Message);
             }
+        }
+
+        private void SourceButtonName( int nif)
+        {
+            if (this.menu == "balance")
+            {
+                this.manager.BalanceUI(nif);
+            }
+            
+            /*
+            else if (this.menu == "reserva")
+            {
+                this.manager.ReservaUI(nif);
+            }
+            */
         }
 
         private void SelectClient_FormClosing(object sender, FormClosingEventArgs e)

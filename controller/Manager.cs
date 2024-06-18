@@ -29,7 +29,7 @@ namespace PSI_DA_PL_B.controller
 
         public string username { get; set; }
 
-        #region Main forms
+        #region Main Form
         private Login loginForm = null;
         private CanteenMenu mainMenuForm = null;
         private Register registerForm = null;
@@ -38,7 +38,13 @@ namespace PSI_DA_PL_B.controller
         private bool isClosing = false;
         #endregion
 
-        #region Client Manager
+        #region Employee Form
+        private CreateEmployee CreateEmployeeForm = null;
+        private EmployeeList EmployeeListForm = null;
+        private EditEmployee EditEmployeeForm = null;
+        #endregion
+
+        #region Client Form
         private ListClients listClientForm = null;
         private ChooseClientCreate ChooseClientForm = null;
         private CreateStudent CreateStudentFrom = null;
@@ -48,13 +54,7 @@ namespace PSI_DA_PL_B.controller
         private SelectClient SelectClientForm = null;
         #endregion
 
-        #region Employee Manager
-        private CreateEmployee CreateEmployeeForm = null;
-        private EmployeeList EmployeeListForm = null;
-        private EditEmployee EditEmployeeForm = null;
-        #endregion
-
-        #region Menu Manager
+        #region Menu Form
         private CreateDish CreateDishForm = null;
         private Dish DishListForm = null;
         private EditDish EditDishForm = null;
@@ -83,57 +83,60 @@ namespace PSI_DA_PL_B.controller
             }
         }
 
-
+        #region Main Manager
         // Method to handle Login UI
         public void LoginUI(bool toggle = true)
         {
             ShowForm(ref loginForm, toggle, this);
         }
-
-        public void RegisterUI(bool toggle = true)
-        {
-            ShowForm(ref registerForm, toggle, this);
-        }
-
         public void MainMenuUI(string username = null, bool toggle = true)
         {
             ShowForm(ref mainMenuForm, toggle, this, username ?? this.username);
         }
+        public void RegisterUI(bool toggle = true)
+        {
+            ShowForm(ref registerForm, toggle, this);
+        }
+        public void BalanceUI(int nif, bool toggle = true)
+        {
+            ShowForm(ref BalanceForm, toggle, nif, this);
+        }
+        #endregion
 
+
+        #region Emmployed Manager
+        public void EmployeeListUI(bool toggle = true)
+        {
+            ShowForm(ref EmployeeListForm, toggle, this);
+        }
+        public void CreateEmployeeUI(bool toggle = true)
+        {
+            ShowForm(ref CreateEmployeeForm, toggle, this);
+        }
+        public void EditEmployeeUI(int nif, bool toggle = true)
+        {
+            ShowForm(ref EditEmployeeForm, toggle, nif, this);
+        }
+        #endregion
+
+
+        #region Client Manager
         public void ClientListUI(bool toggle = true)
         {
             ShowForm(ref listClientForm, toggle, this);
         }
-
-        public void ChooseClientUI(bool toggle = true)
-        {
-            ShowForm(ref ChooseClientForm, toggle, this);
-        }
-
         public void CreateStudentUI(bool toggle = true)
         {
             ShowForm(ref CreateStudentFrom, toggle, this);
         }
-
         public void CreateTeacherUI(bool toggle = true)
         {
             ShowForm(ref CreateTeacherFrom, toggle, this);
         }
-
-        public void ShowDishListUI(bool toggle = true)
+        public void ChooseClientUI(bool toggle = true)
         {
-            ShowForm(ref DishListForm, toggle, this);
+            ShowForm(ref ChooseClientForm, toggle, this);
         }
-        public void ShowCreateDishUI(bool toggle = true)
-        {
-            ShowForm(ref CreateDishForm, toggle, this);
-        }
-
-        public void ShowEditDishUI(int itemId, bool toggle = true)
-        {
-            ShowForm(ref EditDishForm, toggle, itemId, this);
-        }
-
         public void EditStudentUI(int nif, bool toggle = true)
         {
             ShowForm(ref EditStudentForm, toggle, nif, this);
@@ -142,31 +145,28 @@ namespace PSI_DA_PL_B.controller
         {
             ShowForm(ref EditTeacherForm, toggle, nif, this);
         }
-
-        public void SelectClientUI(bool toggle = true)
+        public void SelectClientUI(string menu, bool toggle = true)
         {
-            ShowForm(ref SelectClientForm, toggle, this);
+            ShowForm(ref SelectClientForm, toggle, menu, this);
         }
-
-        public void BalanceUI(int nif, bool toggle = true)
-        {
-            ShowForm(ref BalanceForm, toggle, nif, this);
-        }
+        #endregion
 
 
-        public void EditEmployeeUI(int nif, bool toggle = true)
+        #region Menu Manager
+        public void ShowDishListUI(bool toggle = true)
         {
-            ShowForm(ref EditEmployeeForm, toggle, nif, this);
+            ShowForm(ref DishListForm, toggle, this);
         }
-        public void CreateEmployeeUI(bool toggle = true)
+        public void ShowCreateDishUI(bool toggle = true)
         {
-            ShowForm(ref CreateEmployeeForm, toggle, this);
+            ShowForm(ref CreateDishForm, toggle, this);
         }
+        public void ShowEditDishUI(int itemId, bool toggle = true)
+        {
+            ShowForm(ref EditDishForm, toggle, itemId, this);
+        }
+        #endregion
 
-        public void EmployeeListUI(bool toggle = true)
-        {
-            ShowForm(ref EmployeeListForm, toggle, this);
-        }
 
         // Method to destroy the current form
         private void DestroyCurrentForm()

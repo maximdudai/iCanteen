@@ -80,7 +80,7 @@ namespace PSI_DA_PL_B.views.Clients.Students.Edit
                         student.Name = studentNameInput.Text;
                         student.NumStudent = int.Parse(studentNumberInput.Text);
                         student.Nif = int.Parse(studentNIFinput.Text);
-                        student.Balance = double.Parse(studentBalanceInput.Text);
+                        student.Balance = decimal.Parse(studentBalanceInput.Text);
 
                         db.SaveChanges();
                         MessageBox.Show("Student details updated successfully!");

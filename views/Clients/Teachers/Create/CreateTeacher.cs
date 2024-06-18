@@ -23,7 +23,7 @@ namespace PSI_DA_PL_B.views.Clients.Teachers.Create
         private Manager manager { get; set; }
         private string name { get; set; }
         private int Nif { get; set; }
-        private double Balance { get; set; }
+        private decimal Balance { get; set; }
         private string Email { get; set; }
         public CreateTeacher()
         {
@@ -40,7 +40,7 @@ namespace PSI_DA_PL_B.views.Clients.Teachers.Create
                 this.name = teacherNameInput.Text;
                 this.Nif = int.Parse(teacherNIFinput.Text);
                 this.Email = teacherEmailInput.Text;
-                this.Balance = 0.00;
+                this.Balance = 0.00M;
 
                 if (string.IsNullOrWhiteSpace(name))
                 {

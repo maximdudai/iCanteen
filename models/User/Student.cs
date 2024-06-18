@@ -12,7 +12,7 @@ namespace PSI_DA_PL_B.models.User
 
         public Student() : base() { }
 
-        public Student(string name, int nif, double balance, int numStudent) : base(name, nif)
+        public Student(string name, int nif, decimal balance, int numStudent) : base(name, nif)
         {
             this.NumStudent = numStudent;
         }

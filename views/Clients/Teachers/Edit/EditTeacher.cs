@@ -77,7 +77,7 @@ namespace PSI_DA_PL_B.views.Clients.Teachers.Edit
                         teacher.Name = teacherNameInput.Text;
                         teacher.Email = teacherEmailInput.Text;
                         teacher.Nif = int.Parse(teacherNIFinput.Text);
-                        teacher.Balance = double.Parse(teacherBalanceInput.Text);
+                        teacher.Balance = decimal.Parse(teacherBalanceInput.Text);
 
                         db.SaveChanges();
                         MessageBox.Show("Teacher details updated successfully!");

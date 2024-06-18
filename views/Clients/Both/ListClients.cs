@@ -30,13 +30,13 @@ namespace PSI_DA_PL_B.views.Clients.Both
         {
             public string Name { get; set; }
             public int Nif { get; set; }
-            public double Balance { get; set; }
+            public decimal Balance { get; set; }
             public int? NumStudent { get; set; }
             public string Email { get; set; }
 
             public ClientInfo() { }
 
-            public ClientInfo(string name, int nif, double balance, int? numStudent = null, string email = null)
+            public ClientInfo(string name, int nif, decimal balance, int? numStudent = null, string email = null)
             {
                 Name = name;
                 Nif = nif;
