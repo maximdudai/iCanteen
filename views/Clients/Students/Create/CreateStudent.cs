@@ -19,7 +19,7 @@ namespace PSI_DA_PL_B.views.Clients.Students.Create
         private Manager manager { get; set; }
         private string name { get; set; }
         private int Nif { get; set; }
-        private double Balance { get; set; }
+        private decimal Balance { get; set; }
         private int NumStudent { get; set; }
         public CreateStudent()
         {
@@ -36,7 +36,7 @@ namespace PSI_DA_PL_B.views.Clients.Students.Create
                 this.name = studentNameInput.Text;
                 this.Nif = int.Parse(studentNIFinput.Text);
                 this.NumStudent = int.Parse(studentNumberInput.Text);
-                this.Balance = 0.00;
+                this.Balance = 0.00M;
 
                 if (string.IsNullOrEmpty(name))
                 {
