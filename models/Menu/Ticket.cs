@@ -18,13 +18,13 @@ namespace PSI_DA_PL_B.models.Menu
 
         [Required]
         [Range(0.1, 10, ErrorMessage = "Ticket value must be a number between 0.1 and 10.")]
-        public double value { get; set; }
+        public decimal value { get; set; }
 
         public Ticket()
         {
         }
 
-        public Ticket(int hours, double value)
+        public Ticket(int hours, decimal value)
         {
             this.hours = hours;
             this.value = value;

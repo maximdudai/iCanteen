@@ -19,7 +19,7 @@ namespace PSI_DA_PL_B.views.Menu.TicketMenu
     {
         private List<models.Menu.Ticket> tickets { get; set; }
         private int time { get; set; }
-        private double value { get; set; }
+        private decimal value { get; set; }
         public TicketMenu()
         {
             InitializeComponent();
@@ -38,7 +38,7 @@ namespace PSI_DA_PL_B.views.Menu.TicketMenu
                     return;
                 }
 
-                if (!double.TryParse(this.ticketValue.Text, out double parsedValue))
+                if (!decimal.TryParse(this.ticketValue.Text, out decimal parsedValue))
                 {
                     Error.Err("Please enter a valid number for the ticket value.");
                     return;
@@ -53,7 +53,7 @@ namespace PSI_DA_PL_B.views.Menu.TicketMenu
                     return;
                 }
 
-                if (this.value < (double)this.ticketValue.Minimum || this.value > (double)this.ticketValue.Maximum)
+                if (this.value < (decimal)this.ticketValue.Minimum || this.value > (decimal)this.ticketValue.Maximum)
                 {
                     Error.Err("Ticket value must be a number between 0.1 and 10.");
                     return;

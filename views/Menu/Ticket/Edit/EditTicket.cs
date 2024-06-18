@@ -15,13 +15,13 @@ namespace PSI_DA_PL_B.views.Menu.Ticket.Edit
     {
         private int ticketId { get; set; }
         private int ticketTime { get; set; }
-        private double ticketValue { get; set; }
+        private decimal ticketValue { get; set; }
         public EditTicket()
         {
             InitializeComponent();
         }
 
-        public EditTicket(int id, int hours, double value) : this()
+        public EditTicket(int id, int hours, decimal value) : this()
         {
             this.ticketId = id;
             this.ticketTime = hours;
@@ -40,7 +40,7 @@ namespace PSI_DA_PL_B.views.Menu.Ticket.Edit
         private void editTicketButton_Click(object sender, EventArgs e)
         {
             this.ticketTime = int.Parse(this.newTicketTime.Text);
-            this.ticketValue = double.Parse(this.newTicketValue.Text);
+            this.ticketValue = decimal.Parse(this.newTicketValue.Text);
 
             using(var db = new Cantina())
             {
