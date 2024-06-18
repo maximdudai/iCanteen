@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dish));
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dishActive = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -47,16 +46,9 @@
             this.header1 = new PSI_DA_PL_B.views.components.Header();
             this.label3 = new System.Windows.Forms.Label();
             this.dishDescription = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // textBox3
-            // 
-            this.textBox3.BackColor = System.Drawing.Color.Peru;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox3, "textBox3");
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
             // 
             // textBox1
             // 
@@ -190,21 +182,30 @@
             this.dishDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.dishDescription.Cursor = System.Windows.Forms.Cursors.Arrow;
             resources.ApplyResources(this.dishDescription, "dishDescription");
+            this.dishDescription.ForeColor = System.Drawing.Color.Black;
             this.dishDescription.Name = "dishDescription";
             this.dishDescription.ReadOnly = true;
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.Peru;
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox3, "textBox3");
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
             // 
             // Dish
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.dishDescription);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dishType);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.dishRemove);
             this.Controls.Add(this.dishEdit);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dishActive);
             this.Controls.Add(this.label6);
@@ -225,7 +226,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label dishActive;
         private System.Windows.Forms.Label label6;
@@ -243,5 +243,6 @@
         private System.Windows.Forms.Label dishType;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox dishDescription;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }

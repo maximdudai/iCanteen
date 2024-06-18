@@ -109,15 +109,11 @@ namespace PSI_DA_PL_B.views.Menu
         private void changeEmployee_Click(object sender, EventArgs e)
         {
             this.manager.EmployeeListUI();
-
-            this.Close();
         }
 
         private void logoutButton_Click(object sender, EventArgs e)
         {
             this.manager.LoginUI();
-
-            this.Close();
         }
 
         private void clientbutton_Click(object sender, EventArgs e)

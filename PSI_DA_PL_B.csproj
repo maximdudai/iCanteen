@@ -111,6 +111,12 @@
     <Compile Include="views\Menu\Dish\Dish.Designer.cs">
       <DependentUpon>Dish.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\Menu\Dish\Edit\EditDish.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Menu\Dish\Edit\EditDish.Designer.cs">
+      <DependentUpon>EditDish.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\Menu\Employees\Create\CreateEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,6 +235,9 @@
     <EmbeddedResource Include="views\Menu\Dish\Dish.resx">
       <DependentUpon>Dish.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="views\Menu\Dish\Edit\EditDish.resx">
+      <DependentUpon>EditDish.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="views\Menu\Employees\Create\CreateEmployee.resx">
       <DependentUpon>CreateEmployee.cs</DependentUpon>
     </EmbeddedResource>
@@ -290,7 +299,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\" />
-    <Folder Include="views\Menu\Dish\Edit\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />

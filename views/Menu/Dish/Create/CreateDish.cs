@@ -30,9 +30,15 @@ namespace PSI_DA_PL_B.views.Menu.Dish.Create
         {
             this.description = this.dishDescription.Text;
             this.type = this.dishType.SelectedItem.ToString();
+            
+            if(this.dishActive.SelectedIndex == -1)
+            {
+                Error.Err("Please select if the dish will be available or not.");
+                return;
+            }
             this.active = this.dishActive.GetItemChecked(dishActive.SelectedIndex);
 
-            if (this.description == "" || this.type == "" || this.active == false)
+            if (String.IsNullOrEmpty(this.description) || String.IsNullOrEmpty(this.type) || this.active == false)
             {
                 Error.Err("Please fill all fields");
                 return;
