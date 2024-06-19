@@ -281,7 +281,7 @@ namespace PSI_DA_PL_B.views.Menu.MenuList
                     this.GetAllDishByMenuId(this.selectedMenuId);
                     this.GetAllExtraByMenuId(this.selectedMenuId);
 
-                    this.menuType.Text = menu.TipoRefeicao == 1 ? "Almoço" : "Jantar";
+                    this.menuType.Text = menu.TipoRefeicao == 0 ? "Almoço" : "Jantar";
                     this.menuQntAvailable.Text = menu.Quantidade.ToString();
                     this.menuStudentPrice.Text = menu.PrecoEstudante.ToString() + "€";
                     this.menuTeacherPrice.Text = menu.PrecoProfessor.ToString() + "€";
@@ -336,6 +336,13 @@ namespace PSI_DA_PL_B.views.Menu.MenuList
                     this.LoadMenus(this.currentWeek);
                 }
             }
+        }
+
+        private void editMenu_Click(object sender, EventArgs e)
+        {
+            var selectedMenu = (MenuCanteen)this.menuListDays.SelectedItem;
+
+            this.manager.ShowEditMenuUI(selectedMenu.Id);
         }
     }
 }

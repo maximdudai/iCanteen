@@ -160,6 +160,7 @@
             this.addedDishList.Name = "addedDishList";
             this.addedDishList.Size = new System.Drawing.Size(271, 108);
             this.addedDishList.TabIndex = 49;
+            this.addedDishList.DoubleClick += new System.EventHandler(this.addedDishList_DoubleClick);
             // 
             // addedExtraList
             // 
@@ -168,6 +169,7 @@
             this.addedExtraList.Name = "addedExtraList";
             this.addedExtraList.Size = new System.Drawing.Size(271, 121);
             this.addedExtraList.TabIndex = 50;
+            this.addedExtraList.DoubleClick += new System.EventHandler(this.addedExtraList_DoubleClick);
             // 
             // addExtraToMenu
             // 

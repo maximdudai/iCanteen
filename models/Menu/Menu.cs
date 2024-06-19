@@ -17,8 +17,6 @@ namespace PSI_DA_PL_B.models.MenuCantina
         [DataType(DataType.Date)]
         public DateTime Data { get; set; }
 
-        // 0 = almoco, 1 = jantar
-        [Range(0, 1)]
         public int TipoRefeicao { get; set; }
 
         [Range(1, 10)]

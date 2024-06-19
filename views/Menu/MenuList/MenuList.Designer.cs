@@ -217,6 +217,7 @@
             this.editMenu.TabIndex = 46;
             this.editMenu.Text = "Editar";
             this.editMenu.UseVisualStyleBackColor = true;
+            this.editMenu.Click += new System.EventHandler(this.editMenu_Click);
             // 
             // removeMenu
             // 
