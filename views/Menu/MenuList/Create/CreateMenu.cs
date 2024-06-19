@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PSI_DA_PL_B.controller;
+using PSI_DA_PL_B.helpers;
+using PSI_DA_PL_B.models.Menu;
 
 namespace PSI_DA_PL_B.views.Menu.MenuList.Create
 {
@@ -22,8 +24,20 @@ namespace PSI_DA_PL_B.views.Menu.MenuList.Create
         private decimal priceStudent { get; set; }
         private decimal priceTeacher { get; set; }
 
+        // List of available extras and dishes loaded from the database
         List<models.Menu.Extra> AvailableExtra { get; set; }
         List<models.Menu.Dish> AvailableDish { get; set; }
+
+        // List of extras and dishes that will be added to the menu
+        List<models.Menu.Extra> SelectedExtra { get; set; }
+        List<models.Menu.Dish> SelectedDish { get; set; }
+
+        // Menu limit of extras and dishes
+        private int maxExtras { get; set; } = 3;
+        private int maxDishes { get; set; } = 1;
+
+        // Total price of the menu
+        private decimal totalPrice { get; set; }
 
         public CreateMenu(Manager manager)
         {
@@ -31,10 +45,20 @@ namespace PSI_DA_PL_B.views.Menu.MenuList.Create
 
             this.manager = manager;
 
-            List<models.Menu.Extra> AvailableExtra = new List<models.Menu.Extra>();
-            List<models.Menu.Dish> AvailableDish = new List<models.Menu.Dish>();
+            // List of available extras and dishes loaded from the database
+            AvailableExtra = new List<models.Menu.Extra>();
+            AvailableDish = new List<models.Menu.Dish>();
+
+            // List of extras and dishes that will be added to the menu
+            SelectedExtra = new List<models.Menu.Extra>();
+            SelectedDish = new List<models.Menu.Dish>();
 
             this.LoadDataFromDatabase();
+        }
+
+        private void CreateMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.manager.ShowMenuListUI();
         }
 
         private void createMenuList_Click(object sender, EventArgs e)
@@ -48,9 +72,118 @@ namespace PSI_DA_PL_B.views.Menu.MenuList.Create
             {
                 // Get all available extras and dished and store them in the respective lists
 
-                this.AvailableExtra = db.Extra.ToList();
-                this.AvailableDish = db.Dish.ToList();
+                var allExtras = db.Extra.ToList();
+                var allDishes = db.Dish.ToList();
+
+                foreach (var extra in allExtras)
+                {
+                    models.Menu.Extra newExtra = new models.Menu.Extra(extra.Descricao, extra.Preco, extra.Ativo);
+                    AvailableExtra.Add(newExtra);
+                }
+
+                foreach (var dish in allDishes)
+                {
+                    models.Menu.Dish newDish = new models.Menu.Dish(dish.Description, dish.Type, dish.Active);
+                    AvailableDish.Add(newDish);
+                }
             }
+
+            this.DisaplyDish();
+            this.DisplayExtra();
+        }
+
+        private void DisaplyDish()
+        {
+            this.availableDishList.DataSource = null;
+            this.availableDishList.DataSource = AvailableDish;
+        }
+
+        private void DisplayExtra()
+        {
+            this.availableExtraList.DataSource = null;
+            this.availableExtraList.DataSource = AvailableExtra;
+        }
+
+        private void addExtraToMenu_Click(object sender, EventArgs e)
+        {
+            var selectedExtra = (models.Menu.Extra)this.availableExtraList.SelectedItem;
+
+            if (SelectedExtra.Count >= maxExtras)
+            {
+                Error.Warning("You can only add up to 3 extras to the menu");
+                return;
+            }
+
+            if (selectedExtra == null)
+            {
+                return;
+            }
+
+            models.Menu.Extra newExtra = new models.Menu.Extra(selectedExtra.Descricao, selectedExtra.Preco, selectedExtra.Ativo);
+            SelectedExtra.Add(selectedExtra);
+
+            this.UpdateCreatedMenuUI();
+        }
+
+
+
+        private void addDishToMenu_Click(object sender, EventArgs e)
+        {
+            var selectedDish = (models.Menu.Dish)this.availableDishList.SelectedItem;
+
+            if (SelectedDish.Count >= maxDishes)
+            {
+                Error.Warning("You can only add up to 1 dish to the menu");
+                return;
+            }
+
+            if (selectedDish == null)
+            {
+                return;
+            }
+
+            models.Menu.Dish newDish = new models.Menu.Dish(selectedDish.Description, selectedDish.Type, selectedDish.Active);
+            SelectedDish.Add(newDish);
+
+            this.UpdateCreatedMenuUI();
+        }
+
+        private void UpdateCreatedMenuUI()
+        {
+            this.addedDishList.DataSource = null;
+            this.addedDishList.DataSource = SelectedDish;
+
+            this.addedExtraList.DataSource = null;
+            this.addedExtraList.DataSource = SelectedExtra;
+
+            this.CalculateTotalPrice();
+        }
+
+        private void CalculateTotalPrice()
+        {
+            this.totalPrice = 0;
+
+            foreach (var extra in SelectedExtra)
+            {
+                totalPrice += extra.Preco;
+            }
+
+            this.menuTotalPrice.Text = $"Valor Total: {this.totalPrice}€";
+
+            this.CalculateTotalPriceTeacher();
+            this.CalculateTotalPriceStudent();
+        }
+
+        private void CalculateTotalPriceTeacher()
+        {
+
+            this.priceTeacher = this.totalPrice * 0.9m;
+            this.totalValueProfessor.Text = this.priceTeacher.ToString() + "€";
+        }
+        private void CalculateTotalPriceStudent()
+        {
+            this.priceStudent = this.totalPrice * 0.5m;
+            this.totalValueStudent.Text = this.priceStudent.ToString() + "€";
         }
     }
 }

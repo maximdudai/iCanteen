@@ -40,7 +40,7 @@
             this.addedExtraList = new System.Windows.Forms.ListBox();
             this.addExtraToMenu = new System.Windows.Forms.Button();
             this.addDishToMenu = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.menuTotalPrice = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -54,10 +54,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.totalValueProfessor = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
+            this.totalValueStudent = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -179,6 +179,7 @@
             this.addExtraToMenu.TabIndex = 51;
             this.addExtraToMenu.Text = "Adicionar";
             this.addExtraToMenu.UseVisualStyleBackColor = true;
+            this.addExtraToMenu.Click += new System.EventHandler(this.addExtraToMenu_Click);
             // 
             // addDishToMenu
             // 
@@ -190,16 +191,17 @@
             this.addDishToMenu.TabIndex = 52;
             this.addDishToMenu.Text = "Adicionar";
             this.addDishToMenu.UseVisualStyleBackColor = true;
+            this.addDishToMenu.Click += new System.EventHandler(this.addDishToMenu_Click);
             // 
-            // label2
+            // menuTotalPrice
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16F);
-            this.label2.Location = new System.Drawing.Point(476, 580);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(214, 26);
-            this.label2.TabIndex = 53;
-            this.label2.Text = "Valor Total: 10.50€";
+            this.menuTotalPrice.AutoSize = true;
+            this.menuTotalPrice.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16F);
+            this.menuTotalPrice.Location = new System.Drawing.Point(476, 580);
+            this.menuTotalPrice.Name = "menuTotalPrice";
+            this.menuTotalPrice.Size = new System.Drawing.Size(214, 26);
+            this.menuTotalPrice.TabIndex = 53;
+            this.menuTotalPrice.Text = "Valor Total: 00.00€";
             // 
             // label3
             // 
@@ -357,17 +359,17 @@
             this.textBox6.Size = new System.Drawing.Size(200, 29);
             this.textBox6.TabIndex = 69;
             // 
-            // label11
+            // totalValueProfessor
             // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.White;
-            this.label11.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11F);
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(596, 361);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 17);
-            this.label11.TabIndex = 76;
-            this.label11.Text = "3.65 €";
+            this.totalValueProfessor.AutoSize = true;
+            this.totalValueProfessor.BackColor = System.Drawing.Color.White;
+            this.totalValueProfessor.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11F);
+            this.totalValueProfessor.ForeColor = System.Drawing.Color.Black;
+            this.totalValueProfessor.Location = new System.Drawing.Point(596, 361);
+            this.totalValueProfessor.Name = "totalValueProfessor";
+            this.totalValueProfessor.Size = new System.Drawing.Size(53, 17);
+            this.totalValueProfessor.TabIndex = 76;
+            this.totalValueProfessor.Text = "3.65 €";
             // 
             // label12
             // 
@@ -393,17 +395,17 @@
             this.textBox7.Size = new System.Drawing.Size(129, 29);
             this.textBox7.TabIndex = 74;
             // 
-            // label13
+            // totalValueStudent
             // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.White;
-            this.label13.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11F);
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(454, 361);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(53, 17);
-            this.label13.TabIndex = 73;
-            this.label13.Text = "2.65 €";
+            this.totalValueStudent.AutoSize = true;
+            this.totalValueStudent.BackColor = System.Drawing.Color.White;
+            this.totalValueStudent.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11F);
+            this.totalValueStudent.ForeColor = System.Drawing.Color.Black;
+            this.totalValueStudent.Location = new System.Drawing.Point(454, 361);
+            this.totalValueStudent.Name = "totalValueStudent";
+            this.totalValueStudent.Size = new System.Drawing.Size(53, 17);
+            this.totalValueStudent.TabIndex = 73;
+            this.totalValueStudent.Text = "2.65 €";
             // 
             // label14
             // 
@@ -650,10 +652,10 @@
             this.Controls.Add(this.textBox12);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.totalValueProfessor);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.label13);
+            this.Controls.Add(this.totalValueStudent);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.label10);
@@ -669,7 +671,7 @@
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.menuTotalPrice);
             this.Controls.Add(this.addDishToMenu);
             this.Controls.Add(this.addExtraToMenu);
             this.Controls.Add(this.addedExtraList);
@@ -685,6 +687,7 @@
             this.Name = "CreateMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateMenu";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CreateMenu_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
@@ -707,7 +710,7 @@
         private System.Windows.Forms.ListBox addedExtraList;
         private System.Windows.Forms.Button addExtraToMenu;
         private System.Windows.Forms.Button addDishToMenu;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label menuTotalPrice;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label4;
@@ -721,10 +724,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label totalValueProfessor;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label totalValueStudent;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label15;

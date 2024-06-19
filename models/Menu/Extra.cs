@@ -36,7 +36,7 @@ namespace PSI_DA_PL_B.models.Menu
 
         public override string ToString()
         {
-            return this.Descricao;
+            return this.Descricao + $" - {this.Preco}€";
         }
     }
 }
