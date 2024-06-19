@@ -50,7 +50,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.createStartTime = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -65,9 +65,9 @@
             this.label16 = new System.Windows.Forms.Label();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.createEndTime = new System.Windows.Forms.NumericUpDown();
+            this.createPriceStudent = new System.Windows.Forms.NumericUpDown();
+            this.createPriceTeach = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -75,10 +75,10 @@
             this.label20 = new System.Windows.Forms.Label();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.createStartTime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.createEndTime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.createPriceStudent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.createPriceTeach)).BeginInit();
             this.SuspendLayout();
             // 
             // header1
@@ -269,6 +269,7 @@
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker.TabIndex = 59;
+            this.dateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker_ValueChanged);
             // 
             // label6
             // 
@@ -306,22 +307,23 @@
             this.label7.TabIndex = 62;
             this.label7.Text = "13h - 14h";
             // 
-            // numericUpDown1
+            // createStartTime
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(295, 282);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.createStartTime.Location = new System.Drawing.Point(295, 282);
+            this.createStartTime.Maximum = new decimal(new int[] {
             24,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(139, 20);
-            this.numericUpDown1.TabIndex = 63;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.createStartTime.Name = "createStartTime";
+            this.createStartTime.Size = new System.Drawing.Size(139, 20);
+            this.createStartTime.TabIndex = 63;
+            this.createStartTime.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
+            this.createStartTime.ValueChanged += new System.EventHandler(this.createStartTime_ValueChanged);
             // 
             // label8
             // 
@@ -491,60 +493,63 @@
             this.label17.TabIndex = 83;
             this.label17.Text = "€";
             // 
-            // numericUpDown2
+            // createEndTime
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(295, 308);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+            this.createEndTime.Location = new System.Drawing.Point(295, 308);
+            this.createEndTime.Maximum = new decimal(new int[] {
             24,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(139, 20);
-            this.numericUpDown2.TabIndex = 85;
-            this.numericUpDown2.Value = new decimal(new int[] {
+            this.createEndTime.Name = "createEndTime";
+            this.createEndTime.Size = new System.Drawing.Size(139, 20);
+            this.createEndTime.TabIndex = 85;
+            this.createEndTime.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
+            this.createEndTime.ValueChanged += new System.EventHandler(this.createEndTime_ValueChanged);
             // 
-            // numericUpDown3
+            // createPriceStudent
             // 
-            this.numericUpDown3.DecimalPlaces = 2;
-            this.numericUpDown3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14F);
-            this.numericUpDown3.Location = new System.Drawing.Point(7, 399);
-            this.numericUpDown3.Maximum = new decimal(new int[] {
+            this.createPriceStudent.DecimalPlaces = 2;
+            this.createPriceStudent.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14F);
+            this.createPriceStudent.Location = new System.Drawing.Point(7, 399);
+            this.createPriceStudent.Maximum = new decimal(new int[] {
             24,
             0,
             0,
             0});
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(173, 29);
-            this.numericUpDown3.TabIndex = 86;
-            this.numericUpDown3.Value = new decimal(new int[] {
+            this.createPriceStudent.Name = "createPriceStudent";
+            this.createPriceStudent.Size = new System.Drawing.Size(173, 29);
+            this.createPriceStudent.TabIndex = 86;
+            this.createPriceStudent.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
+            this.createPriceStudent.ValueChanged += new System.EventHandler(this.createPriceStudent_ValueChanged);
             // 
-            // numericUpDown4
+            // createPriceTeach
             // 
-            this.numericUpDown4.DecimalPlaces = 2;
-            this.numericUpDown4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14F);
-            this.numericUpDown4.Location = new System.Drawing.Point(237, 399);
-            this.numericUpDown4.Maximum = new decimal(new int[] {
+            this.createPriceTeach.DecimalPlaces = 2;
+            this.createPriceTeach.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14F);
+            this.createPriceTeach.Location = new System.Drawing.Point(237, 399);
+            this.createPriceTeach.Maximum = new decimal(new int[] {
             24,
             0,
             0,
             0});
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(173, 29);
-            this.numericUpDown4.TabIndex = 88;
-            this.numericUpDown4.Value = new decimal(new int[] {
+            this.createPriceTeach.Name = "createPriceTeach";
+            this.createPriceTeach.Size = new System.Drawing.Size(173, 29);
+            this.createPriceTeach.TabIndex = 88;
+            this.createPriceTeach.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
+            this.createPriceTeach.ValueChanged += new System.EventHandler(this.createPriceTeach_ValueChanged);
             // 
             // label9
             // 
@@ -643,10 +648,10 @@
             this.Controls.Add(this.label19);
             this.Controls.Add(this.textBox10);
             this.Controls.Add(this.label18);
-            this.Controls.Add(this.numericUpDown4);
+            this.Controls.Add(this.createPriceTeach);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.numericUpDown3);
-            this.Controls.Add(this.numericUpDown2);
+            this.Controls.Add(this.createPriceStudent);
+            this.Controls.Add(this.createEndTime);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.textBox12);
@@ -661,7 +666,7 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.createStartTime);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox5);
@@ -688,10 +693,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateMenu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CreateMenu_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.createStartTime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.createEndTime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.createPriceStudent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.createPriceTeach)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -720,7 +725,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown createStartTime;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox6;
@@ -735,9 +740,9 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
+        private System.Windows.Forms.NumericUpDown createEndTime;
+        private System.Windows.Forms.NumericUpDown createPriceStudent;
+        private System.Windows.Forms.NumericUpDown createPriceTeach;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;

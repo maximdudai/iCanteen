@@ -14,7 +14,7 @@ namespace PSI_DA_PL_B.models.Reserve
         [Range(0, 2)]
         public int Multa {  get; set; }
 
-        public List<MenuCantina.Menu> menu { get; set; }
+        public List<MenuCantina.MenuCanteen> menu { get; set; }
 
         public List<Dish> pratos { get; set; }
 

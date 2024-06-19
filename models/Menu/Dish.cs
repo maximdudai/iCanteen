@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using PSI_DA_PL_B.models.MenuCantina;
 
 namespace PSI_DA_PL_B.models.Menu

@@ -499,6 +499,7 @@
             this.Name = "MenuList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuList";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MenuList_FormClosing);
             this.dailyMenuGroup.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

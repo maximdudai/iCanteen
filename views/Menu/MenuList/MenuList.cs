@@ -106,5 +106,10 @@ namespace PSI_DA_PL_B.views.Menu.MenuList
         {
             this.manager.ShowCreateMenuUI();
         }
+
+        private void MenuList_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.manager.MainMenuUI();
+        }
     }
 }
