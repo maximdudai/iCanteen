@@ -47,14 +47,14 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.menuType = new System.Windows.Forms.Label();
+            this.menuQntAvailable = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.menuStudentPrice = new System.Windows.Forms.Label();
+            this.menuTeacherPrice = new System.Windows.Forms.Label();
             this.dishList = new System.Windows.Forms.ListBox();
             this.extraList = new System.Windows.Forms.ListBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -145,6 +145,7 @@
             this.menuListDays.Name = "menuListDays";
             this.menuListDays.Size = new System.Drawing.Size(172, 251);
             this.menuListDays.TabIndex = 0;
+            this.menuListDays.SelectedIndexChanged += new System.EventHandler(this.menuListDays_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -216,6 +217,7 @@
             this.editMenu.TabIndex = 46;
             this.editMenu.Text = "Editar";
             this.editMenu.UseVisualStyleBackColor = true;
+            this.editMenu.Click += new System.EventHandler(this.editMenu_Click);
             // 
             // removeMenu
             // 
@@ -227,6 +229,7 @@
             this.removeMenu.TabIndex = 47;
             this.removeMenu.Text = "Apagar";
             this.removeMenu.UseVisualStyleBackColor = true;
+            this.removeMenu.Click += new System.EventHandler(this.removeMenu_Click);
             // 
             // label4
             // 
@@ -236,9 +239,9 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(223, 271);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 16);
+            this.label4.Size = new System.Drawing.Size(58, 16);
             this.label4.TabIndex = 49;
-            this.label4.Text = "Data/Hora";
+            this.label4.Text = "Horário";
             // 
             // textBox4
             // 
@@ -249,7 +252,7 @@
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(323, 20);
+            this.textBox4.Size = new System.Drawing.Size(322, 20);
             this.textBox4.TabIndex = 48;
             // 
             // label5
@@ -276,29 +279,29 @@
             this.textBox5.Size = new System.Drawing.Size(323, 20);
             this.textBox5.TabIndex = 50;
             // 
-            // label6
+            // menuType
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(223, 292);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(145, 18);
-            this.label6.TabIndex = 52;
-            this.label6.Text = "19/10/2024 13:00";
+            this.menuType.AutoSize = true;
+            this.menuType.BackColor = System.Drawing.Color.White;
+            this.menuType.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            this.menuType.ForeColor = System.Drawing.Color.Black;
+            this.menuType.Location = new System.Drawing.Point(223, 292);
+            this.menuType.Name = "menuType";
+            this.menuType.Size = new System.Drawing.Size(18, 18);
+            this.menuType.TabIndex = 52;
+            this.menuType.Text = "--";
             // 
-            // label7
+            // menuQntAvailable
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.White;
-            this.label7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(223, 349);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(18, 18);
-            this.label7.TabIndex = 53;
-            this.label7.Text = "4";
+            this.menuQntAvailable.AutoSize = true;
+            this.menuQntAvailable.BackColor = System.Drawing.Color.White;
+            this.menuQntAvailable.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            this.menuQntAvailable.ForeColor = System.Drawing.Color.Black;
+            this.menuQntAvailable.Location = new System.Drawing.Point(223, 349);
+            this.menuQntAvailable.Name = "menuQntAvailable";
+            this.menuQntAvailable.Size = new System.Drawing.Size(18, 18);
+            this.menuQntAvailable.TabIndex = 53;
+            this.menuQntAvailable.Text = "--";
             // 
             // label8
             // 
@@ -341,43 +344,43 @@
             this.textBox7.BackColor = System.Drawing.Color.Peru;
             this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox7.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.textBox7.Location = new System.Drawing.Point(381, 374);
+            this.textBox7.Location = new System.Drawing.Point(382, 374);
             this.textBox7.Multiline = true;
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(160, 37);
+            this.textBox7.Size = new System.Drawing.Size(159, 37);
             this.textBox7.TabIndex = 56;
             // 
-            // label10
+            // menuStudentPrice
             // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.White;
-            this.label10.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(223, 414);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(57, 18);
-            this.label10.TabIndex = 58;
-            this.label10.Text = "4.99 €";
+            this.menuStudentPrice.AutoSize = true;
+            this.menuStudentPrice.BackColor = System.Drawing.Color.White;
+            this.menuStudentPrice.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            this.menuStudentPrice.ForeColor = System.Drawing.Color.Black;
+            this.menuStudentPrice.Location = new System.Drawing.Point(223, 414);
+            this.menuStudentPrice.Name = "menuStudentPrice";
+            this.menuStudentPrice.Size = new System.Drawing.Size(67, 18);
+            this.menuStudentPrice.TabIndex = 58;
+            this.menuStudentPrice.Text = "00.00 €";
             // 
-            // label11
+            // menuTeacherPrice
             // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.White;
-            this.label11.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(386, 414);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(57, 18);
-            this.label11.TabIndex = 59;
-            this.label11.Text = "6.99 €";
+            this.menuTeacherPrice.AutoSize = true;
+            this.menuTeacherPrice.BackColor = System.Drawing.Color.White;
+            this.menuTeacherPrice.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            this.menuTeacherPrice.ForeColor = System.Drawing.Color.Black;
+            this.menuTeacherPrice.Location = new System.Drawing.Point(386, 414);
+            this.menuTeacherPrice.Name = "menuTeacherPrice";
+            this.menuTeacherPrice.Size = new System.Drawing.Size(67, 18);
+            this.menuTeacherPrice.TabIndex = 59;
+            this.menuTeacherPrice.Text = "00.00 €";
             // 
             // dishList
             // 
             this.dishList.FormattingEnabled = true;
             this.dishList.Location = new System.Drawing.Point(220, 473);
             this.dishList.Name = "dishList";
-            this.dishList.Size = new System.Drawing.Size(160, 69);
+            this.dishList.Size = new System.Drawing.Size(159, 69);
             this.dishList.TabIndex = 60;
             // 
             // extraList
@@ -445,7 +448,7 @@
             this.textBox8.Multiline = true;
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(160, 23);
+            this.textBox8.Size = new System.Drawing.Size(158, 23);
             this.textBox8.TabIndex = 67;
             // 
             // header1
@@ -468,14 +471,14 @@
             this.Controls.Add(this.label12);
             this.Controls.Add(this.extraList);
             this.Controls.Add(this.dishList);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
+            this.Controls.Add(this.menuTeacherPrice);
+            this.Controls.Add(this.menuStudentPrice);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.menuQntAvailable);
+            this.Controls.Add(this.menuType);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label4);
@@ -526,14 +529,14 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label menuType;
+        private System.Windows.Forms.Label menuQntAvailable;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label menuStudentPrice;
+        private System.Windows.Forms.Label menuTeacherPrice;
         private System.Windows.Forms.ListBox dishList;
         private System.Windows.Forms.ListBox extraList;
         private System.Windows.Forms.Label label12;

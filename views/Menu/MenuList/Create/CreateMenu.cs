@@ -42,6 +42,9 @@ namespace PSI_DA_PL_B.views.Menu.MenuList.Create
 
         private int menuType { get; set; }
 
+        int Week { get; set; }
+        Week weekData { get; set; }
+
         public CreateMenu(Manager manager)
         {
             InitializeComponent();
@@ -58,6 +61,9 @@ namespace PSI_DA_PL_B.views.Menu.MenuList.Create
 
             this.date = DateTime.Now;
             this.menuDefinedDate.Text = this.date.ToString("dd-MM-yyyy");
+
+            this.weekData = new Week();
+            this.Week = weekData.GetCurrentYearWeek();
 
             this.LoadDataFromDatabase();
         }
@@ -89,10 +95,11 @@ namespace PSI_DA_PL_B.views.Menu.MenuList.Create
                     MenuCanteen menu = new MenuCanteen
                     {
                         Data = this.date.Date,
-                        TipoRefeicao = 1,
+                        TipoRefeicao = this.menuTypeAlmoco.Checked == true ? 0 : 1,
                         Quantidade = this.menuStock,
                         PrecoEstudante = priceStudent,
                         PrecoProfessor = priceTeacher,
+                        Week = this.weekData.GetWeekFromDay(this.date)
                     };
 
                     // Add the new menu to the context and save it to generate the ID
@@ -286,6 +293,34 @@ namespace PSI_DA_PL_B.views.Menu.MenuList.Create
         private void UpdateMenuTypeUI()
         {
             this.menuDefinedType.Text = this.menuTypeAlmoco.Checked ? "Almoço" : "Jantar";
+        }
+
+        private void addedDishList_DoubleClick(object sender, EventArgs e)
+        {
+            var selectedDish = (models.Menu.Dish)this.addedDishList.SelectedItem;
+
+            if (selectedDish == null)
+            {
+                return;
+            }
+
+            // Remove the selected dish from the SelectedDish list
+            SelectedDish.Remove(selectedDish);
+            this.UpdateCreatedMenuUI();
+        }
+
+        private void addedExtraList_DoubleClick(object sender, EventArgs e)
+        {
+            var selectedExtra = (models.Menu.Extra)this.addedExtraList.SelectedItem;
+
+            if (selectedExtra == null)
+            {
+                return;
+            }
+
+            // Remove the selected extra from the SelectedExtra list
+            SelectedExtra.Remove(selectedExtra);
+            this.UpdateCreatedMenuUI();
         }
     }
 }
