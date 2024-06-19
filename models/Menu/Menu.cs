@@ -8,7 +8,7 @@ using PSI_DA_PL_B.models.Menu;
 
 namespace PSI_DA_PL_B.models.MenuCantina
 {
-    public class Menu
+    public class MenuCanteen
     {
         [Key]
         public int Id { get; set; }
@@ -24,25 +24,29 @@ namespace PSI_DA_PL_B.models.MenuCantina
         public int Quantidade { get; set; }
 
         [Required]
-        public double PrecoEstudante { get; set; }
+        public decimal PrecoEstudante { get; set; }
 
         [Required]
-        public double PrecoProfessor { get; set; }
+        public decimal PrecoProfessor { get; set; }
 
+        [Required]
         public virtual List<Dish> Dishes { get; set; }
+        [Required]
+        public virtual List<Extra> Extras { get; set; }
 
-        public Menu()
+        public MenuCanteen()
         {
-            Dishes = new List<Dish>();
+
         }
 
-        public Menu(int quantidade, double precoEstudante, double precoProfessor, List<Dish> dishes)
+        public MenuCanteen(DateTime data, int quantidade, decimal precoEstudante, decimal precoProfessor, List<Dish> dishes, List<Extra> extras)
         {
-            Data = DateTime.Now;
+            Data = data;
             Quantidade = quantidade;
             PrecoEstudante = precoEstudante;
             PrecoProfessor = precoProfessor;
             Dishes = dishes;
+            Extras = extras;
         }
     }
 }
