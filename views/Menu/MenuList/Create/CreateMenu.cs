@@ -42,6 +42,9 @@ namespace PSI_DA_PL_B.views.Menu.MenuList.Create
 
         private int menuType { get; set; }
 
+        int Week { get; set; }
+        Week weekData { get; set; }
+
         public CreateMenu(Manager manager)
         {
             InitializeComponent();
@@ -58,6 +61,9 @@ namespace PSI_DA_PL_B.views.Menu.MenuList.Create
 
             this.date = DateTime.Now;
             this.menuDefinedDate.Text = this.date.ToString("dd-MM-yyyy");
+
+            this.weekData = new Week();
+            this.Week = weekData.GetCurrentYearWeek();
 
             this.LoadDataFromDatabase();
         }
@@ -93,6 +99,7 @@ namespace PSI_DA_PL_B.views.Menu.MenuList.Create
                         Quantidade = this.menuStock,
                         PrecoEstudante = priceStudent,
                         PrecoProfessor = priceTeacher,
+                        Week = this.weekData.GetWeekFromDay(this.date)
                     };
 
                     // Add the new menu to the context and save it to generate the ID

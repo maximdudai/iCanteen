@@ -41,5 +41,12 @@ namespace PSI_DA_PL_B.helpers
 
             return minWeeks;
         }
+
+        public int GetWeekFromDay(DateTime date)
+        {
+            int weekNumber = calendar.GetWeekOfYear(date, this.weekRule, this.firstDayOfWeek);
+
+            return weekNumber;
+        }
     }
 }
