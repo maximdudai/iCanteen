@@ -22,6 +22,9 @@ using PSI_DA_PL_B.views.Menu.Balance;
 using PSI_DA_PL_B.views.Menu.Dish.Edit;
 using PSI_DA_PL_B.views.Menu.Extra.Edit;
 using PSI_DA_PL_B.views.Menu.Extra.Create;
+using PSI_DA_PL_B.views.Reserve;
+using PSI_DA_PL_B.views.Reserve.Confirm;
+using PSI_DA_PL_B.views.Reserve.Make;
 
 namespace PSI_DA_PL_B.controller
 {
@@ -63,6 +66,12 @@ namespace PSI_DA_PL_B.controller
         private ExtraMenu ExtraListForm = null;
         private EditExtra EditExtraForm = null;
         private CreateExtra CreateExtraForm = null;
+        #endregion
+
+        #region Reserve Form
+        private ChooseTabReserve ChooseTabReserveForm = null;
+        private ConfirmReserve ConfirmReserveForm = null;
+        private MakeReserve MakeReserveForm = null;
         #endregion
 
         private void ShowForm<T>(ref T form, bool toggle = true, params object[] args) where T : Form
@@ -175,7 +184,6 @@ namespace PSI_DA_PL_B.controller
         {
             ShowForm(ref ExtraListForm, toggle, this);
         }
-
         public void ShowCreateExtraUI(bool toggle = true)
         {
             ShowForm(ref CreateExtraForm, toggle, this);
@@ -186,6 +194,20 @@ namespace PSI_DA_PL_B.controller
         }
         #endregion
 
+        #region Reserve Form
+        public void ChooseTabReserveUI(bool toggle = true)
+        {
+            ShowForm(ref ChooseTabReserveForm, toggle, this);
+        }
+        public void ConfirmReserveUI(int nif, bool toggle = true)
+        {
+            ShowForm(ref ConfirmReserveForm, toggle, nif, this);
+        }
+        public void MakeReserveUI(int nif, bool toggle = true)
+        {
+            ShowForm(ref MakeReserveForm, toggle, nif, this);
+        }
+        #endregion
 
         // Method to destroy the current form
         private void DestroyCurrentForm()

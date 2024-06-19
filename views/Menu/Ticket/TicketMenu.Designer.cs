@@ -55,7 +55,8 @@
             0,
             0,
             65536});
-            this.ticketValue.Location = new System.Drawing.Point(16, 264);
+            this.ticketValue.Location = new System.Drawing.Point(21, 325);
+            this.ticketValue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ticketValue.Maximum = new decimal(new int[] {
             10,
             0,
@@ -67,7 +68,7 @@
             0,
             65536});
             this.ticketValue.Name = "ticketValue";
-            this.ticketValue.Size = new System.Drawing.Size(413, 31);
+            this.ticketValue.Size = new System.Drawing.Size(551, 35);
             this.ticketValue.TabIndex = 38;
             this.ticketValue.Value = new decimal(new int[] {
             1,
@@ -81,9 +82,10 @@
             this.label2.BackColor = System.Drawing.Color.Peru;
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(14, 242);
+            this.label2.Location = new System.Drawing.Point(19, 298);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 18);
+            this.label2.Size = new System.Drawing.Size(96, 23);
             this.label2.TabIndex = 37;
             this.label2.Text = "Value (€)";
             // 
@@ -91,17 +93,19 @@
             // 
             this.textBox1.BackColor = System.Drawing.Color.Peru;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(-1, 233);
+            this.textBox1.Location = new System.Drawing.Point(-1, 287);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(442, 78);
+            this.textBox1.Size = new System.Drawing.Size(589, 96);
             this.textBox1.TabIndex = 36;
             // 
             // ticketTime
             // 
             this.ticketTime.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
-            this.ticketTime.Location = new System.Drawing.Point(16, 180);
+            this.ticketTime.Location = new System.Drawing.Point(21, 222);
+            this.ticketTime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ticketTime.Maximum = new decimal(new int[] {
             10,
             0,
@@ -113,7 +117,7 @@
             0,
             0});
             this.ticketTime.Name = "ticketTime";
-            this.ticketTime.Size = new System.Drawing.Size(413, 31);
+            this.ticketTime.Size = new System.Drawing.Size(551, 35);
             this.ticketTime.TabIndex = 41;
             this.ticketTime.Value = new decimal(new int[] {
             1,
@@ -127,9 +131,10 @@
             this.label1.BackColor = System.Drawing.Color.Peru;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(14, 158);
+            this.label1.Location = new System.Drawing.Point(19, 194);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 18);
+            this.label1.Size = new System.Drawing.Size(89, 23);
             this.label1.TabIndex = 40;
             this.label1.Text = "Time (h)";
             // 
@@ -137,19 +142,21 @@
             // 
             this.textBox2.BackColor = System.Drawing.Color.Peru;
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Location = new System.Drawing.Point(-1, 149);
+            this.textBox2.Location = new System.Drawing.Point(-1, 183);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(442, 78);
+            this.textBox2.Size = new System.Drawing.Size(589, 96);
             this.textBox2.TabIndex = 39;
             // 
             // createTicket
             // 
             this.createTicket.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
-            this.createTicket.Location = new System.Drawing.Point(101, 317);
+            this.createTicket.Location = new System.Drawing.Point(135, 390);
+            this.createTicket.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.createTicket.Name = "createTicket";
-            this.createTicket.Size = new System.Drawing.Size(236, 45);
+            this.createTicket.Size = new System.Drawing.Size(315, 55);
             this.createTicket.TabIndex = 42;
             this.createTicket.Text = "CREATE";
             this.createTicket.UseVisualStyleBackColor = true;
@@ -158,9 +165,11 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.ticketList);
-            this.groupBox1.Location = new System.Drawing.Point(17, 381);
+            this.groupBox1.Location = new System.Drawing.Point(23, 469);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(298, 174);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(397, 214);
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tickets";
@@ -168,17 +177,20 @@
             // ticketList
             // 
             this.ticketList.FormattingEnabled = true;
-            this.ticketList.Location = new System.Drawing.Point(7, 20);
+            this.ticketList.ItemHeight = 16;
+            this.ticketList.Location = new System.Drawing.Point(9, 25);
+            this.ticketList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ticketList.Name = "ticketList";
-            this.ticketList.Size = new System.Drawing.Size(285, 147);
+            this.ticketList.Size = new System.Drawing.Size(379, 180);
             this.ticketList.TabIndex = 0;
             // 
             // editTicket
             // 
             this.editTicket.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
-            this.editTicket.Location = new System.Drawing.Point(324, 387);
+            this.editTicket.Location = new System.Drawing.Point(432, 476);
+            this.editTicket.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editTicket.Name = "editTicket";
-            this.editTicket.Size = new System.Drawing.Size(108, 67);
+            this.editTicket.Size = new System.Drawing.Size(144, 82);
             this.editTicket.TabIndex = 44;
             this.editTicket.Text = "EDIT";
             this.editTicket.UseVisualStyleBackColor = true;
@@ -187,9 +199,10 @@
             // removeTicket
             // 
             this.removeTicket.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
-            this.removeTicket.Location = new System.Drawing.Point(324, 485);
+            this.removeTicket.Location = new System.Drawing.Point(432, 597);
+            this.removeTicket.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.removeTicket.Name = "removeTicket";
-            this.removeTicket.Size = new System.Drawing.Size(108, 67);
+            this.removeTicket.Size = new System.Drawing.Size(144, 82);
             this.removeTicket.TabIndex = 45;
             this.removeTicket.Text = "REMOVE";
             this.removeTicket.UseVisualStyleBackColor = true;
@@ -199,16 +212,17 @@
             // 
             this.header1.BackColor = System.Drawing.Color.Peru;
             this.header1.Location = new System.Drawing.Point(-1, 0);
+            this.header1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.header1.Name = "header1";
-            this.header1.Size = new System.Drawing.Size(442, 119);
+            this.header1.Size = new System.Drawing.Size(589, 146);
             this.header1.TabIndex = 0;
             // 
             // TicketMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(441, 581);
+            this.ClientSize = new System.Drawing.Size(588, 715);
             this.Controls.Add(this.editTicket);
             this.Controls.Add(this.removeTicket);
             this.Controls.Add(this.groupBox1);
@@ -221,6 +235,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.header1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "TicketMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ticket";

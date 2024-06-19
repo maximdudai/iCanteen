@@ -7,15 +7,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static PSI_DA_PL_B.views.Clients.Both.ListClients;
 
-namespace PSI_DA_PL_B.views.Clients.Both
+namespace PSI_DA_PL_B.views.Menu.Balance
 {
-    public partial class SelectClient : Form
+    public partial class SelectClientBalance : Form
     {
         private Manager manager { get; set; }
 
@@ -23,11 +21,11 @@ namespace PSI_DA_PL_B.views.Clients.Both
 
         private string menu;
 
-        public SelectClient()
+        public SelectClientBalance()
         {
             InitializeComponent();
         }
-        public SelectClient(string menu,Manager manager) : this()
+        public SelectClientBalance(string menu, Manager manager) : this()
         {
             this.menu = menu;
             this.manager = manager;
@@ -86,7 +84,7 @@ namespace PSI_DA_PL_B.views.Clients.Both
                             Error.Err("Teacher not found!");
                             return;
                         }
-                    }                    
+                    }
                 }
             }
             catch (FormatException)
@@ -99,9 +97,9 @@ namespace PSI_DA_PL_B.views.Clients.Both
             }
         }
 
-        private void SourceButtonName( int nif)
+        private void SourceButtonName(int nif)
         {
-            try 
+            try
             {
                 if (this.menu == "balance")
                 {
@@ -124,9 +122,9 @@ namespace PSI_DA_PL_B.views.Clients.Both
             }
         }
 
-        private void SelectClient_FormClosing(object sender, FormClosingEventArgs e)
+        private void SelectClientBalance_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.manager.MainMenuUI();
-        }        
+        }
     }
 }
