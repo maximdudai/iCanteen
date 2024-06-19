@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,7 +37,7 @@ namespace PSI_DA_PL_B.models.Menu
 
         public override string ToString()
         {
-            return this.Descricao;
+            return this.Descricao + $" - {this.Preco}€";
         }
     }
 }
