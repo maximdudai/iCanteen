@@ -29,25 +29,19 @@ namespace PSI_DA_PL_B.models.MenuCantina
         [Required]
         public decimal PrecoProfessor { get; set; }
 
-        [Required]
-        public virtual List<Dish> Dishes { get; set; }
-        [Required]
-        public virtual List<Extra> Extras { get; set; }
-
         public MenuCanteen()
         {
-
         }
 
-        public MenuCanteen(DateTime data, int quantidade, decimal precoEstudante, decimal precoProfessor, List<Dish> dishes, List<Extra> extras)
+        public MenuCanteen(DateTime data, int tipo, int quantidade, decimal precoEstudante, decimal precoProfessor)
         {
             Data = data;
+            TipoRefeicao = tipo;
             Quantidade = quantidade;
             PrecoEstudante = precoEstudante;
             PrecoProfessor = precoProfessor;
-            Dishes = dishes;
-            Extras = extras;
         }
     }
+
 }
 

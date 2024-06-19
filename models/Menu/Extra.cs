@@ -23,7 +23,6 @@ namespace PSI_DA_PL_B.models.Menu
 
         [Range(0, 1)]
         public bool Ativo { get; set; }
-
         public Extra() : base()
         {
         }

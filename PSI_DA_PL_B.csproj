@@ -70,6 +70,8 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="models\Invoice\Invoice.cs" />
+    <Compile Include="models\Menu\CanteenMenuDish.cs" />
+    <Compile Include="models\Menu\CanteenMenuExtra.cs" />
     <Compile Include="models\Menu\Extra.cs" />
     <Compile Include="models\Menu\Menu.cs" />
     <Compile Include="models\Menu\Dish.cs" />
