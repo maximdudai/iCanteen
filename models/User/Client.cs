@@ -2,7 +2,7 @@ using System;
 
 namespace PSI_DA_PL_B.models.User
 {
-    internal abstract class Client : User
+    public abstract class Client : User
     {
         public decimal Balance { get; set; }
         public decimal BalanceCaptive { get; set;  }

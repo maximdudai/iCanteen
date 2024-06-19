@@ -38,14 +38,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.StudentCreate = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.header1 = new PSI_DA_PL_B.views.components.Header();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.header1 = new PSI_DA_PL_B.views.components.Header();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -141,7 +142,7 @@
             this.StudentCreate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.StudentCreate.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18.15652F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StudentCreate.ForeColor = System.Drawing.Color.Peru;
-            this.StudentCreate.Location = new System.Drawing.Point(217, 542);
+            this.StudentCreate.Location = new System.Drawing.Point(346, 542);
             this.StudentCreate.Margin = new System.Windows.Forms.Padding(4);
             this.StudentCreate.Name = "StudentCreate";
             this.StudentCreate.Size = new System.Drawing.Size(213, 70);
@@ -165,35 +166,31 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pesquisar Reserva";
             // 
-            // label1
+            // label5
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Peru;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 28.17391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(297, 23);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(262, 52);
-            this.label1.TabIndex = 53;
-            this.label1.Text = "   iCanteen ";
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.89565F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(359, 78);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(60, 22);
+            this.label5.TabIndex = 72;
+            this.label5.Text = "12:00";
             // 
-            // header1
+            // label4
             // 
-            this.header1.BackColor = System.Drawing.Color.Peru;
-            this.header1.Location = new System.Drawing.Point(-1, -1);
-            this.header1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.header1.Name = "header1";
-            this.header1.Size = new System.Drawing.Size(692, 144);
-            this.header1.TabIndex = 51;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(31, 78);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(225, 22);
-            this.dateTimePicker1.TabIndex = 72;
-            this.dateTimePicker1.Value = new System.DateTime(2024, 6, 19, 0, 0, 0, 0);
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Peru;
+            this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(337, 43);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(133, 26);
+            this.label4.TabIndex = 74;
+            this.label4.Text = "Horário (H)";
             // 
             // label3
             // 
@@ -232,31 +229,49 @@
             this.textBox1.Size = new System.Drawing.Size(225, 31);
             this.textBox1.TabIndex = 72;
             // 
-            // label4
+            // dateTimePicker1
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Peru;
-            this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(337, 43);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(133, 26);
-            this.label4.TabIndex = 74;
-            this.label4.Text = "Horário (H)";
+            this.dateTimePicker1.Location = new System.Drawing.Point(31, 78);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(225, 22);
+            this.dateTimePicker1.TabIndex = 72;
+            this.dateTimePicker1.Value = new System.DateTime(2024, 6, 19, 0, 0, 0, 0);
             // 
-            // label5
+            // label1
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.89565F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(359, 78);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 22);
-            this.label5.TabIndex = 72;
-            this.label5.Text = "12:00";
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Peru;
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 28.17391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(297, 23);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(262, 52);
+            this.label1.TabIndex = 53;
+            this.label1.Text = "   iCanteen ";
+            // 
+            // header1
+            // 
+            this.header1.BackColor = System.Drawing.Color.Peru;
+            this.header1.Location = new System.Drawing.Point(-1, -1);
+            this.header1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.header1.Name = "header1";
+            this.header1.Size = new System.Drawing.Size(692, 144);
+            this.header1.TabIndex = 51;
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.BackColor = System.Drawing.Color.White;
+            this.cancelButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.cancelButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18.15652F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelButton.ForeColor = System.Drawing.Color.Peru;
+            this.cancelButton.Location = new System.Drawing.Point(78, 542);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(4);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(213, 70);
+            this.cancelButton.TabIndex = 72;
+            this.cancelButton.Text = "CANCELAR";
+            this.cancelButton.UseVisualStyleBackColor = false;
             // 
             // ConfirmReserve
             // 
@@ -264,6 +279,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(650, 625);
+            this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label9);
@@ -305,5 +321,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button cancelButton;
     }
 }

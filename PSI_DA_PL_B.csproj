@@ -74,7 +74,7 @@
     <Compile Include="models\Menu\Menu.cs" />
     <Compile Include="models\Menu\Dish.cs" />
     <Compile Include="models\Menu\Ticket.cs" />
-    <Compile Include="models\Reserve\Reserve.cs" />
+    <Compile Include="models\Reserve\ReserveCanteen.cs" />
     <Compile Include="models\User\Client.cs" />
     <Compile Include="models\User\Student.cs" />
     <Compile Include="models\User\Employee.cs" />
