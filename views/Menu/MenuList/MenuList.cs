@@ -88,18 +88,10 @@ namespace PSI_DA_PL_B.views.Menu.MenuList
             this.currentWeek = CURRENT_WEEK_VIEW;
 
             this.UpdateWeekUI();
-
-            this.UpdateMenuUI();
         }
         private void UpdateWeekUI()
         {
             this.currentWeekLabel.Text = this.currentWeek.ToString();
-        }
-
-        public void UpdateMenuUI()
-        {
-            // get radio button selected
-
         }
 
         private void createNewMenu_Click(object sender, EventArgs e)

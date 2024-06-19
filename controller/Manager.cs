@@ -38,9 +38,9 @@ namespace PSI_DA_PL_B.controller
         private CanteenMenu mainMenuForm = null;
         private Register registerForm = null;
         private Balance BalanceForm = null;
+        #endregion
 
         private bool isClosing = false;
-        #endregion
 
         #region Employee Form
         private CreateEmployee CreateEmployeeForm = null;

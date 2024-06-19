@@ -168,6 +168,7 @@
             this.Name = "EmployeeList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de Funcionarios";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EmployeeList_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
