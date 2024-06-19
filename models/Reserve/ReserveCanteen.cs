@@ -1,4 +1,5 @@
-﻿using PSI_DA_PL_B.models.Menu;
+﻿using PSI_DA_PL_B.helpers;
+using PSI_DA_PL_B.models.Menu;
 using PSI_DA_PL_B.models.MenuCantina;
 using PSI_DA_PL_B.models.User;
 using System;
@@ -13,40 +14,35 @@ namespace PSI_DA_PL_B.models.Reserve
         [Key]
         public int ReserveId { get; set; }
 
-        [DataType(DataType.Date)]
-        public DateTime ReserveDate { get; set; }
+        public bool active { get; set; }
 
-        [Required]
-        public virtual List<Client> Clients { get; set; }
+        public int clientNif { get; set; }
 
-        [Required]
-        public virtual List<MenuCanteen> Menus { get; set; }
+        public Ticket Ticket { get; set; }
 
-        [Required]
-        public virtual List<Dish> Dishes { get; set; }
-
-        [Required]
-        public virtual List<Extra> Extras { get; set; }
-
-        [Required] 
-        public virtual List<Ticket> Tickets { get; set; }
-
-        [Required]
-        public string Status { get; set; } // Pendente, Concluida, Cancelada
+        public int menuId { get; set; }
 
         public ReserveCanteen()
         {
+            this.active = true;
         }
 
-        public ReserveCanteen(DateTime reserveDate, List<Client> clients, List<MenuCanteen> menus, List<Dish> dishes, List<Extra> extras, List<Ticket> tickets, string status)
+        public ReserveCanteen(int nif, Ticket ticket, int menuId)
         {
-            this.ReserveDate = reserveDate;
-            this.Clients = clients;
-            this.Menus = menus;
-            this.Dishes = dishes;
-            this.Extras = extras;
-            this.Tickets = tickets;
-            this.Status = status;
+            this.clientNif = nif;
+            this.Ticket = ticket;
+            this.menuId = menuId;
         }
+
+        public override string ToString()
+        {
+            // get client name from database
+
+            helpers.User client = new helpers.User();
+            client.GetClientNameByNif(this.clientNif);
+
+            return $"{client} - Menu: #{menuId}";
+        }
+        
     }
 }

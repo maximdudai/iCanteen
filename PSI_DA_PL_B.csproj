@@ -60,6 +60,7 @@
     <Compile Include="CanteenContext.cs" />
     <Compile Include="controller\Manager.cs" />
     <Compile Include="helpers\Error.cs" />
+    <Compile Include="helpers\User.cs" />
     <Compile Include="helpers\Validator.cs" />
     <Compile Include="helpers\Week.cs" />
     <Compile Include="iCanteen.cs">
