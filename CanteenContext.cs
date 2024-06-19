@@ -15,5 +15,7 @@ namespace PSI_DA_PL_B
         public DbSet<Ticket> Ticket { get; set; }
         public DbSet<Dish> Dish { get; set; }
         public DbSet<Extra> Extra { get; set; }
+        public DbSet<MenuCanteenDish> MenuCanteenDishes { get; set; }
+        public DbSet<MenuCanteenExtra> MenuCanteenExtras { get; set; }
     }
 }

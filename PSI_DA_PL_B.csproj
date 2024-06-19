@@ -70,6 +70,8 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="models\Invoice\Invoice.cs" />
+    <Compile Include="models\Menu\CanteenMenuDish.cs" />
+    <Compile Include="models\Menu\CanteenMenuExtra.cs" />
     <Compile Include="models\Menu\Extra.cs" />
     <Compile Include="models\Menu\Menu.cs" />
     <Compile Include="models\Menu\Dish.cs" />
@@ -214,6 +216,12 @@
     <Compile Include="views\Menu\MenuList\Create\CreateMenu.Designer.cs">
       <DependentUpon>CreateMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\Menu\MenuList\Edit\EditMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Menu\MenuList\Edit\EditMenu.Designer.cs">
+      <DependentUpon>EditMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\Menu\MenuList\MenuList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -310,6 +318,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="views\Menu\MenuList\Create\CreateMenu.resx">
       <DependentUpon>CreateMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Menu\MenuList\Edit\EditMenu.resx">
+      <DependentUpon>EditMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\Menu\MenuList\MenuList.resx">
       <DependentUpon>MenuList.cs</DependentUpon>

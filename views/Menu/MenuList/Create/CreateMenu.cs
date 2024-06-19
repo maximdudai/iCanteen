@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Drawing;
 using System.Linq;
@@ -18,10 +19,8 @@ namespace PSI_DA_PL_B.views.Menu.MenuList.Create
     public partial class CreateMenu : Form
     {
         Manager manager { get; set;}
-
         DateTime date { get; set; }
-        private int fromTime { get; set; }
-        private int toTime { get; set; }
+        private int menuStock { get; set; } = 1;
 
         private decimal priceStudent { get; set; }
         private decimal priceTeacher { get; set; }
@@ -41,6 +40,11 @@ namespace PSI_DA_PL_B.views.Menu.MenuList.Create
         // Total price of the menu
         private decimal totalPrice { get; set; }
 
+        private int menuType { get; set; }
+
+        int Week { get; set; }
+        Week weekData { get; set; }
+
         public CreateMenu(Manager manager)
         {
             InitializeComponent();
@@ -55,6 +59,12 @@ namespace PSI_DA_PL_B.views.Menu.MenuList.Create
             SelectedExtra = new List<models.Menu.Extra>();
             SelectedDish = new List<models.Menu.Dish>();
 
+            this.date = DateTime.Now;
+            this.menuDefinedDate.Text = this.date.ToString("dd-MM-yyyy");
+
+            this.weekData = new Week();
+            this.Week = weekData.GetCurrentYearWeek();
+
             this.LoadDataFromDatabase();
         }
 
@@ -67,71 +77,93 @@ namespace PSI_DA_PL_B.views.Menu.MenuList.Create
         {
             try
             {
+                if(this.SelectedDish.Count == 0)
+                {
+                    Error.Warning("You must select at least 1 dish to create a menu");
+                    return;
+                }
+
+                if(this.menuTypeAlmoco.Checked == false && this.menuTypeJantar.Checked == false)
+                {
+                    Error.Warning("You must select a menu type to create a menu");
+                    return;
+                }
+
                 using (var db = new Cantina())
                 {
                     // Create a new menu
-                    MenuCanteen menu = new MenuCanteen(date, toTime - fromTime, priceStudent, priceTeacher, SelectedDish, SelectedExtra);
+                    MenuCanteen menu = new MenuCanteen
+                    {
+                        Data = this.date.Date,
+                        TipoRefeicao = this.menuTypeAlmoco.Checked == true ? 0 : 1,
+                        Quantidade = this.menuStock,
+                        PrecoEstudante = priceStudent,
+                        PrecoProfessor = priceTeacher,
+                        Week = this.weekData.GetWeekFromDay(this.date)
+                    };
 
-
+                    // Add the new menu to the context and save it to generate the ID
                     db.MenuCantina.Add(menu);
+                    db.SaveChanges();
+
+                    // Insert records into the join tables
+                    foreach (var dish in SelectedDish)
+                    {
+                        var existingDish = db.Dish.FirstOrDefault(d => d.itemId == dish.itemId);
+                        if (existingDish != null)
+                        {
+                            var menuCanteenDish = new MenuCanteenDish
+                            {
+                                MenuCanteenId = menu.Id,
+                                DishId = existingDish.itemId
+                            };
+                            db.MenuCanteenDishes.Add(menuCanteenDish);
+                        }
+                    }
+
+                    foreach (var extra in SelectedExtra)
+                    {
+                        var existingExtra = db.Extra.FirstOrDefault(ex => ex.itemId == extra.itemId);
+                        if (existingExtra != null)
+                        {
+                            var menuCanteenExtra = new MenuCanteenExtra
+                            {
+                                MenuCanteenId = menu.Id,
+                                ExtraId = existingExtra.itemId
+                            };
+                            db.MenuCanteenExtras.Add(menuCanteenExtra);
+                        }
+                    }
+
+                    // Save changes to the database
                     db.SaveChanges();
                 }
                 this.manager.ShowMenuListUI();
             }
-            catch (DbEntityValidationException ex)
+            catch (Exception err)
             {
-                foreach (var eve in ex.EntityValidationErrors)
-                {
-                    foreach (var ve in eve.ValidationErrors)
-                    {
-                        Error.Err($"Entity: {eve.Entry.Entity.GetType().Name}, Property: {ve.PropertyName}, Error: {ve.ErrorMessage}");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                var errorMessage = new StringBuilder();
-                var currentException = ex;
-
-                while (currentException != null)
-                {
-                    errorMessage.AppendLine($"Exception: {currentException.Message}");
-                    currentException = currentException.InnerException;
-                }
-
-                Error.Err(errorMessage.ToString());
+                Console.WriteLine(err.Message);
             }
         }
-
 
 
         private void LoadDataFromDatabase()
         {
-            using(var db = new Cantina())
+            using (var db = new Cantina())
             {
-                // Get all available extras and dished and store them in the respective lists
-
+                // Get all available extras and dishes and store them in the respective lists
                 var allExtras = db.Extra.ToList();
                 var allDishes = db.Dish.ToList();
 
-                foreach (var extra in allExtras)
-                {
-                    models.Menu.Extra newExtra = new models.Menu.Extra(extra.Descricao, extra.Preco, extra.Ativo);
-                    AvailableExtra.Add(newExtra);
-                }
-
-                foreach (var dish in allDishes)
-                {
-                    models.Menu.Dish newDish = new models.Menu.Dish(dish.Description, dish.Type, dish.Active);
-                    AvailableDish.Add(newDish);
-                }
+                AvailableExtra = allExtras;
+                AvailableDish = allDishes;
             }
 
-            this.DisaplyDish();
+            this.DisplayDish();
             this.DisplayExtra();
         }
 
-        private void DisaplyDish()
+        private void DisplayDish()
         {
             this.availableDishList.DataSource = null;
             this.availableDishList.DataSource = AvailableDish;
@@ -141,6 +173,27 @@ namespace PSI_DA_PL_B.views.Menu.MenuList.Create
         {
             this.availableExtraList.DataSource = null;
             this.availableExtraList.DataSource = AvailableExtra;
+        }
+
+        private void addDishToMenu_Click(object sender, EventArgs e)
+        {
+            var selectedDish = (models.Menu.Dish)this.availableDishList.SelectedItem;
+
+            if (SelectedDish.Count >= maxDishes)
+            {
+                Error.Warning("You can only add up to 1 dish to the menu");
+                return;
+            }
+
+            if (selectedDish == null)
+            {
+                return;
+            }
+
+            // Add the selected dish to the SelectedDish list
+            SelectedDish.Add(selectedDish);
+
+            this.UpdateCreatedMenuUI();
         }
 
         private void addExtraToMenu_Click(object sender, EventArgs e)
@@ -158,31 +211,8 @@ namespace PSI_DA_PL_B.views.Menu.MenuList.Create
                 return;
             }
 
-            models.Menu.Extra newExtra = new models.Menu.Extra(selectedExtra.Descricao, selectedExtra.Preco, selectedExtra.Ativo);
+            // Add the selected extra to the SelectedExtra list
             SelectedExtra.Add(selectedExtra);
-
-            this.UpdateCreatedMenuUI();
-        }
-
-
-
-        private void addDishToMenu_Click(object sender, EventArgs e)
-        {
-            var selectedDish = (models.Menu.Dish)this.availableDishList.SelectedItem;
-
-            if (SelectedDish.Count >= maxDishes)
-            {
-                Error.Warning("You can only add up to 1 dish to the menu");
-                return;
-            }
-
-            if (selectedDish == null)
-            {
-                return;
-            }
-
-            models.Menu.Dish newDish = new models.Menu.Dish(selectedDish.Description, selectedDish.Type, selectedDish.Active);
-            SelectedDish.Add(newDish);
 
             this.UpdateCreatedMenuUI();
         }
@@ -207,8 +237,6 @@ namespace PSI_DA_PL_B.views.Menu.MenuList.Create
                 totalPrice += extra.Preco;
             }
 
-            this.menuTotalPrice.Text = $"Valor Total: {this.totalPrice}€";
-
             this.CalculateTotalPriceTeacher();
             this.CalculateTotalPriceStudent();
         }
@@ -225,21 +253,14 @@ namespace PSI_DA_PL_B.views.Menu.MenuList.Create
             this.totalValueStudent.Text = this.priceStudent.ToString() + "€";
         }
 
-        private void createStartTime_ValueChanged(object sender, EventArgs e)
-        {
-            decimal time = this.createStartTime.Value;
-            this.fromTime = (int)time;
-        }
-
-        private void createEndTime_ValueChanged(object sender, EventArgs e)
-        {
-            decimal time = this.createEndTime.Value;
-            this.toTime = (int)time;
-        }
-
         private void dateTimePicker_ValueChanged(object sender, EventArgs e)
         {
             this.date = this.dateTimePicker.Value;
+            this.menuDefinedDate.Text = this.date.ToString("dd-MM-yyyy");
+
+            //string formattedDate = this.date.ToString("yyyy-MM-dd"); // Format date as "2023-06-19"
+            //MessageBox.Show(formattedDate); // Display the formatted date
+
         }
 
         private void createPriceStudent_ValueChanged(object sender, EventArgs e)
@@ -250,6 +271,56 @@ namespace PSI_DA_PL_B.views.Menu.MenuList.Create
         private void createPriceTeach_ValueChanged(object sender, EventArgs e)
         {
             this.priceTeacher = this.createPriceTeach.Value;
+        }
+
+        private void menuStockValue_ValueChanged(object sender, EventArgs e)
+        {
+            this.menuStock = (int)this.menuStockValue.Value;
+        }
+
+        private void menuTypeAlmoco_CheckedChanged(object sender, EventArgs e)
+        {
+            this.menuType = 0;
+            this.UpdateMenuTypeUI();
+        }
+
+        private void menuTypeJantar_CheckedChanged(object sender, EventArgs e)
+        {
+            this.menuType = 1;
+            this.UpdateMenuTypeUI();
+        }
+
+        private void UpdateMenuTypeUI()
+        {
+            this.menuDefinedType.Text = this.menuTypeAlmoco.Checked ? "Almoço" : "Jantar";
+        }
+
+        private void addedDishList_DoubleClick(object sender, EventArgs e)
+        {
+            var selectedDish = (models.Menu.Dish)this.addedDishList.SelectedItem;
+
+            if (selectedDish == null)
+            {
+                return;
+            }
+
+            // Remove the selected dish from the SelectedDish list
+            SelectedDish.Remove(selectedDish);
+            this.UpdateCreatedMenuUI();
+        }
+
+        private void addedExtraList_DoubleClick(object sender, EventArgs e)
+        {
+            var selectedExtra = (models.Menu.Extra)this.addedExtraList.SelectedItem;
+
+            if (selectedExtra == null)
+            {
+                return;
+            }
+
+            // Remove the selected extra from the SelectedExtra list
+            SelectedExtra.Remove(selectedExtra);
+            this.UpdateCreatedMenuUI();
         }
     }
 }
