@@ -60,6 +60,7 @@
     <Compile Include="CanteenContext.cs" />
     <Compile Include="controller\Manager.cs" />
     <Compile Include="helpers\Error.cs" />
+    <Compile Include="helpers\User.cs" />
     <Compile Include="helpers\Validator.cs" />
     <Compile Include="helpers\Week.cs" />
     <Compile Include="iCanteen.cs">
@@ -76,7 +77,7 @@
     <Compile Include="models\Menu\Menu.cs" />
     <Compile Include="models\Menu\Dish.cs" />
     <Compile Include="models\Menu\Ticket.cs" />
-    <Compile Include="models\Reserve\Reserve.cs" />
+    <Compile Include="models\Reserve\ReserveCanteen.cs" />
     <Compile Include="models\User\Client.cs" />
     <Compile Include="models\User\Student.cs" />
     <Compile Include="models\User\Employee.cs" />
@@ -240,6 +241,30 @@
     <Compile Include="views\Menu\Ticket\TicketMenu.Designer.cs">
       <DependentUpon>TicketMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\Reserve\ChooseTabReserve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Reserve\ChooseTabReserve.Designer.cs">
+      <DependentUpon>ChooseTabReserve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\Reserve\Confirm\ConfirmReserve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Reserve\Confirm\ConfirmReserve.Designer.cs">
+      <DependentUpon>ConfirmReserve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\Reserve\Make\MakeReserve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Reserve\Make\MakeReserve.Designer.cs">
+      <DependentUpon>MakeReserve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\Reserve\Make\SelectClientReserve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Reserve\Make\SelectClientReserve.Designer.cs">
+      <DependentUpon>SelectClientReserve.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="iCanteen.resx">
       <DependentUpon>iCanteen.cs</DependentUpon>
     </EmbeddedResource>
@@ -330,6 +355,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="views\Menu\Ticket\TicketMenu.resx">
       <DependentUpon>TicketMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Reserve\ChooseTabReserve.resx">
+      <DependentUpon>ChooseTabReserve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Reserve\Confirm\ConfirmReserve.resx">
+      <DependentUpon>ConfirmReserve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Reserve\Make\MakeReserve.resx">
+      <DependentUpon>MakeReserve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Reserve\Make\SelectClientReserve.resx">
+      <DependentUpon>SelectClientReserve.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

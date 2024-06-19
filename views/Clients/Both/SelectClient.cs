@@ -101,17 +101,22 @@ namespace PSI_DA_PL_B.views.Clients.Both
 
         private void SourceButtonName( int nif)
         {
-            if (this.menu == "balance")
+            try 
             {
-                this.manager.BalanceUI(nif);
+                if (this.menu == "balance")
+                {
+                    this.manager.BalanceUI(nif);
+                }
+
+                if (this.menu == "confirmReserve")
+                {
+                    this.manager.ConfirmReserveUI(nif);
+                }
             }
-            
-            /*
-            else if (this.menu == "reserva")
+            catch (Exception ex)
             {
-                this.manager.ReservaUI(nif);
+                Error.Err(ex.Message);
             }
-            */
         }
 
         private void SelectClient_FormClosing(object sender, FormClosingEventArgs e)

@@ -132,13 +132,10 @@ namespace PSI_DA_PL_B.views.Menu
         }
 
         //ReserveButton
-        /*
-        private void reservaButton_Click(object sender, EventArgs e)
+        private void reserveButton_Click(object sender, EventArgs e)
         {
-            this.manager.SelectClientUI("reserva");
+            this.manager.ChooseTabReserveUI();
         }
-        */
-
         private void balanceButton_Click(object sender, EventArgs e)
         {
             this.manager.SelectClientUI("balance");
