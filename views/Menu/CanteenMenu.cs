@@ -160,8 +160,6 @@ namespace PSI_DA_PL_B.views.Menu
 
             int week = weekData.GetCurrentYearWeek();
 
-            Console.WriteLine("Current Week: " + currentWeek);
-
             if (operation == this.PREVIOUS_WEEK)
             {
                 // if the current week is the first week of the year, set the week to the last week of the year

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Data.Entity;
 using System.ComponentModel.DataAnnotations;
 using PSI_DA_PL_B.models.User;
@@ -17,5 +17,7 @@ namespace PSI_DA_PL_B
         public DbSet<Dish> Dish { get; set; }
         public DbSet<Extra> Extra { get; set; }
         public DbSet<ReserveCanteen>  ReservaCantina{ get; set; }
+        public DbSet<MenuCanteenDish> MenuCanteenDishes { get; set; }
+        public DbSet<MenuCanteenExtra> MenuCanteenExtras { get; set; }
     }
 }

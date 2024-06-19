@@ -27,6 +27,7 @@ using PSI_DA_PL_B.views.Reserve.Confirm;
 using PSI_DA_PL_B.views.Reserve.Make;
 using PSI_DA_PL_B.views.Menu.MenuList;
 using PSI_DA_PL_B.views.Menu.MenuList.Create;
+using PSI_DA_PL_B.views.Menu.MenuList.Edit;
 
 namespace PSI_DA_PL_B.controller
 {
@@ -70,6 +71,7 @@ namespace PSI_DA_PL_B.controller
         private CreateExtra CreateExtraForm = null;
         private MenuList MenuListForm = null;
         private CreateMenu CreateMenuForm = null;
+        private EditMenu EditMenuForm = null;
         #endregion
 
         #region Reserve Form
@@ -211,7 +213,10 @@ namespace PSI_DA_PL_B.controller
         {
             ShowForm(ref CreateMenuForm, toggle, this);
         }
-
+        public void ShowEditMenuUI(int menu_id, bool toggle = true)
+        {
+            ShowForm(ref EditMenuForm, toggle, menu_id, this);
+        }
         #endregion
 
         #region Reserve Form
