@@ -146,7 +146,6 @@ namespace PSI_DA_PL_B.views.Menu
         {
             this.manager.ChooseTabReserveUI();
         }
-
         private void balanceButton_Click(object sender, EventArgs e)
         {
             this.manager.SelectClientUI("balance");

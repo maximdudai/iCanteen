@@ -35,7 +35,7 @@ namespace PSI_DA_PL_B.views.Reserve.Confirm
 
         private void ConfirmReserve_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.manager.MainMenuUI();
+            this.manager.ChooseTabReserveUI();
         }
     }
 }

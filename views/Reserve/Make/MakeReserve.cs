@@ -1,4 +1,6 @@
 ﻿using PSI_DA_PL_B.controller;
+using PSI_DA_PL_B.helpers;
+using PSI_DA_PL_B.models.User;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static PSI_DA_PL_B.views.Clients.Both.ListClients;
 
 namespace PSI_DA_PL_B.views.Reserve.Make
 {
@@ -15,15 +18,18 @@ namespace PSI_DA_PL_B.views.Reserve.Make
     {
         private Manager manager { get; set; }
         private int nif;
+        private string typeClient;
         public MakeReserve()
         {
             InitializeComponent();
         }
 
-        public MakeReserve(int nif, Manager manager) : this()
+        public MakeReserve(int nif, string typeClient, Manager manager) : this()
         {
             this.manager = manager;
             this.nif = nif;
+            this.typeClient = typeClient;
+            LoadClient();
         }
 
         /***TODO***
@@ -41,9 +47,50 @@ namespace PSI_DA_PL_B.views.Reserve.Make
             - deverá ser emitido um talão gravado num ficheiro de texto com informação do cliente e do menu (dia/hora, prato e extras)  [pode-se colocar saldo cativo]
         **********/
 
+        private void LoadClient()
+        {
+            try
+            {
+                using (var db = new Cantina())
+                {
+                    if (this.typeClient == "Estudante")
+                    {
+                        var nifStudentReceived = db.User
+                        .OfType<Student>()
+                        .FirstOrDefault(u => u.Nif == this.nif);
+
+                        if (nifStudentReceived != null)
+                        {
+                            typeClientLabel.Text = "Estudante";
+                            nifLabel.Text = nifStudentReceived.Nif.ToString();
+                            balanceLabel.Text = nifStudentReceived.Balance.ToString();
+                        }
+                    }
+
+                    if (this.typeClient == "Professor")
+                    {
+                        var nifTeacherReceived = db.User
+                        .OfType<Teacher>()
+                        .FirstOrDefault(u => u.Nif == this.nif);
+
+                        if (nifTeacherReceived != null)
+                        {
+                            typeClientLabel.Text = "Professor";
+                            nifLabel.Text = nifTeacherReceived.Nif.ToString();
+                            balanceLabel.Text = nifTeacherReceived.Balance.ToString();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error.Err(ex.Message);
+            }
+        }
+
         private void MakeReserve_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.manager.MainMenuUI();
+            this.manager.ChooseTabReserveUI();
         }
     }
 }

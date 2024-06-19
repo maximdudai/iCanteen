@@ -33,26 +33,26 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.StudentCreate = new System.Windows.Forms.Button();
+            this.extraButton = new System.Windows.Forms.Button();
+            this.DishButton = new System.Windows.Forms.Button();
+            this.menuButton = new System.Windows.Forms.Button();
+            this.makeReseveButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.nubreservelabel = new System.Windows.Forms.Label();
+            this.reserveListBox = new System.Windows.Forms.ListBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.createTicket = new System.Windows.Forms.Button();
+            this.totalReserveLabel = new System.Windows.Forms.Label();
+            this.deleteSelectedItem = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.balanceLabel = new System.Windows.Forms.Label();
+            this.typeClientLabel = new System.Windows.Forms.Label();
+            this.nifLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,9 +92,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.extraButton);
+            this.groupBox1.Controls.Add(this.DishButton);
+            this.groupBox1.Controls.Add(this.menuButton);
             this.groupBox1.Location = new System.Drawing.Point(53, 295);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(453, 193);
@@ -102,19 +102,61 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Adicionar ao Pedido";
             // 
-            // StudentCreate
+            // extraButton
             // 
-            this.StudentCreate.BackColor = System.Drawing.Color.White;
-            this.StudentCreate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.StudentCreate.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18.15652F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StudentCreate.ForeColor = System.Drawing.Color.Peru;
-            this.StudentCreate.Location = new System.Drawing.Point(176, 522);
-            this.StudentCreate.Margin = new System.Windows.Forms.Padding(4);
-            this.StudentCreate.Name = "StudentCreate";
-            this.StudentCreate.Size = new System.Drawing.Size(213, 70);
-            this.StudentCreate.TabIndex = 13;
-            this.StudentCreate.Text = "CONFIRMAR";
-            this.StudentCreate.UseVisualStyleBackColor = false;
+            this.extraButton.BackColor = System.Drawing.Color.White;
+            this.extraButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.extraButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18.15652F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.extraButton.ForeColor = System.Drawing.Color.Black;
+            this.extraButton.Location = new System.Drawing.Point(238, 118);
+            this.extraButton.Margin = new System.Windows.Forms.Padding(4);
+            this.extraButton.Name = "extraButton";
+            this.extraButton.Size = new System.Drawing.Size(175, 60);
+            this.extraButton.TabIndex = 17;
+            this.extraButton.Text = "Extra";
+            this.extraButton.UseVisualStyleBackColor = false;
+            // 
+            // DishButton
+            // 
+            this.DishButton.BackColor = System.Drawing.Color.White;
+            this.DishButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.DishButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18.15652F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DishButton.ForeColor = System.Drawing.Color.Black;
+            this.DishButton.Location = new System.Drawing.Point(44, 118);
+            this.DishButton.Margin = new System.Windows.Forms.Padding(4);
+            this.DishButton.Name = "DishButton";
+            this.DishButton.Size = new System.Drawing.Size(175, 60);
+            this.DishButton.TabIndex = 16;
+            this.DishButton.Text = "Prato";
+            this.DishButton.UseVisualStyleBackColor = false;
+            // 
+            // menuButton
+            // 
+            this.menuButton.BackColor = System.Drawing.Color.White;
+            this.menuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.menuButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18.15652F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuButton.ForeColor = System.Drawing.Color.Black;
+            this.menuButton.Location = new System.Drawing.Point(44, 40);
+            this.menuButton.Margin = new System.Windows.Forms.Padding(4);
+            this.menuButton.Name = "menuButton";
+            this.menuButton.Size = new System.Drawing.Size(369, 60);
+            this.menuButton.TabIndex = 15;
+            this.menuButton.Text = "Menu";
+            this.menuButton.UseVisualStyleBackColor = false;
+            // 
+            // makeReseveButton
+            // 
+            this.makeReseveButton.BackColor = System.Drawing.Color.White;
+            this.makeReseveButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.makeReseveButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18.15652F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.makeReseveButton.ForeColor = System.Drawing.Color.Peru;
+            this.makeReseveButton.Location = new System.Drawing.Point(176, 522);
+            this.makeReseveButton.Margin = new System.Windows.Forms.Padding(4);
+            this.makeReseveButton.Name = "makeReseveButton";
+            this.makeReseveButton.Size = new System.Drawing.Size(213, 70);
+            this.makeReseveButton.TabIndex = 13;
+            this.makeReseveButton.Text = "CONFIRMAR";
+            this.makeReseveButton.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
@@ -128,48 +170,6 @@
             this.label2.Size = new System.Drawing.Size(292, 40);
             this.label2.TabIndex = 14;
             this.label2.Text = "Efetuar Reserva";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18.15652F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(44, 40);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(369, 60);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Menu";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18.15652F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(44, 118);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(175, 60);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Prato";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18.15652F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(238, 118);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(175, 60);
-            this.button3.TabIndex = 17;
-            this.button3.Text = "Extra";
-            this.button3.UseVisualStyleBackColor = false;
             // 
             // textBox2
             // 
@@ -209,27 +209,27 @@
             this.label4.TabIndex = 39;
             this.label4.Text = "Pedido nº:";
             // 
-            // label5
+            // nubreservelabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Peru;
-            this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18.15652F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(783, 195);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 33);
-            this.label5.TabIndex = 40;
-            this.label5.Text = "0000";
+            this.nubreservelabel.AutoSize = true;
+            this.nubreservelabel.BackColor = System.Drawing.Color.Peru;
+            this.nubreservelabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18.15652F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nubreservelabel.ForeColor = System.Drawing.Color.Black;
+            this.nubreservelabel.Location = new System.Drawing.Point(783, 195);
+            this.nubreservelabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.nubreservelabel.Name = "nubreservelabel";
+            this.nubreservelabel.Size = new System.Drawing.Size(83, 33);
+            this.nubreservelabel.TabIndex = 40;
+            this.nubreservelabel.Text = "0000";
             // 
-            // listBox1
+            // reserveListBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(623, 231);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(262, 292);
-            this.listBox1.TabIndex = 41;
+            this.reserveListBox.FormattingEnabled = true;
+            this.reserveListBox.ItemHeight = 16;
+            this.reserveListBox.Location = new System.Drawing.Point(623, 231);
+            this.reserveListBox.Name = "reserveListBox";
+            this.reserveListBox.Size = new System.Drawing.Size(262, 292);
+            this.reserveListBox.TabIndex = 41;
             // 
             // label6
             // 
@@ -244,29 +244,29 @@
             this.label6.TabIndex = 42;
             this.label6.Text = "Total:";
             // 
-            // label7
+            // totalReserveLabel
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Peru;
-            this.label7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18.15652F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(783, 541);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(92, 33);
-            this.label7.TabIndex = 43;
-            this.label7.Text = "00.00";
+            this.totalReserveLabel.AutoSize = true;
+            this.totalReserveLabel.BackColor = System.Drawing.Color.Peru;
+            this.totalReserveLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18.15652F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalReserveLabel.ForeColor = System.Drawing.Color.Black;
+            this.totalReserveLabel.Location = new System.Drawing.Point(783, 541);
+            this.totalReserveLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.totalReserveLabel.Name = "totalReserveLabel";
+            this.totalReserveLabel.Size = new System.Drawing.Size(92, 33);
+            this.totalReserveLabel.TabIndex = 43;
+            this.totalReserveLabel.Text = "00.00";
             // 
-            // createTicket
+            // deleteSelectedItem
             // 
-            this.createTicket.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.139131F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createTicket.Location = new System.Drawing.Point(639, 586);
-            this.createTicket.Margin = new System.Windows.Forms.Padding(4);
-            this.createTicket.Name = "createTicket";
-            this.createTicket.Size = new System.Drawing.Size(227, 26);
-            this.createTicket.TabIndex = 44;
-            this.createTicket.Text = "Apagar linha selecionada";
-            this.createTicket.UseVisualStyleBackColor = true;
+            this.deleteSelectedItem.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.139131F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteSelectedItem.Location = new System.Drawing.Point(639, 586);
+            this.deleteSelectedItem.Margin = new System.Windows.Forms.Padding(4);
+            this.deleteSelectedItem.Name = "deleteSelectedItem";
+            this.deleteSelectedItem.Size = new System.Drawing.Size(227, 26);
+            this.deleteSelectedItem.TabIndex = 44;
+            this.deleteSelectedItem.Text = "Apagar linha selecionada";
+            this.deleteSelectedItem.UseVisualStyleBackColor = true;
             // 
             // textBox3
             // 
@@ -319,44 +319,44 @@
             this.label10.TabIndex = 47;
             this.label10.Text = "Saldo";
             // 
-            // label11
+            // balanceLabel
             // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.White;
-            this.label11.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.DimGray;
-            this.label11.Location = new System.Drawing.Point(472, 207);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(71, 26);
-            this.label11.TabIndex = 48;
-            this.label11.Text = "00.00";
+            this.balanceLabel.AutoSize = true;
+            this.balanceLabel.BackColor = System.Drawing.Color.White;
+            this.balanceLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.balanceLabel.ForeColor = System.Drawing.Color.DimGray;
+            this.balanceLabel.Location = new System.Drawing.Point(472, 207);
+            this.balanceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.balanceLabel.Name = "balanceLabel";
+            this.balanceLabel.Size = new System.Drawing.Size(71, 26);
+            this.balanceLabel.TabIndex = 48;
+            this.balanceLabel.Text = "00.00";
             // 
-            // label12
+            // typeClientLabel
             // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.White;
-            this.label12.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.DimGray;
-            this.label12.Location = new System.Drawing.Point(65, 207);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(121, 26);
-            this.label12.TabIndex = 49;
-            this.label12.Text = "Estudante";
+            this.typeClientLabel.AutoSize = true;
+            this.typeClientLabel.BackColor = System.Drawing.Color.White;
+            this.typeClientLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.typeClientLabel.ForeColor = System.Drawing.Color.DimGray;
+            this.typeClientLabel.Location = new System.Drawing.Point(65, 207);
+            this.typeClientLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.typeClientLabel.Name = "typeClientLabel";
+            this.typeClientLabel.Size = new System.Drawing.Size(121, 26);
+            this.typeClientLabel.TabIndex = 49;
+            this.typeClientLabel.Text = "Estudante";
             // 
-            // label13
+            // nifLabel
             // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.White;
-            this.label13.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.DimGray;
-            this.label13.Location = new System.Drawing.Point(286, 207);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(129, 26);
-            this.label13.TabIndex = 50;
-            this.label13.Text = "222222222";
+            this.nifLabel.AutoSize = true;
+            this.nifLabel.BackColor = System.Drawing.Color.White;
+            this.nifLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nifLabel.ForeColor = System.Drawing.Color.DimGray;
+            this.nifLabel.Location = new System.Drawing.Point(286, 207);
+            this.nifLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.nifLabel.Name = "nifLabel";
+            this.nifLabel.Size = new System.Drawing.Size(129, 26);
+            this.nifLabel.TabIndex = 50;
+            this.nifLabel.Text = "222222222";
             // 
             // MakeReserve
             // 
@@ -364,23 +364,23 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(924, 625);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.nifLabel);
+            this.Controls.Add(this.typeClientLabel);
+            this.Controls.Add(this.balanceLabel);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.createTicket);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.deleteSelectedItem);
+            this.Controls.Add(this.totalReserveLabel);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.reserveListBox);
+            this.Controls.Add(this.nubreservelabel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.StudentCreate);
+            this.Controls.Add(this.makeReseveButton);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
@@ -402,25 +402,25 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button StudentCreate;
+        private System.Windows.Forms.Button menuButton;
+        private System.Windows.Forms.Button makeReseveButton;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button extraButton;
+        private System.Windows.Forms.Button DishButton;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label nubreservelabel;
+        private System.Windows.Forms.ListBox reserveListBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button createTicket;
+        private System.Windows.Forms.Label totalReserveLabel;
+        private System.Windows.Forms.Button deleteSelectedItem;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label balanceLabel;
+        private System.Windows.Forms.Label typeClientLabel;
+        private System.Windows.Forms.Label nifLabel;
     }
 }

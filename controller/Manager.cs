@@ -70,6 +70,7 @@ namespace PSI_DA_PL_B.controller
 
         #region Reserve Form
         private ChooseTabReserve ChooseTabReserveForm = null;
+        private SelectClientReserve SelectClientReserveForm = null;
         private ConfirmReserve ConfirmReserveForm = null;
         private MakeReserve MakeReserveForm = null;
         #endregion
@@ -110,6 +111,10 @@ namespace PSI_DA_PL_B.controller
         public void RegisterUI(bool toggle = true)
         {
             ShowForm(ref registerForm, toggle, this);
+        }
+        public void SelectClientUI(bool toggle = true)
+        {
+            ShowForm(ref SelectClientForm, toggle, this);
         }
         public void BalanceUI(int nif, bool toggle = true)
         {
@@ -199,13 +204,17 @@ namespace PSI_DA_PL_B.controller
         {
             ShowForm(ref ChooseTabReserveForm, toggle, this);
         }
+        public void SelectClientReserveUI(bool toggle = true)
+        {
+            ShowForm(ref SelectClientReserveForm, toggle, this);
+        }
         public void ConfirmReserveUI(int nif, bool toggle = true)
         {
             ShowForm(ref ConfirmReserveForm, toggle, nif, this);
         }
-        public void MakeReserveUI(int nif, bool toggle = true)
+        public void MakeReserveUI(int nif, string typeClient, bool toggle = true)
         {
-            ShowForm(ref MakeReserveForm, toggle, nif, this);
+            ShowForm(ref MakeReserveForm, toggle, nif, typeClient, this);
         }
         #endregion
 

@@ -25,7 +25,8 @@ namespace PSI_DA_PL_B.views.Reserve
 
         private void ChooseMakeReserve_Click(object sender, EventArgs e)
         {
-            this.manager.SelectClientUI("makeReserve");
+            
+            this.manager.SelectClientReserveUI();
         }
 
         private void ChooseConfirmeReserve_Click(object sender, EventArgs e)

@@ -108,11 +108,6 @@ namespace PSI_DA_PL_B.views.Clients.Both
                     this.manager.BalanceUI(nif);
                 }
 
-                if (this.menu == "makeReserve")
-                {
-                    this.manager.MakeReserveUI(nif);
-                }
-
                 if (this.menu == "confirmReserve")
                 {
                     this.manager.ConfirmReserveUI(nif);

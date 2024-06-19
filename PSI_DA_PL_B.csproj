@@ -99,12 +99,6 @@
     <Compile Include="views\Menu\Balance\Balance.Designer.cs">
       <DependentUpon>Balance.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\Menu\Balance\SelectClientBalance.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="views\Menu\Balance\SelectClientBalance.Designer.cs">
-      <DependentUpon>SelectClientBalance.cs</DependentUpon>
-    </Compile>
     <Compile Include="views\Menu\Dish\Create\CreateDish.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +237,12 @@
     <Compile Include="views\Reserve\Make\MakeReserve.Designer.cs">
       <DependentUpon>MakeReserve.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\Reserve\Make\SelectClientReserve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Reserve\Make\SelectClientReserve.Designer.cs">
+      <DependentUpon>SelectClientReserve.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="iCanteen.resx">
       <DependentUpon>iCanteen.cs</DependentUpon>
     </EmbeddedResource>
@@ -264,9 +264,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="views\Menu\Balance\Balance.resx">
       <DependentUpon>Balance.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="views\Menu\Balance\SelectClientBalance.resx">
-      <DependentUpon>SelectClientBalance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\Menu\Dish\Create\CreateDish.resx">
       <DependentUpon>CreateDish.cs</DependentUpon>
@@ -336,6 +333,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="views\Reserve\Make\MakeReserve.resx">
       <DependentUpon>MakeReserve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Reserve\Make\SelectClientReserve.resx">
+      <DependentUpon>SelectClientReserve.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
