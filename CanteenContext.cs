@@ -19,5 +19,6 @@ namespace PSI_DA_PL_B
         public DbSet<ReserveCanteen>  ReservaCantina{ get; set; }
         public DbSet<MenuCanteenDish> MenuCanteenDishes { get; set; }
         public DbSet<MenuCanteenExtra> MenuCanteenExtras { get; set; }
+        public DbSet<Escritorio> Escritorios { get; set; }
     }
 }

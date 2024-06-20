@@ -79,12 +79,19 @@
     <Compile Include="models\Menu\Ticket.cs" />
     <Compile Include="models\Reserve\ReserveCanteen.cs" />
     <Compile Include="models\User\Client.cs" />
+    <Compile Include="models\User\Escritorio.cs" />
     <Compile Include="models\User\Student.cs" />
     <Compile Include="models\User\Employee.cs" />
     <Compile Include="models\User\Teacher.cs" />
     <Compile Include="models\User\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="views\AtribuirEscritorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\AtribuirEscritorio.Designer.cs">
+      <DependentUpon>AtribuirEscritorio.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\Auth\Register\Register.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +103,12 @@
     </Compile>
     <Compile Include="views\Clients\Both\SelectClient.Designer.cs">
       <DependentUpon>SelectClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\CriarEscritorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\CriarEscritorio.Designer.cs">
+      <DependentUpon>CriarEscritorio.cs</DependentUpon>
     </Compile>
     <Compile Include="views\Menu\Balance\Balance.cs">
       <SubType>Form</SubType>
@@ -278,11 +291,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="views\AtribuirEscritorio.resx">
+      <DependentUpon>AtribuirEscritorio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="views\Auth\Register\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\Clients\Both\SelectClient.resx">
       <DependentUpon>SelectClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\CriarEscritorio.resx">
+      <DependentUpon>CriarEscritorio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\Menu\Balance\Balance.resx">
       <DependentUpon>Balance.cs</DependentUpon>

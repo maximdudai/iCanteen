@@ -13,6 +13,7 @@ namespace PSI_DA_PL_B.models.User
         {
             this.Balance = 0.00M;
             this.BalanceCaptive = 0.00M;
+
         }
     }
 }

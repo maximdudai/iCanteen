@@ -28,6 +28,7 @@ using PSI_DA_PL_B.views.Reserve.Make;
 using PSI_DA_PL_B.views.Menu.MenuList;
 using PSI_DA_PL_B.views.Menu.MenuList.Create;
 using PSI_DA_PL_B.views.Menu.MenuList.Edit;
+using PSI_DA_PL_B.views;
 
 namespace PSI_DA_PL_B.controller
 {
@@ -80,6 +81,9 @@ namespace PSI_DA_PL_B.controller
         private ConfirmReserve ConfirmReserveForm = null;
         private MakeReserve MakeReserveForm = null;
         #endregion
+
+        private CriarEscritorio CriarEscritorioForm = null;
+        private AtribuirEscritorio AtribuirEscritorioForm = null;
 
         private void ShowForm<T>(ref T form, bool toggle = true, params object[] args) where T : Form
         {
@@ -237,6 +241,16 @@ namespace PSI_DA_PL_B.controller
             ShowForm(ref MakeReserveForm, toggle, nif, typeClient, this);
         }
         #endregion
+
+        public void ShowCriarEscritorio(bool toggle = true)
+        {
+            ShowForm(ref CriarEscritorioForm, toggle, this);
+        }
+
+        public void ShowAtribuirEscritorio(bool toggle = true)
+        {
+            ShowForm(ref AtribuirEscritorioForm, toggle, this);
+        }
 
         // Method to destroy the current form
         private void DestroyCurrentForm()

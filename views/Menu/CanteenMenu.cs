@@ -31,6 +31,8 @@ namespace PSI_DA_PL_B.views.Menu
         private int NEXT_WEEK = 2;
         private int PREVIOUS_WEEK = 1;
 
+        List<Escritorio> Escritorios { get; set; }
+
         public CanteenMenu()
         {
             InitializeComponent();
@@ -50,6 +52,9 @@ namespace PSI_DA_PL_B.views.Menu
             timer = new Timer();
             timer.Interval = 1000; // 1 second
             timer.Tick += new EventHandler(UpdateCurrentDateTime);
+
+            this.Escritorios = new List<Escritorio>();
+            this.LoadEscritorios();
         }
 
         private void UpdateCurrentDateTime(object sender, EventArgs e)
@@ -112,7 +117,7 @@ namespace PSI_DA_PL_B.views.Menu
         {
             this.manager.ClientListUI();
         }
-        
+
         //MenuButton
 
         private void dishButton_Click(object sender, EventArgs e)
@@ -208,5 +213,31 @@ namespace PSI_DA_PL_B.views.Menu
             this.manager.ShowMenuListUI();
         }
         #endregion
+
+        private void escritoriosButton_Click(object sender, EventArgs e)
+        {
+            this.manager.ShowAtribuirEscritorio();
+        }
+
+        private void criarEscritorio_Click(object sender, EventArgs e)
+        {
+            this.manager.ShowCriarEscritorio();
+        }
+
+        private void LoadEscritorios()
+        {
+            using (var db = new Cantina())
+            {
+                var fromDB = db.Escritorios.ToList();
+
+                foreach(var item in fromDB)
+                {
+                    Escritorio escShow = new Escritorio(item.Localizacao, item.Cacifo, true);
+                    this.Escritorios.Add(escShow);
+                }
+            }
+            this.totalUsed.DataSource = null;
+            this.totalUsed.DataSource = this.Escritorios;
+        }
     }
 }
